@@ -1,0 +1,444 @@
+
+Unordered List and Styles
+
+Format Text in HTML
+- Font
+    size, color, face
+- Font Styles
+    bold, italic, strong, emphasized
+- Font Effects
+    underline, inserted, strike, delete, super script, subscript
+- Ordered List
+    <ol>
+    type
+    start
+    reversed
+- Nested List
+
+FAQ's:
+1. How to remove numbering for ordered list?
+A. You can remove numbering style using css attribute
+     "list-style:none"
+
+Syntax:
+    ol {
+         list-style:none;
+      }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ol {
+            list-style: none;
+           
+        }
+        li {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ol>
+        <h5>SUPPORT</h5>
+        <li>Contact Us</li>
+        <li>FAQs</li>
+        <li>Size Guide</li>
+        <li>Shipping & Returns</li>
+    </ol>
+</body>
+</html>
+
+2. How to create a scrollable list?
+A. Follow the steps defined below
+    - Set border for container <ol>
+    - Set width and height
+    - Set overflow:auto
+
+Syntax:
+    ol {
+    border:1px solid gray;
+    width:150px;
+    height:100px;
+    overflow:auto;
+     }
+
+3. How to display list items inline?
+A. By using "display:flex" for ordered list.
+
+Syntax:
+    ol {
+       display:flex;
+       justify-content:space-between;
+    }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       ol {
+        display: flex;
+        justify-content: space-around;
+        width: 500px;
+       }
+    </style>
+</head>
+<body>
+    <ol>
+        <li>Contact Us</li>
+        <li>FAQs</li>
+        <li>Size Guide</li>
+        <li>Shipping & Returns</li>
+    </ol>
+</body>
+</html>
+
+4. How to display list in columns?
+A. By using display:grid => It can display numbering left to right orientation.
+    By using columns  => It can display numbering top to bottom.
+
+Ex: Grid
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .choice {
+        display: grid;
+        grid-template-columns: 6fr 6fr;
+        margin-top: 20px;
+        width: 500px;
+       }
+       li {
+         margin-bottom: 20px;
+       }
+    </style>
+</head>
+<body>
+    <ol type="1">
+        <li>Which one of the Following is not an OOP language.
+            <ol type="a" class="choice">
+                <li>C</li>
+                <li>Java</li>
+                <li>TypeScript</li>
+                <li>C++</li>
+            </ol>
+        </li>
+    </ol>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .choice {
+        columns: 2;
+        margin-top: 20px;
+        width: 500px;
+       }
+       li {
+         margin-bottom: 20px;
+       }
+    </style>
+</head>
+<body>
+    <ol type="1">
+        <li>Which one of the Following is not an OOP language.
+            <ol type="a" class="choice">
+                <li>C</li>
+                <li>Java</li>
+                <li>TypeScript</li>
+                <li>C++</li>
+            </ol>
+        </li>
+    </ol>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .choice {
+        columns: 2;
+        margin-top: 20px;
+        width: 500px;
+        list-style: none;
+       }
+       li {
+         margin-bottom: 20px;
+       }
+    </style>
+</head>
+<body>
+    <ol type="1">
+        <li>Which one of the Following is not an OOP language.
+            <ol type="a" class="choice">
+                <li><input type="radio" name="q1">C</li>
+                <li><input type="radio" name="q1">Java</li>
+                <li><input type="radio" name="q1">TypeScript</li>
+                <li><input type="radio" name="q1">C++</li>
+            </ol>
+        </li>
+    </ol>
+</body>
+</html>
+
+                            Unordered List
+- It can display bulleted list.
+- It comprises of symbols like circle, disc and square.
+- List is configured with <ul>
+- Items are configured with <li>
+- You can change symbol using "type" attribute.
+
+Syntax:
+    <ul type="circle | square | disc">
+    <li> Item - 1 </li>
+    <li> Item - 2 </li>
+    </ul>
+
+FAQ: How to set custom bullets?
+Ans : By using "list-style-image" attribute from css.
+
+1. Create a new icon for bullet  "32x32 pixels"
+2. Save into project public/images folder => bullet => type "jpeg"
+3. Set Image as bullet
+
+Syntax:
+    ul {
+       list-style-image: url("public/images/bullet.jpg");
+       font-size:34px;
+    }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       ul {
+         list-style-image: url("public/images/bullet.jpg");
+         font-size: 34px;
+       }
+    </style>
+</head>
+<body>
+   <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+   </ul>
+</body>
+</html>
+
+Note: You can set bootstrap icons for list items, instead of default bullet symbols.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       ul {
+         font-size: 20px;
+         font-family: Arial;
+         list-style: none;
+       }
+       li {
+        margin-bottom: 20px;
+       }
+       .bi-tag-fill {
+         color:green;
+       }
+       li span {
+        color:black;
+       }
+    </style>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+   <ul>
+    <li class="bi bi-tag-fill"> <span>Bank Offer5% Cashback on Flipkart Axis Bank CardT&C</span> </li>
+    <li class="bi bi-tag-fill"> <span>Special PriceGet extra ₹3000 off (price inclusive of cashback/coupon)T&C</span></li>
+    <li class="bi bi-tag-fill"> <span>Extra ₹500 Off on Bikes & Scooters on purchase of ₹30,000 or moreT&C</span></li>
+    <li class="bi bi-tag-fill"> <span>Partner OfferSign-up for Flipkart Pay Later & get free Times Prime Benefits worth ₹10,000*Know More</span></li>
+   </ul>
+</body>
+</html>
+
+Ex: Every List item with different icon
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       ul {
+         font-size: 20px;
+         font-family: Arial;
+         list-style: none;
+       }
+       li {
+        margin-bottom: 20px;
+        color:darkcyan;
+       }
+       li span {
+        color:lightseagreen;
+       }
+    </style>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+   <ul>
+      <li class="bi bi-facebook"> <span>Facebook</span> </li>
+      <li class="bi bi-twitter"> <span>Twitter</span> </li>
+      <li class="bi bi-instagram"> <span>Instagram</span> </li>
+      <li class="bi bi-linkedin"> <span>LinkedIn</span> </li>
+
+   </ul>
+</body>
+</html>
+
+CSS Fixed Position:
+- It removes element from its normal position.
+- It keeps the element top, left, right or bottom with relative to window.
+- It is fixed in position and will not scroll.
+
+Syntax:
+    ul {
+        position:fixed;
+        right: 20px;
+        bottom:20px;
+    }
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       ul {
+         font-size: 20px;
+         font-family: Arial;
+         list-style: none;
+         position:fixed;
+         right: 20px;
+         bottom: 20px;
+         background-color: white;
+         width: 30px;
+         padding: 5px;
+       }
+       li {
+        margin-bottom: 20px;
+        color:darkcyan;
+       }
+       li span {
+        color:lightseagreen;
+       }
+    </style>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+
+   <ul>
+      <li class="bi bi-facebook">  </li>
+      <li class="bi bi-twitter">  </li>
+      <li class="bi bi-instagram">  </li>
+      <li class="bi bi-linkedin"> </li>
+
+   </ul>
+</body>
+</html>
+
+Ex: Pagination
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       ul {
+         list-style: none;
+         display: flex;
+         font-family: Arial;
+       }
+       li {
+         margin-right: 10px;
+         width: 25px;
+         padding: 5px;
+         border:1px solid black;
+         text-align: center;
+         background-color: lightcyan;
+         border-radius: 5px;
+       }
+       li:hover {
+          background-color: black;
+          color:white;
+          cursor: grab;
+       }
+       .disabled {
+          background-color: gray;
+          color:white;
+          border:none;
+       }
+       .disabled:hover {
+        cursor: not-allowed;
+        background-color: white;
+        color:black;
+       }
+       body {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        height: 500px;
+       }
+    </style>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li> <span>&laquo;</span> </li>
+            <li> <span>1</span> </li>
+            <li> <span>2</span> </li>
+            <li> <span>3</span> </li>
+            <li class="disabled"> <span>4</span> </li>
+            <li> <span>5</span> </li>
+            <li> <span>...</span> </li>
+            <li> <span>&raquo;</span> </li>
+        </ul>
+    </nav>
+</body>
+</html>

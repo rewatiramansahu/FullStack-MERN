@@ -1,0 +1,290 @@
+
+
+Basic Semantics
+
+<header>
+<footer>
+<aside>
+<article>
+<nav>
+<div>
+<span>
+<section>
+<main>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <style>
+        body{
+            background-size: cover;
+        }
+        .shade {
+            background-color: rgba(0,0,0,0.5);
+            width: 105%;
+            height: 100vh;
+            margin-top: -10px;
+            margin-left: -10px;
+
+        }
+        header {
+            padding: 40px;
+            color:white;
+            font-family: Arial;
+            display: flex;
+            justify-content: space-between;
+        }
+        .brand-title {
+            font-size: 35px;
+            color:red;
+            font-weight: bold;
+        }
+        .btn-signin {
+            background-color: red;
+            color:white;
+            padding: 4px;
+            border-radius: 5px;
+        }
+        section {
+            color:white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            text-align: center;
+            padding: 20px;
+            font-family: Arial;
+        }
+        .title {
+            font-size: 54px;
+            font-weight: bold;
+        }
+        .sub-title {
+            font-size: 30px;
+            font-family: Arial;
+        }
+        main {
+            margin-top: 40px;
+        }
+        .email {
+            background-color: white;
+            padding: 20px;
+            width: 300px;
+            display: inline-block;
+            color:gray;
+            text-align: left;
+            font-size: 20px;
+        }
+        .btn-start {
+            background-color: red;
+            color:white;
+            padding: 20px;
+            font-size: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body background="public/images/Netflix-Background.jpg">
+    <div class="shade">
+        <header>
+            <div>
+                <span class="brand-title">NETFLIX</span>
+            </div>
+            <div>
+                <div>
+                    <span class="bi bi-globe"></span>
+                    <span>Language</span>
+                    <span class="bi bi-chevron-down"></span>
+                    <span class="btn-signin">Signin</span>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div>
+                <div class="title">The biggest Indian hits. Ready to watch here from ₹ 149.</div>
+                <div class="sub-title">Join today. Cancel anytime.</div>
+                <main>
+                    <span class="email">Your Email Address</span>
+                    <span class="btn-start">Get Started <span class="bi bi-chevron-right"></span> </span>
+                </main>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
+
+Note: To display any content center screen you have to following the given process.
+       - First keep all elements in one container.
+               <body>
+                 <div>
+                  ...your content here...
+                 </div>
+            </body>
+       - Body is the container which can display its content center with the attributes
+
+            body {
+                display:flex;
+                justify-content:center;        [horizontal]
+                align-items:center;            [vertical]
+                height: 400px;
+            }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+        }
+        .sub-title {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body background="public/images/background-banner.jpg">
+   <main>
+    <div class="title">HTML</div>
+    <div class="sub-title">Hyper Text Markup Language</div>
+   </main>
+</body>
+</html>
+               
+                            <dialog>
+- It is a popup created for page.
+- You can keep any content in dialog, but it is hidden.
+- You can show or hide the dialog with "open" attribute.
+- You can control the dialog dynamically using JavaScript.
+
+Syntax:
+    <dialog open>
+        ...your content...
+    </dialog>
+
+Ex:
+<body>
+    <dialog open>
+        Chat with our Help Desk
+    </dialog>
+</body>
+
+                        <figure> & <figcpation>
+
+- Figure is used to encapsulate any image with a caption.
+- Figcaption is used to make image SEO friendly.
+
+Syntax:
+   <figure>
+    ...your image...
+        <figcaption> Fig-1 </figcaption>
+   </figure>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        figure{
+            border: 1px solid black;
+            height: 200px;
+            width: 200px;
+            padding: 20px;
+        }
+        figure div {
+            border: 1px dotted red;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+   <figure>
+       <div></div>
+       <figcaption>Browser Engine</figcaption>
+   </figure>
+</body>
+</html>
+
+Summary
+1. aside
+2. article
+3. dialog
+4. figure
+5. figcaption
+6. main
+7. section
+8. header
+9. footer
+10.nav
+11.div
+12.span
+
+                HTML Basic Entities & Semantics for Body
+
+1. Line Break            <br>
+
+FAQ: What is difference between <br> & <br /> ?
+Ans:  There is no <br /> in HTML.
+      It is just developers coding technique to represent self ending elements i.e the
+      element that doesn't have end token.
+
+2. Blank Space        &nbsp;
+
+Syntax:
+    H &nbsp;&nbsp;T &nbsp;&nbsp;M &nbsp;&nbsp;L
+
+3. Pre Formatted Text    <pre> It can display text with the same format defined in page.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        pre {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+   <div>
+      Sample C Program
+   </div>
+   <div>
+     <pre>
+        #include &lt;stdio.h&gt;
+        main()
+        {
+          printf("Welcome to HTML");
+        }
+     </pre>
+   </div>
+</body>
+</html>

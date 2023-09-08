@@ -1,0 +1,329 @@
+
+
+Links in HTML -
+
+
+- Link is clickable text, picture or graphic that navigates the user from one location to another when clicked.
+- You can call a link in webpage as a "Hyperlink", as it takes you beyond what you see.
+- Links are created by using <a> anchor element.
+
+            <a>   Text  | Picture | Graphic   </a>
+
+- Every link requires a reference path, which is defined using "href".
+
+            <a href="path"> Text | Picture | Graphics </a>
+
+- Links in a webpage are classified into 2 types
+
+        1. Intra Document Links
+        2. Inter Document Links
+
+Intra Document Links:
+- These are the hyperlinks that navigate user from one location to another with in the same page.
+- To create intra document links the target element must have a reference ID.
+
+        <h2  id="fashion">
+        <img  id="realme">
+        <ol  id="list">
+
+- User can navigate to reference ID by using <a> element.
+
+         <a href="#fashion">  Fashion </a>
+         <a href="#realme"> Realme </a>
+         <a href="#list">   <img src="">  </a>
+       
+FAQ: How to remove underline for hyperlinks?
+Ans : By using style attribute  "text-decoration" set to "none".
+
+Syntax:
+        a {    
+          text-decoration: none;
+        }
+
+FAQ: How to change color for visited  & active links?
+Ans:  By using HTML <body> attributes "alink & vlink"
+                (or)
+      By using CSS class ":link, :visited,  :active"
+
+Syntax:
+        <body  alink="red"  vlink="gray">
+
+        a:visited {   }
+        a:active {   }
+        a:link {   }
+
+FAQ: What is difference between src & href?
+Ans:   "src" is a getter, it get the value from specified path and uses for element.
+       "href" is a setter, it sets the path in URL and appends into browser address bar.
+
+Syntax:
+        http://127.0.0.1:5500/public/fashion.html#kids
+ 
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        header {
+            font-size: 30px;
+            text-align: center;
+            padding: 5px;
+            background-color: darkcyan;
+            color:white;
+        }
+        section {
+            display: grid;
+            grid-template-columns: 3fr 9fr;
+            margin-top: 20px;
+        }
+        main {
+            height: 500px;
+            overflow: auto;
+        }
+        ul {
+            list-style: none;
+            margin-left: -40px;
+        }
+        li {
+            font-size: 20px;
+            width: 150px;
+            border:1px solid black;
+            background-color: darkcyan;
+            padding: 5px;
+            margin-bottom: 30px;
+        }
+       nav a {
+            text-decoration: none;
+            color:white;
+        }
+       nav a:visited {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="bi bi-cart4"></span> Fashion Store
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#women">Women's Fashion</a></li>
+                <li><a href="#men">Men's Fashion</a></li>
+                <li><a href="#kid">Kid's Fashion</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h2 id="home">Home</h2>
+            <p>We understand that <span><a href="#realme">Mobile Offers</a></span> you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            
+            <h2 id="women">Women's Fashion</h2>
+            <img src="public/images/women-fashion.jpg" width="200" height="300">
+            <div>
+                <a href="#home">Back to Top</a>
+            </div>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+          
+            <h2 id="men">Men's Fashion</h2>
+            <img src="public/images/men-fashion.jpeg" width="200" height="300">
+            <div>
+                <a href="#home">Back to Top</a>
+            </div>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            
+            <figure id="realme">
+                <img src="public/images/realme-black.jpg" width="300" height="300">
+                <figcaption>Realme-Black 50% OFF</figcaption>
+            </figure>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+
+        </main>
+    </section>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        header {
+            font-size: 30px;
+            text-align: center;
+            padding: 5px;
+            background-color: darkcyan;
+            color:white;
+        }
+        section {
+            display: grid;
+            grid-template-columns: 3fr 9fr;
+            margin-top: 20px;
+        }
+        main {
+            height: 400px;
+            overflow: auto;
+        }
+        ul {
+            list-style: none;
+            margin-left: -40px;
+        }
+        li {
+            font-size: 20px;
+            width: 150px;
+            border:1px solid black;
+            background-color: darkcyan;
+            padding: 5px;
+            margin-bottom: 30px;
+        }
+        a{
+            text-decoration: none;
+        }
+       nav a, header a {
+           
+            color:white;
+        }
+       nav a:visited {
+            color: yellow;
+        }
+        header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#home"><span class="bi bi-cart4"></span> Fashion Store</a>
+        <div>
+            <a href="#women"> <img src="public/images/women-fashion.jpg"> </a>
+            <a href="#men"> <img src="public/images/men-fashion.jpeg"> </a>
+            <a href="#kid"> <img src="public/images/kids-fashion.jpg"> </a>
+        </div>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#women">Women's Fashion</a></li>
+                <li><a href="#men">Men's Fashion</a></li>
+                <li><a href="#kid">Kid's Fashion</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h2 id="home">Home</h2>
+            <p>We understand that <span><a href="#realme">Mobile Offers</a></span> you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            
+            <h2 id="women">Women's Fashion</h2>
+            <img src="public/images/women-fashion.jpg" width="200" height="300">
+            <div>
+                <a href="#home">Back to Top</a>
+            </div>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+     
+            <h2 id="men">Men's Fashion</h2>
+            <img src="public/images/men-fashion.jpeg" width="200" height="300">
+            <div>
+                <a href="#home">Back to Top</a>
+            </div>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+         
+            <figure id="realme">
+                <img src="public/images/realme-black.jpg" width="300" height="300">
+                <figcaption>Realme-Black 50% OFF</figcaption>
+            </figure>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            <h2 id="kid">Kid's Fashion</h2>
+            <img src="public/images/kids-fashion.jpg" width="200" height="200">
+            <div>
+                <a href="#home">Back to Top</a>
+            </div>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+            <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+
+        </main>
+    </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+Note: CSS provides a ":target" class that identifies the target container and sets effects dynamically.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            width: 200px;
+            height: 100px;
+            padding: 50px;
+            border:1px solid black;
+            box-shadow: 2px 2px 2px gray;
+            margin: 20px;
+        }
+        .card:target {
+            background-color: black;
+            color:white;
+        }
+        section {
+            display: flex;
+        }
+        nav span {
+            margin-right: 100px;
+        }
+        nav {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <span><a href="#html">HTML</a></span>
+        <span><a href="#css">CSS</a></span>
+        <span><a href="#js">JavaScript</a></span>
+    </nav>
+   <section>
+    <div class="card" id="html">
+        <h2>HTML</h2>
+        <p>It is a markup language</p>
+    </div>
+    <div class="card" id="css">
+        <h2>CSS</h2>
+        <p>It defines styles</p>
+    </div>
+    <div class="card" id="js">
+        <h2>JavaScript</h2>
+        <p>It manipulates DOM</p>
+    </div>
+   </section>
+</body>
+</html>

@@ -1,0 +1,110 @@
+Body Section Semantics for Layout Design
+
+- HTML 4 uses "table" element for designing a layout.
+- Table is not SEO friendly.
+- Tables leads to a situation known as "Kiss-Of-Death".
+- HTML 5 introduced new "Semantics" for designing layout.
+- The new semantics will make page SEO friendly.
+- The new layout related semantics are
+
+1. <aside>
+2. <article>
+3. <dialog>
+4. <main>
+5. <section>
+6. <nav>
+7. <header>
+8. <footer>
+9. <div>
+10. <span>
+11. <figure>
+12. <figcaption>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 15px;
+            margin:5px;
+        }
+        span {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Web Technologies
+        <div>
+            Front End
+            <div>
+                HTML
+                <div>
+                    It is a <span>markup</span> language.
+                </div>
+            </div>
+            <div>
+                CSS
+                <div>
+                    It defines styles.
+                </div>
+            </div>
+        </div>
+        <div>
+            Back End
+            <div>
+                MongoDB
+                <div>
+                    It is database.
+                </div>
+                Node JS
+                <div>
+                    It is server side scripting.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+                            <header>
+- It is used to configure header section of webpage.
+- Typically every header of web page comprises of
+    a) Brand Name
+    b) Brand Icon
+    c) Navbar
+    d) Shortcut buttons etc..
+
+                   www.getbootstrap.com => themes
+
+Shopper Theme URL:
+https://themes.getbootstrap.com/preview/?theme_id=37702
+
+Setup Bootstrap Icons for Project
+--------------------------------------------
+1. Open Terminal in your project
+
+2. Switch to command prompt
+
+3.  Type the following command
+
+    > npm  install  bootstrap-icons   --save
+
+4.  NPM adds a new folder into your project by name "node_modules". It comprises of
+     all library files installed using NPM.
+
+5. To use Icons in any web page you have to link  bootstrap-icons.css file
+
+<head>
+   <link rel="stylesheet"  href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+6. Every icons is stored under a class name , you have to apply the class for any container element in page.
+   
+        <span class="bi bi-facebook"> </span>

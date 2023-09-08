@@ -1,0 +1,162 @@
+Install Bootstrap Icons
+> npm  i  bootstrap-icons  --save
+
+CSS File
+node_modules/bootstrap-icons/font/bootstrap-icons.css
+
+Icon Classes
+bi bi-facebook
+bi bi-twitter
+bi bi-bell  ....
+
+                             <header>
+- It is a container that defines content to display at top margin of page.
+- Typically a header in webpage comprises of brand-name, logo, shortcut buttons, navigation etc.
+
+Syntax:
+ <header>
+    ........ your content....
+</header>
+
+CSS Style Attributes:
+    font-size            It changes the character size [px]
+    font-weight        It sets bold
+    font-style            It sets italics
+    font-family        It sets text  style using a font family name.
+                    [Arial, Brush Script MT, Times New Roman...]
+    margin            It sets all directions
+    margin-left
+    margin-right
+    margin-top
+    margin-bottom
+
+    background-color    It sets background color for container.
+    color            It sets text color.
+   
+    display            It can display elements in container with various styles
+                    a) none
+                    b) block
+                    c) inline
+                    d) inline-block
+                    e) grid
+                    f) flex
+
+    justify-content        It can justify the elements in container with following values
+                    a) space-between
+                    b) space-around
+                    c) space-evenly
+
+    padding            It sets space around content in all directions
+    padding-top
+    padding-bottom
+    padding-right
+    padding-left
+
+    border            It sets border style, side and color for container
+    border-radius        It sets rounded corners
+    text-align            It aligns text left, center, right or justify
+
+Note: You can't change width and height of any span element using CSS directly.
+      To set width and height for span you have to define "display:inline-block"
+
+
+                            <nav>
+- It is used to configure a navigation area in webpage.
+- Typically nav area comprises of various nav-items or shortcut buttons.
+
+Syntax:
+    <nav>
+        <span> Home </span>
+        <span> Shop </span>
+        <span> About </span>
+    </nav>
+
+                            <article>
+- It is a container element that keeps the highlights of web page content.
+- It is typically the offers, announcements, news, updates etc..
+
+Syntax:
+    <article>
+         40% OFF on Electronics - Sale Ends on 31-Aug-2023
+    </article>
+
+Shopper-Template.html
+
+<!DOCTYPE html>
+<html lang="en-in">
+    <head>
+        <title>Shopper Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <style>
+            header
+            {
+                font-size:25px;
+                font-family: Arial;
+                display: flex;
+                justify-content: space-between;
+                padding: 15px;
+            }
+            .brand-title
+            {
+                font-size: 30px;
+                font-weight: bold;
+            }
+            nav span {
+                margin-right: 15px;
+            }
+            .cart-count
+            {
+                background-color: red;
+                color:white;
+                padding: 3px;
+                width: 25px;
+                display: inline-block;
+                border-radius: 25px;
+                text-align: center;
+                font-size: 15px;
+            }
+            article {
+                background-color: black;
+                text-align: center;
+                color:white;
+                font-size: 20px;
+                padding: 20px;
+            }
+            .bi-lightning-fill {
+                color: gold;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div>
+                <span class="brand-title">Shopper.</span>
+            </div>
+            <div>
+                <nav>
+                    <span>Home</span>
+                    <span>Catalog</span>
+                    <span>Shop</span>
+                    <span>Pages</span>
+                    <span>Blog</span>
+                    <span>Docs</span>
+                </nav>
+            </div>
+            <div>
+                <nav>
+                    <span class="bi bi-search"></span>
+                    <span class="bi bi-person"></span>
+                    <span class="bi bi-heart"></span>
+                    <span class="bi bi-cart3"><span class="cart-count">2</span></span>
+                </nav>
+            </div>
+        </header>
+        <article>
+            <span class="bi bi-lightning-fill"></span>
+            <span>HAPPY HOLIDAY DEALS ON EVERYTHING</span>
+            <span class="bi bi-lightning-fill"></span>
+        </article>
+    </body>
+</html>

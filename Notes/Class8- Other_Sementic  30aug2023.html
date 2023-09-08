@@ -1,0 +1,184 @@
+Headings, Paragraphs, Blockquote, 
+
+Headings in HTML
+
+- Headings are used to keep content titles SEO friendly.
+- So that SEO can make a summary of topics your page.
+- Headings are defined by using <hn> token where 'n' refers to level number 1 to 6.
+
+Syntax:
+        <h1> Heading - 1 </h1>
+        <h2> Heading - 2 </h2>
+        .............
+        <h6> Heading - 6 </h6>
+
+FAQ's:
+1. Why we have to use heading element for headings, can we configure using HTML text styles or CSS styles?
+A. You can configure with HTML text style and CSS but they are not SEO friendly.
+     To keep headings SEO Friendly you need <hn> element.
+
+2. Can we change the default heading styles?
+A. Yes. By using CSS.
+
+3. Can we remove the default styles defined for heading?
+A. By using CSS inheritance values you can control the default style.
+    You have to use CSS inheritance value "unset".
+
+Syntax:
+    h1 {
+        font-weight: unset;
+        font-size:unset;        =>  all : unset;
+        display:unset;
+      }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            all:unset;
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Technologies</h1> Welcome
+    <h2>Front End</h2>
+    <h3>HTML</h3>
+    It is a markup language.
+    <h3>CSS</h3>
+    It defines Styles.
+    <br><br>
+    <font size="4"><b>JavaScript</b></font>
+    <br><br>
+    It is used for DOM Manipulation.
+    <h2>Back End</h2>
+    <h3>Node JS</h3>
+    It configures server side script.
+    <h3>MongoDB</h3>
+    It is a database.
+</body>
+</html>
+
+Note:
+ - Don't use too many headings in page. It may spam your page.
+ - Never use headings to highlight any word or sentence in page.
+
+                    Paragraph and Block Quote
+
+- Paragraph is defined with <p> element.
+- Blockquote is defined with <blockquote> element.
+- Paragraph is used to define contineous blocked content.
+- Blockquote is used to summarize the content that you have in page.
+
+Syntax:
+    <p> your content </p>
+    <p align="center"> your content </p>
+   
+    <blockquote align="justify">
+        ..your content...
+    </blockquote>
+
+FAQ's:
+1. How to set first-line indent for paragraph or blockquote?
+A. By using CSS "text-indent" attribute.
+
+Syntax:
+    p {
+       text-indent: 200px;
+    }
+
+2. How to set line space, word space and character space in paragraph?
+A. By using following CSS attributes
+       
+        line-height
+        word-space
+        letter-space
+
+Syntax:
+    p {
+       line-height: 35px;
+       word-spacing: 20px;
+       letter-spacing: 5px;
+    }
+
+3. How to set Dropcap?
+A. By using following styles you can set dropcap.
+    a) Access the first letter by using " ::first-letter " class.
+    b) Apply font styles [size, bold, italics, family]
+    c) Apply CSS float as left.
+
+Syntax:
+     p :: first-letter {
+        font-size : 35px;
+        font-weight: bold;
+        font-family: Arial;
+        float : left;
+     }
+
+4. How to display contineous paragraphs side by side?
+A. By using CSS "columns" attribute.
+        - columns
+        - column-gap
+        - column-width
+        - column-rule [border]
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       header {
+         background-color: black;
+         color:white;
+         text-align: center;
+         font-size: 50px;
+         font-weight: bold;
+         padding: 10px;
+       }
+       section {
+         columns: 6;
+         column-gap: 25px;
+         column-rule: 2px dotted black;
+         margin-top: 20px;
+       }
+       p {
+        text-align: justify;
+       }
+       .para-1::first-letter {
+         font-size: 35px;
+         float: left;
+         font-weight: bold;
+       }
+       h3 {
+        background-color: black;
+        color:white;
+        padding: 2px;
+       }
+    </style>
+</head>
+<body>
+   <header>
+       THE HINDU
+   </header>
+   <section>
+    <p class="para-1">Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement</p>
+    <p> This agreement describes your rights and the conditions upon which you may use the Windows software. You should review the entire agreement, including any supplemental license terms that accompany the software and any linked terms, because all of the terms are important and together create this agreement that applies to you. You can review linked terms by pasting the (aka.ms/) link into a browser window.</p>
+    <h3>Sports Updates</h3>
+    <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement</p>
+    <p> This agreement describes your rights and the conditions upon which you may use the Windows software. You should review the entire agreement, including any supplemental license terms that accompany the software and any linked terms, because all of the terms are important and together create this agreement that applies to you. You can review linked terms by pasting the (aka.ms/) link into a browser window.</p>
+   
+    <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement</p>
+    <p> This agreement describes your rights and the conditions upon which you may use the Windows software. You should review the entire agreement, including any supplemental license terms that accompany the software and any linked terms, because all of the terms are important and together create this agreement that applies to you. You can review linked terms by pasting the (aka.ms/) link into a browser window.</p>
+    <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement</p>
+    <p> This agreement describes your rights and the conditions upon which you may use the Windows software. You should review the entire agreement, including any supplemental license terms that accompany the software and any linked terms, because all of the terms are important and together create this agreement that applies to you. You can review linked terms by pasting the (aka.ms/) link into a browser window.</p>
+
+   </section>
+</body>
+</html>

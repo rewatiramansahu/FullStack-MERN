@@ -1,0 +1,248 @@
+
+
+		---  Image Attributes and Examples  ---
+
+Formats
+  PNG, APNG, JPEG, GIF, TIFF, SVG, Bitmap, ICO
+Embed Image
+  <img>
+Attributes
+    src
+    alt
+    title
+    width
+    height
+    border
+    align
+    hspace
+    vspace        
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image</title>
+    <style>
+        header {
+            font-family: Arial;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        nav span {
+            margin-right: 40px;
+            color:grey;
+        }
+        .brand-title {
+            font-size: 24px;
+            font-weight: bold;
+            color:blue;
+        }
+        header button {
+            font-size: 20px;
+            background-color: blue;
+            color:white;
+            border:none;
+            padding: 5px;
+            border-radius: 10px;
+        }
+        .main-title {
+            font-size: 50px;
+            font-family: Arial;
+            margin-left: 100px;
+            margin-top: 50px;
+        }
+        .main-subtitle {
+            font-family: Arial;
+            margin-left: 100px;
+            margin-top: 20px;
+            font-size: 25px;
+            line-height: 40px;
+        }
+        .main-buttons {
+            margin-left: 100px;
+            margin-top: 50px;
+        }
+        .btn-pages, .btn-doc {
+            font-size: 20px;
+            padding: 10px;
+            width: 200px;
+            border: none;
+        }
+        .btn-pages {
+            background-color: blue;
+            color:white;
+        }
+        .btn-doc {
+            background-color: whitesmoke;
+        }
+    </style>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+   <header>
+      <div>
+         <span class="brand-title">Landkit.</span>
+      </div>
+      <div>
+        <nav>
+            <span>Landings</span>
+            <span>Pages</span>
+            <span>Account</span>
+            <span>Documentation</span>
+        </nav>
+      </div>
+      <div>
+         <button>
+            Buy now
+         </button>
+      </div>
+   </header>
+   <section>
+        <main>
+            <img src="public/images/work.jpg" align="right" width="600">
+            <div>
+                <div class="main-title">
+                    Welcome to Landkit.<br>
+                    Develop anything.
+                </div>
+                <div class="main-subtitle">
+                    Build a beautiful, modern website with flexible Bootstrap components built from scratch.
+                </div>
+                <div class="main-buttons">
+                    <button class="btn-pages">View Pages <span class="bi bi-arrow-right"></span> </button>
+                    <button class="btn-doc">Documentation</button>
+                </div>
+            </div>
+        </main>
+   </section>
+</body>
+</html>
+
+Advanced Attributes:
+
+1. crossorigin [CORS]       : It controls Cross Origin Resource Sharing.
+                        You can configure with "use-credentials" or "anonymous".
+
+     <img  src="http://someserver.com/images/pic.jpg&quot;  crossorigin="use-credentials">
+
+2. decoding              : It defines how image have to load along with other contents
+                        on page. It can "Sync, Async or Auto".
+
+      <img src="public/images/pic.jpg"  decoding="sync | async | auto">
+
+3. importance             : It sets priority for loading images, which can be low, high or
+                       auto.
+
+    <img src="public/images/pic.jpg"  importance="low">
+
+4. srcset                 : It can configure a set of images as source, so that they
+                      can change according to situation.
+
+    <img  srcset="collection of images">
+
+Ex: Cards
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            display: flex;
+            background-color: gray;
+        }
+        .card {
+            width: 340px;
+            border:1px solid gray;
+            padding: 10px;
+            font-family: Arial;
+            margin: 20px;
+            background-color: white;
+        }
+        .card-pic {
+            float: left;
+            padding-right: 20px;
+        }
+        .card-body {
+            clear: left;
+        }
+        .card-subtitle {
+            font-size: 15px;
+            color:gray;
+            margin-top: 10px;
+        }
+        .card-title {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .card-rating {
+            margin-top: 1%;
+            color:goldenrod;
+        }
+        .card-body {
+            text-align: justify;
+            line-height: 35px;
+            height: 150px;
+        }
+        .card-footer {
+            text-align: center;
+            color:gray;
+        }
+    </style>
+</head>
+<body>
+   <div class="card">
+      <div class="card-header">
+          <img src="public/images/card-pic.jpg" class="card-pic">
+          <div>
+            <div class="card-subtitle">Dresses</div>
+            <div class="card-title">Cotton print Dresses</div>
+            <div class="card-rating">
+                <span class="bi bi-star-fill"></span>
+                <span class="bi bi-star-fill"></span>
+                <span class="bi bi-star-fill"></span>
+                <span class="bi bi-star-fill"></span>
+                <span class="bi bi-star-half"></span>
+            </div>
+          </div>
+      </div>
+      <div class="card-body">
+         <p>This agreement describes your rights and the conditions upon which you may use the Windows software. </p>
+      </div>
+      <div class="card-footer">
+          30% OFF Sale Ends 10-Sep-2023
+      </div>
+   </div>
+
+
+   <div class="card">
+    <div class="card-header">
+        <img src="public/images/kids.jpg" width="70" class="card-pic">
+        <div>
+          <div class="card-subtitle">Dresses</div>
+          <div class="card-title">Cotton print Dresses</div>
+          <div class="card-rating">
+              <span class="bi bi-star-fill"></span>
+              <span class="bi bi-star-fill"></span>
+              <span class="bi bi-star-fill"></span>
+              <span class="bi bi-star-fill"></span>
+              <span class="bi bi-star-half"></span>
+          </div>
+        </div>
+    </div>
+    <div class="card-body">
+       <p>This agreement describes your rights and the conditions upon which you may use the Windows software. </p>
+    </div>
+    <div class="card-footer">
+        30% OFF Sale Ends 10-Sep-2023
+    </div>
+ </div>
+</body>
+</html>

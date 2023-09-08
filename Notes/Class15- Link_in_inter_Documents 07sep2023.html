@@ -1,0 +1,92 @@
+
+		********Inter Document Links**********
+
+
+- An inter document link can handle following
+    1. It can link to any "file".
+    2. It can link to any remote "url".
+    3. It can invoke any "application".
+    4. It can invoke any script "function".
+
+Link to File:
+- You can create a hyper link that navigates the user to any specified document in project.
+- You can link any type of document, image, html, word docs, spread sheets, ppts, text documents, audio, video etc..
+- Every linked document can't open in browser.
+- Browser need special extentions [plugin's] to open special type of files.
+- If file related plugin is not available in browser then file will download.
+
+Syntax:
+    <a href="./public/images/kids.jpg"> Kids Fashion </a>        can open in browser
+    <a href="./shopper-template.html"> Shopper </a>        can open in browser
+    <a href="./public/docs/js.pdf"> JavaScript </a>            can open in browser
+    <a href="./public/docs/resume.docx"> Resume </a>        will download
+
+- HTML 5 provides "download" attribute for hyperlink, which download the linked document always.
+
+Syntax:
+    <a href="./public/images/kids.jpg"  download>   Kids </a>
+    <a href="./public/images/kids.jpg"  download="kids-fashion">
+
+Link to URL:
+- You can link any website URL or any specific resource on server.
+- When you link URL make sure that is configured with proper "protocol" and "domain name".
+           
+Syntax:
+    <a href="https://www.amazon.in"&gt; Shop on Amazon </a>
+    <a href="https://www.youtube.com/nareshit"&gt;  Naresh IT </a>
+    <a href="https://api.nasa.gov..../photos/pic.jpg"&gt; Nasa Photo </a>
+
+Link to Applications:
+- You can create a hyperlink that can invoke application, which is running in your device.
+- You have to make sure that the relative application is already installed in your device.
+- Most commonly linked applications with anchor element are:
+        mail, skype, telephone, others with web address
+
+Syntax:
+    <a href="name@gmail.com">  Email </a>
+    <a href="skype:name@outlook.com"> Skype </a>
+    <a href="tel:+919988774342"> Call </a>
+    <a href="https://api.whatsapp.com/&gt; Whatsapp </a>    link to url
+
+Link JavaScript function:
+- You can link JavaScript functions using hyperlink
+- A function contains code snippet [code block] that executes and performs specified functionality.
+
+Syntax:
+  <a href="javascript:window.print()">  Print Page </a>
+  <a href="javascript:functionName()">   Execute </a>
+
+
+                        YouTube
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    <h2>Favorites</h2>
+    <ol>
+        <li><a href="javascript:window.print()"> <span class="bi bi-printer-fill"></span> Print </a></li>
+        <li>More more details you can mail <a href="hr@nareshit.com">hr@nareshit.in</a></li>
+        <li>You can <a href="skype:nareshit@outlook.com">skype</a> us.</li>
+        <li>You can call <a href="tel:9994848382">9994848432</a></li>
+        <li>Whatsup <a href="https://api.whatsapp.com">99983845573</a&gt; </li>
+        <li><a href="./shopper-template.html">Shopper Template</a></li>
+        <li><a href="./public/images/kids-fashion.jpg">Kids Fashion Banner</a></li>
+        <li><a href="./public/images/women-fashion.jpg" download="IMG001WF">Women Fashion</a></li>
+        <li><a href="./public/docs/JavaScript.pdf">JavaScript Tutorial</a></li>
+        <li><a href="./public/docs/Angular-14.doc">Angular Word Document</a></li>
+        <li><a href="https://www.youtube.com/nareshit">NareshIT Youtube Channel</a></li>
+        <li>
+            <a href="http://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044631210305218E01_DXXX.jpg"&gt;
+                <img src="http://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044631210305218E01_DXXX.jpg&quot; width="100" height="100">
+            </a>
+        </li>
+    </ol>
+</body>
+</html>

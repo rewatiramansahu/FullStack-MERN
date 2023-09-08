@@ -1,0 +1,103 @@
+Text Effects and Numbering
+
+Text Formatting in HTML
+
+1. Font            : You can change the face, size and color of text by using <font>
+                  element.
+
+Syntax:
+        <font   face=""   size=""   color=""> Your Text </font>
+
+                face            => It is font family name.
+                size            => It is number 1 to 7 level.        
+                color        => It is color name, code etc.
+
+        <font  face="Arial"  size="6"  color="red">  Text </font>
+
+FAQ: What are websafe fonts?
+Ans:  These are the fonts available to all devices. The web safe fonts are:
+        a) sans-serif
+        b) serif
+        c) monspace
+
+Note: W3 Standards recommends not to use <font> tag in webpage. Better use styles for formatting.
+
+
+2. Font Styles        : It refers to bold & italics. HMTL provides following elements
+                    <b>        Bold        <strong>
+                    <i>        Italics    <em> Emphasized
+
+Syntax:
+    <b> Bold </b>
+    <strong> Bold </strong>
+    <i> Italics </i>
+    <em> Italics </i>
+
+FAQ: What is difference between <b> & <strong>?
+Ans:  Both are same in presentation.
+     They differ in documentation technique, which includes
+        a) Design mode  <b>
+        b) Review mode <strong>
+
+3. Font Effects            : It refers to  underline, strikeout, super script & subscript
+
+                     <u>        underline        <ins>   Inserted [review]
+                     <strike>    strikeout        <del>   Deleted [review]
+                     <sup>    super script
+                     <sub>     subscript
+
+Syntax:
+    X<sup>2</sup>
+    H<sub>2</sub>O
+
+Summary:
+- font
+- bold [strong]
+- italic [em]
+- underline [ins]
+- strike [del]
+- superscript
+- subscript
+
+                    Ordered and Unordered List
+- Ordered list is defined using <ol>
+- It is auto numbering style for list of items.
+- Every item is defined with <li>.
+
+Syntax:
+    <ol>
+       <li> Item-1 </li>            1. Item-1
+       <li> Item-2 </li>            2. Item-2
+    </ol>
+
+- You can change the numbering style by using "type" attribute.
+
+    <ol type=" 1, A, a, i, I ">
+
+- You can set starting level for numbering by using "start" attribute.
+
+    <ol type="1"  start="101">
+    <ol type="a"  start="5">
+
+- You can set reverse numbering style by using "reversed" attribute.
+
+    <ol type="1"  reversed>
+
+Syntax:
+    <ol type="1"  start="3"  reversed>
+       <li> Item - 1</li>
+       <li> Item - 2</li>
+    </ol>
+
+- You can create a nested list for numbering. But make sure the child list is defined with in <li> element and not below the <li> element.
+
+    <li> Item-1 </li>            => not good
+     <ol>
+       <li> Child-1 </li>
+    </ol>
+
+    <li> Item-1                 => good
+        <ol>
+         <li> Child-1 </li>
+        </ol>
+    </li>

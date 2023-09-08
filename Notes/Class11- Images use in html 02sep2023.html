@@ -1,0 +1,78 @@
+
+Images in HTML
+
+- Images are of various types.
+- Web will not support all image types.
+- Web supports the following image types to embed in web page.
+
+Type        MIME Type        		Description                    			Extention
+----------------------------------------------------------------------------------------------------------------
+PNG        image/png      			Portable Network Graphics            .png
+ 
+APNG        image/apng     			Animated Portable Network Graphics   .apng
+
+JPEG        image/jpeg    			Joint Photographic Expert Group       .jpg, .jpeg, .jfif
+
+GIF         image/gif       		Graphic Interchange Format            .gif
+
+ TIFF       image/tiff     			Tagged Image File Format            .tiff
+
+ SVG     	application/svg-xml   	Scalar Vector Graphics            	.svg
+
+ BMP        image/bmp       		Bitmap                            .bmp
+
+ ICO       	image/icon       		Microsoft Icon                    .ico
+
+ Webp       application/webp    	Web Picture                    .webp
+
+
+Purpose of Various Image Types:
+
+PNG, APNG                :  High Definition, More Pixel Depth
+                           More memory space required.
+                           You have to use PNG type only for downloads.
+
+JPG                        :  High Definition, Good Pixel Depth [less than PNG]
+                           It is compressed image format. Less memory space.
+                           You have to use JPG for on screen presentation.
+
+GIF                        :  Only 256 colors, Less Pixels
+                           Memory is same like JPG.
+                           It can be animated.
+                           You have to use for buttons, logos, bullets, borders
+                           background patterns etc..
+
+SVG                        : It is not pixel based.
+                          It is vector based image.
+                          It is an XML format image.
+                          You have to use for architectural diagrams,
+                          flow charts, maps, icons etc.
+
+Webp                    : It is embedded into page and intergrated into page.
+                          You can't separate from page.
+
+ICO                        : It is used for shortcut icons [favicon]
+
+
+Embed Images into Web Page:
+- You can embed image into web page by using <img> element.
+- It provides various attributes
+
+        src                : It refers to image path and name
+        alt                : It refers to alternative text to display when image fails to
+                          load.
+        title                : It defines a tooltip to display when mouse is over image.
+        width / height        : It sets image width and height
+        border            : It sets border for image
+        align                : It sets image alignment left or right on page. It can
+                          control the wrapping to content around image.
+        vspace / hspace    : It set horizontal and vertical space between image and
+                          other contents in page.
+
+Syntax:
+    <img  src="path">
+
+
+Ex:
+<img src="public/images/realme-black.jpg" title="30% OFF - Offer End on 5 Sep 2023" alt="Realme-Black" 
+width="300" height="400">

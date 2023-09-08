@@ -1,0 +1,302 @@
+Footer, Section, Main
+Body Semantics
+1. <header>
+2. <nav>
+3. <Article>
+4. <div>
+5. <span>
+                                 <footer>
+- It defines the content to display at the bottom margin of web page.
+- Typically footer comprises of copyrights, contact details, social bar, services etc.
+
+Syntax:
+    <footer>
+        ... your footer content...
+    </footer>
+
+                            <aside>
+- It defines the content that is not relative to current contex or that navigates the user to any another website.
+- It contains contents aside the current context.
+
+Syntax:
+    <aside>
+        ..... ads , social network ..
+    </aside>
+
+Note:
+- "display:flex" keeps flexible columns, which change according to he width of screen.
+- "display:grid" keeps fixed number of columns
+- Every page can split into 12 columns max. [1200px]
+- You can split the grid into columns using "grid-template-columns".
+- Every column size can be in pixels [px] or in fractions [fr].
+            200px    2fr
+- Pixels are fixed and Fractions are responsive.
+
+Syntax:
+    footer {
+        display:grid;
+        grid-template-columns: 600px  600px;  (or)  6fr  6fr
+    }
+
+Note: Selecting Child and Siblings in CSS.
+
+        parent  child            => child selector
+        {
+        }
+
+        ElementA+ElementB    => Adjacent Sibling
+        {
+        }
+   
+        ElementA~ElementB    => [tild] General Sibling - all elements after specific
+        {
+        }
+
+Ex: Header & Footer
+
+<!DOCTYPE html>
+<html lang="en-in">
+    <head>
+        <title>Shopper Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <style>
+            header
+            {
+                font-size:25px;
+                font-family: Arial;
+                display: flex;
+                justify-content: space-between;
+                padding: 15px;
+            }
+            .brand-title
+            {
+                font-size: 30px;
+                font-weight: bold;
+            }
+            nav span {
+                margin-right: 15px;
+            }
+            .cart-count
+            {
+                background-color: red;
+                color:white;
+                padding: 3px;
+                width: 25px;
+                display: inline-block;
+                border-radius: 25px;
+                text-align: center;
+                font-size: 15px;
+            }
+            article {
+                background-color: black;
+                text-align: center;
+                color:white;
+                font-size: 20px;
+                padding: 20px;
+            }
+            .bi-lightning-fill {
+                color: gold;
+            }
+            section {
+                height: 100px;
+            }
+            footer {
+                display: grid;
+                grid-template-columns: 2.4fr 2.4fr 2.4fr 2.4fr 2.4fr;
+                padding: 20px;
+                background-color: black;
+                color:white;
+                font-family: Arial;
+            }
+            .footer-brand-name {
+                font-size: 30px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            .footer-title {
+                font-size: 15px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            .footer-title~span {
+                display: block;
+                margin-bottom: 15px;
+            }
+            aside span {
+                margin-right: 5px;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div>
+                <span class="brand-title">Shopper.</span>
+            </div>
+            <div>
+                <nav>
+                    <span>Home</span>
+                    <span>Catalog</span>
+                    <span>Shop</span>
+                    <span>Pages</span>
+                    <span>Blog</span>
+                    <span>Docs</span>
+                </nav>
+            </div>
+            <div>
+                <nav>
+                    <span class="bi bi-search"></span>
+                    <span class="bi bi-person"></span>
+                    <span class="bi bi-heart"></span>
+                    <span class="bi bi-cart3"><span class="cart-count">2</span></span>
+                </nav>
+            </div>
+        </header>
+        <article>
+            <span class="bi bi-lightning-fill"></span>
+            <span>HAPPY HOLIDAY DEALS ON EVERYTHING</span>
+            <span class="bi bi-lightning-fill"></span>
+        </article>
+        <section>
+
+        </section>
+        <footer>
+            <div>
+                <div class="footer-brand-name">Shopper</div>
+                <aside>
+                    <span class="bi bi-facebook"></span>
+                    <span class="bi bi-twitter"></span>
+                    <span class="bi bi-instagram"></span>
+                    <span class="bi bi-linkedin"></span>
+                    <span class="bi bi-youtube"></span>
+                </aside>
+            </div>
+            <div>
+                <div class="footer-title">SUPPORT</div>
+                <span>Contact Us</span>
+                <span>FAQs</span>
+                <span>Size Guide</span>
+                <span>Shipping & Returns</span>
+            </div>
+            <div>
+                <div class="footer-title">SHOP</div>
+                <span>Men's Shopping</span>
+                <span>Women's Shopping</span>
+                <span>Kids' Shopping</span>
+                <span>Discounts</span>
+            </div>
+            <div>
+                <div class="footer-title">COMPANY</div>
+                <span>Our Story</span>
+                <span>Careers</span>
+                <span>Terms & Conditions</span>
+                <span>Privacy & Cookie policy</span>
+            </div>
+            <div>
+                <div class="footer-title">CONTACT</div>
+                <span>1-202-555-0105</span>
+                <span>1-202-555-0106</span>
+                <span>help@shopper.com</span>
+            </div>
+        </footer>
+    </body>
+</html>
+
+Ex: Flipkart Footer
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart</title>
+    <style>
+        footer {
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            height: 200px;
+        }
+        .col-left {
+            display: grid;
+            grid-template-columns: 3fr 3fr 3fr 3fr;
+        }
+        .col-right {
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            border-left: 2px solid black;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <footer>
+        <div class="col-left">
+            <div>col-1</div>
+            <div>col-2</div>
+            <div>col-3</div>
+            <div>col-4</div>
+        </div>
+        <div class="col-right">
+            <div>col-1</div>
+            <div>col-2</div>
+        </div>                      
+    </footer>
+</body>
+</html>
+                          <section>
+- It defines the content between header and footer area.
+- Typically all website content is kept in section.
+
+Syntax:
+  <section>
+    ....your content....
+  </section>
+
+                        <main>
+- It is considered as entry point.
+- User can start using your website from a specific entry point, which is "main".
+
+Syntax:
+    <main>
+         get started with...
+    </main>
+
+Note: You can set transparent colours in CSS using the method "rgba()"
+
+        rgba(red, green, blue, alpha);
+
+        red , green, blue => 0 to 255
+        alpha            =>  0 to 1
+
+        rgba(255, 0, 0, 1);
+
+Netflix:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <style>
+        body{
+            background-size: cover;
+        }
+        .shade {
+            background-color: rgba(0,0,0,0.5);
+            width: 105%;
+            height: 100vh;
+            margin-top: -10px;
+            margin-left: -10px;
+
+        }
+    </style>
+</head>
+<body background="public/images/Netflix-Background.jpg">
+    <div class="shade">
+
+    </div>
+</body>
+</html>

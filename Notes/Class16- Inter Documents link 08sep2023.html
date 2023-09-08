@@ -1,0 +1,118 @@
+
+Inter Document Links
+- To File
+- To Url
+- To Application
+- To JavaScript functions
+
+
+FAQ's:
+1. How to remove underline for Hyperlink?
+A. By using CSS "text-decoration:none"
+
+Syntax:
+    a{
+      text-decoration:none;
+    }
+
+2. How to set colours for active & visited links?
+A. By using <body> attributes "alink" & "vlink"
+    By using CSS classes  ":visited"  & ":active"
+
+3. How to download linked document always?
+A. By using "download" attribute for <a> element.
+
+4. How to open linked document in new tab?
+A. By using "target" attribute for <a> set to "_blank".
+
+     <a  href="public/images/fashion.jpg"  target="_blank"> Fashion </a>
+ 
+5. How to open linked document in new window?
+A. By using JavaScript function "window.open()".
+
+      <a href="javascript:window.open('path', 'title', 'features')">  Text | Image </a>
+
+Ex:
+ <a href="javascript:window.open('public/images/fashion.jpg', 'Fashion', 'width=300 height=400')">   Fashion </a>
+
+
+6. How to open linked document in the same window along with other contents in page?
+A. You can embed any external document into page by using an <iframe>.
+     Iframe allows you to access and browse other page contents from current page.
+     Iframe can embed any type of document supported by browser plugin's.
+    [image, html, pdf, text etc..]
+     You can set link target that refers to iframe name.
+     
+Syntax:
+    <iframe  src="you can load any url or file by default"   name="ref">
+
+        </iframe>
+   
+     <a href="some_path"  target="iframe_ref_name">  Text </a>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: 3fr 9fr;
+        }
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border:none;
+        }
+    </style>
+</head>
+<body>
+   <nav>
+    <div>
+        <a href="public/images/women-fashion.jpg" target="_blank">Women Fashion</a>
+    </div>
+    <div>
+        <a href="javascript:window.open('public/images/men-fashion.jpeg','Men','width=300 height=400')">Men Fashion</a>
+    </div>
+    <div>
+        <a target="main-frame" href="public/images/kids-fashion.jpg">Kids Fashion</a>
+    </div>
+    <div>
+        <a href="public/docs/JavaScript.pdf" target="main-frame">JavaScript Tutorial</a>
+    </div>
+    <div>
+        <a href="http://www.amazon.in&quot; target="_blank">Amazon</a>
+    </div>
+    <div>
+        <a href="https://www.youtube.com/embed/DeEszXEewHs&quot; target="main-frame">Web UI Fullstack Video</a>
+    </div>
+    <div>
+        <a href="https://www.youtube.com/embed/tm7kVn8abSg&quot; target="main-frame">React JS</a>
+    </div>
+   </nav>
+   <main>
+        <iframe name="main-frame"></iframe>
+   </main>
+</body>
+</html>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Web Technology</h2>
+    <iframe src="https://www.youtube.com/embed/DeEszXEewHs"></iframe&gt;
+    <iframe src="https://www.youtube.com/embed/tm7kVn8abSg"></iframe&gt;
+    <iframe width="300" height="300" src="https://www.slideshare.net/slideshow/embed_code/key/x0szDrukZzOTEY?startSlide=1&quot; width="597" height="486" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px;max-width: 100%;" allowfullscreen></iframe><div style="margin-bottom:5px"><strong><a href="https://www.slideshare.net/lexinamer/html-css-57982559&quot; title="HTML & CSS" target="_blank">HTML & CSS</a></strong> from <strong><a href="https://www.slideshare.net/lexinamer&quot; target="_blank">lexinamer</a></strong></div>
+
+</body>
+</html>

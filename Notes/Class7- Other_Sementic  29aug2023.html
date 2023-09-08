@@ -1,0 +1,454 @@
+Other Semantics
+
+1. Line Break        <br>
+2. Blank Space    &nbsp;
+3. Preformatted    <pre>
+4. Code Block        <code>        It configures a code snippet to make SEO Friendly
+5. Variables        <var>        It is used for variables in program.
+6. Sample Text    <samp>        It is used for comments and captions in page.
+
+Syntax:
+   <samp> Program to Print Addition </samp>
+   <code>
+    <pre>
+         int <var> x </var> = 10;
+         int  <var> y </var> = 20;
+        </pre>
+   </code>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       var {
+         color:blue;
+       }
+       samp {
+         color:gray;
+       }
+       code {
+         color:brown;
+       }
+    </style>
+</head>
+<body>
+    <div>
+      <samp>Program to print length X Height</samp>
+    </div>
+    <code>
+       <pre>
+          #include &lt;stdio.h&gt;
+          int main()
+          {
+             int <var>length</var> = 11;
+             int <var>width</var> = 12;
+             printf("%d\n", <var>length</var> * <var>width</var>);
+          }
+       </pre>
+    </code>
+</body>
+</html>
+
+7. Small Text        <small>        It sets letter size small
+8. Large Text        <big>        It sets letter size large
+
+Syntax:
+    <small> your text </small>
+    <big> your text </big>
+
+9. Details & Summary        
+
+- Details is a container that can display expandable and collapsable content.
+- Summary is a caption for details container.
+
+Syntax:
+    <details>
+        <summary> Title </summary>
+        ... your content...
+    </details>
+
+- If you want details to expand by default, then define the attribute "open".
+
+Syntax:
+     <details open>
+
+    </details>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       details div {
+          background-color: black;
+          padding: 10px;
+          color:white;
+       }
+    </style>
+</head>
+<body>
+    <details>
+        <summary>What is Netflix?</summary>
+        <div>
+          Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.
+        </div>
+    </details>
+    <details>
+        <summary>How much does Netflix cost?</summary>
+        <div>
+          Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.
+        </div>
+    </details>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       details span {
+          display: block;
+          margin-bottom: 10px;
+          margin-left: 20px;
+          background-color: black;
+          color:white;
+          padding: 4px;
+          width: 150px;
+       }
+    </style>
+</head>
+<body>
+    <nav>
+       <details open>
+         <summary>HTML</summary>
+         <span>Normal Elements</span>
+         <span>Void Elements</span>
+         <span>Semantics</span>
+         <span>Meta</span>
+       </details>
+       <details>
+         <summary>CSS</summary>
+         <span>Stles</span>
+         <span>CSS Rules</span>
+         <span>CSS Units</span>
+         <span>CSS Colors</span>
+       </details>
+    </nav>
+</body>
+</html>
+
+11.  Datalist with Terms and Definitions
+
+- HTML data list can be defined using <dl>
+- It is a collection of terms defined with <dt> and definitions <dd>.
+
+Syntax:
+    <dl>
+       <dt> Term </dt>
+       <dd> Definition </dd>
+    </dl>
+
+Ex-1:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       dt {
+          background-color: gray;
+          color:white;
+          font-weight: bold;
+          padding: 4px;
+          margin-bottom: 5px;
+       }
+    </style>
+</head>
+<body>
+  <dl>
+    <dt>HTML</dt>
+    <dt>Markup Language</dt>
+    <dd>It is a markup language. </dd>
+    <dd>It is used for presentation.</dd>
+    <dd>Designed by Tim Berners Lee.</dd>
+    <dt>CSS</dt>
+    <dd>It defines styles.</dd>
+    <dd>It can make HTML more interactive.</dd>
+    <dt>JavaScript</dt>
+    <dd>It manipulates DOM.</dd>
+  </dl>
+</body>
+</html>
+
+Ex-2:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        dl {
+          display: grid;
+          grid-template-columns: 3fr 9fr;
+        }
+        dt {
+          background-color: black;
+          color:white;
+          padding: 4px;
+          margin-bottom: 10px;
+        }
+        dd {
+          background-color: lightgray;
+          color:black;
+          padding: 4px;
+          margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+   <dl>
+      <dt>First Name</dt>
+      <dd>some name</dd>
+      <dt>Last Name</dt>
+      <dd>some name</dd>
+      <dt>Father Name</dt>
+      <dd>some name</dd>
+      <dt>Age</dt>
+      <dd>some number</dd>
+      <dt>Date of Birth</dt>
+      <dd>some date</dd>
+   </dl>
+</body>
+</html>
+
+Note: You can make any content sticky to page by using CSS "position" attribute.
+
+Syntax:
+        dt {
+         position:sticky;
+         top:0px;
+         }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .title {
+         font-size: 25px;
+         font-weight: bold;
+      }
+      dt {
+        background-color: black;
+        width: 150px;
+        padding: 5px;
+        color:white;
+        position: sticky;
+        top: 0px;
+      }
+    </style>
+</head>
+<body>
+  <nav>
+    <div class="title">Shopper.</div>
+    <dl>
+      <dt>Electronics</dt>
+      <dd>Televisions</dd>
+      <dd>Mobiles</dd>
+      <dd>Watches</dd>
+      <dd>Televisions</dd>
+      <dd>Mobiles</dd>
+      <dd>Watches</dd>
+      <dd>Televisions</dd>
+      <dd>Mobiles</dd>
+      <dd>Watches</dd>
+      <dd>Televisions</dd>
+      <dd>Mobiles</dd>
+      <dd>Watches</dd>
+      <dd>Televisions</dd>
+      <dd>Mobiles</dd>
+      <dd>Watches</dd>
+      <dd>Televisions</dd>
+      <dd>Mobiles</dd>
+      <dd>Watches</dd>
+      <dd>Televisions</dd>
+      <dd>Mobiles</dd>
+      <dd>Watches</dd>
+      <dd>Televisions</dd>
+      <dd>Mobiles</dd>
+      <dd>Watches</dd>
+      <dd>Televisions</dd>
+      <dd>Mobiles</dd>
+      <dd>Watches</dd>
+      <dt>Footwear</dt>
+      <dd>Casuals</dd>
+      <dd>Sneakers</dd>
+      <dd>Boots</dd>
+      <dd>Casuals</dd>
+      <dd>Sneakers</dd>
+      <dd>Boots</dd>
+      <dd>Casuals</dd>
+      <dd>Sneakers</dd>
+      <dd>Boots</dd>
+      <dd>Casuals</dd>
+      <dd>Sneakers</dd>
+      <dd>Boots</dd>
+      <dd>Casuals</dd>
+      <dd>Sneakers</dd>
+      <dd>Boots</dd>
+      <dd>Casuals</dd>
+      <dd>Sneakers</dd>
+      <dd>Boots</dd>
+      <dd>Casuals</dd>
+      <dd>Sneakers</dd>
+      <dd>Boots</dd>
+      <dd>Casuals</dd>
+      <dd>Sneakers</dd>
+      <dd>Boots</dd>
+      <dd>Casuals</dd>
+      <dd>Sneakers</dd>
+      <dd>Boots</dd>
+      <dd>Casuals</dd>
+      <dd>Sneakers</dd>
+      <dd>Boots</dd>
+      <dt>Fashion</dt>
+      <dd>Kids</dd>
+      <dd>Women</dd>
+      <dd>Men</dd>
+      <dd>Kids</dd>
+      <dd>Women</dd>
+      <dd>Men</dd>
+      <dd>Kids</dd>
+      <dd>Women</dd>
+      <dd>Men</dd>
+      <dd>Kids</dd>
+      <dd>Women</dd>
+      <dd>Men</dd>
+      <dd>Kids</dd>
+      <dd>Women</dd>
+      <dd>Men</dd>
+      <dd>Kids</dd>
+      <dd>Women</dd>
+      <dd>Men</dd>
+      <dd>Kids</dd>
+      <dd>Women</dd>
+      <dd>Men</dd>
+      <dd>Kids</dd>
+      <dd>Women</dd>
+      <dd>Men</dd>
+      <dd>Kids</dd>
+      <dd>Women</dd>
+      <dd>Men</dd>
+      <dd>Kids</dd>
+      <dd>Women</dd>
+      <dd>Men</dd>
+    </dl>
+  </nav>
+</body>
+</html>
+
+12. Fieldset and Legend
+
+- Fieldset is a container with frame.
+- Legend is a caption set for fieldset.
+- Usually it is used for creating a group of elements in page.
+
+Syntax:
+    <fieldset>
+        <legend> Title </legend>
+        ...your content...
+    </fieldset>
+
+Note: You can set shadow for any container by using "box-shadow"
+
+        {
+          box-shadow : horizontal  vertical  blur  color;
+        }
+
+        horizontal, vertical, blur        =>  defined in pixels.
+       
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      dl {
+        display: grid;
+        grid-template-columns: 3fr 9fr;
+      }
+      dt {
+        background-color: black;
+        color:white;
+        padding: 4px;
+        margin-bottom: 5px;
+      }
+      dd {
+        background-color: lightgray;
+        color:black;
+        padding: 4px;
+        margin-bottom: 5px;
+      }
+      fieldset {
+        margin-bottom: 20px;
+        box-shadow: 10px 10px 2px black;
+        border-radius: 20px;
+        background-image: url("public/images/kids.jpg");
+        background-size: cover;
+        width: 500px;
+      }
+      legend {
+        text-align: center;
+        background-color: black;
+        color:white;
+        font-weight: bold;
+        padding: 4px;
+        width: 150px;
+        box-shadow: 5px 5px 5px gray;
+        border-radius: 20px;
+      }
+    </style>
+</head>
+<body>
+     <fieldset>
+       <legend>Personal Details</legend>
+      <dl>
+        <dt>First Name</dt>
+        <dd>some name</dd>
+        <dt>Last Name</dt>
+        <dd>some name</dd>
+        <dt>Age</dt>
+        <dd>some number</dd>
+      </dl>
+     </fieldset>
+     <fieldset>
+      <legend>Contact Details</legend>
+      <dl>
+        <dt>City</dt>
+        <dd>cityname</dd>
+        <dt>State</dt>
+        <dd>state name</dd>
+        <dt>Postal Code</dt>
+        <dd>some code</dd>
+      </dl>
+     </fieldset>
+</body>
+</html>

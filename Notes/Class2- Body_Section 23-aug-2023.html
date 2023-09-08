@@ -1,0 +1,107 @@
+Body Section
+Sudhakar Sharma
+•
+Aug 23
+HTML Body Section
+- Body section comprises of content which is rendered directly in browser.
+- Body section is defined with <body> token and comprises of following attributes.
+
+Attributes:
+1. bgcolor        : It sets background color for page.
+2. text            : It sets text color.
+
+
+Note: HTML colors are defined by using 3 techniques
+        a) Color Name
+        b) Color Shade Name
+        c) Hexa Decimal Code
+
+Syntax:
+    <body  bgcolor="red"  text="white">
+    <body  bgcolor="lightyellow"  text="lightgreen">
+
+Syntax: Hexa Decimal Code
+- Hexa color code starts with "#"
+- It can be 3 or 6 chars color code.
+- 3 or 6 chars have combination of "RGB" or "RRGGBB"  [Red Green Blue]
+
+        #RGB
+        #RRGGBB
+
+- Every color value will start from "0 to f"
+
+        0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f            => RGB
+         
+- "0" to "f" is a scale which set color shade dark to bright.
+
+        0 = dark
+        f  = bright
+
+        bgcolor="#000"            black
+        bgcolor="#fff"                white
+        bgcolor="#f00"            red
+        bgcolor="#0f0"            green
+        bgcolor="#00f"            blue
+
+        bgcolor="#000000"            black
+        bgcolor="#ff0000"            red
+        bgcolor="#ad0000"            red shade
+
+3. background            : It sets background image for body section.
+
+Syntax:
+    <body background="public/images/banner.jpg">
+
+Note: You can control background image by using CSS attributes.
+      CSS attributes are defined in a <style> container.
+      CSS attributes for background are:
+           
+          background-repeat :  repeat | no-repeat | repeat-x | repeat-y
+          background-size      :  contain | cover | width & height in pixels
+          background-position: top | center | right | left | bottom [1200px or 100%]
+          background-attachment: fixed | scroll
+
+Syntax:
+<head>
+  <style>
+      body {
+       background-repeat : no-repeat;
+       background-size: cover;
+       background-position: center  center;
+       background-attachment: fixed;
+    }
+  </style>
+</head>
+<body  background="public/images/banner.jpg">
+</body>
+
+4. align        : It aligns the body content left, center, right or justified.
+
+Syntax:
+  <body align="left | center | right | justify">
+  </body>
+
+
+5. leftmargin            ]    margin will set space between content and page
+6. rightmargin            ]    margin is defined in pixels.
+7. topmargin            ]
+8. bottommargin        ]
+
+Syntax:
+  <body leftmargin="50px" rightmargin="50px" topmargin="25px" bottommargin="40px">
+
+9. alink            : It sets color for active links in page.
+
+10. vlink            : It sets color for visited links in page.
+
+Syntax:
+  <body  alink="red"  vlink="gray">
+
+        <a href="http://www.amazon.in"&gt; Amazon </a>
+
+  </body>
+
+                    Semantics in Body Section
+- Semantic elements are HTML elements defined for specific purpose.
+- There are some roughly 100 semantic elements in HTML. [MDN]
+- HTML 5 introduced new semantics for body section to make it more SEO friendly.

@@ -1,0 +1,427 @@
+
+
+Template Designs with Cards
+
+FAQ's: How to design fluid Image?
+Ans: You can design fluid images by configuring the size in "%".
+   
+        <img width="50%" height="40%">
+        <img width="50%" height="100">
+
+Ex: Amazon Cards-
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: 3fr 3fr 3fr 3fr;
+            grid-gap: 10px;
+            margin-top: -250px;
+        }
+        .card {
+            background-color: white;
+            height: 400px;
+            padding: 5px;
+            margin: 5px;
+            font-family: Arial;
+        }
+        .card-title {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .card-header {
+            padding: 5px;
+        }
+        .row {
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            grid-gap: 5px;
+        }
+        .row img {
+            width: 100%;
+        }
+        .footer-title {
+            color:blue;
+        }
+        .card-footer {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body bgcolor="lightgray">
+    <header>
+        <img src="public/images/amazonBanner.jpg" width="100%">
+    </header>
+    <section>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Up to 60% off | Styles for men</div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                        <img src="public/images/a1.jpg">
+                        <p>Clothing</p>
+                    </div>
+                    <div>
+                        <img src="public/images/a2.jpg">
+                        <p>Footwear</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <img src="public/images/a3.jpg">
+                        <p>Watches</p>
+                    </div>
+                    <div>
+                        <img src="public/images/a4.jpg">
+                        <p>Bags</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="footer-title">See all offers</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Up to 60% off | Styles for men</div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                        <img src="public/images/a1.jpg">
+                        <p>Clothing</p>
+                    </div>
+                    <div>
+                        <img src="public/images/a2.jpg">
+                        <p>Footwear</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <img src="public/images/a3.jpg">
+                        <p>Watches</p>
+                    </div>
+                    <div>
+                        <img src="public/images/a4.jpg">
+                        <p>Bags</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="footer-title">See all offers</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Up to 60% off | Styles for men</div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                        <img src="public/images/a1.jpg">
+                        <p>Clothing</p>
+                    </div>
+                    <div>
+                        <img src="public/images/a2.jpg">
+                        <p>Footwear</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <img src="public/images/a3.jpg">
+                        <p>Watches</p>
+                    </div>
+                    <div>
+                        <img src="public/images/a4.jpg">
+                        <p>Bags</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="footer-title">See all offers</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Up to 60% off | Styles for men</div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div>
+                        <img src="public/images/a1.jpg">
+                        <p>Clothing</p>
+                    </div>
+                    <div>
+                        <img src="public/images/a2.jpg">
+                        <p>Footwear</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <img src="public/images/a3.jpg">
+                        <p>Watches</p>
+                    </div>
+                    <div>
+                        <img src="public/images/a4.jpg">
+                        <p>Bags</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="footer-title">See all offers</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+
+Ex: Shopper Templates
+
+<!DOCTYPE html>
+<html lang="en-in">
+    <head>
+        <title>Shopper Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <style>
+            header
+            {
+                font-size:25px;
+                font-family: Arial;
+                display: flex;
+                justify-content: space-between;
+                padding: 15px;
+            }
+            .brand-title
+            {
+                font-size: 30px;
+                font-weight: bold;
+            }
+            nav span {
+                margin-right: 15px;
+            }
+            .cart-count
+            {
+                background-color: red;
+                color:white;
+                padding: 3px;
+                width: 25px;
+                display: inline-block;
+                border-radius: 25px;
+                text-align: center;
+                font-size: 15px;
+            }
+            article {
+                background-color: black;
+                text-align: center;
+                color:white;
+                font-size: 20px;
+                padding: 20px;
+            }
+            .bi-lightning-fill {
+                color: gold;
+            }
+            section {
+                height: 600px;
+            }
+            footer {
+                display: grid;
+                grid-template-columns: 2.4fr 2.4fr 2.4fr 2.4fr 2.4fr;
+                padding: 20px;
+                background-color: black;
+                color:white;
+                font-family: Arial;
+            }
+            .footer-brand-name {
+                font-size: 30px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            .footer-title {
+                font-size: 15px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            .footer-title~span {
+                display: block;
+                margin-bottom: 15px;
+            }
+            aside span {
+                margin-right: 5px;
+                font-size: 20px;
+            }
+            .women-fashion {
+                background-image: url("public/images/women-fashion.jpg");
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0.5;
+            }
+            .men-fashion {
+                background-image: url("public/images/men-fashion.jpeg");
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0.5;
+            }
+            .kids-fashion {
+                background-image: url("public/images/kids-fashion.jpg");
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0.5;
+            }
+            .kids-fashion:hover {
+                opacity: 1;
+            }
+            .women-fashion:hover {
+                opacity: 1;
+            }
+            .men-fashion:hover {
+                opacity: 1;
+            }
+            main {
+                height: 500px;
+                display: grid;
+                grid-template-columns: 4fr 4fr 4fr;
+                grid-gap: 4px;
+                margin-top: 5px;
+            }
+            .card-title {
+                font-size: 50px;
+                font-weight: bold;
+                color:white;
+                text-shadow: 2px 2px 2px black;
+            }
+            button {
+                width: 200px;
+                height: 50px;
+                font-size: 20px;
+                background-color: white;
+                border:none;
+                margin-top: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div>
+                <span class="brand-title">Shopper.</span>
+            </div>
+            <div>
+                <nav>
+                    <span>Home</span>
+                    <span>Catalog</span>
+                    <span>Shop</span>
+                    <span>Pages</span>
+                    <span>Blog</span>
+                    <span>Docs</span>
+                </nav>
+            </div>
+            <div>
+                <nav>
+                    <span class="bi bi-search"></span>
+                    <span class="bi bi-person"></span>
+                    <span class="bi bi-heart"></span>
+                    <span class="bi bi-cart3"><span class="cart-count">2</span></span>
+                </nav>
+            </div>
+        </header>
+        <article>
+            <span class="bi bi-lightning-fill"></span>
+            <span>HAPPY HOLIDAY DEALS ON EVERYTHING</span>
+            <span class="bi bi-lightning-fill"></span>
+        </article>
+        <section>
+            <main>
+                <div class="women-fashion">
+                    <div class="card">
+                        <div class="card-title">
+                            Women
+                        </div>
+                        <div class="card-footer">
+                            <button>
+                                Shop Women <span class="bi bi-arrow-right"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="men-fashion">
+                  <div class="card">
+                    <div class="card-title">
+                        Men
+                    </div>
+                    <div class="card-footer">
+                        <button>
+                            Shop Men <span class="bi bi-arrow-right"></span>
+                        </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="kids-fashion">
+                   <div class="card">
+                    <div class="card-title">
+                        Kids
+                    </div>
+                    <div class="card-footer">
+                        <button>
+                            Shop Kids <span class="bi bi-arrow-right"></span>
+                        </button>
+                    </div>
+                   </div>
+                </div>
+            </main>
+        </section>
+        <footer>
+            <div>
+                <div class="footer-brand-name">Shopper</div>
+                <aside>
+                    <span class="bi bi-facebook"></span>
+                    <span class="bi bi-twitter"></span>
+                    <span class="bi bi-instagram"></span>
+                    <span class="bi bi-linkedin"></span>
+                    <span class="bi bi-youtube"></span>
+                </aside>
+            </div>
+            <div>
+                <div class="footer-title">SUPPORT</div>
+                <span>Contact Us</span>
+                <span>FAQs</span>
+                <span>Size Guide</span>
+                <span>Shipping & Returns</span>
+            </div>
+            <div>
+                <div class="footer-title">SHOP</div>
+                <span>Men's Shopping</span>
+                <span>Women's Shopping</span>
+                <span>Kids' Shopping</span>
+                <span>Discounts</span>
+            </div>
+            <div>
+                <div class="footer-title">COMPANY</div>
+                <span>Our Story</span>
+                <span>Careers</span>
+                <span>Terms & Conditions</span>
+                <span>Privacy & Cookie policy</span>
+            </div>
+            <div>
+                <div class="footer-title">CONTACT</div>
+                <span>1-202-555-0105</span>
+                <span>1-202-555-0106</span>
+                <span>help@shopper.com</span>
+            </div>
+        </footer>
+    </body>
+</html>

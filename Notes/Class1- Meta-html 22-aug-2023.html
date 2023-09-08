@@ -1,0 +1,85 @@
+Meta
+Sudhakar Sharma
+•
+Aug 22
+HTML Page Structure
+1. Document Declaration
+    <!DOCTYPE html>
+
+2. Document Scope
+    <html lang="en-in">
+
+3. Head Section
+    <head>
+   
+4. Title
+
+5. Link
+
+                            Meta in Head Section
+- The  term meta refers to "Meta Data".
+- Meta data comprises of information about your web page.
+- Meta is required for a web page to make it Responsive and SEO friendly.
+
+Meta Responsive Attributes:
+- A responsive web page can adjust according the device.
+- It can fit the content to device screen. [Mobile, Tab, PC, Laptop, Watch etc..]
+- To test responsive pages you can download and install
+            "chrome mobile simulator"
+
+- You can add following elements into head section
+
+  <meta  name="viewport"  content="width=device-width, initial-scale=1.0">
+
+    a) Viewport        : It refers to screen type and its dimensions.
+    b) width            : It refers to current page content width
+    c) initial-scale        : It refers to zoom level. [1=100]
+
+
+   <meta http-equiv="refresh"  content="5">
+
+    a) http-equiv        : It refers to request handler, which can process your request
+                      for page by refreshing every few seconds.
+    b) content        : It defines the number of seconds.
+
+- Meta provides following attributes to make the page SEO friendly.
+
+    <meta  name="keywords"  content="some keywords used for finding your site">
+    <meta  name="description"  content="something about your website">
+    <meta  charset="utf-8">
+
+        a) UTF is Unicode Transformation Format
+        b) 8 = 8 bit [memory size]
+       
+            charset="utf-8"    => english
+            charset="utf-16"    => korean, german
+            charset="utf-32"    => chinese etc..
+            charset="utf-64"    => arabic
+
+Syntax:
+<!DOCTYPE html>
+<html lang="en-in">
+<head>
+  <title> Fashion Store </title>
+  <link rel="shortcut icon"  href="public/images/favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="5">
+  <meta name="keywords" content="kids, mens, women, fashion, best offers, shirts..">
+  <meta name="description"  content="Online fashion store with best offers...">
+</head>
+</html>
+
+4. <style>  is used to embed css into web page
+
+Syntax:
+        <style type="text/css">
+
+        </style>
+
+5. <script>  is used to embed javascript into webpage
+
+Syntax:
+        <script  type="text/javascript">
+
+        </script>

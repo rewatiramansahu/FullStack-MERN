@@ -1,0 +1,291 @@
+
+
+		#########  Tables in HTML  ######
+
+- Tables are used to organize data into rows and columns.
+- In modern web applications tables are used for designing "Grid" components.
+- Grid is a component that allows user to browse, edit, insert, update, delete, filter, group, sort data etc.
+- Grid is designed by using table in HTML.
+- HTML 5 provides following elements for table.
+
+        <table>                It is a container with rows and columns
+        <caption>            It makes table SEO friendly.
+        <thead>                It configures header
+        <tbody>                It configures body
+        <tfoot>                It configures footer
+        <colgroup>            It groups a set of columns
+        <tr>                    It defines a  table row
+        <th>                    It defines a table header cell
+        <td>                    It defines ordinary table cell
+
+Syntax:
+<table>  
+    <caption> Title </caption>
+    <thead>
+           <tr>  <th> Heading </th> </tr>
+    </thead>
+    <tbody>
+       <tr>   <td> Cell </td> </tr>
+    </tbody>
+    <tfoot>
+       <tr>  <td> Cell </td> </tr>
+    </tfoot>
+</table>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asia Cup Table</title>
+    <style>
+        table {
+            font-family: Arial;
+        }
+        table img {
+            width: 30px;
+        }
+        .w {
+            background-color: green;
+            color:white;
+            padding: 3px;
+            border-radius: 5px;
+        }
+        .l {
+            background-color: red;
+            color:white;
+            padding: 3px;
+            border-radius: 5px;
+        }
+        .a {
+            background-color: gray;
+            color:white;
+            padding: 3px;
+            border-radius: 5px;
+        }
+        table span {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table width="100%" border="1">
+        <caption>Asia Cup Point Table 2023 - Group A</caption>
+        <colgroup span="3"></colgroup>
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th colspan="2">Teams</th>
+                <th>Matches</th>
+                <th>Won</th>
+                <th>Lost</th>
+                <th>Tied</th>
+                <th>NR</th>
+                <th>Points</th>
+                <th>NRR</th>
+                <th colspan="2">Series Form</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><img src="public/images/pak.jpg"></td>
+                <td>Pakistan</td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>3</td>
+                <td>+4.760</td>
+                <td><span class="w">W</span></td>
+                <td><span class="a">A</span></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img src="public/images/india.jpg"></td>
+                <td>India</td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>3</td>
+                <td>+1.028</td>
+                <td><span class="a">A</span></td>
+                <td><span class="w">W</span></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img src="public/images/nepal.jpg"></td>
+                <td>Nepal</td>
+                <td>2</td>
+                <td>0</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>-3.572</td>
+                <td><span class="l">L</span></td>
+                <td><span class="l">L</span></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="12">
+                    Pos: Position, Pld: Played, Pts: Points, NRR: Net Run Rate
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
+
+Table Attributes:
+
+1. Frame, Rules & Border
+
+    frame            : It defines a frame for entire table. It uses the values
+                        "box, above, below, rhs, lhs, void"
+
+                       <table  frame="box | above | below ...">
+
+    rules        : It defines rules for rows, columns and groups. It uses the values
+                        "all, rows, cols, groups, none"
+
+                        <table rules="all | rows | cols.."  frame="box | void...">
+
+
+    border        : It defines a border for table cell. It requires rules to be removed
+                  from table. You can't set border if rules attribute is defined.
+                  It uses 0 or 1 as value.
+                           
+                        0     : no border [false]
+                        1    : border [true]
+
+                 <table border="1" frame="void">
+
+2. Cellspacing and Cellpadding
+   
+        cellspacing            : It sets space between cells.
+        cellpadding            : It sets space between border and cell content.
+
+        <table cellspacing="5" cellpadding="4">
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asia Cup Table</title>
+    <style>
+        table {
+            font-family: Arial;
+        }
+        table img {
+            width: 30px;
+        }
+        .w {
+            background-color: green;
+            color:white;
+            padding: 3px;
+            border-radius: 5px;
+        }
+        .l {
+            background-color: red;
+            color:white;
+            padding: 3px;
+            border-radius: 5px;
+        }
+        .a {
+            background-color: gray;
+            color:white;
+            padding: 3px;
+            border-radius: 5px;
+        }
+        table span {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+        }
+        caption {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <table width="100%" border="1" frame="void" cellspacing="5" cellpadding="5" >
+        <caption>Asia Cup Point Table 2023 - Group A</caption>
+        <colgroup span="10"></colgroup>
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th colspan="2">Teams</th>
+                <th>Matches</th>
+                <th>Won</th>
+                <th>Lost</th>
+                <th>Tied</th>
+                <th>NR</th>
+                <th>Points</th>
+                <th>NRR</th>
+                <th colspan="2">Series Form</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><img src="public/images/pak.jpg"></td>
+                <td>Pakistan</td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>3</td>
+                <td>+4.760</td>
+                <td><span class="w">W</span></td>
+                <td><span class="a">A</span></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img src="public/images/india.jpg"></td>
+                <td>India</td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>3</td>
+                <td>+1.028</td>
+                <td><span class="a">A</span></td>
+                <td><span class="w">W</span></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img src="public/images/nepal.jpg"></td>
+                <td>Nepal</td>
+                <td>2</td>
+                <td>0</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>-3.572</td>
+                <td><span class="l">L</span></td>
+                <td><span class="l">L</span></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="12">
+                    Pos: Position, Pld: Played, Pts: Points, NRR: Net Run Rate
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

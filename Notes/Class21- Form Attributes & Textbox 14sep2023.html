@@ -1,0 +1,142 @@
+
+
+		=====  Form Attributes and Textbox =====
+
+Form Attributes
+
+1. id
+2. name
+3. class
+4. method
+5. action        :  It refers to the target path where form data is submitted.
+                [can be client side or server side page]
+
+Syntax:
+    <form method="get"  action="results.html | results.jsp..">
+    </form>
+
+
+6. novalidate    : It can disable the default validations provided by HTML.
+              If you are writing custom validations then you can by-pass the default
+              validations.
+
+Syntax:
+    <form method="get"  actions="results.html"  novalidate>
+        </form>
+
+                          Form Elements
+- HTML provides various form elements to handle interactions
+    <input>
+    <select>
+    <option>
+    <optgroup>
+    <datalist>
+    <meter>
+    <progress>
+    <textarea>  etc..
+
+                            Input Element
+- HTML <input> is responsible for configuring an input that allows any type of data.
+- HTML 5 provided various input types to manage different types of data like number, string, date, email, phone number etc.
+
+Syntax:
+        Name    : <input>
+        Age        : <input>
+        Email    : <input>
+        DOB    : <input>
+
+                            TextBox
+- A textbox allows user to input a string.
+- It provides various attributes for managing and restricting string.
+   [ string is a group alpha, numeric and special characters]
+- Textbox is designed by using
+      <input type=text">
+
+Attributes:
+1. id
+2. name
+3. class
+
+Note: Every form element must have a "name".
+          If name is not defined for any element, then form can't submit its value.
+
+     <input type="text"  name="txtCity">
+     <input type="text"  name="txtName">
+
+4. value        : It defines the default value to display in textbox.
+
+5. readonly    : It will not allow to modify the default value in textbox. But it allows to
+              submit the value.
+
+6. disabled    : It will not allow to modify and submit the value.
+
+Syntax:
+    <input type="text"  value="Delhi"  name="txtCity"  readonly>
+    <input type="text"   value="Delhi" name="txtCity"  disabled>
+
+7. placeholder    :  It defines the watermark text to display in textbox when value is not
+               defined.
+
+Syntax:
+    <input type="text" placeholder="Search Amazon.in">
+
+8. size        : It defines the width for textbox, the default is "20".
+              It is not restricting textbox, it is only width for textbox.
+
+9. maxlength    : It restricts the maximum number of chars in textbox.
+
+Syntax:
+    <input type="text" name="txtOTP"  size="4"  maxlength="4">
+
+10. minlength    : It validates the minimum number of chars in textbox.
+
+Syntax:
+    <input type="text"  name="txtOTP  size="4"  minlength="4" maxlength="4">
+
+11. required    : It will not allow to submit empty. It defines that value is mandatory.
+
+Syntax:
+    <input type="text"  name="txtOTP" required>
+
+
+12. autofocus    : It sets focus to textbox automatically on page load.
+
+Syntax:
+     <input type="text"  name="txtName"  autofocus>
+
+13. list        : It configures a data list to textbox, which is displayed as autocomplete
+              text.        
+              Form data list is defined using the elements.
+                    <datalist>
+                    <option>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <form align="center">
+       <h1>Google</h1>
+       <input type="text" name="txtSearch" size="40" list="topics">
+       <datalist id="topics">
+          <option>HTML Examples</option>
+          <option>CSS Projects</option>
+          <option>CSS Examples</option>
+          <option>JavaScript Projects</option>
+          <option>HTML Projects</option>
+       </datalist>
+       <p>
+        <button>Search</button>
+       </p>
+       
+    </form>
+</body>
+</html>

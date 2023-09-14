@@ -1,0 +1,264 @@
+
+
+	======  Forms and Task Design Example  =====
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        .parent-table {
+            border-radius: 10px;
+            background-image: url("public/images/weather.jpg");
+            background-size: cover;
+        }
+        .loc-title {
+            font-size: 20px;
+            color:white;
+            text-shadow: 1px 1px 1px black;
+            font-family: Arial;
+        }
+        .loc-title p {
+            font-size: 15px;
+            text-shadow: 1px 1px 1px black;
+        }
+        .icons {
+            font-size: 20px;
+            color:white;
+        }
+        .unit, .bi-water {
+            font-size: 80px;
+            font-weight: bold;
+            font-family: Arial;
+            color:yellow;
+            text-shadow: 1px 1px 1px black;
+        }
+        .cf {
+            font-size: 25px;
+            font-family: Arial;
+            color:white;
+        }
+        .cf-w {
+            font-size: 18px;
+            font-family: Arial;
+            color:white;
+        }
+        .parent-table table {
+            font-family: Arial;
+            color:white;
+        }
+        .slider {
+            width: 100%;
+        }
+       
+    </style>
+	
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    <table class="parent-table" width="50%" height="400" cellpadding="20">
+      <tr>
+        <td class="loc-title" colspan="3" valign="top">
+            Ameerpet, TG
+            <p>Updated few sec ago</p>
+        </td>
+        <td class="icons" colspan="2" align="right" valign="top">
+            <span class="bi bi-share-fill"></span>
+            <span class="bi bi-three-dots"></span>
+        </td>
+      </tr>
+      <tr>
+        <td width="10">
+            <span class="bi bi-water"></span>
+        </td>
+        <td class="unit" width="10">
+            28
+        </td>
+        <td align="center" class="cf" width="10">
+            &deg;C <br>
+            <hr color="black" width="10">
+            F
+        </td>
+        <td class="cf">
+            30&deg;<br><br>
+            23&deg;
+        </td>
+        <td class="cf-w" valign="top">
+             Percipitation: 2% <br><br>
+             Wind: 8 KMPH <br><br>
+             Humidity: 61%
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" class="cf-w">
+            Haze - Tue 8, 11:43 am
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+            <table width="100%">
+                <tr align="center">
+                    <td align="left">12 PM</td>
+                    <td>3 PM</td>
+                    <td>6 PM</td>
+                    <td>9 PM</td>
+                    <td>12 AM</td>
+                    <td>3 AM</td>
+                    <td>6 AM</td>
+                    <td align="right">9 AM</td>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        <input type="range" value="1" class="slider">
+                    </td>
+                </tr>
+            </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+            <table width="100%" cellpadding="5" border="0" frame="void" cellspacing="5">
+                <tr height="160" bgcolor="gray">
+                    <td class="details" align="center">
+                        Tue 8 <br>
+                        <span class="bi bi-water"></span> <br>
+                        30&deg;<br>
+                        23&deg;
+                    </td>
+                    <td>
+                        Tue 8 <br>
+                        <span class="bi bi-water"></span> <br>
+                        30&deg;<br>
+                        23&deg;
+                    </td>
+                    <td>
+                        Tue 8 <br>
+                        <span class="bi bi-water"></span> <br>
+                        30&deg;<br>
+                        23&deg;
+                    </td>
+                    <td>
+                        Tue 8 <br>
+                        <span class="bi bi-water"></span> <br>
+                        30&deg;<br>
+                        23&deg;
+                    </td>
+                    <td>
+                        Tue 8 <br>
+                        <span class="bi bi-water"></span> <br>
+                        30&deg;<br>
+                        23&deg;
+                    </td>
+                    <td>
+                        Tue 8 <br>
+                        <span class="bi bi-water"></span> <br>
+                        30&deg;<br>
+                        23&deg;
+                    </td>
+                    <td>
+                        Tue 8 <br>
+                        <span class="bi bi-water"></span> <br>
+                        30&deg;<br>
+                        23&deg;
+                    </td>
+                    <td>
+                        Tue 8 <br>
+                        <span class="bi bi-water"></span> <br>
+                        30&deg;<br>
+                        23&deg;
+                    </td>
+                </tr>
+            </table>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+</body>
+</html>
+
+
+
+
+                            Forms in HTML
+- A form provides UI from where user can interact with data.
+- It allows to handle CRUD operations.
+
+            C        - Create [Register, Insert]
+            R        - Read
+            U        - Update
+            D        - Delete
+
+- Form provides an interface with various set of elements like button, textbox, checkbox, radio, listbox, dropdown etc..
+
+- Form is a generic container, which have default functionality.
+- A form can submit and reset its data without configuring any explicity functionality.
+- A form is created by using <form> element.
+
+Syntax:
+        <form>
+            ... your form elements...
+        </form>
+
+- Form comprises of following attributes
+
+1. Id                : It is a unique reference given for form in order to access in CSS
+                  or in JavaScript.
+
+2. Name            : It defines a reference name for form.
+
+
+3. Class            : It defines a css class to configure styles.
+
+Syntax:
+        <form  id="frmLogin"  name="LoginForm"  class="form-container">
+
+        </form>
+
+4. Method        : It defines the form behaviour, every form in HTML have 2 methods
+                    a) GET
+                    b) POST
+
+                  GET is used to fetch data from server.
+                  POST is used to submit data to server.
+
+Syntax:
+        <form  id="frmRegister"   method="post | get">
+
+        </form>
+
+FAQ: What is the default method?
+Ans : GET
+
+FAQ: Can we submit data to server on GET method?
+Ans:  Yes. But it is not recommended always.
+
+
+GET
+- It is used mostly for fetching data from server.
+- You can submit data to server on GET.
+- Data is appended into URL as "Query String".
+- Every user can view your data.
+- It is not safe.
+- It is easy to hack your data.
+- You can't submit complex data, like binary data.
+- You can submit max 2048 chars.
+- It stored in browser logs: history.
+- It can be bookmarked.
+- Data can be cached, which saves round trips.
+
+POST
+- It is used mostly for submitting data to server.
+- It stores the data in "Form Body".
+- It is not visible to users directly.
+- It is safe when compared to GET.
+- It is not stored in browser logs.
+- It can't be bookmarked.
+- It is hard to hack.
+- You can submit any amount of data, there is no limit for data.
+- You can submit complex data, i.e binary data.
+- Data is not cached.

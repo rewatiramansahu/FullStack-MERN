@@ -1,0 +1,157 @@
+Summary
+- Texbox
+- Password
+- Number
+- Color
+- Email
+- Url
+- File
+- Range
+- Date & Time
+
+                            Radio Buttons
+
+- You can display a list of options, and user can select any one or multiple.
+- Radio once checked, it can't be unchecked.
+
+Syntax:
+    <input type="radio"> <label> Text </label>
+
+- Radio's are always used with "Mutex" mechanism.
+  [Mutual Exclusion]
+
+- All radios in a category must have same name. So that they can exhibit Mutex.
+
+Syntax:
+    <input type="radio"  name="gender">  <label> Male </label>
+    <input type="radio"  name="gender">  <label> Female </label>
+
+- You can make any one radio default selected by using "checked" attribute.
+
+Syntax:
+    <input type="radio" name="gender" checked> <label> Male </label>
+
+FAQ: When to use Radio button?
+Ans: When selection of any one option is mandatory and without selecting an option if user moves to next, default one option is selected.
+
+- Radios by default submit  "ON" as value.
+- You have to define a "name" attribute and "value" for every radio.
+
+Syntax:
+ <input type="radio"  name="gender"  value="Male"> <label> Male </label>
+
+                         CheckBox
+
+- Checkbox is similar to radio button.
+- Checkbox allows to check or uncheck any option.
+
+Syntax:
+ <input type="checkbox" name="course"  value="Java"> <label> Java </label>
+ 
+- You can choose one or multiple.
+- In checkbox selection is not mandatory.
+
+Syntax:
+ <input type="checkbox"  name="course" value="Java" checked>  <label> Java </label>
+
+FAQ: How to create a checkbox list?
+Ans: HTML doesn't provide any checkbox list, you have to design using CSS overflow.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+       ul {
+         list-style: none;
+         border:1px solid gray;
+         width: 150px;
+         height: 60px;
+         overflow: auto;
+       }
+    </style>
+</head>
+<body>
+    <form>
+        <ul>
+            <li><input type="checkbox"> HTML </li>
+            <li><input type="checkbox"> CSS </li>
+            <li><input type="checkbox"> Bootstrap </li>
+            <li><input type="checkbox"> JavaScript </li>
+            <li><input type="checkbox"> jQuery </li>
+            <li><input type="checkbox"> React </li>
+        </ul>
+    </form>
+</body>
+</html>
+
+                            Dropdown List
+- It enables the user to select any option from a group of choices.
+- HTML dropdown is designed by using
+
+    <select>
+    <optgroup>
+    <option>
+
+Syntax:
+    <select name="product">
+     <option> Select Product </option>
+     <optgroup label="categoryName">
+       <option> Item-1 </option>
+       <option> Item-2 </option>
+    </optgroup>
+    </select>
+
+- Every option comprises 3 attributes
+
+    a) value            It defines the value to submit
+    b) selected        It makes option default selected on page load
+    c) disabled        It will not allow to select any option
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Select Product</legend>
+            <select name="product">
+                <option>Select Product</option>
+                <optgroup label="Electronics">
+                    <option>Televisions</option>
+                    <option disabled>Mobiles</option>
+                    <option value="WTH01">Watches</option>
+                </optgroup>
+                <optgroup label="Fashion">
+                    <option selected>Kids</option>
+                    <option>Men's</option>
+                    <option>Women's</option>
+                </optgroup>
+            </select>
+            <button>Submit</button>
+        </fieldset>
+    </form>
+</body>
+</html>
+
+                            List Box
+- It is similar to dropdown but allows to select multiple.
+- You can convert a dropdown into list box just by using the attributes
+    a) size
+    b) multiple
+
+Syntax:
+    <select size="4" multiple>
+    </select>

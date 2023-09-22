@@ -1,0 +1,110 @@
+Form Inputs: Number, Range, Color, URL, Date..
+Sudhakar Sharma
+•
+8:42 AM
+Password
+- It is similar to textbox but can mask the characters with "*".
+- All attributes are similar to textbox.
+
+<input type="password" name=""  id=""  class=""  minlength="" maxlength="" pattern="">
+
+                            Number
+
+- It is used to input only numeric values.
+- Attributes
+        min
+        max
+        step
+
+Syntax:
+    <input type="number"  name="age"  min="15"  max="35" value="22" step="5">    <input type="number"  name="rate"  min="10.45"  max="18.45" step="0.01">
+
+                            Range
+- It is used for number input.
+- User can select a range of values using slider.
+- All attributes are same like number.
+
+Syntax:
+<input type="range"  name="price"  min="100" max="150000"  value="100">
+
+                            Email
+- It validates email address.
+
+Syntax:
+    <input type="email" placeholder="your email address"  required>
+
+
+                            URL
+- It validates URL format.
+- URL format must contain "protocol" and "domain"
+
+Syntax:
+    <input type="url"   placeholder="your website address" name="" required>
+
+            www.amazon.in        => invalid
+            http://www.amazon.in    => valid
+            https://www.youtube.com => valid
+
+                            Color
+- It show a color picker.
+- User can select a color.
+- The color value must be 6 chars hexa decimal only.
+        #ff00ff
+
+Syntax:
+ <input type="color" name="color"  value="#ff0000">
+
+                        Date and Time
+- HTML 5 provides various date and time types.
+        - date
+        - datetime-local
+        - time
+        - month
+        - year
+        - week
+
+Syntax:
+<input type="date">
+<input type="time">
+<input type="datetime-local">
+<input type="month">
+<input type="year">
+<input type="week">
+
+FAQ: How to restrict date selection?
+Ans: By using "min" and "max" attributes.
+
+Note: Always the date input format must be "year-month-day"
+
+<input type="date" min="2023-09-20"  max="2023-10-12">
+
+Note: You can't select range of date values using HTML element.
+
+                            File
+- It allows the user to select a file so that it can be upload to server using javascript.
+- It is just a file browser.
+
+Syntax:
+<input type="file">
+
+FAQ: How to restrict the file type in HTML?
+Ans : You can't restrict the file type but you can set filter.
+          You can set filter by using "accept" attribute.
+
+Syntax:
+    <input type="file"  accept=".jpg">
+    <input type="file"  accept=".jpg, .png, .gif">
+
+- You can allow user to select multiple file by using "multiple" attribute.
+
+    <input type="file"  multiple>
+
+Summary
+- password
+- number
+- range
+- color
+- url
+- email
+- file
+- date

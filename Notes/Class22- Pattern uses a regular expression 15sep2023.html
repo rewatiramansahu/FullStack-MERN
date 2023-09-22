@@ -1,0 +1,68 @@
+
+
+				---------------  Regular Expression  ---------------
+
+14. Pattern        : It is used to validate the format of input value.
+                  Pattern uses a regular expression for verifying the format of value.
+                  A regular expression is built by using meta characters & quantifiers
+
+ Meta Character            Description
+----------------------------------------------------------------------------------------------------
+ ?                        Zero or one occurance of any character.
+
+                        Syntax:
+                         pattern="colou?r"       => color, colour
+
+ *                        Zero or more occurances of any character.
+
+                        Syntax:
+                        pattern="colou*r"    => color, colour, colouur, colouuur...
+
++                        One or more occurances of any character.
+
+                        Syntax:
+                        pattern="colou+r"    => colour, colouur, colouuur...
+
+. (dot)                    Any single character [A-Za-z0-9!@#$%^&]
+                       
+                        Syntax:
+                        pattern=".o."    => wow, dos, you, toy, 1o4, $o3, 1oA..
+                        pattern=".o.?"    =>  wow, dos, to
+                        pattern=".at"    =>  cat, mat, bat, rat, 1at, $at
+                        pattern=".?at"    =>  cat, mat, at
+
+\                        It is an escape sequence character, that can transform
+                        meta character into normal char and vice versa.
+
+                        Syntax:
+                        pattern="gmail.com"    => gmail3com, gmail#com
+                        pattern="gmail\.com"    => gmail.com
+
+ | [pipe]                    It refers to logical "OR" [any one of specified]
+
+                        Syntax:
+                        pattern="red|blue|green"   => red, blue, green
+
+^                        It excludes the specified chars.
+
+                        Syntax:
+                        pattern="[a,d,s]"   =>  a , d , s  
+                        pattern="[^a,d,s]"  =>  all are allowed excluding a,d,s.
+
+[ ]                        It defines the range of chars.
+
+                        Syntax:
+                        pattern="[a,d,s]"        => a, d, s
+                        pattern="[a-z]"            => a to z
+                        pattern="[0-9]"            => 0 to 9 all numbers
+                        pattern="[a-d,4-9]        => a to d and 4 to 9
+                        pattern="[a-zA-Z0-9]    => alpha numeric
+                        pattern="[A-Z]"        => only uppercase letters
+                        pattern="[^A-Z]"        => excluding upper case all                                                          others allowed.
+\^                        Start with
+
+$                        Ends with
+
+                        Syntax:
+                        pattern="\^ .... your expression... $"
+                        pattern="\^[a-z]\.[0-9]$"

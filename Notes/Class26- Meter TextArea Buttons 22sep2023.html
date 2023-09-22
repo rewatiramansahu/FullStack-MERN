@@ -1,0 +1,290 @@
+Form Elements
+- Radio Button (Mutex)
+- CheckBox
+- Dropdown
+- ListBox [Size & Multiple]
+
+Note: The options in dropdown or listbox are RC data type. They allow only plain text, number and special chars. You can't add symbols or images into dropdown options.
+      HTML will not allow to create nested dropdowns.
+
+                            Textarea
+- It is used for multiline text.
+- It is RC data type.
+- You can use only for plain text.
+- It will not allow formats for text.
+
+Syntax:
+    <textarea> </textarea>
+    <textarea> your text.. </textarea>
+
+Attributes:
+- rows        : It defines height in rows.
+- cols        : It defines width in columns.
+- readonly    : It will not allow to modify text.
+- disabled    : It will not allow to modify and submit.
+
+Syntax:
+    <textarea  rows="5"  cols="40"> </textarea>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+             <legend>Your Comments</legend>
+             <textarea cols="40" rows="5"></textarea>
+             <br><br>
+             <textarea disabled rows="5" cols="40">Terms of Service..</textarea>
+             <br><br>
+             <input type="checkbox"> <label>I Accept</label>
+             <br><br>
+             <button>Post Comment</button>
+        </fieldset>
+    </form>
+</body>
+</html>
+
+                                    Meter
+- It is used to display a grade meter.
+- It is controlled dynamically by using "JavaScript".
+
+Syntax:
+    <meter> </meter>
+
+Attributes:
+    min        : It defines the lowerbound value.
+    max        : It defines the upperbound value
+    value    : It defines the default value.
+    low        : It is a value above min and below high.
+    high        : It is a value below max and above low.
+
+Note: If low & high difference is less     => red color
+      If low & high difference is more     => yellow
+      If low & high are zero            => green
+
+Syntax:
+    <meter min="1" max="100" value="100" low="40" high="80"> </meter>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        ul {
+            list-style: none;
+        }
+        ul span {
+            margin-left: 10px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        meter {
+            width: 150px;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+             <legend>Ratings & Reviews</legend>
+             <ul>
+                <li>
+                    <span>5</span><span class="bi bi-star-fill"></span>
+                    <meter min="1" value="5" max="5"></meter>
+                    <span>8,123</span>
+                </li>
+                <li>
+                    <span>4</span><span class="bi bi-star-fill"></span>
+                    <meter min="1" max="5" value="3"></meter>
+                    <span>5,923</span>
+                </li>
+                <li>
+                    <span>3</span><span class="bi bi-star-fill"></span>
+                    <meter min="1" max="5" value="2"></meter>
+                    <span>3,123</span>
+                </li>
+                <li>
+                    <span>2</span><span class="bi bi-star-fill"></span>
+                    <meter min="1" max="100" low="40" high="80" value="100"></meter>
+                    <span>123</span>
+                </li>
+                <li>
+                    <span>1</span><span class="bi bi-star-fill"></span>
+                    <meter min="1" max="100" low="60" high="80" value="100"></meter>
+                    <span>23</span>
+                </li>
+             </ul>
+        </fieldset>
+    </form>
+</body>
+</html>
+
+                              Progress
+- It is used to show the status of any task performed in page, such as downloading, installing, copying, etc..
+
+Syntax:
+    <progress> </progress>
+
+Attributes:
+    min
+    max
+    value
+
+Syntax:
+    <progress min="1" max="100"  value="30"> </progress>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        ul {
+            list-style: none;
+        }
+        ul span {
+            margin-left: 10px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        meter {
+            width: 150px;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <dl>
+            <dt>Perparing for Download</dt>
+            <dd>
+                <progress></progress>
+            </dd>
+            <dt>40% Completed</dt>
+            <dd>
+                <progress min="1" max="100" value="40"></progress>
+            </dd>
+            <dt>Download Complete</dt>
+            <dd>
+                <progress min="1" max="100" value="100"></progress>
+            </dd>
+        </dl>
+    </form>
+</body>
+</html>
+
+                            Label
+- It is used to display titles and captions for fields in a form.
+- It can bind with fields.
+- To bind with any field it used "for" attribute.
+- Binding is required to manipulate the field dynamically.
+
+Syntax:
+    <label for="UserName"> User Name </label>
+    <div>
+      <input type="text" name="UserName">
+    </div>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        form {
+            padding: 20px;
+            border:1px solid gray;
+            width: 200px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        .error-field {
+            color:red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2><span class="bi bi-person-fill"></span> User Login</h2>
+        <div class="form-group">
+            <label for="UserName">User Name</label>
+            <div>
+                <input type="text" name="UserName">
+                <div class="error-field">
+                    <span>User Name Required</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <div>
+                <input type="password" name="Password">
+                <div class="error-field">
+                    <span>4 to 15 chars</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+
+
+                            Buttons
+- A button is used for confirming user actions.
+- HTML provides 2 types of buttons
+    a) Generic Buttons
+    b) Non-Generic Buttons
+- Generic buttons have default functionality
+    a) Submit
+    b) Reset
+
+    <input type="submit">            HTML 4  [RC Data Type]
+    <input type="reset">            HTML 4
+
+    <button type="submit">Text | Image </button>    HTML 5
+    <button type="reset"> Text | Image </button>    HTML 5
+
+Ex:
+<div class="form-group">
+            <input type="submit" value="Register">
+            <input type="reset" value="Cancel">
+</div>
+
+<div class="form-group">
+           <button type="submit"> <span class="bi bi-person-fill"></span> Register </button>
+           <button type="reset"> <img src="public/images/bullet.jpg"> Cancel </button>
+</div>
+
+- Non Generic button are static without any default functionality.
+       
+    <input type="button" value="print">        HTML 4
+    <button type="button"> Text | Img </button>    HTML 5
+
+                    Bootstrap Form Classes

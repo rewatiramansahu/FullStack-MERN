@@ -1,0 +1,119 @@
+
+
+		=====  Meta Chars and Quantifiers  ======
+
+Meta Characters
+    ?            zero or one occurance
+    *            zero or more
+    +            one or more
+    |            OR
+    .            any single char
+    \            escape sequence
+    [ ]            range
+    ^            exclude
+    \^            start with
+    $            end with
+    ( )            It is union of chars & expression.
+
+    \d            Single digit number  [0-9]
+
+                Syntax:
+                pattern="\d\d"        => 12, 46, 37, 25, 99
+                pattern="\d\d?"    =>  12, 3,
+               
+    \D            Non numeric value. [a-z,A-Z,!@#$%^&]
+
+                Syntax:
+                pattern="\d\D"        => 3a, 3B, 3@, 3#
+               
+    \s            Single blank space
+   
+                Syntax:
+                pattern="\d\s\d"    => 3 1,
+
+    \w            It refers to word chars.
+                [ a-zA-Z0-9_ ]
+
+                Syntax:
+                pattern="\w"        => 3, a, A, _
+
+    \W            It refers to no-word chars. [all special chars]
+                [ a - z A - Z 0 - 9 _ ] => not allowed
+
+                Syntax:
+                pattern="\w\W"    => 1#, a@, A$            
+                pattern="\w[@#$]    => 3@, a#, A$
+
+    \i            Ignore case [capitalization]
+
+                Syntax:
+                pattern="Colour\i"       => colour, Colour, COLOUR
+
+Quantifier            Description
+------------------------------------------------------------------------
+ {n}                    exactly n-number of chars
+                   
+                    Syntax:
+                    pattern="\d{3}"
+
+ {n,m}                minimum-n and maximum-m  chars
+
+                    Syntax:
+                    pattern="\w{4,15}"
+
+ {n, }                    minimum-n  and maximum-any
+
+                    Syntax:
+                    pattern="\w{4, }"
+
+Regular expressions [pre-defined]:
+
+    (?=.*[A-Z])            At least one upper case letter at any place.
+    (?=.*[a-z])            at least one lower case letter.
+    (?=.*[0-9])            at least one numeric
+    (?=.*[!@#$%])            at least one special character
+
+Ex:
+1. Write a pattern to validate mobile number starting with +91 and 10 digits.
+
+            pattern="\+91\d{10}"
+
+2. Write a pattern to validate US mobile format
+
+            +(1)(425) 555-0100
+
+            pattern="\+\(1\)\(\d{3}\)\s\d{3}-\d{4}"
+
+3. Write pattern for UK mobile format
+           
+            +(44)(20) 1234 5678
+
+            pattern="\+\(44\)\(\d{2}\)\s\d{4}\s\d{4}"
+
+4.  Write a pattern to validate IFSC codes
+   
+            SBIN0070264
+
+            pattern="SBIN00\d{5}"
+
+5.  Write a pattern for user name 4 to 15 chars alpha numeric. Special chars not allowed.
+   
+            pattern="[A-Za-z0-9]{4,15}"        => special chars not allowed
+            pattern="\w{4,15}"                => underscore allowed
+
+6. Write a pattern for user name 4 to 15 upper letters only. number & special chars not allowed.
+            pattern="[A-Z]{4,15}"
+
+
+7. Write a pattern for user name starting with uppercase letter and can be 4 to 15 chars.
+    [number and special chars not allowed]
+
+
+            pattern="[A-Z]{1}[a-zA-Z]{3,14}"
+
+8. Write a pattern for user name 4 to 15 chars with atleast one uppercase letter.
+    [alpha numeric with underscore allowed]
+
+            pattern="(?=.*[A-Z])\w{4,15}"
+
+9. Write a pattern for user name 4 to 15 chars with atleast one uppercase letter, number and special char.

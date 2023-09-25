@@ -1,0 +1,251 @@
+CSS Form Attributes
+- CSS provides attributes and classes to handle form appearence and validation.
+
+
+    :required            It configures effects when field is defined with required.
+    :optional            It defines effects when field is not defined with required.
+    :valid            It defines effects when all validation attributes are satisfied.
+    :invalid            It defines effects when the field validation returns error.
+    :read-only        It defines effects for element when field is set with readonly.
+    :disabled            It defines effects when element is set with disabled.
+    :checked            It defines effects when element is set with checked attribute.
+                    [It can be for radio or checkbox]
+    :focus            It defines effects when element is in focus.
+
+    ::placeholder        It defines effects for elements placeholder.
+
+
+Ex: required & optional
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:required+span {
+            display: inline;
+            color:red;
+        }
+        input:optional+span {
+            display: none;
+        }
+        input:required {
+            border:1px solid red;
+        }
+        input:optional {
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <dl>
+            <dt>User Name</dt>
+            <dd><input type="text" required><span>*</span></dd>
+            <dt>Password</dt>
+            <dd><input type="password" required><span>*</span></dd>
+            <dt>Age</dt>
+            <dd><input type="number"><span>*</span></dd>
+        </dl>
+    </form>
+</body>
+</html>
+
+Ex: Valid & Invalid
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:required+span {
+            display: inline;
+            color:red;
+        }
+        input:optional+span {
+            display: none;
+        }
+        input:required {
+            border:1px solid red;
+        }
+        input:optional {
+            border:1px solid black;
+        }
+        input:valid {
+            border:1px solid black;
+        }
+        input:valid+span {
+            display: none;
+        }
+        input:valid~div {
+            display: none;
+        }
+        input:invalid~div {
+            display: block;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <dl>
+            <dt>User Name</dt>
+            <dd>
+                <input type="text" required><span>*</span>
+                <div>Name Required</div>
+            </dd>
+            <dt>Password</dt>
+            <dd>
+                <input type="password" required><span>*</span>
+                <div>Password Required</div>
+            </dd>
+            <dt>Age</dt>
+            <dd>
+                <input type="number" required><span>*</span>
+                <div>Age Required</div>
+            </dd>
+            <dt>Mobile</dt>
+            <dd>
+                <input type="text" pattern="\+91\d{10}">
+                <div>Invalid Mobile: +91 - 10 digits</div>
+            </dd>
+        </dl>
+    </form>
+</body>
+</html>
+
+Ex: Readonly & Disabled
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea:disabled {
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <dl>
+            <dt>Terms of Service</dt>
+            <dd>
+                <textarea rows="4" disabled cols="40">Our Terms of Service..</textarea>
+            </dd>
+        </dl>
+    </form>
+</body>
+</html>
+
+
+Ex: Checked
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea:disabled {
+            cursor: not-allowed;
+        }
+        .terms:checked+span {
+            color:green;
+        }
+        .terms+span {
+            color:red;
+        }
+        .terms~button {
+            display: none;
+        }
+        .terms:checked~button {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <dl>
+            <dt>Terms of Service</dt>
+            <dd>
+                <textarea rows="4" disabled cols="40">Our Terms of Service..</textarea>
+            </dd>
+            <dd>
+                <input type="checkbox" class="terms"> <span>I Accept</span>
+                <br><br>
+                <button>Submit</button>
+            </dd>
+        </dl>
+    </form>
+</body>
+</html>
+
+
+Ex: Focus
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+       input+div {
+         display: none;
+       }
+       input:focus+div {
+        display: block;
+        color:goldenrod;
+       }
+    </style>
+</head>
+<body>
+    <form>
+        <dl>
+           <dt>User Name</dt>
+           <dd>
+              <input type="text">
+              <div> <span class="bi bi-info-circle"></span> Name in Block Letters</div>
+           </dd>
+        </dl>
+    </form>
+</body>
+</html>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+       input{
+          border-left: none;
+          border-right: none;
+          border-top: none;
+       }
+       input::placeholder {
+         color:green;
+       }
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            <input type="text" placeholder="UserName">
+        </div>
+    </form>
+</body>
+</html>

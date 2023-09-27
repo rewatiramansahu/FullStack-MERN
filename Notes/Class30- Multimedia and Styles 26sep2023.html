@@ -1,0 +1,106 @@
+
+
+
+
+			===========	Multimedia and Styles =============
+
+- Multimedia comprises of animations, audio and video content.
+- HTML multi media comprises of
+    <marquee>
+    <video>
+    <audio>
+    <embed>     Embed any plugin into page, like applets, video, audio etc.
+
+Marquee:
+- It can display scrolling and sliding content in page.
+
+Syntax:
+    <marquee>
+        ...your content...
+    </marquee>
+
+Attributes:
+1. scrollamount    : It sets marquee scrolling speed from 1 to 100.
+2. direction        : It sets marequee scrolling direction left, right, up & down.
+3. behavior        : It changes from scrolling to sliding, you can set "alternate".
+4. loop            : It defines the number of times to display after page load.
+5. width/height        : It defines marquee area.
+6. bgcolor        : It sets background color for marquee area.
+
+Syntax:
+<marquee  scrollamount="20" direction="right" loop="3"  width="500" bgcolor="yellow">
+
+    ... your content ...
+
+</marquee>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <marquee scrollamount="20" width="300" bgcolor="yellow">
+        <img src="public/images/a2.jpg" width="50" height="50"> Big Billion Sale <img src="public/images/a1.jpg" width="50" height="50"> starts on Amazon and Flipkart from 8-Oct-2023 <img src="public/images/a3.jpg" width="50" height="50">
+    </marquee>
+    <marquee scrollamount="20" width="300" direction="right" bgcolor="lime">
+        <img src="public/images/a2.jpg" width="50" height="50"> Big Billion Sale <img src="public/images/a1.jpg" width="50" height="50"> starts on Amazon and Flipkart from 8-Oct-2023 <img src="public/images/a3.jpg" width="50" height="50">
+    </marquee>
+</body>
+</html>
+
+Video & Audio:
+- HTML allows to embed video files into page, which can be the type
+        .mp4, .avi, .mkv, .mov, .ogg  etc..
+- HTML allows to embed audio files of type
+        .mp3, .wav, .midi etc..
+- HTM elements
+
+        <video>
+        <audio>
+
+Syntax:
+    <video  src="path"  poster="thumbnail.jpg"  controls> </video>
+    <audio  src="path"  poster="pic.jpg" controls> </audio>
+
+
+                            Styles
+- Styles are attributes defined for HTML elements to make them more interactive and responsive.
+- Styles are defined in a webpage using 3 techniques
+
+    1. Inline Style
+    2. Embedded Style
+    3. External Style Sheet
+
+Inline Styles:
+- The style attributes are defined for every element individually by using "style" attribute.
+- These styles are faster in rendering.
+- However you can't reuse the styles.
+
+
+Syntax:
+    <h2 style="attribute:value; attribute:value">  Text </h2>
+   
+Ex:
+    <h2 style="background-color:red; color:white">  Text </h2>
+
+Embedded Style:
+- Styles are defined in page by using <style> container.
+- You can reuse the styles with in page.
+- It is slower when compared to inline.
+- You can't access styles from another page.
+
+Syntax:
+   <style>
+    selector {
+        attribute: value;
+        attribute: value;
+    }
+   </style>
+
+FAQ's:
+1. Where to embed the style container?
+A. You can embed <style> container in <head> or <body>.

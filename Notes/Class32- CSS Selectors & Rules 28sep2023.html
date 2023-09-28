@@ -1,0 +1,236 @@
+
+
+
+		================  CSS Selectors & Rules  ========================
+
+CSS Rules - FAQ's
+
+1. If styles are defined for any element using inline, embedded and external techniques, which set of effects will apply?
+A. If different attributes are defined then all will apply.
+     If same attributes are defined then it uses priority
+        1st    Inline
+        2nd    Embedded
+        3rd    External File
+ 
+2. If style container is defined with same attribute in both head & body, then which set of effects will apply?
+A. Priority is defined for the <style> in body.
+
+3. If style container is defined with same attribute multiple times in body, then which set will apply?
+A. The latest container effects will apply.
+
+
+                      Selecting HTML elements
+                      -----------------------------------
+- Styles are defined using inline technique, where selecting element is not required.
+- If styles are defined embedded or in external file, then you need a selector to select HTML elements.
+
+Syntax:
+        selector
+        {
+          attribute1: value;            => CSSOM [CSS Object Model]
+          attribute2: value;
+        }
+
+        {
+         key:value;                => Object
+        }
+
+- CSS Selectors are classified into various groups
+
+    1. Primary Selectors
+    2. Rational Selectors
+    3. Dynamic Pseudo classes
+    4. Structural Pseudo Classes
+    5. Element State Pseudo Classes
+    6. Validation State Pseudo Classes
+    7. Attribute Selectors
+    8. Universal Selector
+    9. Root Selector
+    10. Behavioural Selector
+
+Primary Selectors:
+
+1. Type Selector
+
+ - It refers to element token name.
+    p, h1, h4, table, td, dd, img..
+ - It will apply effects to every occurance of element in page.
+ - You can't ignore effects for any specific occurance.
+
+Syntax:
+      h1 {
+         color:red;
+      }
+
+2. ID Selector
+
+- It is defined by using "#" and reference name.
+- It is assigned to any element by using "id" attribute.
+- You apply only to specific element.
+- Every element can have only one ID reference.
+- Hence multiple sets of styles can't be applied to one element.
+
+Syntax:
+    #text-style {
+        color:red;
+        text-align:center;
+    }
+
+    <h1  id="text-style">  HTML </h1>
+
+3. Class Selector
+
+- It is defined by using "." and reference name.
+- You can access and apply to any element using "class" attribute.
+- Every element can implement multiple classes.
+- All class names a separated with "blank space".
+
+Syntax:
+    .text-style {
+        color:red;
+    }
+    .border-style{
+        border:1px solid red;
+    }
+
+    <h1 class="text-style  border-style">  HTML </h1>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .border-style {
+            border: 2px solid red;
+            padding: 5px;
+        }
+        .text-style {
+            text-align: center;
+            color:red;
+            font-family: Arial;
+        }
+        .bg-style {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-style border-style bg-style" >Web Technologies</h1>
+</body>
+</html>
+
+CSS Rules FAQ's:
+
+1. If we define styles for any element using all 3 primary selectors, which one will apply?
+A. If different styles are defined then all will apply.
+    If same styles are defined then it uses priority:
+
+        1st         Id selector
+        2nd        class selector
+        3rd         type selector
+
+2. If same attributes are defined using  ID selector in embedded and external file, which set will apply?
+A.  Embedded
+
+
+Note: You can group the selectors using "," delimeter. You can group any type of
+      selector for same set of effects.
+
+Syntax:
+        p, h1, img {
+           border:1px solid red;
+        }
+
+        img, .container {
+          box-shadow: 2px 2px 2px black;
+        }
+
+        #head, .container, p {
+          font-family : Arial;
+        }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #head, p {
+            font-family: Brush Script MT;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="head">Web Technologies</h1>
+    <p>We build applications for web.</p>
+    <h1>HTML</h1>
+    <p>It is a markup language.</p>
+</body>
+</html>
+
+Rational Selectors:
+- You can select element using parent and child hierarchy.
+- You can also select by refering to siblings.
+
+        parent   child            =>  all child elements in specific parent.
+
+        parent > child            =>  only direct child elements in specific parent.
+
+        ElementA+ElementB    =>  Adjacent selector [Sibling]
+       
+        ElementA~ElementB    =>  General Sibling
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container > p {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+     <div class="container">
+        <p>Para-1</p>
+        <p>Para-2</p>
+        <span><p>Para-3</p></span>
+        <p>Para-4</p>
+     </div>
+     <p>Para Outside Container</p>
+</body>
+</html>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       h2~p {
+         color:red;
+       }
+    </style>
+</head>
+<body>
+        <h2>Welcome</h2>
+        <p>Para-1</p>
+        <p>Para-2</p>
+        <p>Para-3</p>
+        <p>Para-4</p>
+ 
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+
+
+
+
+=============CSS Embed and External Files===================
+
+
+1. Inline            "style"
+2. Embedded        <style>
+
+FAQ: Where to embed?
+Ans:  <head> & <body>
+
+FAQ: What is the MIME type for Styles?
+Ans:  MIME is "Multi purpose Internet Mail Extention".
+         MIME defines file & content type.
+     Styles MIME type is "text/css".
+
+Syntax:
+    <style  type="text/css">
+
+    </style>
+
+FAQ: What is Media type for styles?
+Ans:  It configures your styles for various devices and viewports.
+     You can set styles for screen, print and speech.
+     
+Syntax:
+    <style  type="text/css"  media="all | screen | print | speech">
+
+    </style>
+
+FAQ: What is the issue with embedded technique?
+Ans:
+ - It is slower when compared to inline.
+ - You can't access across pages.
+ - Styles can be used only with in the page.
+
+3. Styles in External File
+- You can write styles in a separate style sheet.
+- Style sheet have extention ".css"
+- Style sheet can Cascade over HTML page.
+   [Cascade Style Sheet]
+- You can access across pages.
+- However if you are using external files, then number of requests will increase for page, which will increase the page load time.
+
+Syntax:
+1. Go to "src" folder and add sub-folder  "styles"
+
+2. Add a new file
+        "ticket.css"
+     .... your css.. style...
+
+3. Link to web page
+
+    <link rel="stylesheet"  href="src/styles/ticket.css">
+
+
+Ex:
+ ticket.css
+
+.container {
+    padding: 20px;
+    background-color: lightyellow;
+    border:3px solid black;
+}
+dl {
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+}
+dt{
+    font-weight: bold;
+}
+
+ home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/styles/ticket.css">
+</head>
+<body>
+    <div class="container">
+        <img src="public/images/a1.jpg" width="100" height="100">
+        <h1>Ticket</h1>
+        <dl>
+            <dt>Departure Date</dt>
+            <dd>30-Sep-2023</dd>
+            <dt>Time</dt>
+            <dd>12:45 PM</dd>
+        </dl>
+        <button>Print Ticket</button>
+    </div>
+</body>
+</html>
+
+FAQ: What is Minification?
+Ans:  It is a coding technique followed by developers to compress the CSS file and
+     reduce the size.
+   
+Ex:
+1. Copy your actual CSS code
+
+2. Visit the website
+
+    https://www.toptal.com/developers/cssminifier
+
+3. Paste your actual CSS code
+
+4. Click Minify button
+
+5. Now copy the minified code
+
+6. Go to your project  "src/styles" folder
+
+7. Add a new file  "ticket.min.css" and paste the minified code.
+
+8. Link the minified file to your page.
+
+Note: Always use Uncompressed files for "Development" [Design]
+      and Minified [Compressed] files for  "Production" [Go Live]
+
+    <link rel="stylesheet" href="src/styles/ticket.min.css">
+
+FAQ: What is CDN?
+Ans:  Content Delivery Network
+     You can keep all your files in separate respository server and access remotely      
+     from any project.

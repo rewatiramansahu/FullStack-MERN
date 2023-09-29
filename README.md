@@ -3765,11 +3765,7 @@ Table Attributes
 
 Note: You can't manipulate columns in HTML table.
 
-    <table bgcolor="yellow">        <table background="path_of_image">
-    <tr bgcolor="yellow">            <tr background="">
-    <thead bgcolor="yellow">        <thead background="">
-    <td bgcolor="yellow">            <td background="">
-    <th bgcolor="yellow">            <th background="">
+
 
 4. align & valign
 

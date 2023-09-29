@@ -3776,11 +3776,11 @@ Note: You can't manipulate columns in HTML table.
     align            : It aligns the cell content left, center, right or justify horizontally.
     valign        : It aligns the cell content top, center, bottom vertically.
 
-    <table align="center">            <tr valign="center">
-    <thead align="center">            <td valign="top">
-    <tr align="center">
-    <th align="right">
-    <td align="center">
+ align="center            valign="center
+   align="center            valign="top
+    align="center
+   align="right
+align="center
 
 5. height & width    
 

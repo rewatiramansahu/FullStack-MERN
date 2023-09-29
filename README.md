@@ -1728,9 +1728,9 @@ Ans:  Both are same in presentation.
 3. Font Effects            : It refers to  underline, strikeout, super script & subscript
 
 <u>        underline        <ins>   Inserted [review]
-                     <strike>    strikeout    </strike>      <del>   Deleted [review]
-                     <sup>    super script </sup>
-                     <sub>     subscript   </sub>
+                     strike    strikeout    strike      <del>   Deleted [review]
+                     sup    super script 
+                     sub     subscript   
 
 Syntax:
     X<sup>2</sup>

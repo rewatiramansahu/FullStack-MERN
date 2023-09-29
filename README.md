@@ -1,6 +1,4 @@
-# FullStack-MERN
-Meta
-Sudhakar Sharma
+Meta : 
 •
 Aug 22
 HTML Page Structure
@@ -22,8 +20,7 @@ Meta in Head Section
 - Meta data comprises of information about your web page.
 - Meta is required for a web page to make it Responsive and SEO friendly.
 
-## Meta Responsive Attributes
-
+Meta Responsive Attributes:
 - A responsive web page can adjust according the device.
 - It can fit the content to device screen. [Mobile, Tab, PC, Laptop, Watch etc..]
 - To test responsive pages you can download and install
@@ -33,17 +30,13 @@ Meta in Head Section
 
 <meta  name="viewport"  content="width=device-width, initial-scale=1.0">
 
-## a) Viewport
-
-It refers to screen type and its dimensions.
+a) Viewport        : It refers to screen type and its dimensions.
     b) width            : It refers to current page content width
     c) initial-scale        : It refers to zoom level. [1=100]
 
 <meta http-equiv="refresh"  content="5">
 
-## a) http-equiv
-
-It refers to request handler, which can process your request
+a) http-equiv        : It refers to request handler, which can process your request
                       for page by refreshing every few seconds.
     b) content        : It defines the number of seconds.
 
@@ -61,8 +54,7 @@ a) UTF is Unicode Transformation Format
             charset="utf-32"    => chinese etc..
             charset="utf-64"    => arabic
 
-## Syntax
-
+Syntax:
 <!DOCTYPE html>
 <html lang="en-in">
 <head>
@@ -78,17 +70,15 @@ a) UTF is Unicode Transformation Format
 
 4. <style>  is used to embed css into web page
 
-## Syntax
-
-<style type="text/css">
+Syntax:
+        <style type="text/css">
 
 </style>
 
 5. <script>  is used to embed javascript into webpage
 
-## Syntax
-
-<script  type="text/javascript">
+Syntax:
+        <script  type="text/javascript">
 
 </script>
 Body Section
@@ -99,26 +89,20 @@ HTML Body Section
 - Body section comprises of content which is rendered directly in browser.
 - Body section is defined with <body> token and comprises of following attributes.
 
-## Attributes
-
+Attributes:
 1. bgcolor        : It sets background color for page.
 2. text            : It sets text color.
 
-## Note
-
-HTML colors are defined by using 3 techniques
+Note: HTML colors are defined by using 3 techniques
         a) Color Name
         b) Color Shade Name
         c) Hexa Decimal Code
 
-## Syntax
-
-<body  bgcolor="red"  text="white">
+Syntax:
+    <body  bgcolor="red"  text="white">
     <body  bgcolor="lightyellow"  text="lightgreen">
 
-## Syntax
-
-Hexa Decimal Code
+Syntax: Hexa Decimal Code
 - Hexa color code starts with "#"
 - It can be 3 or 6 chars color code.
 - 3 or 6 chars have combination of "RGB" or "RRGGBB"  [Red Green Blue]
@@ -145,17 +129,12 @@ bgcolor="#000000"            black
         bgcolor="#ff0000"            red
         bgcolor="#ad0000"            red shade
 
-## 3. background
+3. background            : It sets background image for body section.
 
-It sets background image for body section.
+Syntax:
+    <body background="public/images/banner.jpg">
 
-## Syntax
-
-<body background="public/images/banner.jpg">
-
-## Note
-
-You can control background image by using CSS attributes.
+Note: You can control background image by using CSS attributes.
       CSS attributes are defined in a <style> container.
       CSS attributes for background are:
            
@@ -164,8 +143,7 @@ You can control background image by using CSS attributes.
           background-position: top | center | right | left | bottom [1200px or 100%]
           background-attachment: fixed | scroll
 
-## Syntax
-
+Syntax:
 <head>
   <style>
       body {
@@ -179,13 +157,10 @@ You can control background image by using CSS attributes.
 <body  background="public/images/banner.jpg">
 </body>
 
-## 4. align
+4. align        : It aligns the body content left, center, right or justified.
 
-It aligns the body content left, center, right or justified.
-
-## Syntax
-
-<body align="left | center | right | justify">
+Syntax:
+  <body align="left | center | right | justify">
   </body>
 
 5. leftmargin            ]    margin will set space between content and page
@@ -193,25 +168,17 @@ It aligns the body content left, center, right or justified.
 7. topmargin            ]
 8. bottommargin        ]
 
-## Syntax
+Syntax:
+  <body leftmargin="50px" rightmargin="50px" topmargin="25px" bottommargin="40px">
 
-<body leftmargin="50px" rightmargin="50px" topmargin="25px" bottommargin="40px">
+9. alink            : It sets color for active links in page.
 
-## 9. alink
+10. vlink            : It sets color for visited links in page.
 
-It sets color for active links in page.
+Syntax:
+  <body  alink="red"  vlink="gray">
 
-## 10. vlink
-
-It sets color for visited links in page.
-
-## Syntax
-
-<body  alink="red"  vlink="gray">
-
-## <a href="http
-
-//www.amazon.in"&gt; Amazon </a>
+<a href="http://www.amazon.in"&gt; Amazon </a>
 
 </body>
 
@@ -241,8 +208,7 @@ Body Section Semantics for Layout Design
 11. <figure>
 12. <figcaption>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -305,8 +271,7 @@ Body Section Semantics for Layout Design
 
 www.getbootstrap.com => themes
 
-## Shopper Theme URL
-
+Shopper Theme URL:
 https://themes.getbootstrap.com/preview/?theme_id=37702
 
 Setup Bootstrap Icons for Project
@@ -346,15 +311,13 @@ bi bi-bell  ....
 - It is a container that defines content to display at top margin of page.
 - Typically a header in webpage comprises of brand-name, logo, shortcut buttons, navigation etc.
 
-## Syntax
-
-<header>
+Syntax:
+ <header>
     ........ your content....
 </header>
 
-## CSS Style Attributes
-
-font-size            It changes the character size [px]
+CSS Style Attributes:
+    font-size            It changes the character size [px]
     font-weight        It sets bold
     font-style            It sets italics
     font-family        It sets text  style using a font family name.
@@ -391,18 +354,15 @@ border            It sets border style, side and color for container
     border-radius        It sets rounded corners
     text-align            It aligns text left, center, right or justify
 
-## Note
-
-You can't change width and height of any span element using CSS directly.
+Note: You can't change width and height of any span element using CSS directly.
       To set width and height for span you have to define "display:inline-block"
 
 <nav>
 - It is used to configure a navigation area in webpage.
 - Typically nav area comprises of various nav-items or shortcut buttons.
 
-## Syntax
-
-<nav>
+Syntax:
+    <nav>
         <span> Home </span>
         <span> Shop </span>
         <span> About </span>
@@ -412,15 +372,14 @@ You can't change width and height of any span element using CSS directly.
 - It is a container element that keeps the highlights of web page content.
 - It is typically the offers, announcements, news, updates etc..
 
-## Syntax
-
-<article>
+Syntax:
+    <article>
          40% OFF on Electronics - Sale Ends on 31-Aug-2023
     </article>
 
 Shopper-Template.html
 
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-in">
     <head>
         <title>Shopper Template</title>
@@ -430,9 +389,7 @@ Shopper-Template.html
         <style>
             header
             {
-                font-size
-
-25px;
+                font-size:25px;
                 font-family: Arial;
                 display: flex;
                 justify-content: space-between;
@@ -511,9 +468,8 @@ Body Semantics
 - It defines the content to display at the bottom margin of web page.
 - Typically footer comprises of copyrights, contact details, social bar, services etc.
 
-## Syntax
-
-<footer>
+Syntax:
+    <footer>
         ... your footer content...
     </footer>
 
@@ -521,14 +477,12 @@ Body Semantics
 - It defines the content that is not relative to current contex or that navigates the user to any another website.
 - It contains contents aside the current context.
 
-## Syntax
-
-<aside>
+Syntax:
+    <aside>
         ..... ads , social network ..
     </aside>
 
-## Note
-
+Note:
 - "display:flex" keeps flexible columns, which change according to he width of screen.
 - "display:grid" keeps fixed number of columns
 - Every page can split into 12 columns max. [1200px]
@@ -537,16 +491,13 @@ Body Semantics
             200px    2fr
 - Pixels are fixed and Fractions are responsive.
 
-## Syntax
-
-footer {
+Syntax:
+    footer {
         display:grid;
         grid-template-columns: 600px  600px;  (or)  6fr  6fr
     }
 
-## Note
-
-Selecting Child and Siblings in CSS.
+Note: Selecting Child and Siblings in CSS.
 
 parent  child            => child selector
         {
@@ -560,11 +511,9 @@ ElementA+ElementB    => Adjacent Sibling
         {
         }
 
-## Ex
+Ex: Header & Footer
 
-Header & Footer
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-in">
     <head>
         <title>Shopper Template</title>
@@ -574,9 +523,7 @@ Header & Footer
         <style>
             header
             {
-                font-size
-
-25px;
+                font-size:25px;
                 font-family: Arial;
                 display: flex;
                 justify-content: space-between;
@@ -716,11 +663,9 @@ Header & Footer
     </body>
 </html>
 
-## Ex
+Ex: Flipkart Footer
 
-Flipkart Footer
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -728,9 +673,7 @@ Flipkart Footer
     <title>Flipkart</title>
     <style>
         footer {
-            display
-
-grid;
+            display: grid;
             grid-template-columns: 6fr 6fr;
             height: 200px;
         }
@@ -765,9 +708,8 @@ grid;
 - It defines the content between header and footer area.
 - Typically all website content is kept in section.
 
-## Syntax
-
-<section>
+Syntax:
+  <section>
     ....your content....
   </section>
 
@@ -775,15 +717,12 @@ grid;
 - It is considered as entry point.
 - User can start using your website from a specific entry point, which is "main".
 
-## Syntax
-
-<main>
+Syntax:
+    <main>
          get started with...
     </main>
 
-## Note
-
-You can set transparent colours in CSS using the method "rgba()"
+Note: You can set transparent colours in CSS using the method "rgba()"
 
 rgba(red, green, blue, alpha);
 
@@ -792,11 +731,9 @@ red , green, blue => 0 to 255
 
 rgba(255, 0, 0, 1);
 
-## Netflix
+Netflix:
 
-
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -804,9 +741,7 @@ rgba(255, 0, 0, 1);
     <title>Netflix</title>
     <style>
         body{
-            background-size
-
-cover;
+            background-size: cover;
         }
         .shade {
             background-color: rgba(0,0,0,0.5);
@@ -837,8 +772,7 @@ Basic Semantics
 <section>
 <main>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -856,11 +790,9 @@ Basic Semantics
             margin-top: -10px;
             margin-left: -10px;
 
-## }
+}
         header {
-            padding
-
-40px;
+            padding: 40px;
             color:white;
             font-family: Arial;
             display: flex;
@@ -945,9 +877,7 @@ Basic Semantics
 </body>
 </html>
 
-## Note
-
-To display any content center screen you have to following the given process.
+Note: To display any content center screen you have to following the given process.
        - First keep all elements in one container.
                <body>
                  <div>
@@ -956,17 +886,14 @@ To display any content center screen you have to following the given process.
             </body>
        - Body is the container which can display its content center with the attributes
 
-## body {
-                display
-
-flex;
+body {
+                display:flex;
                 justify-content:center;        [horizontal]
                 align-items:center;            [vertical]
                 height: 400px;
             }
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1007,14 +934,12 @@ flex;
 - You can show or hide the dialog with "open" attribute.
 - You can control the dialog dynamically using JavaScript.
 
-## Syntax
-
-<dialog open>
+Syntax:
+    <dialog open>
         ...your content...
     </dialog>
 
-## Ex
-
+Ex:
 <body>
     <dialog open>
         Chat with our Help Desk
@@ -1026,15 +951,13 @@ flex;
 - Figure is used to encapsulate any image with a caption.
 - Figcaption is used to make image SEO friendly.
 
-## Syntax
-
-<figure>
+Syntax:
+   <figure>
     ...your image...
         <figcaption> Fig-1 </figcaption>
    </figure>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1081,23 +1004,19 @@ HTML Basic Entities & Semantics for Body
 
 1. Line Break            <br>
 
-## FAQ
-
-What is difference between <br> & <br /> ?
+FAQ: What is difference between <br> & <br /> ?
 Ans:  There is no <br /> in HTML.
       It is just developers coding technique to represent self ending elements i.e the
       element that doesn't have end token.
 
 2. Blank Space        &nbsp;
 
-## Syntax
-
-H &nbsp;&nbsp;T &nbsp;&nbsp;M &nbsp;&nbsp;L
+Syntax:
+    H &nbsp;&nbsp;T &nbsp;&nbsp;M &nbsp;&nbsp;L
 
 3. Pre Formatted Text    <pre> It can display text with the same format defined in page.
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1137,9 +1056,8 @@ Other Semantics
 5. Variables        <var>        It is used for variables in program.
 6. Sample Text    <samp>        It is used for comments and captions in page.
 
-## Syntax
-
-<samp> Program to Print Addition </samp>
+Syntax:
+   <samp> Program to Print Addition </samp>
    <code>
     <pre>
          int <var> x </var> = 10;
@@ -1147,8 +1065,7 @@ Other Semantics
         </pre>
    </code>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1188,9 +1105,8 @@ Other Semantics
 7. Small Text        <small>        It sets letter size small
 8. Large Text        <big>        It sets letter size large
 
-## Syntax
-
-<small> your text </small>
+Syntax:
+    <small> your text </small>
     <big> your text </big>
 
 9. Details & Summary
@@ -1198,23 +1114,20 @@ Other Semantics
 - Details is a container that can display expandable and collapsable content.
 - Summary is a caption for details container.
 
-## Syntax
-
-<details>
+Syntax:
+    <details>
         <summary> Title </summary>
         ... your content...
     </details>
 
 - If you want details to expand by default, then define the attribute "open".
 
-## Syntax
-
-<details open>
+Syntax:
+     <details open>
 
 </details>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1245,8 +1158,7 @@ Other Semantics
 </body>
 </html>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1290,15 +1202,13 @@ Other Semantics
 - HTML data list can be defined using <dl>
 - It is a collection of terms defined with <dt> and definitions <dd>.
 
-## Syntax
-
-<dl>
+Syntax:
+    <dl>
        <dt> Term </dt>
        <dd> Definition </dd>
     </dl>
 
-## Ex-1
-
+Ex-1:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1331,8 +1241,7 @@ Other Semantics
 </body>
 </html>
 
-## Ex-2
-
+Ex-2:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1374,19 +1283,15 @@ Other Semantics
 </body>
 </html>
 
-## Note
+Note: You can make any content sticky to page by using CSS "position" attribute.
 
-You can make any content sticky to page by using CSS "position" attribute.
-
-## Syntax
-
-dt {
+Syntax:
+        dt {
          position:sticky;
          top:0px;
          }
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1513,27 +1418,21 @@ dt {
 - Legend is a caption set for fieldset.
 - Usually it is used for creating a group of elements in page.
 
-## Syntax
-
-<fieldset>
+Syntax:
+    <fieldset>
         <legend> Title </legend>
         ...your content...
     </fieldset>
 
-## Note
+Note: You can set shadow for any container by using "box-shadow"
 
-You can set shadow for any container by using "box-shadow"
-
-## {
-          box-shadow
-
-horizontal  vertical  blur  color;
+{
+          box-shadow : horizontal  vertical  blur  color;
         }
 
-## horizontal, vertical, blur        =>  defined in pixels.
+horizontal, vertical, blur        =>  defined in pixels.
        
-Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1610,15 +1509,13 @@ Headings in HTML
 - So that SEO can make a summary of topics your page.
 - Headings are defined by using <hn> token where 'n' refers to level number 1 to 6.
 
-## Syntax
-
-<h1> Heading - 1 </h1>
+Syntax:
+        <h1> Heading - 1 </h1>
         <h2> Heading - 2 </h2>
         .............
         <h6> Heading - 6 </h6>
 
-## FAQ's
-
+FAQ's:
 1. Why we have to use heading element for headings, can we configure using HTML text styles or CSS styles?
 A. You can configure with HTML text style and CSS but they are not SEO friendly.
      To keep headings SEO Friendly you need <hn> element.
@@ -1630,16 +1527,14 @@ A. Yes. By using CSS.
 A. By using CSS inheritance values you can control the default style.
     You have to use CSS inheritance value "unset".
 
-## Syntax
-
-h1 {
+Syntax:
+    h1 {
         font-weight: unset;
         font-size:unset;        =>  all : unset;
         display:unset;
       }
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1671,9 +1566,8 @@ h1 {
 </body>
 </html>
 
-## Note
-
-- Don't use too many headings in page. It may spam your page.
+Note:
+ - Don't use too many headings in page. It may spam your page.
  - Never use headings to highlight any word or sentence in page.
 
 Paragraph and Block Quote
@@ -1683,23 +1577,20 @@ Paragraph and Block Quote
 - Paragraph is used to define contineous blocked content.
 - Blockquote is used to summarize the content that you have in page.
 
-## Syntax
-
-<p> your content </p>
+Syntax:
+    <p> your content </p>
     <p align="center"> your content </p>
    
     <blockquote align="justify">
         ..your content...
     </blockquote>
 
-## FAQ's
-
+FAQ's:
 1. How to set first-line indent for paragraph or blockquote?
 A. By using CSS "text-indent" attribute.
 
-## Syntax
-
-p {
+Syntax:
+    p {
        text-indent: 200px;
     }
 
@@ -1710,25 +1601,21 @@ A. By using following CSS attributes
         word-space
         letter-space
 
-## Syntax
-
-p {
+Syntax:
+    p {
        line-height: 35px;
        word-spacing: 20px;
        letter-spacing: 5px;
     }
 
-## 3. How to set Dropcap?
+3. How to set Dropcap?
 A. By using following styles you can set dropcap.
-    a) Access the first letter by using "
-
-:first-letter " class.
+    a) Access the first letter by using " ::first-letter " class.
     b) Apply font styles [size, bold, italics, family]
     c) Apply CSS float as left.
 
-## Syntax
-
-p :: first-letter {
+Syntax:
+     p :: first-letter {
         font-size : 35px;
         font-weight: bold;
         font-family: Arial;
@@ -1742,8 +1629,7 @@ A. By using CSS "columns" attribute.
         - column-width
         - column-rule [border]
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1803,14 +1689,11 @@ Text Effects and Numbering
 
 Text Formatting in HTML
 
-## 1. Font
-
-You can change the face, size and color of text by using <font>
+1. Font            : You can change the face, size and color of text by using <font>
                   element.
 
-## Syntax
-
-<font   face=""   size=""   color=""> Your Text </font>
+Syntax:
+        <font   face=""   size=""   color=""> Your Text </font>
 
 face            => It is font family name.
                 size            => It is number 1 to 7 level.        
@@ -1818,55 +1701,42 @@ face            => It is font family name.
 
 <font  face="Arial"  size="6"  color="red">  Text </font>
 
-## FAQ
-
-What are websafe fonts?
+FAQ: What are websafe fonts?
 Ans:  These are the fonts available to all devices. The web safe fonts are:
         a) sans-serif
         b) serif
         c) monspace
 
-## Note
+Note: W3 Standards recommends not to use <font> tag in webpage. Better use styles for formatting.
 
-W3 Standards recommends not to use <font> tag in webpage. Better use styles for formatting.
-
-## 2. Font Styles
-
-It refers to bold & italics. HMTL provides following elements
+2. Font Styles        : It refers to bold & italics. HMTL provides following elements
                     <b>        Bold        <strong>
                     <i>        Italics    <em> Emphasized
 
-## Syntax
-
-<b> Bold </b>
+Syntax:
+    <b> Bold </b>
     <strong> Bold </strong>
     <i> Italics </i>
     <em> Italics </i>
 
-## FAQ
-
-What is difference between <b> & <strong>?
+FAQ: What is difference between <b> & <strong>?
 Ans:  Both are same in presentation.
      They differ in documentation technique, which includes
         a) Design mode  <b>
         b) Review mode <strong>
 
-## 3. Font Effects
-
-It refers to  underline, strikeout, super script & subscript
+3. Font Effects            : It refers to  underline, strikeout, super script & subscript
 
 <u>        underline        <ins>   Inserted [review]
                      <strike>    strikeout        <del>   Deleted [review]
                      <sup>    super script
                      <sub>     subscript
 
-## Syntax
-
-X<sup>2</sup>
+Syntax:
+    X<sup>2</sup>
     H<sub>2</sub>O
 
-## Summary
-
+Summary:
 - font
 - bold [strong]
 - italic [em]
@@ -1880,9 +1750,8 @@ Ordered and Unordered List
 - It is auto numbering style for list of items.
 - Every item is defined with <li>.
 
-## Syntax
-
-<ol>
+Syntax:
+    <ol>
        <li> Item-1 </li>            1. Item-1
        <li> Item-2 </li>            2. Item-2
     </ol>
@@ -1900,9 +1769,8 @@ Ordered and Unordered List
 
 <ol type="1"  reversed>
 
-## Syntax
-
-<ol type="1"  start="3"  reversed>
+Syntax:
+    <ol type="1"  start="3"  reversed>
        <li> Item - 1</li>
        <li> Item - 2</li>
     </ol>
@@ -1936,20 +1804,17 @@ Format Text in HTML
     reversed
 - Nested List
 
-## FAQ's
-
+FAQ's:
 1. How to remove numbering for ordered list?
 A. You can remove numbering style using css attribute
      "list-style:none"
 
-## Syntax
-
-ol {
+Syntax:
+    ol {
          list-style:none;
       }
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1978,37 +1843,30 @@ ol {
 </body>
 </html>
 
-## 2. How to create a scrollable list?
+2. How to create a scrollable list?
 A. Follow the steps defined below
     - Set border for container <ol>
     - Set width and height
-    - Set overflow
+    - Set overflow:auto
 
-auto
-
-## Syntax
-
-ol {
+Syntax:
+    ol {
     border:1px solid gray;
     width:150px;
     height:100px;
     overflow:auto;
      }
 
-## 3. How to display list items inline?
-A. By using "display
+3. How to display list items inline?
+A. By using "display:flex" for ordered list.
 
-flex" for ordered list.
-
-## Syntax
-
-ol {
+Syntax:
+    ol {
        display:flex;
        justify-content:space-between;
     }
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2033,15 +1891,11 @@ ol {
 </body>
 </html>
 
-## 4. How to display list in columns?
-A. By using display
-
-grid => It can display numbering left to right orientation.
+4. How to display list in columns?
+A. By using display:grid => It can display numbering left to right orientation.
     By using columns  => It can display numbering top to bottom.
 
-## Ex
-
-Grid
+Ex: Grid
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2074,8 +1928,7 @@ Grid
 </body>
 </html>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2107,8 +1960,7 @@ Grid
 </body>
 </html>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2148,31 +2000,26 @@ Unordered List
 - Items are configured with <li>
 - You can change symbol using "type" attribute.
 
-## Syntax
-
-<ul type="circle | square | disc">
+Syntax:
+    <ul type="circle | square | disc">
     <li> Item - 1 </li>
     <li> Item - 2 </li>
     </ul>
 
-## FAQ
-
-How to set custom bullets?
+FAQ: How to set custom bullets?
 Ans : By using "list-style-image" attribute from css.
 
 1. Create a new icon for bullet  "32x32 pixels"
 2. Save into project public/images folder => bullet => type "jpeg"
 3. Set Image as bullet
 
-## Syntax
-
-ul {
+Syntax:
+    ul {
        list-style-image: url("public/images/bullet.jpg");
        font-size:34px;
     }
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2195,12 +2042,9 @@ ul {
 </body>
 </html>
 
-## Note
+Note: You can set bootstrap icons for list items, instead of default bullet symbols.
 
-You can set bootstrap icons for list items, instead of default bullet symbols.
-
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2235,11 +2079,9 @@ You can set bootstrap icons for list items, instead of default bullet symbols.
 </body>
 </html>
 
-## Ex
+Ex: Every List item with different icon
 
-Every List item with different icon
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -2247,9 +2089,7 @@ Every List item with different icon
     <title>Document</title>
     <style>
        ul {
-         font-size
-
-20px;
+         font-size: 20px;
          font-family: Arial;
          list-style: none;
        }
@@ -2274,22 +2114,19 @@ Every List item with different icon
 </body>
 </html>
 
-## CSS Fixed Position
-
+CSS Fixed Position:
 - It removes element from its normal position.
 - It keeps the element top, left, right or bottom with relative to window.
 - It is fixed in position and will not scroll.
 
-## Syntax
-
-ul {
+Syntax:
+    ul {
         position:fixed;
         right: 20px;
         bottom:20px;
     }
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2331,11 +2168,9 @@ ul {
 </body>
 </html>
 
-## Ex
+Ex: Pagination
 
-Pagination
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -2343,9 +2178,7 @@ Pagination
     <title>Document</title>
     <style>
        ul {
-         list-style
-
-none;
+         list-style: none;
          display: flex;
          font-family: Arial;
        }
@@ -2424,55 +2257,38 @@ ICO       	image/icon       		Microsoft Icon                    .ico
 
 Webp       application/webp    	Web Picture                    .webp
 
-## Purpose of Various Image Types
+Purpose of Various Image Types:
 
-
-
-## PNG, APNG
-
-High Definition, More Pixel Depth
+PNG, APNG                :  High Definition, More Pixel Depth
                            More memory space required.
                            You have to use PNG type only for downloads.
 
-## JPG
-
-High Definition, Good Pixel Depth [less than PNG]
+JPG                        :  High Definition, Good Pixel Depth [less than PNG]
                            It is compressed image format. Less memory space.
                            You have to use JPG for on screen presentation.
 
-## GIF
-
-Only 256 colors, Less Pixels
+GIF                        :  Only 256 colors, Less Pixels
                            Memory is same like JPG.
                            It can be animated.
                            You have to use for buttons, logos, bullets, borders
                            background patterns etc..
 
-## SVG
-
-It is not pixel based.
+SVG                        : It is not pixel based.
                           It is vector based image.
                           It is an XML format image.
                           You have to use for architectural diagrams,
                           flow charts, maps, icons etc.
 
-## Webp
-
-It is embedded into page and intergrated into page.
+Webp                    : It is embedded into page and intergrated into page.
                           You can't separate from page.
 
-## ICO
+ICO                        : It is used for shortcut icons [favicon]
 
-It is used for shortcut icons [favicon]
-
-## Embed Images into Web Page
-
+Embed Images into Web Page:
 - You can embed image into web page by using <img> element.
 - It provides various attributes
 
-## src
-
-It refers to image path and name
+src                : It refers to image path and name
         alt                : It refers to alternative text to display when image fails to
                           load.
         title                : It defines a tooltip to display when mouse is over image.
@@ -2483,12 +2299,10 @@ It refers to image path and name
         vspace / hspace    : It set horizontal and vertical space between image and
                           other contents in page.
 
-## Syntax
+Syntax:
+    <img  src="path">
 
-<img  src="path">
-
-## Ex
-
+Ex:
 <img src="public/images/realme-black.jpg" title="30% OFF - Offer End on 5 Sep 2023" alt="Realme-Black" 
 width="300" height="400">
 
@@ -2509,8 +2323,7 @@ Attributes
     hspace
     vspace
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2615,45 +2428,31 @@ Attributes
 </body>
 </html>
 
-## Advanced Attributes
+Advanced Attributes:
 
-
-
-## 1. crossorigin [CORS]
-
-It controls Cross Origin Resource Sharing.
+1. crossorigin [CORS]       : It controls Cross Origin Resource Sharing.
                         You can configure with "use-credentials" or "anonymous".
 
-## <img  src="http
+<img  src="http://someserver.com/images/pic.jpg&quot;  crossorigin="use-credentials">
 
-//someserver.com/images/pic.jpg&quot;  crossorigin="use-credentials">
-
-## 2. decoding
-
-It defines how image have to load along with other contents
+2. decoding              : It defines how image have to load along with other contents
                         on page. It can "Sync, Async or Auto".
 
 <img src="public/images/pic.jpg"  decoding="sync | async | auto">
 
-## 3. importance
-
-It sets priority for loading images, which can be low, high or
+3. importance             : It sets priority for loading images, which can be low, high or
                        auto.
 
 <img src="public/images/pic.jpg"  importance="low">
 
-## 4. srcset
-
-It can configure a set of images as source, so that they
+4. srcset                 : It can configure a set of images as source, so that they
                       can change according to situation.
 
 <img  srcset="collection of images">
 
-## Ex
+Ex: Cards
 
-Cards
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -2662,9 +2461,7 @@ Cards
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <style>
         body {
-            display
-
-flex;
+            display: flex;
             background-color: gray;
         }
         .card {
@@ -2757,19 +2554,15 @@ flex;
 
 Template Designs with Cards
 
-## FAQ's
-
-How to design fluid Image?
+FAQ's: How to design fluid Image?
 Ans: You can design fluid images by configuring the size in "%".
    
         <img width="50%" height="40%">
         <img width="50%" height="100">
 
-## Ex
+Ex: Amazon Cards-
 
-Amazon Cards-
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -2777,9 +2570,7 @@ Amazon Cards-
     <title>Document</title>
     <style>
         section {
-            display
-
-grid;
+            display: grid;
             grid-template-columns: 3fr 3fr 3fr 3fr;
             grid-gap: 10px;
             margin-top: -250px;
@@ -2943,11 +2734,9 @@ grid;
 </body>
 </html>
 
-## Ex
+Ex: Shopper Templates
 
-Shopper Templates
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-in">
     <head>
         <title>Shopper Template</title>
@@ -2957,9 +2746,7 @@ Shopper Templates
         <style>
             header
             {
-                font-size
-
-25px;
+                font-size:25px;
                 font-family: Arial;
                 display: flex;
                 justify-content: space-between;
@@ -3207,8 +2994,7 @@ Links in HTML -
 1. Intra Document Links
         2. Inter Document Links
 
-## Intra Document Links
-
+Intra Document Links:
 - These are the hyperlinks that navigate user from one location to another with in the same page.
 - To create intra document links the target element must have a reference ID.
 
@@ -3218,47 +3004,36 @@ Links in HTML -
 
 - User can navigate to reference ID by using <a> element.
 
-## <a href="#fashion">  Fashion </a>
+<a href="#fashion">  Fashion </a>
          <a href="#realme"> Realme </a>
          <a href="#list">   <img src="">  </a>
        
-FAQ
-
-How to remove underline for hyperlinks?
+FAQ: How to remove underline for hyperlinks?
 Ans : By using style attribute  "text-decoration" set to "none".
 
-## Syntax
-
-a {    
+Syntax:
+        a {    
           text-decoration: none;
         }
 
-## FAQ
-
-How to change color for visited  & active links?
+FAQ: How to change color for visited  & active links?
 Ans:  By using HTML <body> attributes "alink & vlink"
                 (or)
       By using CSS class ":link, :visited,  :active"
 
-## Syntax
+Syntax:
+        <body  alink="red"  vlink="gray">
 
-<body  alink="red"  vlink="gray">
-
-## a
-
-visited {   }
+a:visited {   }
         a:active {   }
         a:link {   }
 
-## FAQ
-
-What is difference between src & href?
+FAQ: What is difference between src & href?
 Ans:   "src" is a getter, it get the value from specified path and uses for element.
        "href" is a setter, it sets the path in URL and appends into browser address bar.
 
-## Syntax
-
-http://127.0.0.1:5500/public/fashion.html#kids
+Syntax:
+        http://127.0.0.1:5500/public/fashion.html#kids
  
 Ex:
 <!DOCTYPE html>
@@ -3348,8 +3123,7 @@ Ex:
 </body>
 </html>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3474,12 +3248,9 @@ Ex:
 
 
 
-## Note
+Note: CSS provides a ":target" class that identifies the target container and sets effects dynamically.
 
-CSS provides a ":target" class that identifies the target container and sets effects dynamically.
-
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3541,30 +3312,26 @@ CSS provides a ":target" class that identifies the target container and sets eff
     3. It can invoke any "application".
     4. It can invoke any script "function".
 
-## Link to File
-
+Link to File:
 - You can create a hyper link that navigates the user to any specified document in project.
 - You can link any type of document, image, html, word docs, spread sheets, ppts, text documents, audio, video etc..
 - Every linked document can't open in browser.
 - Browser need special extentions [plugin's] to open special type of files.
 - If file related plugin is not available in browser then file will download.
 
-## Syntax
-
-<a href="./public/images/kids.jpg"> Kids Fashion </a>        can open in browser
+Syntax:
+    <a href="./public/images/kids.jpg"> Kids Fashion </a>        can open in browser
     <a href="./shopper-template.html"> Shopper </a>        can open in browser
     <a href="./public/docs/js.pdf"> JavaScript </a>            can open in browser
     <a href="./public/docs/resume.docx"> Resume </a>        will download
 
 - HTML 5 provides "download" attribute for hyperlink, which download the linked document always.
 
-## Syntax
-
-<a href="./public/images/kids.jpg"  download>   Kids </a>
+Syntax:
+    <a href="./public/images/kids.jpg"  download>   Kids </a>
     <a href="./public/images/kids.jpg"  download="kids-fashion">
 
-## Link to URL
-
+Link to URL:
 - You can link any website URL or any specific resource on server.
 - When you link URL make sure that is configured with proper "protocol" and "domain name".
            
@@ -3573,34 +3340,29 @@ Syntax:
     <a href="https://www.youtube.com/nareshit"&gt;  Naresh IT </a>
     <a href="https://api.nasa.gov..../photos/pic.jpg"&gt; Nasa Photo </a>
 
-## Link to Applications
-
+Link to Applications:
 - You can create a hyperlink that can invoke application, which is running in your device.
 - You have to make sure that the relative application is already installed in your device.
 - Most commonly linked applications with anchor element are:
         mail, skype, telephone, others with web address
 
-## Syntax
-
-<a href="name@gmail.com">  Email </a>
+Syntax:
+    <a href="name@gmail.com">  Email </a>
     <a href="skype:name@outlook.com"> Skype </a>
     <a href="tel:+919988774342"> Call </a>
     <a href="https://api.whatsapp.com/&gt; Whatsapp </a>    link to url
 
-## Link JavaScript function
-
+Link JavaScript function:
 - You can link JavaScript functions using hyperlink
 - A function contains code snippet [code block] that executes and performs specified functionality.
 
-## Syntax
-
-<a href="javascript:window.print()">  Print Page </a>
+Syntax:
+  <a href="javascript:window.print()">  Print Page </a>
   <a href="javascript:functionName()">   Execute </a>
 
 YouTube
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3638,22 +3400,18 @@ Inter Document Links
 - To Application
 - To JavaScript functions
 
-## FAQ's
-
+FAQ's:
 1. How to remove underline for Hyperlink?
 A. By using CSS "text-decoration:none"
 
-## Syntax
-
-a{
+Syntax:
+    a{
       text-decoration:none;
     }
 
-## 2. How to set colours for active & visited links?
+2. How to set colours for active & visited links?
 A. By using <body> attributes "alink" & "vlink"
-    By using CSS classes  "
-
-visited"  & ":active"
+    By using CSS classes  ":visited"  & ":active"
 
 3. How to download linked document always?
 A. By using "download" attribute for <a> element.
@@ -3666,31 +3424,26 @@ A. By using "target" attribute for <a> set to "_blank".
 5. How to open linked document in new window?
 A. By using JavaScript function "window.open()".
 
-## <a href="javascript
+<a href="javascript:window.open('path', 'title', 'features')">  Text | Image </a>
 
-window.open('path', 'title', 'features')">  Text | Image </a>
+Ex:
+ <a href="javascript:window.open('public/images/fashion.jpg', 'Fashion', 'width=300 height=400')">   Fashion </a>
 
-## Ex
-
-<a href="javascript:window.open('public/images/fashion.jpg', 'Fashion', 'width=300 height=400')">   Fashion </a>
-
-## 6. How to open linked document in the same window along with other contents in page?
+6. How to open linked document in the same window along with other contents in page?
 A. You can embed any external document into page by using an <iframe>.
      Iframe allows you to access and browse other page contents from current page.
      Iframe can embed any type of document supported by browser plugin's.
     [image, html, pdf, text etc..]
      You can set link target that refers to iframe name.
      
-Syntax
-
-<iframe  src="you can load any url or file by default"   name="ref">
+Syntax:
+    <iframe  src="you can load any url or file by default"   name="ref">
 
 </iframe>
    
      <a href="some_path"  target="iframe_ref_name">  Text </a>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3739,8 +3492,7 @@ Syntax
 </body>
 </html>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3759,11 +3511,9 @@ Syntax
 
 YouTube Design
 
-## Ex
+Ex: YouTube
 
-YouTube
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -3772,9 +3522,7 @@ YouTube
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <style>
         header {
-            font-size
-
-25px;
+            font-size: 25px;
             display: flex;
             justify-content: space-between;
             padding-left: 20px;
@@ -3987,14 +3735,10 @@ Table Attributes
 2. Cellspacing & Cellpadding
 3. BgColor & Background
 
-## bgcolor
-
-It sets background color for table, group, row or cell.
+bgcolor            : It sets background color for table, group, row or cell.
     background        : It sets background image for table, group, row or cell.
 
-## Note
-
-You can't manipulate columns in HTML table.
+Note: You can't manipulate columns in HTML table.
 
 <table bgcolor="yellow">        <table background="path_of_image">
     <tr bgcolor="yellow">            <tr background="">
@@ -4004,9 +3748,7 @@ You can't manipulate columns in HTML table.
 
 4. align & valign
 
-## align
-
-It aligns the cell content left, center, right or justify horizontally.
+align            : It aligns the cell content left, center, right or justify horizontally.
     valign        : It aligns the cell content top, center, bottom vertically.
 
 <table align="center">            <tr valign="center">
@@ -4017,27 +3759,21 @@ It aligns the cell content left, center, right or justify horizontally.
 
 5. height & width
 
-## height
-
-It defines height for table, group, row, cell.
+height        : It defines height for table, group, row, cell.
     width        : It defines with for table or cell.
 
-## Note
-
-You can change width of cell which effects all cells in the column.
+Note: You can change width of cell which effects all cells in the column.
       You can manipulate width of column.
       Always define height for <tr> and width for <th> or <td>.
 
-## Syntax
-
-<tr height="50">
+Syntax:
+        <tr height="50">
         <th width="100">
         <td width="100>
         <table width="100%">
 
-## Ex
-
-<!DOCTYPE html>
+Ex:
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -4153,21 +3889,16 @@ You can change width of cell which effects all cells in the column.
 
 6. colspan and rowspan
 
-## colspan
-
-It can merge multiple cells into one column.
+colspan        : It can merge multiple cells into one column.
     rowspan        : It can merge multiple cells into one row.
 
-## Note
-
-You can define rowspan and colspan only for <td> or <th>.
+Note: You can define rowspan and colspan only for <td> or <th>.
 
 <td colspan="4">
     <td rowspan="3">
     <th colspan="5">
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -4263,12 +3994,9 @@ Summary
 12. rowspan
 13. colspan
 
-## Note
+Note: You can use table for designing a layout.
 
-You can use table for designing a layout.
-
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -4293,8 +4021,7 @@ You can use table for designing a layout.
 </body>
 </html>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -4372,16 +4099,14 @@ You can use table for designing a layout.
 
 <!DOCTYPE html>
 
-## <html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
     <style>
         .parent-table {
-            border-radius
-
-10px;
+            border-radius: 10px;
             background-image: url("public/images/weather.jpg");
             background-size: cover;
         }
@@ -4568,59 +4293,44 @@ C        - Create [Register, Insert]
 - A form can submit and reset its data without configuring any explicity functionality.
 - A form is created by using <form> element.
 
-## Syntax
-
-<form>
+Syntax:
+        <form>
             ... your form elements...
         </form>
 
 - Form comprises of following attributes
 
-## 1. Id
-
-It is a unique reference given for form in order to access in CSS
+1. Id                : It is a unique reference given for form in order to access in CSS
                   or in JavaScript.
 
-## 2. Name
+2. Name            : It defines a reference name for form.
 
-It defines a reference name for form.
+3. Class            : It defines a css class to configure styles.
 
-## 3. Class
-
-It defines a css class to configure styles.
-
-## Syntax
-
-<form  id="frmLogin"  name="LoginForm"  class="form-container">
+Syntax:
+        <form  id="frmLogin"  name="LoginForm"  class="form-container">
 
 </form>
 
-## 4. Method
-
-It defines the form behaviour, every form in HTML have 2 methods
+4. Method        : It defines the form behaviour, every form in HTML have 2 methods
                     a) GET
                     b) POST
 
 GET is used to fetch data from server.
                   POST is used to submit data to server.
 
-## Syntax
-
-<form  id="frmRegister"   method="post | get">
+Syntax:
+        <form  id="frmRegister"   method="post | get">
 
 </form>
 
-## FAQ
-
-What is the default method?
+FAQ: What is the default method?
 Ans : GET
 
-## FAQ
-
-Can we submit data to server on GET method?
+FAQ: Can we submit data to server on GET method?
 Ans:  Yes. But it is not recommended always.
 
-## GET
+GET
 - It is used mostly for fetching data from server.
 - You can submit data to server on GET.
 - Data is appended into URL as "Query String".
@@ -4629,9 +4339,7 @@ Ans:  Yes. But it is not recommended always.
 - It is easy to hack your data.
 - You can't submit complex data, like binary data.
 - You can submit max 2048 chars.
-- It stored in browser logs
-
-history.
+- It stored in browser logs: history.
 - It can be bookmarked.
 - Data can be cached, which saves round trips.
 
@@ -4651,29 +4359,23 @@ POST
 
 Form Attributes
 
-## 1. id
+1. id
 2. name
 3. class
 4. method
-5. action
-
-It refers to the target path where form data is submitted.
+5. action        :  It refers to the target path where form data is submitted.
                 [can be client side or server side page]
 
-## Syntax
-
-<form method="get"  action="results.html | results.jsp..">
+Syntax:
+    <form method="get"  action="results.html | results.jsp..">
     </form>
 
-## 6. novalidate
-
-It can disable the default validations provided by HTML.
+6. novalidate    : It can disable the default validations provided by HTML.
               If you are writing custom validations then you can by-pass the default
               validations.
 
-## Syntax
-
-<form method="get"  actions="results.html"  novalidate>
+Syntax:
+    <form method="get"  actions="results.html"  novalidate>
         </form>
 
 Form Elements
@@ -4691,9 +4393,8 @@ Input Element
 - HTML <input> is responsible for configuring an input that allows any type of data.
 - HTML 5 provided various input types to manage different types of data like number, string, date, email, phone number etc.
 
-## Syntax
-
-Name    : <input>
+Syntax:
+        Name    : <input>
         Age        : <input>
         Email    : <input>
         DOB    : <input>
@@ -4705,94 +4406,64 @@ TextBox
 - Textbox is designed by using
       <input type=text">
 
-## Attributes
-
+Attributes:
 1. id
 2. name
 3. class
 
-## Note
-
-Every form element must have a "name".
+Note: Every form element must have a "name".
           If name is not defined for any element, then form can't submit its value.
 
 <input type="text"  name="txtCity">
      <input type="text"  name="txtName">
 
-## 4. value
+4. value        : It defines the default value to display in textbox.
 
-It defines the default value to display in textbox.
-
-## 5. readonly
-
-It will not allow to modify the default value in textbox. But it allows to
+5. readonly    : It will not allow to modify the default value in textbox. But it allows to
               submit the value.
 
-## 6. disabled
+6. disabled    : It will not allow to modify and submit the value.
 
-It will not allow to modify and submit the value.
-
-## Syntax
-
-<input type="text"  value="Delhi"  name="txtCity"  readonly>
+Syntax:
+    <input type="text"  value="Delhi"  name="txtCity"  readonly>
     <input type="text"   value="Delhi" name="txtCity"  disabled>
 
-## 7. placeholder
-
-It defines the watermark text to display in textbox when value is not
+7. placeholder    :  It defines the watermark text to display in textbox when value is not
                defined.
 
-## Syntax
+Syntax:
+    <input type="text" placeholder="Search Amazon.in">
 
-<input type="text" placeholder="Search Amazon.in">
-
-## 8. size
-
-It defines the width for textbox, the default is "20".
+8. size        : It defines the width for textbox, the default is "20".
               It is not restricting textbox, it is only width for textbox.
 
-## 9. maxlength
+9. maxlength    : It restricts the maximum number of chars in textbox.
 
-It restricts the maximum number of chars in textbox.
+Syntax:
+    <input type="text" name="txtOTP"  size="4"  maxlength="4">
 
-## Syntax
+10. minlength    : It validates the minimum number of chars in textbox.
 
-<input type="text" name="txtOTP"  size="4"  maxlength="4">
+Syntax:
+    <input type="text"  name="txtOTP  size="4"  minlength="4" maxlength="4">
 
-## 10. minlength
+11. required    : It will not allow to submit empty. It defines that value is mandatory.
 
-It validates the minimum number of chars in textbox.
+Syntax:
+    <input type="text"  name="txtOTP" required>
 
-## Syntax
+12. autofocus    : It sets focus to textbox automatically on page load.
 
-<input type="text"  name="txtOTP  size="4"  minlength="4" maxlength="4">
+Syntax:
+     <input type="text"  name="txtName"  autofocus>
 
-## 11. required
-
-It will not allow to submit empty. It defines that value is mandatory.
-
-## Syntax
-
-<input type="text"  name="txtOTP" required>
-
-## 12. autofocus
-
-It sets focus to textbox automatically on page load.
-
-## Syntax
-
-<input type="text"  name="txtName"  autofocus>
-
-## 13. list
-
-It configures a data list to textbox, which is displayed as autocomplete
+13. list        : It configures a data list to textbox, which is displayed as autocomplete
               text.        
               Form data list is defined using the elements.
                     <datalist>
                     <option>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -4825,9 +4496,7 @@ It configures a data list to textbox, which is displayed as autocomplete
 
 ---------------  Regular Expression  ---------------
 
-## 14. Pattern
-
-It is used to validate the format of input value.
+14. Pattern        : It is used to validate the format of input value.
                   Pattern uses a regular expression for verifying the format of value.
                   A regular expression is built by using meta characters & quantifiers
 
@@ -4835,27 +4504,23 @@ Meta Character            Description
 ----------------------------------------------------------------------------------------------------
  ?                        Zero or one occurance of any character.
 
-## Syntax
-
-pattern="colou?r"       => color, colour
+Syntax:
+                         pattern="colou?r"       => color, colour
 
 *                        Zero or more occurances of any character.
 
-## Syntax
-
-pattern="colou*r"    => color, colour, colouur, colouuur...
+Syntax:
+                        pattern="colou*r"    => color, colour, colouur, colouuur...
 
 +                        One or more occurances of any character.
 
-## Syntax
+Syntax:
+                        pattern="colou+r"    => colour, colouur, colouuur...
 
-pattern="colou+r"    => colour, colouur, colouuur...
-
-## . (dot)                    Any single character [A-Za-z0-9!@#$%^&]
+. (dot)                    Any single character [A-Za-z0-9!@#$%^&]
                        
-                        Syntax
-
-pattern=".o."    => wow, dos, you, toy, 1o4, $o3, 1oA..
+                        Syntax:
+                        pattern=".o."    => wow, dos, you, toy, 1o4, $o3, 1oA..
                         pattern=".o.?"    =>  wow, dos, to
                         pattern=".at"    =>  cat, mat, bat, rat, 1at, $at
                         pattern=".?at"    =>  cat, mat, at
@@ -4863,29 +4528,25 @@ pattern=".o."    => wow, dos, you, toy, 1o4, $o3, 1oA..
 \                        It is an escape sequence character, that can transform
                         meta character into normal char and vice versa.
 
-## Syntax
-
-pattern="gmail.com"    => gmail3com, gmail#com
+Syntax:
+                        pattern="gmail.com"    => gmail3com, gmail#com
                         pattern="gmail\.com"    => gmail.com
 
 | [pipe]                    It refers to logical "OR" [any one of specified]
 
-## Syntax
-
-pattern="red|blue|green"   => red, blue, green
+Syntax:
+                        pattern="red|blue|green"   => red, blue, green
 
 ^                        It excludes the specified chars.
 
-## Syntax
-
-pattern="[a,d,s]"   =>  a , d , s  
+Syntax:
+                        pattern="[a,d,s]"   =>  a , d , s  
                         pattern="[^a,d,s]"  =>  all are allowed excluding a,d,s.
 
 [ ]                        It defines the range of chars.
 
-## Syntax
-
-pattern="[a,d,s]"        => a, d, s
+Syntax:
+                        pattern="[a,d,s]"        => a, d, s
                         pattern="[a-z]"            => a to z
                         pattern="[0-9]"            => 0 to 9 all numbers
                         pattern="[a-d,4-9]        => a to d and 4 to 9
@@ -4896,9 +4557,8 @@ pattern="[a,d,s]"        => a, d, s
 
 $                        Ends with
 
-## Syntax
-
-pattern="\^ .... your expression... $"
+Syntax:
+                        pattern="\^ .... your expression... $"
                         pattern="\^[a-z]\.[0-9]$"
 
 =====  Meta Chars and Quantifiers  ======
@@ -4918,16 +4578,14 @@ Meta Characters
 
 \d            Single digit number  [0-9]
 
-## Syntax
-
-pattern="\d\d"        => 12, 46, 37, 25, 99
+Syntax:
+                pattern="\d\d"        => 12, 46, 37, 25, 99
                 pattern="\d\d?"    =>  12, 3,
                
     \D            Non numeric value. [a-z,A-Z,!@#$%^&]
 
-## Syntax
-
-pattern="\d\D"        => 3a, 3B, 3@, 3#
+Syntax:
+                pattern="\d\D"        => 3a, 3B, 3@, 3#
                
     \s            Single blank space
    
@@ -4937,55 +4595,46 @@ pattern="\d\D"        => 3a, 3B, 3@, 3#
 \w            It refers to word chars.
                 [ a-zA-Z0-9_ ]
 
-## Syntax
-
-pattern="\w"        => 3, a, A, _
+Syntax:
+                pattern="\w"        => 3, a, A, _
 
 \W            It refers to no-word chars. [all special chars]
                 [ a - z A - Z 0 - 9 _ ] => not allowed
 
-## Syntax
-
-pattern="\w\W"    => 1#, a@, A$            
+Syntax:
+                pattern="\w\W"    => 1#, a@, A$            
                 pattern="\w[@#$]    => 3@, a#, A$
 
 \i            Ignore case [capitalization]
 
-## Syntax
+Syntax:
+                pattern="Colour\i"       => colour, Colour, COLOUR
 
-pattern="Colour\i"       => colour, Colour, COLOUR
-
-## Quantifier            Description
+Quantifier            Description
 ------------------------------------------------------------------------
  {n}                    exactly n-number of chars
                    
-                    Syntax
-
-pattern="\d{3}"
+                    Syntax:
+                    pattern="\d{3}"
 
 {n,m}                minimum-n and maximum-m  chars
 
-## Syntax
-
-pattern="\w{4,15}"
+Syntax:
+                    pattern="\w{4,15}"
 
 {n, }                    minimum-n  and maximum-any
 
-## Syntax
+Syntax:
+                    pattern="\w{4, }"
 
-pattern="\w{4, }"
-
-## Regular expressions [pre-defined]
-
-
+Regular expressions [pre-defined]:
 
 (?=.*[A-Z])            At least one upper case letter at any place.
     (?=.*[a-z])            at least one lower case letter.
     (?=.*[0-9])            at least one numeric
     (?=.*[!@#$%])            at least one special character
 
-## Ex
-
+Ex:
 1. Write a pattern to validate mobile number starting with +91 and 10 digits.
 
 pattern="\+91\d{10}"
@@ -5026,10 +4675,8 @@ pattern="[A-Z]{1}[a-zA-Z]{3,14}"
 
 pattern="(?=.*[A-Z])\w{4,15}"
 
-## 9. Write a pattern for user name 4 to 15 chars with atleast one uppercase letter, number and special char.
-Form Inputs
-
-Number, Range, Color, URL, Date..
+9. Write a pattern for user name 4 to 15 chars with atleast one uppercase letter, number and special char.
+Form Inputs: Number, Range, Color, URL, Date..
 Sudhakar Sharma
 •
 8:42 AM
@@ -5047,38 +4694,32 @@ Number
         max
         step
 
-## Syntax
-
-<input type="number"  name="age"  min="15"  max="35" value="22" step="5">    <input type="number"  name="rate"  min="10.45"  max="18.45" step="0.01">
+Syntax:
+    <input type="number"  name="age"  min="15"  max="35" value="22" step="5">    <input type="number"  name="rate"  min="10.45"  max="18.45" step="0.01">
 
 Range
 - It is used for number input.
 - User can select a range of values using slider.
 - All attributes are same like number.
 
-## Syntax
-
+Syntax:
 <input type="range"  name="price"  min="100" max="150000"  value="100">
 
 Email
 - It validates email address.
 
-## Syntax
-
-<input type="email" placeholder="your email address"  required>
+Syntax:
+    <input type="email" placeholder="your email address"  required>
 
 URL
 - It validates URL format.
 - URL format must contain "protocol" and "domain"
 
-## Syntax
+Syntax:
+    <input type="url"   placeholder="your website address" name="" required>
 
-<input type="url"   placeholder="your website address" name="" required>
-
-## www.amazon.in        => invalid
-            http
-
-//www.amazon.in    => valid
+www.amazon.in        => invalid
+            http://www.amazon.in    => valid
             https://www.youtube.com => valid
 
 Color
@@ -5087,9 +4728,8 @@ Color
 - The color value must be 6 chars hexa decimal only.
         #ff00ff
 
-## Syntax
-
-<input type="color" name="color"  value="#ff0000">
+Syntax:
+ <input type="color" name="color"  value="#ff0000">
 
 Date and Time
 - HTML 5 provides various date and time types.
@@ -5100,8 +4740,7 @@ Date and Time
         - year
         - week
 
-## Syntax
-
+Syntax:
 <input type="date">
 <input type="time">
 <input type="datetime-local">
@@ -5109,38 +4748,28 @@ Date and Time
 <input type="year">
 <input type="week">
 
-## FAQ
-
-How to restrict date selection?
+FAQ: How to restrict date selection?
 Ans: By using "min" and "max" attributes.
 
-## Note
-
-Always the date input format must be "year-month-day"
+Note: Always the date input format must be "year-month-day"
 
 <input type="date" min="2023-09-20"  max="2023-10-12">
 
-## Note
-
-You can't select range of date values using HTML element.
+Note: You can't select range of date values using HTML element.
 
 File
 - It allows the user to select a file so that it can be upload to server using javascript.
 - It is just a file browser.
 
-## Syntax
-
+Syntax:
 <input type="file">
 
-## FAQ
-
-How to restrict the file type in HTML?
+FAQ: How to restrict the file type in HTML?
 Ans : You can't restrict the file type but you can set filter.
           You can set filter by using "accept" attribute.
 
-## Syntax
-
-<input type="file"  accept=".jpg">
+Syntax:
+    <input type="file"  accept=".jpg">
     <input type="file"  accept=".jpg, .png, .gif">
 
 - You can allow user to select multiple file by using "multiple" attribute.
@@ -5172,61 +4801,50 @@ Radio Buttons
 - You can display a list of options, and user can select any one or multiple.
 - Radio once checked, it can't be unchecked.
 
-## Syntax
-
-<input type="radio"> <label> Text </label>
+Syntax:
+    <input type="radio"> <label> Text </label>
 
 - Radio's are always used with "Mutex" mechanism.
   [Mutual Exclusion]
 
 - All radios in a category must have same name. So that they can exhibit Mutex.
 
-## Syntax
-
-<input type="radio"  name="gender">  <label> Male </label>
+Syntax:
+    <input type="radio"  name="gender">  <label> Male </label>
     <input type="radio"  name="gender">  <label> Female </label>
 
 - You can make any one radio default selected by using "checked" attribute.
 
-## Syntax
+Syntax:
+    <input type="radio" name="gender" checked> <label> Male </label>
 
-<input type="radio" name="gender" checked> <label> Male </label>
-
-## FAQ
-
-When to use Radio button?
+FAQ: When to use Radio button?
 Ans: When selection of any one option is mandatory and without selecting an option if user moves to next, default one option is selected.
 
 - Radios by default submit  "ON" as value.
 - You have to define a "name" attribute and "value" for every radio.
 
-## Syntax
-
-<input type="radio"  name="gender"  value="Male"> <label> Male </label>
+Syntax:
+ <input type="radio"  name="gender"  value="Male"> <label> Male </label>
 
 CheckBox
 
 - Checkbox is similar to radio button.
 - Checkbox allows to check or uncheck any option.
 
-## Syntax
-
-<input type="checkbox" name="course"  value="Java"> <label> Java </label>
+Syntax:
+ <input type="checkbox" name="course"  value="Java"> <label> Java </label>
  
 - You can choose one or multiple.
 - In checkbox selection is not mandatory.
 
-## Syntax
+Syntax:
+ <input type="checkbox"  name="course" value="Java" checked>  <label> Java </label>
 
-<input type="checkbox"  name="course" value="Java" checked>  <label> Java </label>
-
-## FAQ
-
-How to create a checkbox list?
+FAQ: How to create a checkbox list?
 Ans: HTML doesn't provide any checkbox list, you have to design using CSS overflow.
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5266,9 +4884,8 @@ Dropdown List
     <optgroup>
     <option>
 
-## Syntax
-
-<select name="product">
+Syntax:
+    <select name="product">
      <option> Select Product </option>
      <optgroup label="categoryName">
        <option> Item-1 </option>
@@ -5282,8 +4899,7 @@ a) value            It defines the value to submit
     b) selected        It makes option default selected on page load
     c) disabled        It will not allow to select any option
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5323,9 +4939,8 @@ List Box
     a) size
     b) multiple
 
-## Syntax
-
-<select size="4" multiple>
+Syntax:
+    <select size="4" multiple>
     </select>
 Form Elements
 - Radio Button (Mutex)
@@ -5333,9 +4948,7 @@ Form Elements
 - Dropdown
 - ListBox [Size & Multiple]
 
-## Note
-
-The options in dropdown or listbox are RC data type. They allow only plain text, number and special chars. You can't add symbols or images into dropdown options.
+Note: The options in dropdown or listbox are RC data type. They allow only plain text, number and special chars. You can't add symbols or images into dropdown options.
       HTML will not allow to create nested dropdowns.
 
 Textarea
@@ -5344,24 +4957,20 @@ Textarea
 - You can use only for plain text.
 - It will not allow formats for text.
 
-## Syntax
-
-<textarea> </textarea>
+Syntax:
+    <textarea> </textarea>
     <textarea> your text.. </textarea>
 
-## Attributes
-
+Attributes:
 - rows        : It defines height in rows.
 - cols        : It defines width in columns.
 - readonly    : It will not allow to modify text.
 - disabled    : It will not allow to modify and submit.
 
-## Syntax
+Syntax:
+    <textarea  rows="5"  cols="40"> </textarea>
 
-<textarea  rows="5"  cols="40"> </textarea>
-
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5392,30 +5001,24 @@ Meter
 - It is used to display a grade meter.
 - It is controlled dynamically by using "JavaScript".
 
-## Syntax
+Syntax:
+    <meter> </meter>
 
-<meter> </meter>
-
-## Attributes
-
-min        : It defines the lowerbound value.
+Attributes:
+    min        : It defines the lowerbound value.
     max        : It defines the upperbound value
     value    : It defines the default value.
     low        : It is a value above min and below high.
     high        : It is a value below max and above low.
 
-## Note
-
-If low & high difference is less     => red color
+Note: If low & high difference is less     => red color
       If low & high difference is more     => yellow
       If low & high are zero            => green
 
-## Syntax
+Syntax:
+    <meter min="1" max="100" value="100" low="40" high="80"> </meter>
 
-<meter min="1" max="100" value="100" low="40" high="80"> </meter>
-
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5478,22 +5081,18 @@ If low & high difference is less     => red color
 Progress
 - It is used to show the status of any task performed in page, such as downloading, installing, copying, etc..
 
-## Syntax
+Syntax:
+    <progress> </progress>
 
-<progress> </progress>
-
-## Attributes
-
-min
+Attributes:
+    min
     max
     value
 
-## Syntax
+Syntax:
+    <progress min="1" max="100"  value="30"> </progress>
 
-<progress min="1" max="100"  value="30"> </progress>
-
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5543,15 +5142,13 @@ Label
 - To bind with any field it used "for" attribute.
 - Binding is required to manipulate the field dynamically.
 
-## Syntax
-
-<label for="UserName"> User Name </label>
+Syntax:
+    <label for="UserName"> User Name </label>
     <div>
       <input type="text" name="UserName">
     </div>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5617,8 +5214,7 @@ Buttons
 <button type="submit">Text | Image </button>    HTML 5
     <button type="reset"> Text | Image </button>    HTML 5
 
-## Ex
-
+Ex:
 <div class="form-group">
             <input type="submit" value="Register">
             <input type="reset" value="Cancel">
@@ -5649,9 +5245,7 @@ Bootstrap Classes for Forms
 
 1. Bootstrap Container Classes
 
-## .container
-
-small screen [smartwatch]
+.container            : small screen [smartwatch]
     .container-sm            : mobiles
     .container-md            : tab
     .container-lg            : pc
@@ -5731,16 +5325,14 @@ bg-{contextual}
     .align-items-start
     .align-items-baseline
 
-## Syntax
-
-<body  class="d-flex justify-content-center  align-items-center">
+Syntax:
+    <body  class="d-flex justify-content-center  align-items-center">
         <div>
             your content..
         </div>
     </body>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5771,8 +5363,7 @@ bg-{contextual}
 </body>
 </html>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5812,16 +5403,14 @@ bg-{contextual}
     .col            responsive
     .col-{size}    1 to 12
 
-## Syntax
-
-<section class="row">
+Syntax:
+    <section class="row">
        <nav class="col-2"> </nav>
        <main class="col"> </main>
        <aside class="col-2"> </aside>
     </section>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5860,17 +5449,14 @@ Sudhakar Sharma
     .form-check-label        label for radio & checkbox
     .form-switch            radio & checkbox container
 
-## Syntax
-
-switch type for checkbox or radio
+Syntax: switch type for checkbox or radio
 
 <div class="form-switch">
     <input type="checkbox"  class="form-check-input">
         <label class="form-check-label"> Yes </label>
   </div>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5922,14 +5508,12 @@ switch type for checkbox or radio
     .btn-link
     .btn-toolbar
 
-## Syntax
-
-<button  class="btn btn-primary"> Text </button>
+Syntax:
+    <button  class="btn btn-primary"> Text </button>
 
 btn => It is base class and required for all button styles.
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5998,16 +5582,14 @@ btn => It is base class and required for all button styles.
 .input-group
     .input-group-text
 
-## Syntax
-
-<div class="input-group">
+Syntax:
+    <div class="input-group">
        <span class="input-group-text"> &#8377; </span>
        <input type="text" class="form-control">
        <span class="input-group-text"> .00 </span>
     </div>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6060,12 +5642,11 @@ btn => It is base class and required for all button styles.
     .text-justify
     .text-end
 
-## 13. Text Formats
+13. Text Formats
     .fw-bold
     .fst-italic
    
-Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6098,9 +5679,7 @@ Ex
 </body>
 </html>
 
-## Ex
-
-EMI Calculator
+Ex: EMI Calculator
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6162,11 +5741,9 @@ EMI Calculator
 </body>
 </html>
 
-## Ex
+Ex: Amazon Login
 
-Amazon Login
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6176,9 +5753,7 @@ Amazon Login
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <style>
        a {
-        text-decoration
-
-none;
+        text-decoration: none;
        }
     </style>
 </head>
@@ -6214,9 +5789,7 @@ none;
 CSS Form Attributes
 - CSS provides attributes and classes to handle form appearence and validation.
 
-## 
-
-required            It configures effects when field is defined with required.
+:required            It configures effects when field is defined with required.
     :optional            It defines effects when field is not defined with required.
     :valid            It defines effects when all validation attributes are satisfied.
     :invalid            It defines effects when the field validation returns error.
@@ -6226,24 +5799,18 @@ required            It configures effects when field is defined with required.
                     [It can be for radio or checkbox]
     :focus            It defines effects when element is in focus.
 
-## 
+::placeholder        It defines effects for elements placeholder.
 
-:placeholder        It defines effects for elements placeholder.
+Ex: required & optional
 
-## Ex
-
-required & optional
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        input
-
-required+span {
+        input:required+span {
             display: inline;
             color:red;
         }
@@ -6272,20 +5839,16 @@ required+span {
 </body>
 </html>
 
-## Ex
+Ex: Valid & Invalid
 
-Valid & Invalid
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        input
-
-required+span {
+        input:required+span {
             display: inline;
             color:red;
         }
@@ -6341,20 +5904,16 @@ required+span {
 </body>
 </html>
 
-## Ex
+Ex: Readonly & Disabled
 
-Readonly & Disabled
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        textarea
-
-disabled {
+        textarea:disabled {
             cursor: not-allowed;
         }
     </style>
@@ -6371,20 +5930,16 @@ disabled {
 </body>
 </html>
 
-## Ex
+Ex: Checked
 
-Checked
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        textarea
-
-disabled {
+        textarea:disabled {
             cursor: not-allowed;
         }
         .terms:checked+span {
@@ -6418,11 +5973,9 @@ disabled {
 </body>
 </html>
 
-## Ex
+Ex: Focus
 
-Focus
-
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6431,9 +5984,7 @@ Focus
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <style>
        input+div {
-         display
-
-none;
+         display: none;
        }
        input:focus+div {
         display: block;
@@ -6454,8 +6005,7 @@ none;
 </body>
 </html>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6494,18 +6044,15 @@ none;
     <audio>
     <embed>     Embed any plugin into page, like applets, video, audio etc.
 
-## Marquee
-
+Marquee:
 - It can display scrolling and sliding content in page.
 
-## Syntax
-
-<marquee>
+Syntax:
+    <marquee>
         ...your content...
     </marquee>
 
-## Attributes
-
+Attributes:
 1. scrollamount    : It sets marquee scrolling speed from 1 to 100.
 2. direction        : It sets marequee scrolling direction left, right, up & down.
 3. behavior        : It changes from scrolling to sliding, you can set "alternate".
@@ -6513,16 +6060,14 @@ none;
 5. width/height        : It defines marquee area.
 6. bgcolor        : It sets background color for marquee area.
 
-## Syntax
-
+Syntax:
 <marquee  scrollamount="20" direction="right" loop="3"  width="500" bgcolor="yellow">
 
 ... your content ...
 
 </marquee>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6540,8 +6085,7 @@ none;
 </body>
 </html>
 
-## Video & Audio
-
+Video & Audio:
 - HTML allows to embed video files into page, which can be the type
         .mp4, .avi, .mkv, .mov, .ogg  etc..
 - HTML allows to embed audio files of type
@@ -6551,9 +6095,8 @@ none;
 <video>
         <audio>
 
-## Syntax
-
-<video  src="path"  poster="thumbnail.jpg"  controls> </video>
+Syntax:
+    <video  src="path"  poster="thumbnail.jpg"  controls> </video>
     <audio  src="path"  poster="pic.jpg" controls> </audio>
 
 Styles
@@ -6564,37 +6107,32 @@ Styles
     2. Embedded Style
     3. External Style Sheet
 
-## Inline Styles
-
+Inline Styles:
 - The style attributes are defined for every element individually by using "style" attribute.
 - These styles are faster in rendering.
 - However you can't reuse the styles.
 
-## Syntax
-
-<h2 style="attribute:value; attribute:value">  Text </h2>
+Syntax:
+    <h2 style="attribute:value; attribute:value">  Text </h2>
    
 Ex:
     <h2 style="background-color:red; color:white">  Text </h2>
 
-## Embedded Style
-
+Embedded Style:
 - Styles are defined in page by using <style> container.
 - You can reuse the styles with in page.
 - It is slower when compared to inline.
 - You can't access styles from another page.
 
-## Syntax
-
-<style>
+Syntax:
+   <style>
     selector {
         attribute: value;
         attribute: value;
     }
    </style>
 
-## FAQ's
-
+FAQ's:
 1. Where to embed the style container?
 A. You can embed <style> container in <head> or <body>.
 
@@ -6605,27 +6143,20 @@ A. You can embed <style> container in <head> or <body>.
 1. Inline            "style"
 2. Embedded        <style>
 
-## FAQ
-
-Where to embed?
+FAQ: Where to embed?
 Ans:  <head> & <body>
 
-## FAQ
-
-What is the MIME type for Styles?
+FAQ: What is the MIME type for Styles?
 Ans:  MIME is "Multi purpose Internet Mail Extention".
          MIME defines file & content type.
      Styles MIME type is "text/css".
 
-## Syntax
-
-<style  type="text/css">
+Syntax:
+    <style  type="text/css">
 
 </style>
 
-## FAQ
-
-What is Media type for styles?
+FAQ: What is Media type for styles?
 Ans:  It configures your styles for various devices and viewports.
      You can set styles for screen, print and speech.
      
@@ -6634,9 +6165,7 @@ Syntax:
 
 </style>
 
-## FAQ
-
-What is the issue with embedded technique?
+FAQ: What is the issue with embedded technique?
 Ans:
  - It is slower when compared to inline.
  - You can't access across pages.
@@ -6650,8 +6179,7 @@ Ans:
 - You can access across pages.
 - However if you are using external files, then number of requests will increase for page, which will increase the page load time.
 
-## Syntax
-
+Syntax:
 1. Go to "src" folder and add sub-folder  "styles"
 
 2. Add a new file
@@ -6662,14 +6190,11 @@ Ans:
 
 <link rel="stylesheet"  href="src/styles/ticket.css">
 
-## Ex
+Ex:
+ ticket.css
 
-ticket.css
-
-## .container {
-    padding
-
-20px;
+.container {
+    padding: 20px;
     background-color: lightyellow;
     border:3px solid black;
 }
@@ -6683,7 +6208,7 @@ dt{
 
 home.html
 
-## <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6699,18 +6224,14 @@ home.html
             <dt>Departure Date</dt>
             <dd>30-Sep-2023</dd>
             <dt>Time</dt>
-            <dd>12
-
-45 PM</dd>
+            <dd>12:45 PM</dd>
         </dl>
         <button>Print Ticket</button>
     </div>
 </body>
 </html>
 
-## FAQ
-
-What is Minification?
+FAQ: What is Minification?
 Ans:  It is a coding technique followed by developers to compress the CSS file and
      reduce the size.
    
@@ -6719,9 +6240,7 @@ Ex:
 
 2. Visit the website
 
-## https
-
-//www.toptal.com/developers/cssminifier
+https://www.toptal.com/developers/cssminifier
 
 3. Paste your actual CSS code
 
@@ -6735,16 +6254,12 @@ Ex:
 
 8. Link the minified file to your page.
 
-## Note
-
-Always use Uncompressed files for "Development" [Design]
+Note: Always use Uncompressed files for "Development" [Design]
       and Minified [Compressed] files for  "Production" [Go Live]
 
 <link rel="stylesheet" href="src/styles/ticket.min.css">
 
-## FAQ
-
-What is CDN?
+FAQ: What is CDN?
 Ans:  Content Delivery Network
      You can keep all your files in separate respository server and access remotely      
      from any project.
@@ -6773,18 +6288,15 @@ Selecting HTML elements
 - Styles are defined using inline technique, where selecting element is not required.
 - If styles are defined embedded or in external file, then you need a selector to select HTML elements.
 
-## Syntax
-
-selector
+Syntax:
+        selector
         {
           attribute1: value;            => CSSOM [CSS Object Model]
           attribute2: value;
         }
 
-## {
-         key
-
-value;                => Object
+{
+         key:value;                => Object
         }
 
 - CSS Selectors are classified into various groups
@@ -6800,9 +6312,7 @@ value;                => Object
     9. Root Selector
     10. Behavioural Selector
 
-## Primary Selectors
-
-
+Primary Selectors:
 
 1. Type Selector
 
@@ -6811,9 +6321,8 @@ value;                => Object
  - It will apply effects to every occurance of element in page.
  - You can't ignore effects for any specific occurance.
 
-## Syntax
-
-h1 {
+Syntax:
+      h1 {
          color:red;
       }
 
@@ -6825,9 +6334,8 @@ h1 {
 - Every element can have only one ID reference.
 - Hence multiple sets of styles can't be applied to one element.
 
-## Syntax
-
-#text-style {
+Syntax:
+    #text-style {
         color:red;
         text-align:center;
     }
@@ -6841,9 +6349,8 @@ h1 {
 - Every element can implement multiple classes.
 - All class names a separated with "blank space".
 
-## Syntax
-
-.text-style {
+Syntax:
+    .text-style {
         color:red;
     }
     .border-style{
@@ -6852,8 +6359,7 @@ h1 {
 
 <h1 class="text-style  border-style">  HTML </h1>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6880,15 +6386,11 @@ h1 {
 </body>
 </html>
 
-## CSS Rules FAQ's
+CSS Rules FAQ's:
 
-
-
-## 1. If we define styles for any element using all 3 primary selectors, which one will apply?
+1. If we define styles for any element using all 3 primary selectors, which one will apply?
 A. If different styles are defined then all will apply.
-    If same styles are defined then it uses priority
-
-
+    If same styles are defined then it uses priority:
 
 1st         Id selector
         2nd        class selector
@@ -6897,31 +6399,23 @@ A. If different styles are defined then all will apply.
 2. If same attributes are defined using  ID selector in embedded and external file, which set will apply?
 A.  Embedded
 
-## Note
-
-You can group the selectors using "," delimeter. You can group any type of
+Note: You can group the selectors using "," delimeter. You can group any type of
       selector for same set of effects.
 
-## Syntax
-
-p, h1, img {
+Syntax:
+        p, h1, img {
            border:1px solid red;
         }
 
-## img, .container {
-          box-shadow
-
-2px 2px 2px black;
+img, .container {
+          box-shadow: 2px 2px 2px black;
         }
 
-## #head, .container, p {
-          font-family
-
-Arial;
+#head, .container, p {
+          font-family : Arial;
         }
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6942,8 +6436,7 @@ Arial;
 </body>
 </html>
 
-## Rational Selectors
-
+Rational Selectors:
 - You can select element using parent and child hierarchy.
 - You can also select by refering to siblings.
 
@@ -6955,8 +6448,7 @@ ElementA+ElementB    =>  Adjacent selector [Sibling]
        
         ElementA~ElementB    =>  General Sibling
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6980,8 +6472,7 @@ ElementA+ElementB    =>  Adjacent selector [Sibling]
 </body>
 </html>
 
-## Ex
-
+Ex:
 <!DOCTYPE html>
 <html lang="en">
 <head>

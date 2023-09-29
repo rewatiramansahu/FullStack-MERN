@@ -1,4 +1,5 @@
-Meta : 
+Meta
+Sudhakar Sharma
 •
 Aug 22
 HTML Page Structure
@@ -15,7 +16,7 @@ HTML Page Structure
 
 5. Link
 
-Meta in Head Section
+                            Meta in Head Section
 - The  term meta refers to "Meta Data".
 - Meta data comprises of information about your web page.
 - Meta is required for a web page to make it Responsive and SEO friendly.
@@ -28,25 +29,26 @@ Meta Responsive Attributes:
 
 - You can add following elements into head section
 
-<meta  name="viewport"  content="width=device-width, initial-scale=1.0">
+  <meta  name="viewport"  content="width=device-width, initial-scale=1.0">
 
-a) Viewport        : It refers to screen type and its dimensions.
+    a) Viewport        : It refers to screen type and its dimensions.
     b) width            : It refers to current page content width
     c) initial-scale        : It refers to zoom level. [1=100]
 
-<meta http-equiv="refresh"  content="5">
 
-a) http-equiv        : It refers to request handler, which can process your request
+   <meta http-equiv="refresh"  content="5">
+
+    a) http-equiv        : It refers to request handler, which can process your request
                       for page by refreshing every few seconds.
     b) content        : It defines the number of seconds.
 
 - Meta provides following attributes to make the page SEO friendly.
 
-<meta  name="keywords"  content="some keywords used for finding your site">
+    <meta  name="keywords"  content="some keywords used for finding your site">
     <meta  name="description"  content="something about your website">
     <meta  charset="utf-8">
 
-a) UTF is Unicode Transformation Format
+        a) UTF is Unicode Transformation Format
         b) 8 = 8 bit [memory size]
        
             charset="utf-8"    => english
@@ -73,14 +75,14 @@ Syntax:
 Syntax:
         <style type="text/css">
 
-</style>
+        </style>
 
 5. <script>  is used to embed javascript into webpage
 
 Syntax:
         <script  type="text/javascript">
 
-</script>
+        </script>
 Body Section
 Sudhakar Sharma
 •
@@ -92,6 +94,7 @@ HTML Body Section
 Attributes:
 1. bgcolor        : It sets background color for page.
 2. text            : It sets text color.
+
 
 Note: HTML colors are defined by using 3 techniques
         a) Color Name
@@ -107,25 +110,25 @@ Syntax: Hexa Decimal Code
 - It can be 3 or 6 chars color code.
 - 3 or 6 chars have combination of "RGB" or "RRGGBB"  [Red Green Blue]
 
-#RGB
+        #RGB
         #RRGGBB
 
 - Every color value will start from "0 to f"
 
-0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f            => RGB
+        0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f            => RGB
          
 - "0" to "f" is a scale which set color shade dark to bright.
 
-0 = dark
+        0 = dark
         f  = bright
 
-bgcolor="#000"            black
+        bgcolor="#000"            black
         bgcolor="#fff"                white
         bgcolor="#f00"            red
         bgcolor="#0f0"            green
         bgcolor="#00f"            blue
 
-bgcolor="#000000"            black
+        bgcolor="#000000"            black
         bgcolor="#ff0000"            red
         bgcolor="#ad0000"            red shade
 
@@ -163,6 +166,7 @@ Syntax:
   <body align="left | center | right | justify">
   </body>
 
+
 5. leftmargin            ]    margin will set space between content and page
 6. rightmargin            ]    margin is defined in pixels.
 7. topmargin            ]
@@ -178,11 +182,11 @@ Syntax:
 Syntax:
   <body  alink="red"  vlink="gray">
 
-<a href="http://www.amazon.in"&gt; Amazon </a>
+        <a href="http://www.amazon.in"&gt; Amazon </a>
 
-</body>
+  </body>
 
-Semantics in Body Section
+                    Semantics in Body Section
 - Semantic elements are HTML elements defined for specific purpose.
 - There are some roughly 100 semantic elements in HTML. [MDN]
 - HTML 5 introduced new semantics for body section to make it more SEO friendly.
@@ -261,7 +265,7 @@ Ex:
 </body>
 </html>
 
-<header>
+                            <header>
 - It is used to configure header section of webpage.
 - Typically every header of web page comprises of
     a) Brand Name
@@ -269,7 +273,7 @@ Ex:
     c) Navbar
     d) Shortcut buttons etc..
 
-www.getbootstrap.com => themes
+                   www.getbootstrap.com => themes
 
 Shopper Theme URL:
 https://themes.getbootstrap.com/preview/?theme_id=37702
@@ -282,7 +286,7 @@ Setup Bootstrap Icons for Project
 
 3.  Type the following command
 
-> npm  install  bootstrap-icons   --save
+    > npm  install  bootstrap-icons   --save
 
 4.  NPM adds a new folder into your project by name "node_modules". It comprises of
      all library files installed using NPM.
@@ -307,7 +311,7 @@ bi bi-facebook
 bi bi-twitter
 bi bi-bell  ....
 
-<header>
+                             <header>
 - It is a container that defines content to display at top margin of page.
 - Typically a header in webpage comprises of brand-name, logo, shortcut buttons, navigation etc.
 
@@ -328,7 +332,7 @@ CSS Style Attributes:
     margin-top
     margin-bottom
 
-background-color    It sets background color for container.
+    background-color    It sets background color for container.
     color            It sets text color.
    
     display            It can display elements in container with various styles
@@ -339,25 +343,26 @@ background-color    It sets background color for container.
                     e) grid
                     f) flex
 
-justify-content        It can justify the elements in container with following values
+    justify-content        It can justify the elements in container with following values
                     a) space-between
                     b) space-around
                     c) space-evenly
 
-padding            It sets space around content in all directions
+    padding            It sets space around content in all directions
     padding-top
     padding-bottom
     padding-right
     padding-left
 
-border            It sets border style, side and color for container
+    border            It sets border style, side and color for container
     border-radius        It sets rounded corners
     text-align            It aligns text left, center, right or justify
 
 Note: You can't change width and height of any span element using CSS directly.
       To set width and height for span you have to define "display:inline-block"
 
-<nav>
+
+                            <nav>
 - It is used to configure a navigation area in webpage.
 - Typically nav area comprises of various nav-items or shortcut buttons.
 
@@ -368,7 +373,7 @@ Syntax:
         <span> About </span>
     </nav>
 
-<article>
+                            <article>
 - It is a container element that keeps the highlights of web page content.
 - It is typically the offers, announcements, news, updates etc..
 
@@ -473,7 +478,7 @@ Syntax:
         ... your footer content...
     </footer>
 
-<aside>
+                            <aside>
 - It defines the content that is not relative to current contex or that navigates the user to any another website.
 - It contains contents aside the current context.
 
@@ -499,11 +504,11 @@ Syntax:
 
 Note: Selecting Child and Siblings in CSS.
 
-parent  child            => child selector
+        parent  child            => child selector
         {
         }
 
-ElementA+ElementB    => Adjacent Sibling
+        ElementA+ElementB    => Adjacent Sibling
         {
         }
    
@@ -620,7 +625,7 @@ Ex: Header & Footer
         </article>
         <section>
 
-</section>
+        </section>
         <footer>
             <div>
                 <div class="footer-brand-name">Shopper</div>
@@ -713,7 +718,7 @@ Syntax:
     ....your content....
   </section>
 
-<main>
+                        <main>
 - It is considered as entry point.
 - User can start using your website from a specific entry point, which is "main".
 
@@ -724,12 +729,12 @@ Syntax:
 
 Note: You can set transparent colours in CSS using the method "rgba()"
 
-rgba(red, green, blue, alpha);
+        rgba(red, green, blue, alpha);
 
-red , green, blue => 0 to 255
+        red , green, blue => 0 to 255
         alpha            =>  0 to 1
 
-rgba(255, 0, 0, 1);
+        rgba(255, 0, 0, 1);
 
 Netflix:
 
@@ -750,15 +755,16 @@ Netflix:
             margin-top: -10px;
             margin-left: -10px;
 
-}
+        }
     </style>
 </head>
 <body background="public/images/Netflix-Background.jpg">
     <div class="shade">
 
-</div>
+    </div>
 </body>
 </html>
+
 
 Basic Semantics
 
@@ -790,7 +796,7 @@ Ex:
             margin-top: -10px;
             margin-left: -10px;
 
-}
+        }
         header {
             padding: 40px;
             color:white;
@@ -877,6 +883,7 @@ Ex:
 </body>
 </html>
 
+
 Note: To display any content center screen you have to following the given process.
        - First keep all elements in one container.
                <body>
@@ -886,7 +893,7 @@ Note: To display any content center screen you have to following the given proce
             </body>
        - Body is the container which can display its content center with the attributes
 
-body {
+            body {
                 display:flex;
                 justify-content:center;        [horizontal]
                 align-items:center;            [vertical]
@@ -946,7 +953,7 @@ Ex:
     </dialog>
 </body>
 
-<figure> & <figcpation>
+                        <figure> & <figcpation>
 
 - Figure is used to encapsulate any image with a caption.
 - Figcaption is used to make image SEO friendly.
@@ -1000,7 +1007,7 @@ Summary
 11.div
 12.span
 
-HTML Basic Entities & Semantics for Body
+                HTML Basic Entities & Semantics for Body
 
 1. Line Break            <br>
 
@@ -1109,7 +1116,7 @@ Syntax:
     <small> your text </small>
     <big> your text </big>
 
-9. Details & Summary
+9. Details & Summary        
 
 - Details is a container that can display expandable and collapsable content.
 - Summary is a caption for details container.
@@ -1125,7 +1132,7 @@ Syntax:
 Syntax:
      <details open>
 
-</details>
+    </details>
 
 Ex:
 <!DOCTYPE html>
@@ -1426,11 +1433,11 @@ Syntax:
 
 Note: You can set shadow for any container by using "box-shadow"
 
-{
+        {
           box-shadow : horizontal  vertical  blur  color;
         }
 
-horizontal, vertical, blur        =>  defined in pixels.
+        horizontal, vertical, blur        =>  defined in pixels.
        
 Ex:
 <!DOCTYPE html>
@@ -1501,7 +1508,7 @@ Ex:
      </fieldset>
 </body>
 </html>
-Headings, Paragraphs, Blockquote,
+Headings, Paragraphs, Blockquote, 
 
 Headings in HTML
 
@@ -1570,7 +1577,7 @@ Note:
  - Don't use too many headings in page. It may spam your page.
  - Never use headings to highlight any word or sentence in page.
 
-Paragraph and Block Quote
+                    Paragraph and Block Quote
 
 - Paragraph is defined with <p> element.
 - Blockquote is defined with <blockquote> element.
@@ -1682,7 +1689,7 @@ Ex:
     <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement</p>
     <p> This agreement describes your rights and the conditions upon which you may use the Windows software. You should review the entire agreement, including any supplemental license terms that accompany the software and any linked terms, because all of the terms are important and together create this agreement that applies to you. You can review linked terms by pasting the (aka.ms/) link into a browser window.</p>
 
-</section>
+   </section>
 </body>
 </html>
 Text Effects and Numbering
@@ -1695,11 +1702,11 @@ Text Formatting in HTML
 Syntax:
         <font   face=""   size=""   color=""> Your Text </font>
 
-face            => It is font family name.
+                face            => It is font family name.
                 size            => It is number 1 to 7 level.        
                 color        => It is color name, code etc.
 
-<font  face="Arial"  size="6"  color="red">  Text </font>
+        <font  face="Arial"  size="6"  color="red">  Text </font>
 
 FAQ: What are websafe fonts?
 Ans:  These are the fonts available to all devices. The web safe fonts are:
@@ -1708,6 +1715,7 @@ Ans:  These are the fonts available to all devices. The web safe fonts are:
         c) monspace
 
 Note: W3 Standards recommends not to use <font> tag in webpage. Better use styles for formatting.
+
 
 2. Font Styles        : It refers to bold & italics. HMTL provides following elements
                     <b>        Bold        <strong>
@@ -1727,10 +1735,10 @@ Ans:  Both are same in presentation.
 
 3. Font Effects            : It refers to  underline, strikeout, super script & subscript
 
-<u>        underline        <ins>   Inserted [review]
-                     strike    strikeout    strike      <del>   Deleted [review]
-                     sup    super script 
-                     sub     subscript   
+                     <u>        underline        <ins>   Inserted [review]
+                     <strike>    strikeout        <del>   Deleted [review]
+                     <sup>    super script
+                     <sub>     subscript
 
 Syntax:
     X<sup>2</sup>
@@ -1745,7 +1753,7 @@ Summary:
 - superscript
 - subscript
 
-Ordered and Unordered List
+                    Ordered and Unordered List
 - Ordered list is defined using <ol>
 - It is auto numbering style for list of items.
 - Every item is defined with <li>.
@@ -1758,16 +1766,16 @@ Syntax:
 
 - You can change the numbering style by using "type" attribute.
 
-<ol type=" 1, A, a, i, I ">
+    <ol type=" 1, A, a, i, I ">
 
 - You can set starting level for numbering by using "start" attribute.
 
-<ol type="1"  start="101">
+    <ol type="1"  start="101">
     <ol type="a"  start="5">
 
 - You can set reverse numbering style by using "reversed" attribute.
 
-<ol type="1"  reversed>
+    <ol type="1"  reversed>
 
 Syntax:
     <ol type="1"  start="3"  reversed>
@@ -1777,12 +1785,12 @@ Syntax:
 
 - You can create a nested list for numbering. But make sure the child list is defined with in <li> element and not below the <li> element.
 
-<li> Item-1 </li>            => not good
+    <li> Item-1 </li>            => not good
      <ol>
        <li> Child-1 </li>
     </ol>
 
-<li> Item-1                 => good
+    <li> Item-1                 => good
         <ol>
          <li> Child-1 </li>
         </ol>
@@ -1993,7 +2001,7 @@ Ex:
 </body>
 </html>
 
-Unordered List
+                            Unordered List
 - It can display bulleted list.
 - It comprises of symbols like circle, disc and square.
 - List is configured with <ul>
@@ -2110,7 +2118,7 @@ Ex: Every List item with different icon
       <li class="bi bi-instagram"> <span>Instagram</span> </li>
       <li class="bi bi-linkedin"> <span>LinkedIn</span> </li>
 
-</ul>
+   </ul>
 </body>
 </html>
 
@@ -2125,6 +2133,7 @@ Syntax:
         right: 20px;
         bottom:20px;
     }
+
 
 Ex:
 <!DOCTYPE html>
@@ -2158,13 +2167,13 @@ Ex:
 <body>
     <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
 
-<ul>
+   <ul>
       <li class="bi bi-facebook">  </li>
       <li class="bi bi-twitter">  </li>
       <li class="bi bi-instagram">  </li>
       <li class="bi bi-linkedin"> </li>
 
-</ul>
+   </ul>
 </body>
 </html>
 
@@ -2247,15 +2256,16 @@ JPEG        image/jpeg    			Joint Photographic Expert Group       .jpg, .jpeg, 
 
 GIF         image/gif       		Graphic Interchange Format            .gif
 
-TIFF       image/tiff     			Tagged Image File Format            .tiff
+ TIFF       image/tiff     			Tagged Image File Format            .tiff
 
-SVG     	application/svg-xml   	Scalar Vector Graphics            	.svg
+ SVG     	application/svg-xml   	Scalar Vector Graphics            	.svg
 
-BMP        image/bmp       		Bitmap                            .bmp
+ BMP        image/bmp       		Bitmap                            .bmp
 
-ICO       	image/icon       		Microsoft Icon                    .ico
+ ICO       	image/icon       		Microsoft Icon                    .ico
 
-Webp       application/webp    	Web Picture                    .webp
+ Webp       application/webp    	Web Picture                    .webp
+
 
 Purpose of Various Image Types:
 
@@ -2284,11 +2294,12 @@ Webp                    : It is embedded into page and intergrated into page.
 
 ICO                        : It is used for shortcut icons [favicon]
 
+
 Embed Images into Web Page:
 - You can embed image into web page by using <img> element.
 - It provides various attributes
 
-src                : It refers to image path and name
+        src                : It refers to image path and name
         alt                : It refers to alternative text to display when image fails to
                           load.
         title                : It defines a tooltip to display when mouse is over image.
@@ -2302,11 +2313,13 @@ src                : It refers to image path and name
 Syntax:
     <img  src="path">
 
+
 Ex:
 <img src="public/images/realme-black.jpg" title="30% OFF - Offer End on 5 Sep 2023" alt="Realme-Black" 
 width="300" height="400">
 
----  Image Attributes and Examples  ---
+
+		---  Image Attributes and Examples  ---
 
 Formats
   PNG, APNG, JPEG, GIF, TIFF, SVG, Bitmap, ICO
@@ -2321,7 +2334,7 @@ Attributes
     border
     align
     hspace
-    vspace
+    vspace        
 
 Ex:
 <!DOCTYPE html>
@@ -2433,22 +2446,22 @@ Advanced Attributes:
 1. crossorigin [CORS]       : It controls Cross Origin Resource Sharing.
                         You can configure with "use-credentials" or "anonymous".
 
-<img  src="http://someserver.com/images/pic.jpg&quot;  crossorigin="use-credentials">
+     <img  src="http://someserver.com/images/pic.jpg&quot;  crossorigin="use-credentials">
 
 2. decoding              : It defines how image have to load along with other contents
                         on page. It can "Sync, Async or Auto".
 
-<img src="public/images/pic.jpg"  decoding="sync | async | auto">
+      <img src="public/images/pic.jpg"  decoding="sync | async | auto">
 
 3. importance             : It sets priority for loading images, which can be low, high or
                        auto.
 
-<img src="public/images/pic.jpg"  importance="low">
+    <img src="public/images/pic.jpg"  importance="low">
 
 4. srcset                 : It can configure a set of images as source, so that they
                       can change according to situation.
 
-<img  srcset="collection of images">
+    <img  srcset="collection of images">
 
 Ex: Cards
 
@@ -2527,7 +2540,8 @@ Ex: Cards
       </div>
    </div>
 
-<div class="card">
+
+   <div class="card">
     <div class="card-header">
         <img src="public/images/kids.jpg" width="70" class="card-pic">
         <div>
@@ -2551,6 +2565,7 @@ Ex: Cards
  </div>
 </body>
 </html>
+
 
 Template Designs with Cards
 
@@ -2733,6 +2748,7 @@ Ex: Amazon Cards-
     </section>
 </body>
 </html>
+
 
 Ex: Shopper Templates
 
@@ -2977,34 +2993,36 @@ Ex: Shopper Templates
     </body>
 </html>
 
+
 Links in HTML -
+
 
 - Link is clickable text, picture or graphic that navigates the user from one location to another when clicked.
 - You can call a link in webpage as a "Hyperlink", as it takes you beyond what you see.
 - Links are created by using <a> anchor element.
 
-<a>   Text  | Picture | Graphic   </a>
+            <a>   Text  | Picture | Graphic   </a>
 
 - Every link requires a reference path, which is defined using "href".
 
-<a href="path"> Text | Picture | Graphics </a>
+            <a href="path"> Text | Picture | Graphics </a>
 
 - Links in a webpage are classified into 2 types
 
-1. Intra Document Links
+        1. Intra Document Links
         2. Inter Document Links
 
 Intra Document Links:
 - These are the hyperlinks that navigate user from one location to another with in the same page.
 - To create intra document links the target element must have a reference ID.
 
-<h2  id="fashion">
+        <h2  id="fashion">
         <img  id="realme">
         <ol  id="list">
 
 - User can navigate to reference ID by using <a> element.
 
-<a href="#fashion">  Fashion </a>
+         <a href="#fashion">  Fashion </a>
          <a href="#realme"> Realme </a>
          <a href="#list">   <img src="">  </a>
        
@@ -3024,7 +3042,7 @@ Ans:  By using HTML <body> attributes "alink & vlink"
 Syntax:
         <body  alink="red"  vlink="gray">
 
-a:visited {   }
+        a:visited {   }
         a:active {   }
         a:link {   }
 
@@ -3118,7 +3136,7 @@ Ex:
             </figure>
             <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
 
-</main>
+        </main>
     </section>
 </body>
 </html>
@@ -3233,7 +3251,7 @@ Ex:
             <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
             <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
 
-</main>
+        </main>
     </section>
 </body>
 </html>
@@ -3304,7 +3322,8 @@ Ex:
 </body>
 </html>
 
-********Inter Document Links**********
+		********Inter Document Links**********
+
 
 - An inter document link can handle following
     1. It can link to any "file".
@@ -3360,7 +3379,8 @@ Syntax:
   <a href="javascript:window.print()">  Print Page </a>
   <a href="javascript:functionName()">   Execute </a>
 
-YouTube
+
+                        YouTube
 
 Ex:
 <!DOCTYPE html>
@@ -3400,6 +3420,7 @@ Inter Document Links
 - To Application
 - To JavaScript functions
 
+
 FAQ's:
 1. How to remove underline for Hyperlink?
 A. By using CSS "text-decoration:none"
@@ -3419,15 +3440,16 @@ A. By using "download" attribute for <a> element.
 4. How to open linked document in new tab?
 A. By using "target" attribute for <a> set to "_blank".
 
-<a  href="public/images/fashion.jpg"  target="_blank"> Fashion </a>
+     <a  href="public/images/fashion.jpg"  target="_blank"> Fashion </a>
  
 5. How to open linked document in new window?
 A. By using JavaScript function "window.open()".
 
-<a href="javascript:window.open('path', 'title', 'features')">  Text | Image </a>
+      <a href="javascript:window.open('path', 'title', 'features')">  Text | Image </a>
 
 Ex:
  <a href="javascript:window.open('public/images/fashion.jpg', 'Fashion', 'width=300 height=400')">   Fashion </a>
+
 
 6. How to open linked document in the same window along with other contents in page?
 A. You can embed any external document into page by using an <iframe>.
@@ -3439,7 +3461,7 @@ A. You can embed any external document into page by using an <iframe>.
 Syntax:
     <iframe  src="you can load any url or file by default"   name="ref">
 
-</iframe>
+        </iframe>
    
      <a href="some_path"  target="iframe_ref_name">  Text </a>
 
@@ -3492,6 +3514,7 @@ Ex:
 </body>
 </html>
 
+
 Ex:
 <!DOCTYPE html>
 <html lang="en">
@@ -3508,6 +3531,7 @@ Ex:
 
 </body>
 </html>
+
 
 YouTube Design
 
@@ -3714,50 +3738,53 @@ Ex: YouTube
     </section>
 </body>
 </html>
+ALTER TABLE [dbo].[rateplan]
+ADD IsBulkBuy INT NULL;
 
-##### Table Attributes and Examples #####
+
+		##### Table Attributes and Examples #####
 
 Table Elements
-- table
-- caption
-- colgroup
-- thead
-- tbody
-- tfoot
-- tr
-- th
-- td
+<table>
+<caption>
+<colgroup>
+<thead>
+<tbody>
+<tfoot>
+<tr>
+<th>
+<td>
 
 Table Attributes
 1. Frame, Rules and Border
 2. Cellspacing & Cellpadding
 3. BgColor & Background
 
-bgcolor            : It sets background color for table, group, row or cell.
+    bgcolor            : It sets background color for table, group, row or cell.
     background        : It sets background image for table, group, row or cell.
 
 Note: You can't manipulate columns in HTML table.
-```javascript
-<table bgcolor="yellow">        <table background="path_of_image">
+
+    <table bgcolor="yellow">        <table background="path_of_image">
     <tr bgcolor="yellow">            <tr background="">
     <thead bgcolor="yellow">        <thead background="">
     <td bgcolor="yellow">            <td background="">
     <th bgcolor="yellow">            <th background="">
-```
+
 4. align & valign
 
-align            : It aligns the cell content left, center, right or justify horizontally.
+    align            : It aligns the cell content left, center, right or justify horizontally.
     valign        : It aligns the cell content top, center, bottom vertically.
 
-<table align="center">            <tr valign="center">
+    <table align="center">            <tr valign="center">
     <thead align="center">            <td valign="top">
     <tr align="center">
     <th align="right">
     <td align="center">
 
-5. height & width
+5. height & width    
 
-height        : It defines height for table, group, row, cell.
+    height        : It defines height for table, group, row, cell.
     width        : It defines with for table or cell.
 
 Note: You can change width of cell which effects all cells in the column.
@@ -3887,12 +3914,12 @@ Ex:
 
 6. colspan and rowspan
 
-colspan        : It can merge multiple cells into one column.
+    colspan        : It can merge multiple cells into one column.
     rowspan        : It can merge multiple cells into one row.
 
 Note: You can define rowspan and colspan only for <td> or <th>.
 
-<td colspan="4">
+    <td colspan="4">
     <td rowspan="3">
     <th colspan="5">
 
@@ -4074,13 +4101,13 @@ Ex:
             </td>
             <td>
 
-</td>
+            </td>
             <td>
 
-</td>
+            </td>
             <td>
 
-</td>
+            </td>
         </tr>
         <tr height="200" bgcolor="white">
             <td colspan="4" background="public/images/asi.jpg">
@@ -4093,7 +4120,7 @@ Ex:
 
 
 
-======  Forms and Task Design Example  =====
+	======  Forms and Task Design Example  =====
 
 <!DOCTYPE html>
 
@@ -4276,11 +4303,12 @@ Ex:
 
 
 
-Forms in HTML
+
+                            Forms in HTML
 - A form provides UI from where user can interact with data.
 - It allows to handle CRUD operations.
 
-C        - Create [Register, Insert]
+            C        - Create [Register, Insert]
             R        - Read
             U        - Update
             D        - Delete
@@ -4303,30 +4331,32 @@ Syntax:
 
 2. Name            : It defines a reference name for form.
 
+
 3. Class            : It defines a css class to configure styles.
 
 Syntax:
         <form  id="frmLogin"  name="LoginForm"  class="form-container">
 
-</form>
+        </form>
 
 4. Method        : It defines the form behaviour, every form in HTML have 2 methods
                     a) GET
                     b) POST
 
-GET is used to fetch data from server.
+                  GET is used to fetch data from server.
                   POST is used to submit data to server.
 
 Syntax:
         <form  id="frmRegister"   method="post | get">
 
-</form>
+        </form>
 
 FAQ: What is the default method?
 Ans : GET
 
 FAQ: Can we submit data to server on GET method?
 Ans:  Yes. But it is not recommended always.
+
 
 GET
 - It is used mostly for fetching data from server.
@@ -4353,7 +4383,8 @@ POST
 - You can submit complex data, i.e binary data.
 - Data is not cached.
 
-=====  Form Attributes and Textbox =====
+
+		=====  Form Attributes and Textbox =====
 
 Form Attributes
 
@@ -4368,6 +4399,7 @@ Syntax:
     <form method="get"  action="results.html | results.jsp..">
     </form>
 
+
 6. novalidate    : It can disable the default validations provided by HTML.
               If you are writing custom validations then you can by-pass the default
               validations.
@@ -4376,7 +4408,7 @@ Syntax:
     <form method="get"  actions="results.html"  novalidate>
         </form>
 
-Form Elements
+                          Form Elements
 - HTML provides various form elements to handle interactions
     <input>
     <select>
@@ -4387,7 +4419,7 @@ Form Elements
     <progress>
     <textarea>  etc..
 
-Input Element
+                            Input Element
 - HTML <input> is responsible for configuring an input that allows any type of data.
 - HTML 5 provided various input types to manage different types of data like number, string, date, email, phone number etc.
 
@@ -4397,7 +4429,7 @@ Syntax:
         Email    : <input>
         DOB    : <input>
 
-TextBox
+                            TextBox
 - A textbox allows user to input a string.
 - It provides various attributes for managing and restricting string.
    [ string is a group alpha, numeric and special characters]
@@ -4412,7 +4444,7 @@ Attributes:
 Note: Every form element must have a "name".
           If name is not defined for any element, then form can't submit its value.
 
-<input type="text"  name="txtCity">
+     <input type="text"  name="txtCity">
      <input type="text"  name="txtName">
 
 4. value        : It defines the default value to display in textbox.
@@ -4449,6 +4481,7 @@ Syntax:
 
 Syntax:
     <input type="text"  name="txtOTP" required>
+
 
 12. autofocus    : It sets focus to textbox automatically on page load.
 
@@ -4492,27 +4525,28 @@ Ex:
 </body>
 </html>
 
----------------  Regular Expression  ---------------
+
+				---------------  Regular Expression  ---------------
 
 14. Pattern        : It is used to validate the format of input value.
                   Pattern uses a regular expression for verifying the format of value.
                   A regular expression is built by using meta characters & quantifiers
 
-Meta Character            Description
+ Meta Character            Description
 ----------------------------------------------------------------------------------------------------
  ?                        Zero or one occurance of any character.
 
-Syntax:
+                        Syntax:
                          pattern="colou?r"       => color, colour
 
-*                        Zero or more occurances of any character.
+ *                        Zero or more occurances of any character.
 
-Syntax:
+                        Syntax:
                         pattern="colou*r"    => color, colour, colouur, colouuur...
 
 +                        One or more occurances of any character.
 
-Syntax:
+                        Syntax:
                         pattern="colou+r"    => colour, colouur, colouuur...
 
 . (dot)                    Any single character [A-Za-z0-9!@#$%^&]
@@ -4526,24 +4560,24 @@ Syntax:
 \                        It is an escape sequence character, that can transform
                         meta character into normal char and vice versa.
 
-Syntax:
+                        Syntax:
                         pattern="gmail.com"    => gmail3com, gmail#com
                         pattern="gmail\.com"    => gmail.com
 
-| [pipe]                    It refers to logical "OR" [any one of specified]
+ | [pipe]                    It refers to logical "OR" [any one of specified]
 
-Syntax:
+                        Syntax:
                         pattern="red|blue|green"   => red, blue, green
 
 ^                        It excludes the specified chars.
 
-Syntax:
+                        Syntax:
                         pattern="[a,d,s]"   =>  a , d , s  
                         pattern="[^a,d,s]"  =>  all are allowed excluding a,d,s.
 
 [ ]                        It defines the range of chars.
 
-Syntax:
+                        Syntax:
                         pattern="[a,d,s]"        => a, d, s
                         pattern="[a-z]"            => a to z
                         pattern="[0-9]"            => 0 to 9 all numbers
@@ -4555,11 +4589,12 @@ Syntax:
 
 $                        Ends with
 
-Syntax:
+                        Syntax:
                         pattern="\^ .... your expression... $"
                         pattern="\^[a-z]\.[0-9]$"
 
-=====  Meta Chars and Quantifiers  ======
+
+		=====  Meta Chars and Quantifiers  ======
 
 Meta Characters
     ?            zero or one occurance
@@ -4574,15 +4609,15 @@ Meta Characters
     $            end with
     ( )            It is union of chars & expression.
 
-\d            Single digit number  [0-9]
+    \d            Single digit number  [0-9]
 
-Syntax:
+                Syntax:
                 pattern="\d\d"        => 12, 46, 37, 25, 99
                 pattern="\d\d?"    =>  12, 3,
                
     \D            Non numeric value. [a-z,A-Z,!@#$%^&]
 
-Syntax:
+                Syntax:
                 pattern="\d\D"        => 3a, 3B, 3@, 3#
                
     \s            Single blank space
@@ -4590,22 +4625,22 @@ Syntax:
                 Syntax:
                 pattern="\d\s\d"    => 3 1,
 
-\w            It refers to word chars.
+    \w            It refers to word chars.
                 [ a-zA-Z0-9_ ]
 
-Syntax:
+                Syntax:
                 pattern="\w"        => 3, a, A, _
 
-\W            It refers to no-word chars. [all special chars]
+    \W            It refers to no-word chars. [all special chars]
                 [ a - z A - Z 0 - 9 _ ] => not allowed
 
-Syntax:
+                Syntax:
                 pattern="\w\W"    => 1#, a@, A$            
                 pattern="\w[@#$]    => 3@, a#, A$
 
-\i            Ignore case [capitalization]
+    \i            Ignore case [capitalization]
 
-Syntax:
+                Syntax:
                 pattern="Colour\i"       => colour, Colour, COLOUR
 
 Quantifier            Description
@@ -4615,19 +4650,19 @@ Quantifier            Description
                     Syntax:
                     pattern="\d{3}"
 
-{n,m}                minimum-n and maximum-m  chars
+ {n,m}                minimum-n and maximum-m  chars
 
-Syntax:
+                    Syntax:
                     pattern="\w{4,15}"
 
-{n, }                    minimum-n  and maximum-any
+ {n, }                    minimum-n  and maximum-any
 
-Syntax:
+                    Syntax:
                     pattern="\w{4, }"
 
 Regular expressions [pre-defined]:
 
-(?=.*[A-Z])            At least one upper case letter at any place.
+    (?=.*[A-Z])            At least one upper case letter at any place.
     (?=.*[a-z])            at least one lower case letter.
     (?=.*[0-9])            at least one numeric
     (?=.*[!@#$%])            at least one special character
@@ -4635,25 +4670,25 @@ Regular expressions [pre-defined]:
 Ex:
 1. Write a pattern to validate mobile number starting with +91 and 10 digits.
 
-pattern="\+91\d{10}"
+            pattern="\+91\d{10}"
 
 2. Write a pattern to validate US mobile format
 
-+(1)(425) 555-0100
+            +(1)(425) 555-0100
 
-pattern="\+\(1\)\(\d{3}\)\s\d{3}-\d{4}"
+            pattern="\+\(1\)\(\d{3}\)\s\d{3}-\d{4}"
 
 3. Write pattern for UK mobile format
            
             +(44)(20) 1234 5678
 
-pattern="\+\(44\)\(\d{2}\)\s\d{4}\s\d{4}"
+            pattern="\+\(44\)\(\d{2}\)\s\d{4}\s\d{4}"
 
 4.  Write a pattern to validate IFSC codes
    
             SBIN0070264
 
-pattern="SBIN00\d{5}"
+            pattern="SBIN00\d{5}"
 
 5.  Write a pattern for user name 4 to 15 chars alpha numeric. Special chars not allowed.
    
@@ -4663,15 +4698,17 @@ pattern="SBIN00\d{5}"
 6. Write a pattern for user name 4 to 15 upper letters only. number & special chars not allowed.
             pattern="[A-Z]{4,15}"
 
+
 7. Write a pattern for user name starting with uppercase letter and can be 4 to 15 chars.
     [number and special chars not allowed]
 
-pattern="[A-Z]{1}[a-zA-Z]{3,14}"
+
+            pattern="[A-Z]{1}[a-zA-Z]{3,14}"
 
 8. Write a pattern for user name 4 to 15 chars with atleast one uppercase letter.
     [alpha numeric with underscore allowed]
 
-pattern="(?=.*[A-Z])\w{4,15}"
+            pattern="(?=.*[A-Z])\w{4,15}"
 
 9. Write a pattern for user name 4 to 15 chars with atleast one uppercase letter, number and special char.
 Form Inputs: Number, Range, Color, URL, Date..
@@ -4684,7 +4721,7 @@ Password
 
 <input type="password" name=""  id=""  class=""  minlength="" maxlength="" pattern="">
 
-Number
+                            Number
 
 - It is used to input only numeric values.
 - Attributes
@@ -4695,7 +4732,7 @@ Number
 Syntax:
     <input type="number"  name="age"  min="15"  max="35" value="22" step="5">    <input type="number"  name="rate"  min="10.45"  max="18.45" step="0.01">
 
-Range
+                            Range
 - It is used for number input.
 - User can select a range of values using slider.
 - All attributes are same like number.
@@ -4703,24 +4740,25 @@ Range
 Syntax:
 <input type="range"  name="price"  min="100" max="150000"  value="100">
 
-Email
+                            Email
 - It validates email address.
 
 Syntax:
     <input type="email" placeholder="your email address"  required>
 
-URL
+
+                            URL
 - It validates URL format.
 - URL format must contain "protocol" and "domain"
 
 Syntax:
     <input type="url"   placeholder="your website address" name="" required>
 
-www.amazon.in        => invalid
+            www.amazon.in        => invalid
             http://www.amazon.in    => valid
             https://www.youtube.com => valid
 
-Color
+                            Color
 - It show a color picker.
 - User can select a color.
 - The color value must be 6 chars hexa decimal only.
@@ -4729,7 +4767,7 @@ Color
 Syntax:
  <input type="color" name="color"  value="#ff0000">
 
-Date and Time
+                        Date and Time
 - HTML 5 provides various date and time types.
         - date
         - datetime-local
@@ -4755,7 +4793,7 @@ Note: Always the date input format must be "year-month-day"
 
 Note: You can't select range of date values using HTML element.
 
-File
+                            File
 - It allows the user to select a file so that it can be upload to server using javascript.
 - It is just a file browser.
 
@@ -4772,7 +4810,7 @@ Syntax:
 
 - You can allow user to select multiple file by using "multiple" attribute.
 
-<input type="file"  multiple>
+    <input type="file"  multiple>
 
 Summary
 - password
@@ -4794,7 +4832,7 @@ Summary
 - Range
 - Date & Time
 
-Radio Buttons
+                            Radio Buttons
 
 - You can display a list of options, and user can select any one or multiple.
 - Radio once checked, it can't be unchecked.
@@ -4825,7 +4863,7 @@ Ans: When selection of any one option is mandatory and without selecting an opti
 Syntax:
  <input type="radio"  name="gender"  value="Male"> <label> Male </label>
 
-CheckBox
+                         CheckBox
 
 - Checkbox is similar to radio button.
 - Checkbox allows to check or uncheck any option.
@@ -4874,11 +4912,11 @@ Ex:
 </body>
 </html>
 
-Dropdown List
+                            Dropdown List
 - It enables the user to select any option from a group of choices.
 - HTML dropdown is designed by using
 
-<select>
+    <select>
     <optgroup>
     <option>
 
@@ -4893,7 +4931,7 @@ Syntax:
 
 - Every option comprises 3 attributes
 
-a) value            It defines the value to submit
+    a) value            It defines the value to submit
     b) selected        It makes option default selected on page load
     c) disabled        It will not allow to select any option
 
@@ -4931,7 +4969,7 @@ Ex:
 </body>
 </html>
 
-List Box
+                            List Box
 - It is similar to dropdown but allows to select multiple.
 - You can convert a dropdown into list box just by using the attributes
     a) size
@@ -4949,7 +4987,7 @@ Form Elements
 Note: The options in dropdown or listbox are RC data type. They allow only plain text, number and special chars. You can't add symbols or images into dropdown options.
       HTML will not allow to create nested dropdowns.
 
-Textarea
+                            Textarea
 - It is used for multiline text.
 - It is RC data type.
 - You can use only for plain text.
@@ -4995,7 +5033,7 @@ Ex:
 </body>
 </html>
 
-Meter
+                                    Meter
 - It is used to display a grade meter.
 - It is controlled dynamically by using "JavaScript".
 
@@ -5076,7 +5114,7 @@ Ex:
 </body>
 </html>
 
-Progress
+                              Progress
 - It is used to show the status of any task performed in page, such as downloading, installing, copying, etc..
 
 Syntax:
@@ -5134,7 +5172,7 @@ Ex:
 </body>
 </html>
 
-Label
+                            Label
 - It is used to display titles and captions for fields in a form.
 - It can bind with fields.
 - To bind with any field it used "for" attribute.
@@ -5197,7 +5235,8 @@ Ex:
 </body>
 </html>
 
-Buttons
+
+                            Buttons
 - A button is used for confirming user actions.
 - HTML provides 2 types of buttons
     a) Generic Buttons
@@ -5206,10 +5245,10 @@ Buttons
     a) Submit
     b) Reset
 
-<input type="submit">            HTML 4  [RC Data Type]
+    <input type="submit">            HTML 4  [RC Data Type]
     <input type="reset">            HTML 4
 
-<button type="submit">Text | Image </button>    HTML 5
+    <button type="submit">Text | Image </button>    HTML 5
     <button type="reset"> Text | Image </button>    HTML 5
 
 Ex:
@@ -5228,22 +5267,23 @@ Ex:
     <input type="button" value="print">        HTML 4
     <button type="button"> Text | Img </button>    HTML 5
 
-Bootstrap Form Classes
+                    Bootstrap Form Classes
 Bootstrap Classes for Forms
                         [ bootstrap 5x ]
 
 1. Install Bootstrap
 
->npm install bootstrap --save
+    >npm install bootstrap --save
 
 2. Link Bootstrap css to your page
 
 <link rel="stylesheet"  href="node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet"  href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
 
+
 1. Bootstrap Container Classes
 
-.container            : small screen [smartwatch]
+    .container            : small screen [smartwatch]
     .container-sm            : mobiles
     .container-md            : tab
     .container-lg            : pc
@@ -5251,35 +5291,36 @@ Bootstrap Classes for Forms
     .container-xxl            : laptop wide screen
     .container-fluid        : responsive
 
-<body class="container-fluid">
+    <body class="container-fluid">
     </body>
 
 2. Margins
 
-.m-{size}            margin all directions
+    .m-{size}            margin all directions
     .ms-{size}        left margin [s=start]
     .me-{size}        right margin [e=end]
     .mt-{size}            top margin
     .mb-{size}        bottom margin
 
-size = 1 to 5
+    size = 1 to 5
 
-<form  class="mt-5  ms-5">
+    <form  class="mt-5  ms-5">
     <form  class="m-5">
 
 3. Padding
 
-.p-{size}            all sides    
+    .p-{size}            all sides    
     .ps-{size}            left
     .pe-{size}            right
     .pt-{size}            top
     .pb-{size}            bottom
 
-<form class="m-5 p-5">
+    <form class="m-5 p-5">
+
 
 4. Borders
 
-.border
+    .border
     .border-{size} [ 1 to 3 ]
     .border-{contextual}  primary, secondary, danger, success, warning, info, dark..
     .rounded
@@ -5292,23 +5333,23 @@ size = 1 to 5
 
 5. Width and Height
 
-.w-{size}        25, 50, 100
+    .w-{size}        25, 50, 100
     .h-{size}        25, 50, 100
 
-<div  class="w-25">
+    <div  class="w-25">
     <img class="w-100">
 
 6. Background & Text Colors
 
-bg-{contextual}
+    bg-{contextual}
     text-{contextual}
 
-<h2 class="text-danger">
+    <h2 class="text-danger">
     <form  class="bg-success text-white">
 
 7. Display
 
-.d-none
+    .d-none
     .d-block
     .d-inline
     .d-flex
@@ -5397,7 +5438,7 @@ Ex:
 
 8. Grid Display
 
-.row
+    .row
     .col            responsive
     .col-{size}    1 to 12
 
@@ -5437,7 +5478,7 @@ Sudhakar Sharma
 11:28 AM
 9. Form Classes
 
-.form-control            text, number, email, url, date, password, textarea
+    .form-control            text, number, email, url, date, password, textarea
     .form-range            range
     .form-control-color        color
     .form-control-file        file
@@ -5449,7 +5490,7 @@ Sudhakar Sharma
 
 Syntax: switch type for checkbox or radio
 
-<div class="form-switch">
+   <div class="form-switch">
     <input type="checkbox"  class="form-check-input">
         <label class="form-check-label"> Yes </label>
   </div>
@@ -5509,7 +5550,7 @@ Ex:
 Syntax:
     <button  class="btn btn-primary"> Text </button>
 
-btn => It is base class and required for all button styles.
+    btn => It is base class and required for all button styles.
 
 Ex:
 <!DOCTYPE html>
@@ -5575,9 +5616,10 @@ Ex:
 </body>
 </html>
 
+
 11. Input Group Classes
 
-.input-group
+    .input-group
     .input-group-text
 
 Syntax:
@@ -5635,7 +5677,7 @@ Ex:
 
 12. Text Align
 
-.text-start
+    .text-start
     .text-center
     .text-justify
     .text-end
@@ -5787,7 +5829,8 @@ Ex: Amazon Login
 CSS Form Attributes
 - CSS provides attributes and classes to handle form appearence and validation.
 
-:required            It configures effects when field is defined with required.
+
+    :required            It configures effects when field is defined with required.
     :optional            It defines effects when field is not defined with required.
     :valid            It defines effects when all validation attributes are satisfied.
     :invalid            It defines effects when the field validation returns error.
@@ -5797,7 +5840,8 @@ CSS Form Attributes
                     [It can be for radio or checkbox]
     :focus            It defines effects when element is in focus.
 
-::placeholder        It defines effects for elements placeholder.
+    ::placeholder        It defines effects for elements placeholder.
+
 
 Ex: required & optional
 
@@ -5928,6 +5972,7 @@ Ex: Readonly & Disabled
 </body>
 </html>
 
+
 Ex: Checked
 
 <!DOCTYPE html>
@@ -5971,6 +6016,7 @@ Ex: Checked
 </body>
 </html>
 
+
 Ex: Focus
 
 <!DOCTYPE html>
@@ -6003,6 +6049,7 @@ Ex: Focus
 </body>
 </html>
 
+
 Ex:
 <!DOCTYPE html>
 <html lang="en">
@@ -6033,7 +6080,8 @@ Ex:
 
 
 
-===========	Multimedia and Styles =============
+
+			===========	Multimedia and Styles =============
 
 - Multimedia comprises of animations, audio and video content.
 - HTML multi media comprises of
@@ -6061,7 +6109,7 @@ Attributes:
 Syntax:
 <marquee  scrollamount="20" direction="right" loop="3"  width="500" bgcolor="yellow">
 
-... your content ...
+    ... your content ...
 
 </marquee>
 
@@ -6090,18 +6138,19 @@ Video & Audio:
         .mp3, .wav, .midi etc..
 - HTM elements
 
-<video>
+        <video>
         <audio>
 
 Syntax:
     <video  src="path"  poster="thumbnail.jpg"  controls> </video>
     <audio  src="path"  poster="pic.jpg" controls> </audio>
 
-Styles
+
+                            Styles
 - Styles are attributes defined for HTML elements to make them more interactive and responsive.
 - Styles are defined in a webpage using 3 techniques
 
-1. Inline Style
+    1. Inline Style
     2. Embedded Style
     3. External Style Sheet
 
@@ -6109,6 +6158,7 @@ Inline Styles:
 - The style attributes are defined for every element individually by using "style" attribute.
 - These styles are faster in rendering.
 - However you can't reuse the styles.
+
 
 Syntax:
     <h2 style="attribute:value; attribute:value">  Text </h2>
@@ -6136,7 +6186,9 @@ A. You can embed <style> container in <head> or <body>.
 
 
 
+
 =============CSS Embed and External Files===================
+
 
 1. Inline            "style"
 2. Embedded        <style>
@@ -6152,7 +6204,7 @@ Ans:  MIME is "Multi purpose Internet Mail Extention".
 Syntax:
     <style  type="text/css">
 
-</style>
+    </style>
 
 FAQ: What is Media type for styles?
 Ans:  It configures your styles for various devices and viewports.
@@ -6161,7 +6213,7 @@ Ans:  It configures your styles for various devices and viewports.
 Syntax:
     <style  type="text/css"  media="all | screen | print | speech">
 
-</style>
+    </style>
 
 FAQ: What is the issue with embedded technique?
 Ans:
@@ -6186,7 +6238,8 @@ Syntax:
 
 3. Link to web page
 
-<link rel="stylesheet"  href="src/styles/ticket.css">
+    <link rel="stylesheet"  href="src/styles/ticket.css">
+
 
 Ex:
  ticket.css
@@ -6204,7 +6257,7 @@ dt{
     font-weight: bold;
 }
 
-home.html
+ home.html
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6238,7 +6291,7 @@ Ex:
 
 2. Visit the website
 
-https://www.toptal.com/developers/cssminifier
+    https://www.toptal.com/developers/cssminifier
 
 3. Paste your actual CSS code
 
@@ -6255,7 +6308,7 @@ https://www.toptal.com/developers/cssminifier
 Note: Always use Uncompressed files for "Development" [Design]
       and Minified [Compressed] files for  "Production" [Go Live]
 
-<link rel="stylesheet" href="src/styles/ticket.min.css">
+    <link rel="stylesheet" href="src/styles/ticket.min.css">
 
 FAQ: What is CDN?
 Ans:  Content Delivery Network
@@ -6264,7 +6317,7 @@ Ans:  Content Delivery Network
 
 
 
-================  CSS Selectors & Rules  ========================
+		================  CSS Selectors & Rules  ========================
 
 CSS Rules - FAQ's
 
@@ -6281,7 +6334,8 @@ A. Priority is defined for the <style> in body.
 3. If style container is defined with same attribute multiple times in body, then which set will apply?
 A. The latest container effects will apply.
 
-Selecting HTML elements
+
+                      Selecting HTML elements
                       -----------------------------------
 - Styles are defined using inline technique, where selecting element is not required.
 - If styles are defined embedded or in external file, then you need a selector to select HTML elements.
@@ -6293,13 +6347,13 @@ Syntax:
           attribute2: value;
         }
 
-{
+        {
          key:value;                => Object
         }
 
 - CSS Selectors are classified into various groups
 
-1. Primary Selectors
+    1. Primary Selectors
     2. Rational Selectors
     3. Dynamic Pseudo classes
     4. Structural Pseudo Classes
@@ -6314,7 +6368,7 @@ Primary Selectors:
 
 1. Type Selector
 
-- It refers to element token name.
+ - It refers to element token name.
     p, h1, h4, table, td, dd, img..
  - It will apply effects to every occurance of element in page.
  - You can't ignore effects for any specific occurance.
@@ -6338,7 +6392,7 @@ Syntax:
         text-align:center;
     }
 
-<h1  id="text-style">  HTML </h1>
+    <h1  id="text-style">  HTML </h1>
 
 3. Class Selector
 
@@ -6355,7 +6409,7 @@ Syntax:
         border:1px solid red;
     }
 
-<h1 class="text-style  border-style">  HTML </h1>
+    <h1 class="text-style  border-style">  HTML </h1>
 
 Ex:
 <!DOCTYPE html>
@@ -6390,12 +6444,13 @@ CSS Rules FAQ's:
 A. If different styles are defined then all will apply.
     If same styles are defined then it uses priority:
 
-1st         Id selector
+        1st         Id selector
         2nd        class selector
         3rd         type selector
 
 2. If same attributes are defined using  ID selector in embedded and external file, which set will apply?
 A.  Embedded
+
 
 Note: You can group the selectors using "," delimeter. You can group any type of
       selector for same set of effects.
@@ -6405,11 +6460,11 @@ Syntax:
            border:1px solid red;
         }
 
-img, .container {
+        img, .container {
           box-shadow: 2px 2px 2px black;
         }
 
-#head, .container, p {
+        #head, .container, p {
           font-family : Arial;
         }
 
@@ -6438,13 +6493,14 @@ Rational Selectors:
 - You can select element using parent and child hierarchy.
 - You can also select by refering to siblings.
 
-parent   child            =>  all child elements in specific parent.
+        parent   child            =>  all child elements in specific parent.
 
-parent > child            =>  only direct child elements in specific parent.
+        parent > child            =>  only direct child elements in specific parent.
 
-ElementA+ElementB    =>  Adjacent selector [Sibling]
+        ElementA+ElementB    =>  Adjacent selector [Sibling]
        
         ElementA~ElementB    =>  General Sibling
+
 
 Ex:
 <!DOCTYPE html>
@@ -6470,6 +6526,7 @@ Ex:
 </body>
 </html>
 
+
 Ex:
 <!DOCTYPE html>
 <html lang="en">
@@ -6489,7 +6546,7 @@ Ex:
         <p>Para-2</p>
         <p>Para-3</p>
         <p>Para-4</p>
+ 
 
 </body>
 </html>
-

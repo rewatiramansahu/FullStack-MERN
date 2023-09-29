@@ -3776,12 +3776,6 @@ Note: You can't manipulate columns in HTML table.
     align            : It aligns the cell content left, center, right or justify horizontally.
     valign        : It aligns the cell content top, center, bottom vertically.
 
- align="center            valign="center
-   align="center            valign="top
-    align="center
-   align="right
-align="center
-
 5. height & width    
 
     height        : It defines height for table, group, row, cell.

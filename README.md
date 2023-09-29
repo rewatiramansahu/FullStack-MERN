@@ -3714,21 +3714,19 @@ Ex: YouTube
     </section>
 </body>
 </html>
-ALTER TABLE [dbo].[rateplan]
-ADD IsBulkBuy INT NULL;
 
 ##### Table Attributes and Examples #####
 
 Table Elements
-<table>
-<caption>
-<colgroup>
-<thead>
-<tbody>
-<tfoot>
-<tr>
-<th>
-<td>
+- table
+- caption
+- colgroup
+- thead
+- tbody
+- tfoot
+- tr
+- th
+- td
 
 Table Attributes
 1. Frame, Rules and Border

@@ -3737,13 +3737,13 @@ bgcolor            : It sets background color for table, group, row or cell.
     background        : It sets background image for table, group, row or cell.
 
 Note: You can't manipulate columns in HTML table.
-
+```javascript
 <table bgcolor="yellow">        <table background="path_of_image">
     <tr bgcolor="yellow">            <tr background="">
     <thead bgcolor="yellow">        <thead background="">
     <td bgcolor="yellow">            <td background="">
     <th bgcolor="yellow">            <th background="">
-
+```
 4. align & valign
 
 align            : It aligns the cell content left, center, right or justify horizontally.

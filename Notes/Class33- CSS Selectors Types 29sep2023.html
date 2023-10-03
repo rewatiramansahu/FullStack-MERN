@@ -1,0 +1,202 @@
+1. Primary Selectors
+    id, type, class
+2. Rational
+    child, direct child > , +, ~
+3. Attribute Selectors
+- You can apply effects to elements by using the attributes defined for element.
+
+Syntax:
+    element [attribute=value]
+    {
+    }
+
+    input [ type="button" ]
+    {
+    }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       input[type="button"] {
+         background-color: yellow;
+       }
+    </style>
+</head>
+<body>
+    <form>
+      <dl>
+        <dt>First Name</dt>
+        <dd><input type="text"></dd>
+        <dt>Last Name</dt>
+        <dd><input type="text"></dd>
+      </dl>
+      <input type="button" value="Submit">
+      <input type="button" value="Cancel">
+    </form>
+</body>
+</html>
+
+- You can access element just by using attribute name, without verifying its value.
+
+Syntax:
+    element [attribute]
+    {
+    }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p[id]
+        {
+          color:red;
+        }
+    </style>
+</head>
+<body>
+    <p>Para-1</p>
+    <p id="p2">Para-2</p>
+    <p>Para-3</p>
+    <p id="p4">Para-4</p>
+    <p>Para-5</p>
+</body>
+</html>
+
+- Attribute selectors can have various conditions
+
+    [attribute=value]            exact match
+    [attribute^=value]            starts with        
+    [attribute$=value]            ends with
+    [attribute|=value]            starts with and separated with delimeter
+    [attribute~=value]            It is not binded with other text
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       p[class~="Effects"] {
+         color:red;
+       }
+    </style>
+</head>
+<body>
+   <p class="Effects">Para-1</p>
+   <p class="ParaEffects">Para-2</p>
+   <p class="EffectsPara">Para-3</p>
+   <p class="Para-Effects">Para-4</p>
+   <p class="Effects-Para">Para-5</p>
+   <p class="Effects Para">Para-6</p>
+   <p class="Para Effects Text">Para-7</p>
+
+</body>
+</html>
+
+4. Dynamic Pseudo Classes
+- Dynamic specifies that appearence of element will change according to state and situation.
+- Pseudo refers to false representation.
+- Class refers to a program template in computer programming. It contains pre-defined logic and data, which you can implement and customize according to requirements.
+
+        :hover            mouse over
+        :active            mouse down
+        :link                anchor in default state
+        :visited            anchor visited state
+        :target            element is target of specified hyperlink
+
+Note: Class can transform element appearence, the transformation time can be controlled by using css attribute "transition".
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       img {
+         width: 50px;
+         height: 50px;
+         transition: 5s;
+       }
+       img:active {
+        width: 350px;
+        height: 350px;
+        transition:2s;
+       }
+       body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+       }
+    </style>
+
+</head>
+<body>
+  <img src="../public/images/a3.jpg">
+</body>
+</html>
+
+5. Element State Pseudo Classes
+
+        :read-only
+        :disabled
+        :checked
+        :focus
+
+6. Validation State Pseudo Classes
+
+        :required
+        :optional
+        :valid
+        :invalid
+
+
+7. Structural Pseudo Classes
+
+      :nth-child()            : specific number or "even" & "odd" occurance
+      :nth-of-type()            : every nth occurance from top  (3n) | (3n+1)
+      :nth-last-of-type()        : every nth occurance from bottom
+      :first-child            : first child
+      :last-child            : last child
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+      li:nth-last-of-type(3n+1) {
+         color:red;
+      }
+   
+  </style>
+</head>
+<body>
+   <ol>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>Bootstrap</li>
+    <li>Sass</li>
+    <li>JavaScript</li>
+    <li>jQuery</li>
+    <li>React</li>
+    <li>Angular</li>
+   </ol>
+</body>
+</html>

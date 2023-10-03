@@ -1,0 +1,220 @@
+Behavioural & Occurance Classes
+
+::before
+::after
+::placeholder
+::selection
+::first-letter
+::first-line
+
+Note: The selectors in CSS can implement certain rules, which will not allow to configure all types of style attributes for element.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     ol {
+      list-style: none;
+      display: flex;
+     }
+     li::after {
+       content: " >> ";
+     }
+     li:last-child::after {
+      content: "";
+     }
+     li:last-child {
+      color:gray;
+     }
+     input::placeholder {
+        background-color: yellow;
+     }
+     p::selection {
+      background-color: yellow;
+     }
+     p::first-line {
+       color:blue;
+     }
+     p::first-letter {
+      font-size: 30px;
+      font-weight: bold;
+      float: left;
+     }
+  </style>
+</head>
+<body>
+   <ol>
+     <li>Home</li>
+     <li>Electronics</li>
+     <li>Mobiles</li>
+     <li>Realme</li>
+     <li>C55</li>
+   </ol>
+   <input type="text" placeholder="User Name">
+   <p>Welcome to Styles. CSS selectors Welcome to Styles. CSS selectors Welcome to Styles. CSS selectors Welcome to Styles. CSS selectors Welcome to Styles. CSS selectors Welcome to Styles. CSS selectors Welcome to Styles. CSS selectors</p>
+</body>
+</html>
+
+Universal, Root & Language
+
+1. Universal selector is defined with "*", which refers to all element in page.
+
+    * {
+        font-family: Arial;
+     }
+
+2. Root selector is defined with ":root", which refers to document root i.e "html"
+
+    :root {
+       ...effects..
+    }
+
+3. Language selector can define effects using ":lang()"  method
+
+    :lang("en-in")
+    {
+      ...effects..
+    }
+
+
+
+
+
+
+Summary
+1. CSS Integration
+    a) Inline
+    b) Embedded
+    c) Exteral File
+2. CSS Selectors
+3. CSS Rules
+
+                           CSS Colors
+1. Color Name
+2. Color Shade Name
+3. Hexa Decimal
+4. rgb()
+5. rgba()
+6. hsl()
+7. hsla()
+8. linear-gradient()
+9. radial-gradient()
+
+
+- rgb()    : red, green, blue value range from 0 to 255
+
+        Syntax:
+            {
+            background-color: rgb(255,0,0);
+            }
+
+- rgba()    : red, green, blue & alpha [0 to 1]
+
+        Syntax:
+            {
+             background-color:rgba(0,0,0,0.4);
+            }
+
+- hsl()    : hue, saturation, lightness
+          hue is an angle from 0 to 360 deg.
+          0 to 120  => red
+          120 to 240 => green
+          240 to 360 => blue
+          staturation is grey shade with 0 to 100%
+          lightness is brightness with 0 to 100%
+
+- hsla()    : alpha from 0 to 1
+
+Syntax:
+        {
+          background-color: hsl(5deg, 80%, 60%);
+        }
+
+        {
+          background-color: hsla(5def, 80%, 60%, 0.6);
+        }
+
+- linear & radial gradient     :  you can set multiple colors only with background image.
+
+Syntax:
+body {
+       background-image: linear-gradient(to top left, red 20%, yellow 70%, green);
+       height: 100vh;
+     }
+
+body {
+       background-image: radial-gradient(red, yellow, green);
+       height: 100vh;
+     }
+
+
+                             CSS Inheritance
+                             -----------------------
+- Inheritance in CSS is the process of configuring parent effects to child element.
+- Child element automatically implements some of parent features, which you can control by using following CSS values.
+            a) inherit
+            b) initial
+            c) unset
+
+Syntax:
+    {
+     all : unset;        => remove all default styles
+    }
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+       border:2px solid red;
+       color:red;
+       font-family: Brush Script MT;
+       padding: 20px;
+    }
+    h1 {
+      border: inherit;
+      padding: inherit;
+      font-family: initial;
+      color:initial;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to CSS</h1>
+        <p>Formatting HTML with styles.</p>
+    </div>
+</body>
+</html>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+      h1 {
+         font-weight: unset;
+         font-size: unset;
+      }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to CSS</h1>
+         Formatting HTML with styles.
+    </div>
+</body>
+</html>

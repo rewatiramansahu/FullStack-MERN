@@ -1,0 +1,241 @@
+
+
+
+	
+			===========	CSS Units, Box Model ==============
+
+CSS Integration
+CSS Rules
+CSS Selectors
+CSS Colors
+CSS Inheritance
+
+                               CSS Units
+                               --------------
+- Units are used to define dimensions and location of element in page.
+- Units are classified into 2 types
+   
+    1. Absolute Units
+    2. Relative Units
+
+- Absolute Units are the units not effected by parent or adjacent elements.
+- They are individual and configured for various media devices
+
+            px        pixels
+            in        inch
+            cm        centimeter
+            mm        milli meter
+            pt        points
+            pc        picas
+           
+- Relative units are effected by the parent element.
+- The dimensions are defined according to the parent or root element.
+
+            em            Element Relative
+            rem            Root element relative
+            %            Relative to view port
+            vh            view port height
+            vw            view port width
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     .container {
+        font-size: 60px;
+        border:1px solid black;
+        padding: 10px;
+     }
+     p {
+        font-size: 1.5rem;
+     }
+     body {
+        font-size: 25px;
+     }
+  </style>
+</head>
+<body>
+    Web Development
+    <div class="container">
+         Welcome to CSS
+         <p>Formatting HTML with styles.</p>
+    </div>
+</body>
+</html>
+
+                        CSS Box Model Attributes
+1. Margin
+2. Padding
+3. Border
+4. Border Radius
+5. Width
+6. Height
+7. Border Image
+8. Box Shadow
+
+CSS Margins:
+   
+        margin        : all directions, it uses the orentation top, right, bottom & left.
+
+                      Syntax:
+                        {
+                         margin: 0px 0px 0px 0px;
+                        }
+                      Ex:
+                        margin : 0px 100px 0px  100px;       left & right
+                                  [top  right   bottom left]
+
+        margin-left
+        margin-right
+        margin-top
+        margin-bottom
+
+
+CSS Padding
+        padding            : short hand all directions
+        padding-left
+        padding-right
+        padding-top
+        padding-bottom
+
+Syntax:
+    {
+     padding : top right bottom left;
+    }
+
+Ex:
+    .container {
+        padding : 10px 0px 20px 0px;        top & bottom
+    }
+
+
+CSS Border:
+
+    border        : short hand for style, color and width
+    border-style    : double, dotted, solid, dashed etc..
+    border-width    : border size
+    border-color    : border color
+
+    border-left    : left short hand for style, color, width
+    border-left-style
+    border-left-width
+    border-left-color
+
+    ... similar for all directions......
+        [left, right, top & bottom]
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     .container {
+        margin : 20px 50px 0px 50px;
+        padding: 20px 20px 0px 20px;
+        border-left: 4px solid red;
+        border-top: 6px double blue;
+        border-right: 6px double blue;
+        border-bottom: 4px solid red;
+     }
+
+  </style>
+</head>
+<body>
+    <div class="container">
+         Welcome to CSS
+         <p>Formatting HTML with styles.Formatting HTML with styles.Formatting HTML with styles.    </p>
+    </div>
+</body>
+</html>
+
+CSS Border Radius:
+
+
+        border-radius        : short hand for all directions
+        border-top-right-radius
+        border-top-left-radius
+        border-bottom-right-radius
+        border-bottom-left-radius
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+        border-top-right-radius: 130px;
+        border-bottom-left-radius: 130px;
+        border-top-left-radius: 50px;
+    }
+  </style>
+</head>
+<body>
+    <img src="../public/images/women-fashion.jpg" width="300" height="400">
+</body>
+</html>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+        border-radius: 300px;
+    }
+  </style>
+</head>
+<body>
+    <img src="../public/images/women-fashion.jpg" width="300" height="300">
+</body>
+</html>
+
+CSS Border Image:
+
+- You can set image as border by using the attributes
+
+        border    
+        border-image
+
+Syntax:
+    .container {
+        border: 10px solid transparent;
+        border-image: url("path")  stretch|space  1-100 ;
+     }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     .container {
+        margin: 50px;
+        text-align: justify;
+        border: 10px solid transparent;
+        border-image: url("../public/images/border.png") space 90;
+        padding: 10px;
+     }
+  </style>
+</head>
+<body>
+    <div class="container">
+        We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/faq) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/updates) page.
+    </div>
+</body>
+</html>

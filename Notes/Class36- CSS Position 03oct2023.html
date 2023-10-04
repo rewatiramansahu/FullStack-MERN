@@ -1,0 +1,212 @@
+
+
+ =========== CSS Positions and Z Index ===========
+
+CSS Positions
+1. Static
+2. Absolute
+3. Fixed
+4. Relative
+5. Sticky
+
+Static
+- It keeps element according to normal flow of document.
+- It will not allow to change the position of element.
+- It is not effected by left, right, top and bottom placement if defined.
+
+Absolute
+- It removes element from normal flow of document.
+- It allows to change the position using left, right, top and bottom values.
+- It is attached to content in page.
+- It moves along with content in page.
+
+Fixed
+- It removes element from normal flow of document.
+- It allows to change position using left, right, top and bottom.
+- It is attached to browser not to content.
+- It locks scrolling.
+
+Sticky
+- It keeps element according to normal flow.
+- It will not allow to change position.
+- It can keep element sticky after reaching specific point on page while scrolling.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     .container {
+        border: 1px solid black;
+        padding: 20px;
+     }
+     .offer {
+      width: 140px;
+      padding: 2px;
+      background-color: yellow;
+      color:red;
+      position: sticky;
+      top:0px;
+     }
+  </style>
+</head>
+<body>
+    <div class="container">
+        We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/faq) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/updates) page.
+        <div class="offer">
+          30% OFF
+       </div>
+     
+    </div>
+</body>
+</html>
+
+Relative
+- It is defined for parent element.
+- The parent element keeps all child element relative to the context.
+- It requires placement of child elements using absolute.
+- Fixed will keep element with regard to page.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    #count {
+      display: inline-block;
+      padding: 2px;
+      border-radius: 30px;
+      background-color: red;
+      color:white;
+      width: 10px;
+      height: 10px;
+      font-size: 8px;
+      position: absolute;
+      top: -8px;
+      right: -8px;
+    }
+    button {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+    <button class="bi bi-cart4"> Your Cart <span id="count">2</span> </button>
+</body>
+</html>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+     #fashion {
+        background-image: url("../public/images/women-fashion.jpg");
+        background-size: cover;
+        height: 300px;
+        width: 300px;
+        position: relative;
+     }
+     #offer {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      color:white;
+      text-align: center;
+      border-radius: 50px;
+      padding: 5px;
+      align-items: center;
+      display: flex;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+     }
+  </style>
+</head>
+<body>
+    <div id="fashion">
+       <div id="offer">Save 30%</div>
+    </div>
+</body>
+</html>
+
+                              CSS Z-Index
+- It can take element back or backward.
+- It can bring element front or forward.
+- Z index starts with "0" index number, which is back.
+
+Syntax:
+    A {
+        z-index:0;
+     }
+    B {
+      z-index:2;
+    }
+    C {
+     z-index:1;
+    }
+
+    A - Bottom - Back
+    C - Over A
+    B - Over C
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+      #kids {
+         width: 300px;
+         height: 250px;
+         background-image: url("../public/images/kids-fashion.jpg");
+         background-size: cover;
+         margin-top: 250px;
+         z-index: 2;
+      }
+      #men {
+         width: 300px;
+         height: 150px;
+         background-image: url("../public/images/men-fashion.jpeg");
+         background-size: cover;
+         margin-left: 600px;
+         margin-top: 350px;
+         z-index: 0;
+      }
+      #women {
+         width: 400px;
+         height: 250px;
+         background-image: url("../public/images/women-fashion.jpg");
+         background-size: contain;
+         margin-top: 150px;
+         margin-left: 250px;
+         z-index: 1;
+      }
+      div {
+         border-radius: 20px;
+         position: absolute;
+         box-shadow: 5px 5px 2px black;
+      }
+  </style>
+</head>
+<body>
+    <div id="kids"></div>
+    <div id="men"></div>
+    <div id="women"></div>
+</body>
+</html>

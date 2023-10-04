@@ -1,0 +1,297 @@
+
+
+
+
+	============== CSS Display ===================
+	
+1. None
+2. Block
+3. Inline
+4. Inline-Block
+5. Flex
+6. Grid
+
+
+None:
+- It hides element in page.
+- It removes the allocated space for element.
+
+Syntax:
+    img {
+        display: none;
+    }
+
+FAQ's: What is difference between  "display:none" and "visibility:hidden" ?
+Ans :  display:none => removes the allocated space
+          visibility:hidden => keeps the allocated space
+
+Block & Inline:
+
+- Block can display element with a line break.
+- Inline can display element without line break.
+- You can use both for displaying hidden element.
+
+Syntax:
+    span {                    => display in new line
+       display:block;
+    }
+
+    span {                    => display in the same line
+      display:inline;
+    }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+      input:valid+span {
+         display: none;
+      }
+      input:invalid+span {
+         display: block;
+         color:red;
+      }
+  </style>
+</head>
+<body>
+    <dl>
+      <dt>User Name</dt>
+      <dd>
+         <input type="text" required>
+         <span>User Name Required</span>
+      </dd>
+    </dl>
+</body>
+</html>
+
+Inline-Block:
+- Several HTML elements will not allow to change the dimensions.
+- The width and height depends on the content.
+- It can change the dimensions of element with auto size.
+
+Syntax:
+    span {                    => width & height are not applied
+        width : 200px;
+        height: 40px;
+     }
+
+    span {
+       display:inline-block;
+       width: 200px;
+       height: 40px;
+    }
+
+Flex:
+- It is used for container that comprises of elements.
+- It is not applicable directly to elements.
+- Flex have various attributes to control the orientation and alignment.
+
+        a) flex-row  
+        b) flex-column
+        c) flex-direction
+        d) flex-wrap
+        e) flex-nowrap
+        f) flex-row-reverse    
+        g) flex-column-reverse
+
+- You can configure alignment for elements using
+
+        a) justify-content
+        b) align-items
+
+FAQ: What is difference between display:flex & display:inline?
+Ans:
+    - Flex is used only for container that comprises of elements.
+    - It can align elements flexible horizontally & vertically.
+
+    - Inline is used for individual element to keep along with other elements.
+    - It is not flexible for alignments.
+
+Syntax:
+    li {
+       display : flex;          => flex for elements in <li>
+    }
+
+    li {            
+       display: inline;          => keeps <li> inline
+     }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+     ul {
+       list-style: none;
+     }
+     li {
+       background-color: black;
+       padding: 4px;
+       color:white;
+       margin-bottom: 10px;
+       display: flex;
+       justify-content: space-between;
+     }
+     .page {
+        display: inline-block;
+        font-size: 13px;
+        width: 13px;
+        height: 13px;
+        border-radius: 13px;
+        background-color: white;
+        color:black;
+        text-align: center;
+        font-weight: bold;
+        padding: 2px;
+     }
+  </style>
+</head>
+<body>
+   <h4 align="center">Table of Contents</h4>
+   <ul>
+      <li><span>HTML</span><span class="page">1</span></li>
+      <li><span>CSS</span><span class="page">4</span></li>
+      <li><span>Bootstrap</span><span class="page">8</span></li>
+   </ul>
+</body>
+</html>
+
+- You can change the flex orientation for elements using "flex-direction"
+
+Syntax:
+      nav {
+            display: flex;
+        flex-direction : row | row-reverse | column | column-reverse
+       }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav {
+            border:1px solid gray;
+            padding: 20px;
+            width: 100px;
+            height: 400px;
+            display: flex;
+            flex-direction:column-reverse;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button>Home</button>
+        <button>About</button>
+        <button>Blog</button>
+        <button>Pages</button>
+        <button>Contact</button>
+    </nav>
+</body>
+</html>
+
+- You can use the attribute "align-items" while defining flex.
+- It can change the alignment of items in container to
+        a) baseline [left when flex direction is column]
+                   [top when flex direction is row]
+       
+        b) center       [vertically center in row, horizontally center in column]
+
+        c) end       [right when in column, bottom when in row]
+
+Note: If align-items is not configured the elements in container will adjust their size according to the width and height.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav {
+            border:1px solid gray;
+            padding: 20px;
+            height: 400px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: end;
+        }
+        button {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button>Home</button>
+        <button>About</button>
+        <button>Blog</button>
+        <button>Pages</button>
+        <button>Contact</button>
+    </nav>
+</body>
+</html>
+
+- Justify-content attribute provides various alignments
+
+        flex-start            [left in row, top in column]
+        flex-end            [right in row, bottom in column]
+        center            [center in row and column]
+        space-between
+        space-around
+        space-evenly
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .kids {
+            width: 200px;
+            height: 300px;
+            background-image: url("../public/images/kids-fashion.jpg");
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+        h1 {
+            font-size: 40px;
+            color:white;
+            text-shadow: 2px 2px 2px black;
+        }
+        button {
+            width: 100px;
+            background-color: white;
+            border:none;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+     <div class="kids">
+        <h1>Kids</h1>
+        <button>Shop</button>
+     </div>
+</body>
+</html>

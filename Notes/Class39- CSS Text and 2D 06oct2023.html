@@ -1,0 +1,335 @@
+
+
+
+========================================== CSS Text and 2D =============================================
+
+CSS Font
+    font-family
+    font-weight
+    font-style
+    font-size
+    font-variant
+
+CSS Text
+    color            text color
+    text-align            left, center, right, justify
+    text-shadow        same as box shadow
+    text-indent         first line indent
+    text-transform         uppercase, lowercase, capitalize
+    text-overflow        It can display overflowing text with chars like ellipsis
+    text-decoration    underline, overline, linethrough, size, color [short hand]
+    text-decoration-line        [underline, overline..]
+    text-decoration-style    [dotted, wavy..]
+    text-decoration-thickness [size]
+    text-decoration-color    [color]
+    line-height        space between lines
+    word-spacing        space between words
+    letter-spacing        space between chars
+    word-break        breaks lengthy words at right margin of paragraph
+    white-space        It can control wrapping of text in container.
+    overflow            It controls overflowing content in container.
+                    [hidden, scroll & auto]
+   
+
+Ex:
+<style>
+        p {
+            line-height: 30px;
+            word-break: break-all;
+            letter-spacing: 5px;
+            word-spacing: 20px;
+        }
+    </style>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            text-align: justify;
+            text-indent: 100px;
+            text-transform: capitalize;
+        }
+        h1 {
+            text-decoration-line: underline;
+            text-decoration-color: black;
+            text-decoration-thickness: 3px;
+            text-decoration-style: dotted;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Styles</h1>
+    <p>We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/faq) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/updates) page.</p>
+</body>
+</html>
+
+Syntax: Display overflowing content with ellipsis
+
+    p {
+        border: 1px solid gray;
+        padding: 5px;
+        width : 300px;
+        white-space: nowrap;
+        overflow:hidden;
+        text-overflow: ellipsis;
+    }
+
+Note: Several CSS latest style attributes are not compatible with all browsers. Hence developer have to write the attributes using css browser plugin's.
+
+             -webkit        safari, edge, chrome
+             -o            opera    
+             -moz        firefox
+             -ms            internet explorer
+
+Syntax:
+            text-overflow : ellipsis;
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow:ellipsis;
+            -moz-text-overflow: ellipsis;
+            -wekit-text-overflow: ellipsis;
+
+CSS List Style:
+
+    list-style            : short hand
+    list-style-type        : alpha, number, roman, disc, circle ...
+    list-style-image    : any custom image as bullet symbol.
+    list-style-position    : inside, outside etc..
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ol {
+            list-style-image: url("../public/images/bullet.jpg");
+            font-size: 30px;
+            list-style-position: inside;
+        }
+        li {
+            border:1px solid red;
+            padding: 5px;
+            width: 200px;
+            margin-bottom: 10px;    
+        }
+    </style>
+</head>
+<body>
+   <ol>
+    <li>HTML</li>
+    <li>CSS</li>
+   </ol>
+</body>
+</html>
+
+                            CSS 2D
+- 2D refers to 2 dimensional effects.
+- You can change the orientation and position of element along X & Y axis.
+- You can configure by using "transform" attribute.
+- Transform methods for 2D are
+
+        translate()
+        scale()
+        skew()
+        rotate()
+        matrix()
+
+Translate:
+- It can change the position of element along X and Y axis.
+
+        translate(x, y)
+        translateX()
+        translateY()
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            transform: translate(0px, 0px);
+            transition: 2s;
+        }
+        img:hover {
+            transform: translate(500px, 200px);
+            transition: 3s;
+        }
+    </style>
+</head>
+<body>
+   <img src="../public/images/a3.jpg" width="200" height="200">
+</body>
+</html>
+
+Scale :
+- It can change the size of element.
+
+        scale()        both width and height
+        scaleX()        width
+        scaleY()        height
+
+- Value of scale 1 = 100%
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        img {
+            transform: scale(1,1);
+            transition: 2s;
+        }
+        img:hover {
+            transform: scale(2,3);
+            transition: 3s;
+        }
+    </style>
+</head>
+<body>
+   <img src="../public/images/a3.jpg" width="200" height="200">
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        img {
+            transform: scale(1,1);
+            transition: 2s;
+        }
+        img:hover {
+            transform: scale(2,2);
+            transition: 3s;
+        }
+        .container {
+            border: 15px groove;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <img src="../public/images/a3.jpg" width="200" height="200">
+   </div>
+</body>
+</html>
+
+Skew:
+- It is used to tilt element by specified angle.
+
+    skew(degx, degy)
+    skewX()
+    skewY()
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        img {
+            transform: skewY(0deg);
+            transition: 2s;
+        }
+        img:hover {
+            transform: skewY(40deg);
+            transition: 3s;
+        }
+        .container {
+            border: 15px groove;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <img src="../public/images/a3.jpg" width="300" height="300">
+   </div>
+</body>
+</html>
+   
+Rotate:
+- It rotate element by specified angle.
+
+    rotate(degx, degy) =>  always use only one angle in short hand
+    rotateX()
+    rotateY()
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        img {
+            transform: rotate(0deg);
+            transition: 2s;
+        }
+        img:hover {
+            transform: rotate(-360deg);
+            transition: 3s;
+        }
+        .container {
+            border: 15px groove;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <img src="../public/images/a3.jpg" width="300" height="300">
+   </div>
+</body>
+</html>
+
+Note: You can't configure multiple transforms for element, only the latest transform will apply. You can define matrix(), which allows few transforms simultaneously at the same time.
+
+Syntax:
+    matrix(scaleX(), skewX(), skewY(), scaleY(), translateX(), translateY())

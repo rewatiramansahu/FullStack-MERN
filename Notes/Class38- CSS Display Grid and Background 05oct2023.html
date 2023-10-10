@@ -1,0 +1,325 @@
+
+
+
+========================= CSS Display Grid and Background =========================
+
+Flex Wrap
+    - It can control wrapping of elements in container.
+    - If set to "nowrap" elements will adjust according to width of container.
+    - If set to  "wrap" elements will span to multiple rows.
+
+Syntax:
+    .container {
+        display : flex;
+        flex-wrap: nowrap | wrap;
+    }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        button {
+            width: 100px;
+            height: 50px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>10</button>
+
+    </div>
+</body>
+</html>
+
+Display Grid:
+- It provides attributes to create a responsive layout.
+- You can re-arrange the content in page dynamically according to media orientation or size.
+
+    a) display:grid
+    b) grid-row
+    c) grid-column
+    d) grid-gap
+    e) grid-template-columns
+
+- A responsive grid have max 12 columns [1200 px]
+- You can set size of columns in "fr" [fractions] or in "px" [pixles].
+- Size in "fr" will be responsive.
+
+Ex:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header, nav, main, aside, footer {
+            border:1px solid black;
+            margin: 5px;
+            padding: 10px;
+        }
+        main {
+            height: 300px;
+        }
+        @media screen and (orientation:landscape)
+        {
+            body {
+                display: grid;
+                grid-template-columns: 2fr 8fr 2fr;
+            }
+            header {
+                grid-row: 1;
+                grid-column: 1/4;
+            }
+            nav {
+                grid-row: 2;
+                grid-column: 1;
+                background-color: lightcyan;
+            }
+            main {
+                grid-row: 2;
+                grid-column: 2;
+            }
+            aside {
+                grid-row: 2;
+                grid-column: 3;
+                background-color: lightgreen;
+            }
+            footer {
+                grid-row:3;
+                grid-column: 1/4;
+            }
+        }
+        @media screen and (orientation:portrait) {
+            body {
+                display: grid;
+                grid-template-columns: 12fr;
+            }
+            header {
+                grid-row: 1;
+            }
+            nav {
+                grid-row: 2;
+                background-color: lightcyan;
+            }
+            main {
+                grid-row: 3;
+            }
+            aside {
+                grid-row: 4;
+                background-color: lightgreen;
+                display: none;
+            }
+            footer {
+                grid-row: 5;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Header
+    </header>
+    <nav>
+        Nav
+    </nav>
+    <main>
+        Main
+    </main>
+    <aside>
+        Aside
+    </aside>
+    <footer>
+        Footer
+    </footer>
+</body>
+</html>
+
+Note: To create responsive layout you have to configure media queries.
+
+        @media  type  (condition)
+        {
+        }
+
+        type        => all, screen, print, speech
+        condition    => orientation, min-width, max-width, width
+        orientation => landscape, portrait
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+         header {
+            font-family: Arial;
+            font-size: 20px;
+            background-color: black;
+            color:white;
+            padding: 10px;
+         }
+         .brand-title {
+            font-size: 25px;
+            font-weight: bold;
+         }
+         @media screen and (orientation:landscape) {
+            header {
+                display: flex;
+                justify-content: space-between;
+            }
+            nav span {
+                margin-right: 15px;
+            }
+            aside span {
+                margin-right: 15px;
+            }
+            .bi-justify {
+                display: none;
+            }
+         }
+         @media screen and (orientation:portrait) {
+             header {
+                display: flex;
+                justify-content: space-between;
+             }
+             nav, aside {
+                display: none;
+             }
+             .bi-justify {
+                display: inline;
+             }
+         }
+         
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <span class="brand-title">Shopper.</span>
+        </div>
+        <nav>
+            <span>Home</span>
+            <span>Pages</span>
+            <span>Blog</span>
+            <span>Shop</span>
+            <span>Docs</span>
+        </nav>
+        <aside>
+            <span class="bi bi-search"></span>
+            <span class="bi bi-heart"></span>
+            <span class="bi bi-person"></span>
+            <span class="bi bi-cart3"></span>
+        </aside>
+        <span class="bi bi-justify"></span>
+    </header>
+</body>
+</html>
+
+                        CSS Background
+background-color
+background-image
+background-size
+background-position
+background-repeat
+background-attachment
+
+FAQ: Can we set multiple background images ?
+Ans: Yes
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            background-image: url("../public/images/a1.jpg"), url("../public/images/a2.jpg");
+            background-repeat: no-repeat, repeat;
+            background-position: center center;
+            background-size: 300px 300px, 100px 100px;
+        }
+    </style>
+</head>
+<body>
+   
+</body>
+</html>
+
+FAQ: Can we change background image dynamically?
+Ans: Yes. Using media query
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+        }
+        @media screen and (orientation:landscape) {
+            body {
+                background-image: url("../public/images/Netflix-Background.jpg");
+                background-size: cover;
+            }
+        }
+        @media screen  and (orientation:portrait) {
+            body {
+                background-image: url("../public/images/neflixlogo.png");
+                background-size: 100% 700px;
+                background-repeat: no-repeat;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+</body>
+</html>
+
+FAQ: Can we define both background color & image?
+Ans: yes.
+
+Syntax:
+     body {
+            height: 100vh;
+            background-color: black;
+            background-image: url("../public/images/a1.jpg");
+            background-repeat: no-repeat;
+        }
+                 
+                            CSS Text Effects
+Font Attributes:
+    font-size
+    font-family
+    font-weight [bold]
+    font-style [italics]
+    font-variant [small-caps]

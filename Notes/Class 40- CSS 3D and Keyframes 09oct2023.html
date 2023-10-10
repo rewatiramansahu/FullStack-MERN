@@ -1,0 +1,266 @@
+
+
+	=============================== CSS 3D and Keyframes ==================================
+
+
+CSS 2D Matrix:
+- It configures multiple transforms to element.
+- The matrix pattern comprises of scale, skew & translate.
+
+Syntax:
+    {
+     transform:matrix(scaleX(), skewX(), skewY(), scaleY(), translateX(), translateY())
+    }
+
+    Scale    : 1 = 100%
+    Skew    : 0 to 1  [0.3 = 30deg]
+    translate    : 100 = 100px
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            transition: 3s;
+        }
+        img:hover {
+            transform: matrix(2.5,0.3,0.3,1.5,300,0);
+            transition: 2s;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <img src="../public/images/a3.jpg" width="100" height="100">
+</body>
+</html>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+        #pic1 {
+            transform: skewX(60deg);
+        }
+        #pic2 {
+            transform: skewX(-60deg);
+            margin-left: 100px;
+        }
+        body {
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
+    <img id="pic1" src="../public/images/a3.jpg" width="100" height="100">
+    <img id="pic2" src="../public/images/a3.jpg" width="100" height="100">
+</body>
+</html>
+
+                        CSS 3D Transforms
+- 3D refers to 3 dimensional transforms.
+- 3D comprises of X, Y & Z.
+- 3D transform methods are similar to 2D
+
+        translate3D()
+        scale3D()
+        skew3D()
+        roate3D()
+        matrix3D()
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+       }
+       img {
+         transform: scale3d(1,1,1);
+         transition: 2s;
+         margin: 30px;
+       }
+       img:hover {
+        transform: scale3d(1.5,1.5,2);
+        box-shadow: 15px 15px 2px black;
+        transition: 2s;
+       }
+    </style>
+</head>
+<body>
+    <img id="pic1" src="../public/images/a3.jpg" width="100" height="100">
+    <img id="pic1" src="../public/images/a2.jpg" width="100" height="100">
+    <img id="pic1" src="../public/images/a1.jpg" width="100" height="100">
+    <img id="pic1" src="../public/images/a4.jpg" width="100" height="100">
+</body>
+</html>
+
+                        CSS Transition
+
+- Transitions are used to control the transformation.
+
+    transition                        : short hand
+    transition-duration                : total time taken for transformation
+    transition-delay                : time taken to start the transformation
+    transition-property                : it refers to the property that uses duration [time]
+    transition-animation-function        : It applies pre-defined animations
+
+EX:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       div {
+         background-color: red;
+         width: 50px;
+         height: 50px;
+         transition-duration: 1s;
+         transition-timing-function: steps(5);
+       }
+       div:hover
+       {
+        background-color: yellow;
+        width: 1000px;
+        transition-duration: 5s;
+        transition-timing-function:steps(10);
+       }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+
+                    CSS Keyframes & Animations
+
+- Keyframe is used to create animation for any element in page.
+- A keyframe comprises of element with any specified effects like size, position, orientaiton, color etc.
+- A good basic animation comprises of 30 frames per second. [30fps]
+- CSS can configure "Tweening" animation, which comprises of initial and final state.
+
+Syntax:
+    @keyframes  name
+    {
+       from {
+           initial_state;
+        }
+       to {
+          final_state;
+        }
+    }
+
+- Keyframe is applied to any element in page by using animation attributes
+
+    animation-name
+    animation-duration
+    animation-direction
+    animation-iteration-count
+    animation-delay
+    animation-timing-function
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes zoom
+        {
+            from {
+                margin-left: 110%;
+                width: 50px;
+                height: 50px;
+            }
+            20%{
+                width: 100px;
+                height: 100px;
+            }
+            50% {
+                margin-top: 200px;
+                width: 400px;
+                height: 400px;
+                transform: rotate(180deg);
+            }
+            to {
+                margin-left: 0%;
+                width: 50px;
+                height: 50px;
+            }
+        }
+        body {
+            overflow: hidden;
+        }
+        img {
+            animation-name: zoom;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+    </style>
+</head>
+<body>
+    <img src="../public/images/a1.jpg">
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes Blink {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+       body {
+        background-color: black;
+       }
+       img {    
+        width: 60px;
+        height: 60px;  
+        animation-name: Blink;
+        animation-duration: 500ms;
+        animation-iteration-count: infinite;
+       }
+    </style>
+</head>
+<body>
+    <img src="../public/images/star.jpg">
+</body>
+</html>

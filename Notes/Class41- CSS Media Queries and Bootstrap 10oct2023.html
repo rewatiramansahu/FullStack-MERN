@@ -1,0 +1,258 @@
+
+
+
+============================== CSS Media Queries and Bootstrap ======================================
+
+@Keyframes
+- Keyframe comprises of element with animation.
+- Keyframes require various phases
+    a) Initial
+    b) Final
+- Initial phase is defined using "from"
+- Final phase is defined using "to"
+- You can configure other phases from 1% to 100%
+
+Syntax:
+    @keyframes  name
+    {
+       from { }
+       50% { }
+       to { }
+    }
+- Keyframes are applied to element by using animation attributes
+
+    animation-name
+    animation-duration
+    animation-delay
+    animation-direction
+    animation-iteration-count
+    animation-timing-function
+
+Syntax:
+      img {
+        animation-name: keyframeName;
+        animation-duration: 100ms;
+        animation-direction:alternate;
+        animation-iteration-count: 3 | infinite;
+      }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes Blink {
+            from {
+                opacity: 0;
+                transform: rotate(0deg);
+                width: 10px;
+                height: 10px;
+            }
+            to {
+                opacity: 1;
+                transform: rotate(360deg);
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+       body {
+        background-color: black;
+        color:white;
+       }
+       img {    
+        width: 60px;
+        height: 60px;  
+        animation-name: Blink;
+        animation-duration: 800ms;
+        animation-iteration-count: infinite;
+       }
+    </style>
+</head>
+<body>
+    <img src="../public/images/star.jpg">
+
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes ColorShade1
+        {
+            from {
+                color:red;
+            }
+            50% {
+                color:green;
+            }
+            70% {
+                color:yellow;
+            }
+            to {
+                color:blue;
+            }
+        }
+        @keyframes ColorShade2
+        {
+            from {
+                color:red;
+                font-size: 20px;
+            }
+           
+            to {
+                color:blue;
+                font-size: 150px;
+            }
+        }
+
+
+       .title1 {
+        font-size: 150px;
+        font-family: Algerian;
+        text-align: center;
+        animation-name: ColorShade1;
+        animation-duration: 500ms;
+        animation-iteration-count: infinite;
+       }
+       .title2 {
+        font-size: 150px;
+        font-family: Algerian;
+        text-align: center;
+        animation-name: ColorShade2;
+        animation-duration: 1000ms;
+        animation-iteration-count: infinite;
+       }
+    </style>
+</head>
+<body>
+    <span class="title1">W</span>
+    <span class="title2">E</span>
+    <span class="title3">L</span>
+    <span class="title4">C</span>
+    <span class="title5">O</span>
+    <span class="title6">M</span>
+    <span class="title7">E</span>
+</body>
+</html>
+
+                        Responsive Design
+- A responsive design can change the layout of page according to the viewport.
+- It provides fluid experince that fits the device screen.
+- To create responsive designs there are various implementations to follow
+   
+        1. Meta Attributes
+        2. Responsive or Fluid Images
+        3. Responsive or Fluid Containers
+        4. Display Grid & Flex
+        5. Media Queries
+
+Meta Attribute:
+
+  <meta name="viewport"  content="width=device-width, initial-scale=1.0">
+
+Fluid Images:
+
+   <img width="100%">
+
+Fluid Container:
+
+    <table width="100%">
+
+Display Grid & Flex:
+
+    display:grid
+    display:flex
+    grid-row
+    grid-column
+    flex-wrap
+    flex-row
+    flex-column
+
+
+Media Queries:
+- Media have type : screen, print, speech
+- Media have orientation: landscape, portrait
+- Media have min-width & max-width.
+
+    min-width            : It defines value starting from specified units upto end.
+                     
+                     Syntax:
+                        min-width:600px    => from 600px to end.
+
+    max-width        : It defines value starting from 0 to specified units.
+
+                    Syntax:
+                        max-width:600px    => from 0px to 600px
+
+                               Bootstrap
+                                -------------
+- It is an open source and cross platform component library used to build interactive UI faster.
+- There are various component libraries other than bootstrap
+        a) Twitter Bootstrap
+        b) Tailwind CSS
+        c) Telerik
+        d) DevExpress
+        e) Mui  
+        f) jQuery UI  etc..
+- Open source allows to customize according to the requirements.
+- Cross platform runs on all OS services and Browsers.
+- Component is a combination of
+    a) Markup    HTML
+    b) Styles        CSS
+    c) Logic        JavaScript | jQuery
+- A component have presentation, styles and functionality
+    ex:
+        navbar
+        carousel
+        cards
+        accordion  etc..
+
+
+
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            overflow: hidden;
+            display: flex;
+        }
+        @keyframes slide {
+            from {
+                margin-left: 110%;
+            }
+            50% {
+                margin-left: 0%;
+            }
+            to {
+                margin-left: -110%;
+            }
+        }
+        .slide1 {
+            animation-name: slide;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+       
+    </style>    
+</head>
+<body>
+    <img class="slide1" width="100%" src="../public/images/slide1.png">
+    <img class="slide2" width="100%" src="../public/images/slide2.png">
+</body>
+</html>

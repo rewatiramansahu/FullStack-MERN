@@ -1,0 +1,315 @@
+
+
+
+==================================== Collapse, Accordion, Nav Tabs, Dropdown =====================================
+
+Collapse
+                               ------------
+- It is used to show or hide any content dynamically.
+
+Classes:
+   .collapse
+   .show
+
+Attributes:
+   data-bs-target
+   data-bs-toggle
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+    <h1 class="text-center">Frequently Asked Questions</h1>
+    <button data-bs-target="#q1" data-bs-toggle="collapse" class="btn btn-dark w-100">What is Netflix?</button>
+    <div class="collapse bg-dark text-white p-2 mt-1" id="q1">
+        <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.</p>
+        <p>You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</p>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+
+                           Accordion
+                          --------------
+- It configures a set of components with collapse feature, how ever they exhibit "Mutex" mechanism. [Mutual Exclusion]
+- It enables only one option to display out of all options available.
+- If you expand one category, others will collapse.
+
+Classes:
+    .accordion
+        .accordion-header
+    .accordion-body
+    .accordion-collapse
+    .accordion-button
+    .show
+    .collapse
+    .accordion-item
+
+Attributes:
+    data-bs-target
+    data-bs-toggle
+    data-bs-parent
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+    <h1 class="text-center">Frequently Asked Questions</h1>
+    <div class="accordion" id="faqs">
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <button data-bs-target="#q1" data-bs-toggle="collapse" class="accordion-button">What is Netflix?</button>
+            </div>
+            <div class="accordion-collapse collapse" id="q1" data-bs-parent="#faqs">
+                <div class="accordion-body">
+                    <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.</p>
+                    <p>You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <button data-bs-target="#q2" data-bs-toggle="collapse" class="accordion-button">How much does Netflix cost?</button>
+            </div>
+            <div class="accordion-collapse collapse" id="q2" data-bs-parent="#faqs">
+                <div class="accordion-body">
+                    <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+Ex: Accordion Buttons Modified
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+    <h1 class="text-center">Frequently Asked Questions</h1>
+    <div class="accordion" id="faqs">
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <button data-bs-target="#q1" data-bs-toggle="collapse" class="btn btn-dark w-100">What is Netflix?</button>
+            </div>
+            <div class="accordion-collapse collapse" id="q1" data-bs-parent="#faqs">
+                <div class="accordion-body bg-dark text-white p-2 mt-1">
+                    <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.</p>
+                    <p>You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <button data-bs-target="#q2" data-bs-toggle="collapse" class="btn btn-dark w-100">How much does Netflix cost?</button>
+            </div>
+            <div class="accordion-collapse collapse" id="q2" data-bs-parent="#faqs">
+                <div class="accordion-body bg-dark text-white p-2 mt-1">
+                    <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+Ex: Navbar with collapse
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+    <nav class="w-25">
+        <h2>Shopper.</h2>
+        <button class="btn btn-danger w-100">Home</button>
+        <div class="accordion" id="menu">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button data-bs-target="#electronics" data-bs-toggle="collapse" class="btn btn-danger w-100">Electronics</button>
+                </div>
+                <div class="accordion-collapse collapse show" id="electronics" data-bs-parent="#menu">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Televisions</li>
+                            <li>Mobiles</li>
+                            <li>Watches</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button data-bs-target="#footwear" data-bs-toggle="collapse" class="btn btn-danger w-100">Footwear</button>
+                </div>
+                <div class="accordion-collapse collapse" id="footwear" data-bs-parent="#menu">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Casuals</li>
+                            <li>Sneakers</li>
+                            <li>Boots</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+                            Dropdown
+                            --------------
+- A dropdown allows user to select any one option from a group of choices.
+- HTML dropdown is designed with <select> element and it is RC data type.
+- It is good for dynamic list.
+- If you want a static list for navigation and with complex data like images, icons etc, then you can use bootstrap dropdown.
+
+Classes:
+    .dropdown
+    .dropup
+    .dropend
+    .dropstart
+    .dropdown-toggle
+    .dropdown-item
+    .dropdown-item-text
+    .dropdown-menu
+    .dropdown-menu-dark [obsolete] => data-bs-theme="dark"
+    .dropdown-divider
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+    <h3>Netflix</h3>
+    <div class="dropend">
+        <button data-bs-toggle="dropdown" class="dropdown-toggle btn btn-dark"> <span class="bi bi-translate"></span> Language</button>
+        <ul class="dropdown-menu" data-bs-theme="dark">
+            <li><a class="dropdown-item"> <span class="dropdown-item-text"> <span class="bi bi-globe"></span> English</span> </a></li>
+            <li><a class="dropdown-item"> <span class="dropdown-item-text"> <span class="bi bi-heart-fill"></span> हिंदी</span> </a></li>
+            <li class="dropdown-divider"></li>
+            <li><a class="dropdown-item"> <span class="dropdown-item-text"> Help? </span> </a></li>
+        </ul>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+                            Nav with Tabs
+                            -------------------
+- It is used to create tab based navigation in page.
+- You can create multiple tab content, so that user can switch between categories in one page.
+
+Classes:
+.nav
+.nav-menu
+.nav-item
+.nav-text
+.nav-link
+.nav-tabs
+.nav-pills
+.tab-content
+.tab-pane
+
+Syntax:
+    <ul class="nav">
+       <li class="nav-item"> <a class="nav-link"> </a> </li>
+    </ul>
+    <div class="tab-content">
+       <div class="tab-pane" id="tab1">
+       </div>
+    </div>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+    <h1>Flipkart.</h1>
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="#details" data-bs-toggle="tab" class="nav-link active">Basic Details</a></li>
+        <li class="nav-item"><a href="#preview" data-bs-toggle="tab" class="nav-link">Preview</a></li>
+        <li class="nav-item"><a href="#features" data-bs-toggle="tab" class="nav-link">Features</a></li>
+        <li class="nav-item"><a href="#ratings" data-bs-toggle="tab" class="nav-link">Ratings</a></li>
+    </ul>
+    <div class="tab-content mt-4 p-4">
+        <div class="tab-pane active" id="details">
+            <h3>Realme</h3>
+            <p>C55 - 20% OFF</p>
+            <p class="h5"> &#8377; 15,000/-</p>
+        </div>
+        <div class="tab-pane" id="preview">
+            <img src="../public/images/realme-black.jpg" width="200" height="300">
+        </div>
+        <div class="tab-pane" id="features">
+            <ul>
+                <li>12 GB RAM | 256 GB ROM</li>
+                <li>17.02 cm (6.7 inch) Full HD+ Display</li>
+                <li>100MP (OIS) + 2MP | 16MP Front Camera</li>
+                <li>5000 mAh Battery</li>
+            </ul>
+        </div>
+        <div class="tab-pane" id="ratings">
+            4.3 <span class="bi bi-star-fill text-success"></span> Ratings & <b>5000 Reviews</b>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

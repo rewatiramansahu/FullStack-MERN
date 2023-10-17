@@ -1,0 +1,469 @@
+
+
+
+
+==================================== Carousel, Modal and Spinners ==============================================
+
+Components
+1. alerts
+2. badge
+3. card
+4. pagination
+
+       
+                            Carousel
+
+- It is used to create sliding and fading banners.
+- You can create a slide show of content, which can be controlled manually and with automation.
+
+Basic Carousel Classes:
+.carousel
+.carousel-inner
+.carousel-item
+.carousel-fade
+.slide
+
+Syntax:
+    <div class="carousel">
+       <div class="carousel-inner">
+           <div class="carousel-item">
+           ...... your content....
+        </div>
+        ... add multiple items...
+      </div>
+    </div>
+- Carousel can't display any item directly.
+- Carousel needs any one item set to active. [only one item must be active]
+
+    <div class="carousel-item active">
+    </div>
+
+- Carousel can't start animation automatically.
+- To start animation you have to define the attribute  "data-bs-ride" for carousel.
+
+    <div class="carousel"   data-bs-ride="carousel">
+
+- Carousel doesn't have any default transition, you have to set transition using the classes
+        a) slide
+        b) carousel-fade
+
+    <div class="carousel slide"  data-bs-ride="carousel">
+    <div class="carousel carousel-fade" .... >
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body class="container-fluid">
+    <div class="carousel slide" id="topBanner" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../public/images/slide1.png" class="w-100 d-block">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/images/slide2.png" class="w-100 d-block">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/images/slide3.png" class="w-100 d-block">
+            </div>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+Carousel Controls:
+- You can add controls for carousel so that user can navigate to previous and next slide.
+
+Classes:
+  .carousel-control-prev
+  .carousel-control-prev-icon
+  .carousel-control-next
+  .carousel-control-next-icon
+  .carousel-dark
+
+- Carousel controls are usually buttons.
+
+Syntax:
+    <button class="carousel-control-prev">
+       <span class="carousel-control-prev-icon"> </span>
+    </button>
+
+- Carousel controls need jQuery attributes to handle navigation.
+
+    data-bs-slide="prev"
+    data-bs-slide="next"
+    data-bs-target="#carousel_id"
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body class="container-fluid">
+    <div class="carousel slide carousel-dark" id="topBanner" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../public/images/slide1.png" class="w-100 d-block">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/images/slide2.png" class="w-100 d-block">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/images/slide3.png" class="w-100 d-block">
+            </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#topBanner">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#topBanner">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+       
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+Carousel Indicators:
+- Indicators allow to navigate random.
+- You can navigate to any slide directly by using indicators.
+
+Class:
+    .carousel-indicators
+
+- Usually indicators is a collection of buttons or list items.
+- Indicators require jquery attribute "data-bs-slide-to=indexNumber"
+- Index number of items will start with "0".
+
+    <button data-bs-slide-to="0" data-bs-target="#carousel_id">
+
+- Any one indicator button must be active.
+
+Syntax:
+     <div class="carousel-indicators">
+        <button class="active"  data-bs-slide-to="0" data-bs-target="#carousel_id">
+        </buton>
+    </div>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        img {
+            height: 250px;
+        }
+    </style>
+</head>
+<body class="container-fluid">
+    <div class="carousel slide carousel-dark" id="topBanner" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../public/images/slide1.png" class="w-100 d-block">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/images/slide2.png" class="w-100 d-block">
+            </div>
+            <div class="carousel-item">
+                <img src="../public/images/slide3.png" class="w-100 d-block">
+            </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#topBanner">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#topBanner">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+        <div class="carousel-indicators">
+            <button class="active" data-bs-slide-to="0" data-bs-target="#topBanner"></button>
+            <button data-bs-slide-to="1" data-bs-target="#topBanner"></button>
+            <button data-bs-slide-to="2" data-bs-target="#topBanner"></button>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+- Carousel item have default timing, you can set custom interval by using the attribute
+   "data-bs-interval=milliSeconds"
+
+Syntax:
+    <div class="carousel-item"  data-bs-interval="3000">
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        img {
+            height: 250px;
+        }
+    </style>
+</head>
+<body class="container-fluid">
+    <div class="carousel slide carousel-dark" id="topBanner" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="../public/images/slide1.png" class="w-100 d-block">
+            </div>
+            <div class="carousel-item" data-bs-interval="1000">
+                <img src="../public/images/slide2.png" class="w-100 d-block">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="../public/images/slide3.png" class="w-100 d-block">
+            </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#topBanner">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#topBanner">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+        <div class="carousel-indicators">
+            <button class="active" data-bs-slide-to="0" data-bs-target="#topBanner"></button>
+            <button data-bs-slide-to="1" data-bs-target="#topBanner"></button>
+            <button data-bs-slide-to="2" data-bs-target="#topBanner"></button>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+- You can add any content into carousel item, which includes text, images, tables, forms, links etc..
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        img {
+            height: 250px;
+        }
+    </style>
+</head>
+<body class="container-fluid">
+    <div class="carousel slide carousel-dark" id="topBanner" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="../public/images/slide1.png" class="w-100 d-block">
+            </div>
+            <div class="carousel-item" data-bs-interval="1000">
+                <img src="../public/images/slide2.png" class="w-100 d-block">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <div class="d-flex justify-content-center align-items-center" style="height:250px">
+                   <div class="w-50">
+                    <p>Please register for more</p>
+                    <form class="input-group">
+                        <input type="email" placeholder="Your Email" class="form-control">
+                        <button class="btn btn-warning">Get Started <span class="bi bi-chevron-right"></span> </button>
+                    </form>
+                   </div>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="../public/images/slide3.png" class="w-100 d-block">
+            </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#topBanner">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#topBanner">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+        <div class="carousel-indicators">
+            <button class="active" data-bs-slide-to="0" data-bs-target="#topBanner"></button>
+            <button data-bs-slide-to="1" data-bs-target="#topBanner"></button>
+            <button data-bs-slide-to="2" data-bs-target="#topBanner"></button>
+            <button data-bs-slide-to="3" data-bs-target="#topBanner"></button>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+                          Modals
+- It is used to create a pop-up dialog box in page.
+
+Classes:
+    .modal
+    .modal-dialog
+    .modal-content
+    .modal-header
+    .modal-body
+    .modal-footer
+
+ Attributes:
+    data-bs-target
+    data-bs-toggle
+
+Syntax:
+    <div class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+         <div class="modal-header">
+         </div>
+         <div class="modal-body">
+         </div>
+         <div class="modal-footer">
+         </div>
+        </div>
+     </div>
+    </div>
+
+- You can add "fade" transition for modal
+
+    <div class="modal fade">
+
+- You can control the position using the classes
+
+    .modal-dialog-centered
+    .modal-fullscreen
+    .modal-dialog-scrollable
+
+Syntax:
+    <div class="modal-dialog  modal-dialog-centered  modal-dialog-scrollable">
+    <div class="modal-dialog  modal-fullscreen">
+
+Note: Bootstrap 5 have disabled nested modals.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+    <button data-bs-target="#login" data-bs-toggle="modal" class="btn btn-primary mt-3">Login</button>
+    <button class="btn btn-success ms-2 mt-3" data-bs-target="#details" data-bs-toggle="modal">Details</button>
+
+    <div class="modal fade" id="details">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Realme C55</h3>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="../public/images/realme-black.jpg" width="200" height="300">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="login">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-dark">
+                    <h3><span class="bi bi-person-fill"></span> User Login</h3>
+                    <button data-bs-dismiss="modal" class="btn btn-close"></button>
+                </div>
+                <div class="modal-body">
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd><input type="text" class="form-control"></dd>
+                        <dt>Password</dt>
+                        <dd><input type="password" class="form-control"></dd>
+                        <dt>User Name</dt>
+                        <dd><input type="text" class="form-control"></dd>
+                        <dt>Password</dt>
+                        <dd><input type="password" class="form-control"></dd>
+                        <dt>User Name</dt>
+                        <dd><input type="text" class="form-control"></dd>
+                        <dt>Password</dt>
+                        <dd><input type="password" class="form-control"></dd>
+                        <dt>User Name</dt>
+                        <dd><input type="text" class="form-control"></dd>
+                        <dt>Password</dt>
+                        <dd><input type="password" class="form-control"></dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Login</button>
+                    <button data-bs-dismiss="modal" class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+                             Spinner
+
+- It is used to show status of any task performed in page.
+
+Classes:
+    .spinner-border
+    .spinner-border-sm | lg
+    .spinner-grow
+    .spinner-grow-sm | lg
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+
+   <div class="btn btn-primary btn-lg ">
+      <span class="spinner-border text-warning spinner-border-sm"></span> Loading
+   </div>
+
+    <div class="mt-4">
+        <button class="btn btn-primary btn-lg ">
+            <span class="spinner-border text-warning spinner-border-sm"></span> Loading
+        </button>
+        <button class="btn btn-primary btn-lg ">
+            <span class="spinner-grow text-warning spinner-grow-sm"></span> Loading
+        </button>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

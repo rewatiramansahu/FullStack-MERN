@@ -1,0 +1,328 @@
+
+
+
+============================= Navbar, Progress, Tables, List ==============================
+
+Navbar
+
+- It is a responsive navigation for website.
+
+Classes:
+.navbar
+.navbar-nav
+.nav-item
+.nav-link
+.navbar-collapse
+.navbar-brand
+.navbar-toggler
+.navbar-toggler-icon
+.navbar-dark
+.navbar-light
+.navbar-expand-lg | sm [ mandatory for responsive design ]
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+    <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <h1 class="navbar-brand">Shopper.</h1>
+            <div class="navbar-collapse collapse" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link">Home</a></li>
+                    <li class="nav-item"><a class="nav-link">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link">Pages</a></li>
+                    <li class="nav-item"><a class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link">Docs</a></li>
+                    <li class="nav-item input-group">
+                        <input type="text" class="form-control" placeholder="search Shopper.in">
+                        <button class="btn btn-warning bi bi-search"></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <h1 class="navbar-brand">Shopper.</h1>
+            <div class="navbar-collapse collapse" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="./cards.html" target="framebody" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="./carousel.html" target="framebody" class="nav-link">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link">Pages</a></li>
+                    <li class="nav-item"><a class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link">Docs</a></li>
+                    <li class="nav-item input-group">
+                        <input type="text" class="form-control" placeholder="search Shopper.in">
+                        <button class="btn btn-warning bi bi-search"></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="mt-2">
+        <iframe width="100%" name="framebody" style="border:none" height="500"></iframe>
+    </section>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+                           Progress Bar
+
+- It can show the status of task performed by actions in page.
+- Actions include downloading, uploading, copying, installing etc..
+
+Classes:
+.progress
+.progress-bar
+.progress-bar-animated
+.progress-bar-striped
+
+- The progress is defined in progress bar with style attribute "width".
+
+    <div class="progress-bar" style="width:50%"> </div>
+
+- A progress can display multiple progress bars.
+
+    <div class="progress">
+        <div class="progress-bar"> </div>
+        <div class="progress-bar"> </div>
+    </div>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+    <h2>HTML Progress</h2>
+    <progress min="1" max="100" value="50"> </progress> 50%
+    <h2>Bootstrap Progress</h2>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:20%">
+            20% Completed
+        </div>
+        <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width:60%">
+            60% Processing
+        </div>
+        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:20%">
+            20% Remaining
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+                            Bread Crumb
+
+- It is used to display the phases of any action performed in page.
+- It shows current active state and the previous states in the process.
+
+Classes:
+.breadcrumb
+.breadcrumb-item
+
+Ex:
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+       
+    </head>
+    <body class="container-fluid">
+        <h2>Navigation</h2>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item">Electronics</li>
+            <li class="breadcrumb-item">Mobiles</li>
+            <li class="breadcrumb-item active">Realme</li>
+        </ul>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </body>
+    </html>
+   
+                            Tables
+Classes:
+ .table
+ .table-hover
+ .table-striped
+ .table-bordered
+ .table-borderless
+ .table-responsive
+ .table-{contextual}
+ .caption-top
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   
+</head>
+<body class="container-fluid">
+    <div style="width: 400px;" class="table-responsive">
+        <table class="table caption-top table-hover table-striped table-info">
+            <caption>Asia Cup Point Table 2023 - Group A</caption>
+            <colgroup span="10"></colgroup>
+            <thead >
+                <tr height="50" valign="center">
+                    <th>Pos</th>
+                    <th colspan="2">Teams</th>
+                    <th>Matches</th>
+                    <th>Won</th>
+                    <th>Lost</th>
+                    <th>Tied</th>
+                    <th>NR</th>
+                    <th>Points</th>
+                    <th>NRR</th>
+                    <th colspan="2">Series Form</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr align="center">
+                    <td>1</td>
+                    <td><img src="../public/images/pak.jpg"></td>
+                    <td align="left" width="150">Pakistan</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>3</td>
+                    <td>+4.760</td>
+                    <td><span class="w">W</span></td>
+                    <td><span class="a">A</span></td>
+                </tr>
+                <tr align="center">
+                    <td>2</td>
+                    <td><img src="../public/images/india.jpg"></td>
+                    <td align="left">India</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>3</td>
+                    <td>+1.028</td>
+                    <td><span class="a">A</span></td>
+                    <td><span class="w">W</span></td>
+                </tr>
+                <tr align="center">
+                    <td>3</td>
+                    <td><img src="../public/images/nepal.jpg"></td>
+                    <td align="left">Nepal</td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>-3.572</td>
+                    <td><span class="l">L</span></td>
+                    <td><span class="l">L</span></td>
+                </tr>
+               
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="12">
+                        Pos: Position, Pld: Played, Pts: Points, NRR: Net Run Rate
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+                            List Styles
+- You can use display classes for list
+    .d-flex
+    .d-inline
+    .d-block
+- You can use list class
+    .list-unstyled
+    .list-group
+
+Syntax:
+    <ol class="list-unstyled">
+    </ol>
+
+Note: You can customize the bootstrap classes by using embedded technique.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        .container-fluid {
+            border:10px solid gray;
+            padding: 50px;
+            background-color: aquamarine;
+            height: 100vh;
+        }
+        .h3 {
+            font-family: Algerian;
+        }
+    </style>
+</head>
+<body class="container-fluid">
+    <div class="h3">Welcome</div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

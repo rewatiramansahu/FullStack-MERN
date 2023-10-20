@@ -1,0 +1,260 @@
+
+
+Class50- 20oct2023
+
+
+========================================= JavaScript output and Input ==========================================
+
+1. Integrating JavaScript into HTML.
+2. Refering HTML elements using JavaScript.
+
+
+                    JavaScript Output Techniques
+
+1. alert()
+2. confirm()
+3. document.write()
+4. console methods [log(), warn(), info(), error(), debug()]
+5. innerHTML
+6. innerText
+7. outerHTML
+
+                                alert()
+
+- It is a window method, that pops up a message box to display a string as output.
+- It can directly present a string or can evaluate any expression and return result as string.
+
+Syntax:
+            alert("Welcome to JavaScript");
+            alert(10 + 20);       "30"
+
+- It will not allow any formats for string. It is RC data type.
+
+            alert("<b>Welcome</b>");      bold not applied to text
+
+- It will not allow to cancel the message box.
+- It contains only OK to confirm.
+- You can display message in multiple lines using "\n" as line break.
+
+            alert("line1\nline2\nline3");
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function DeleteClick()
+        {
+            alert("are you sure?\nWant to delete?");
+        }
+    </script>
+</head>
+<body>
+    <button onclick="DeleteClick()">Delete</button>
+</body>
+</html>
+
+                                confirm()
+- It is similar to alert, but provides cancel to close message box without confirming as OK.
+
+Syntax:
+        confirm("Are you sure?\nWant to Delete?");
+
+- It is a boolean method, which returns  "true" on OK and "false" on Cancel.
+
+Syntax:
+          flag  = confirm("Are you sure?");
+          if(flag==true)
+          {
+             actions on OK;
+          }
+          else
+          {
+              actions on Cancel;
+          }
+
+         =       it is assignment
+         ==       it is comparision
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function DeleteClick()
+        {
+           flag =  confirm("Are you sure?\nWant to delete?");
+           if(flag==true)
+           {
+              alert("Deleted Successfully..");
+           }
+           
+        }
+    </script>
+</head>
+<body>
+    <button onclick="DeleteClick()">Delete</button>
+</body>
+</html>
+
+                           document.write()
+- It is a document method used to display output on new screen.
+- It can present string, expression or markup.
+
+Syntax:
+    document.write("Welcome");
+    document.write("Addition=" + (20+30));
+    document.write("<b> Welcome </b>");
+
+Note: To present a string within another string, you can switch between double and single quotes.
+
+        "outer ' inner string ' string"
+
+        'outer  " inner string " string'
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function DeleteClick()
+        {
+           flag =  confirm("Are you sure?\nWant to delete?");
+           if(flag==true)
+           {
+              document.write("<h3><font color='red'>Deleted Successfully..</font></h3><a href='input.html'>Back</a>");
+           }
+           
+        }
+    </script>
+</head>
+<body>
+    <button onclick="DeleteClick()">Delete</button>
+</body>
+</html>
+
+                            innerText
+- It is a property used for elements, which can display text content.
+   <header> <nav> <footer> <div> <span> <h2> <p> <li> <blockquote> etc..
+- It will not allow formats for text.
+- It is only for plain string or any result of expression.
+- It will not allow any markup.
+
+Syntax:
+        document.querySelector("div").innerText = "message | expression";
+
+                            innerHTML
+
+- It is similar to innerText but allows markup.
+- It will not replace the existing element with new element.
+
+                            outerHTML
+
+- It is similar to innerHTML but will replace the existing element with new element.
+
+Syntax:
+    document.querySelector("p").outerHTML = "<h2> Welcome </h2>";
+    document.querySelector("p").innerHTML = "<b>Welcome</b>";
+
+                         Console Methods
+
+- Console is a CLI [Command Line Interface] tool provided by browser debugging tools.
+- It is used by developers to test JavaScript functions before implemented.
+- It is also used to log various messages in development, which includes
+        warn()
+        error()
+        log()
+        info()
+        debug() etc..
+
+Syntax:
+        console.log("string");
+        console.log(expression);
+        console.log("line1\nline2");
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function DeleteClick()
+        {
+           console.warn("Delete Button Clicked");
+           flag =  confirm("Are you sure?\nWant to delete?");
+           if(flag==true)
+           {
+              console.error("OK Confirmed");
+              document.querySelector("p").outerHTML = "<h3><font color='red'>Deleted Successfully..</font></h3>"
+           }
+           else
+           {
+               console.log("Cancel Clicked");
+               document.querySelector("p").innerText = "<i><b>You canceled..</i></b>";
+           }
+           
+        }
+    </script>
+</head>
+<body>
+    <button onclick="DeleteClick()">Delete</button>
+    <p></p>
+</body>
+</html>
+
+                     JavaScript Input Techniques
+1. prompt()
+2. query string
+3. form input elements
+
+                          prompt()
+- It can popup an input box in browser window, where user can input a value.
+- It can access a plain string input. Even a number is converted as string.
+
+Syntax:
+        prompt("Your Message", "Default_Value");
+
+- Prompt method returns
+
+        null            ON cancel
+        " "            ON ok without value
+        value        ON ok with value
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function NewClick(){
+           result = prompt("Enter Folder Name","New_Folder");
+           if(result==null){
+              alert("You Canceled..");
+           }
+            else if(result==""){
+                alert("Please provide folder name");
+            }
+            else {
+              document.querySelector("p").innerHTML += "Folder Created :" + result + "<br>";
+           }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="NewClick()">New Folder</button>
+    <p></p>
+</body>
+</html>

@@ -1,0 +1,194 @@
+
+
+
+======================================== Integrating JavaScript into HTML page ===============================================
+
+Evolution of JavaScript:
+
+- ECMA Script is the first scripting language used for Web Browsers.
+- Mosaic is the browser that started implementing client side script.
+- In early 1995 Netscape communications developed a browser called "Netscape Communicator".
+- Netscape appointed "Brendan Eich" to design a client side script for Netscape Browser
+- Brendan Eich designed a script by name "Mocha", later it is renamed as "Live Script".
+- Netscape given the responsibility of Live Script to "Sun Microsystems".
+- They renamed Live Script to "JavaScript".
+- In early 2000 Netscape stopped it services and given the responsibility of JavaScript to ECMA.
+- ECMA Started mantaining and evolving JavaScript by name "ES Script"
+- ECMA Script 2014, 2015, 2016, 2017...22 => ES6, ES7, ES8, ECMAScript 2022
+- JavaScript official documentation is designed by "MDN". [Brendan Eich]
+- JavaScript is a scripting language, which is used in existing system to handle specific operations.
+
+Integrating JavaScript into HTML Page:
+- You can use javascript
+   
+    1. Inline
+    2. Embedded
+    3. External File
+
+- Inline is the technique where the JavaScript functions are defined within the element tag. It is faster in access, however can't reuse.
+
+Syntax:
+    <button  onclick="window.print()">  Print </button>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline</title>
+    <style type="text/css" media="print">
+        button {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ticket</h1>
+    <button onclick="window.print()">Print</button>
+</body>
+</html>
+
+- Embedded is the technique where javascript functions are kept in <script> container and accessed from any element in page.
+
+Syntax:
+   <script>
+     function Name()
+     {
+     }
+   </script>
+
+    <button onclick="Name()">
+
+FAQ's:
+1. What is the MIME type for Script?
+A.
+    <script type="text/javascript"> </script>
+                (or)
+    <script language="javascript"> </script>
+
+2. Where to embed script element?
+A. You can embed in <head> or <body>
+
+3.  What is strict mode? How to trun on JavaScript strict mode?
+A.  It is used to force the developers to write logic as per coding standards.
+      It is required to improve code consistancy.
+      It is turned on by using the sentance:  "use strict";
+
+Syntax:
+    <script  type="text/javascript">
+       "use strict";
+        function Name()
+        {
+        }
+    </script>
+
+Ex:
+<script>
+    "use strict";
+    x = 10;                        // invalid  - in strict mode x need to be defined.
+    document.write(`x=${x}`);
+</script>
+
+Ex:
+<script>
+    x = 10;                        // valid
+    document.write(`x=${x}`);
+</script>
+
+Ex:
+<script>
+    "use strict";
+    var x;                        // valid
+    x = 10;
+    document.write(`x=${x}`);
+</script>
+
+4. How to target script for Legacy browsers?
+A. By enclosing functions using HTML comments.
+
+Syntax:
+  <script type="text/javascript">
+      <!--
+       function Name()
+       {
+       }
+       -->
+   </script>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline</title>
+    <style type="text/css" media="print">
+        button {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+       <!--
+        function PrintTicket()
+        {
+            window.print();
+        }
+        -->
+    </script>
+</head>
+<body>
+    <!-- HTML Comments -->
+    <h1>Ticket</h1>
+    <button onclick="PrintTicket()">Print</button>
+</body>
+</html>
+
+- JavaScript functions can be defined in external file with extention ".js"
+- So that you can reuse accross pages.
+- It will increase the number of requests and also page load time.
+- You can minify the code.
+
+Syntax:
+        print.js
+    function Name()
+    {
+
+    }
+
+    <script  type="text/javascript"  src="print.js"> </script>
+    <button onclick="Name()">
+
+Ex:
+1. Go to "src/scripts" folder
+2. Add a new file
+        print.js
+      <!--
+        function PrintTicket()
+        {
+            window.print();
+        }
+        -->
+3. Add code in HTML page
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline</title>
+    <style type="text/css" media="print">
+        button {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="../src/scripts/print.js">
+     
+    </script>
+</head>
+<body>
+    <!-- HTML Comments -->
+    <h1>Ticket</h1>
+    <button onclick="PrintTicket()">Print</button>
+</body>
+</html>

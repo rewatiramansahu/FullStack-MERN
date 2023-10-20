@@ -1,0 +1,230 @@
+
+Class49- 19oct2023
+
+================================== JavaScript Reference Techniques ============================
+
+Refering HTML elements using JavaScript:
+
+1. JavaScript can refer HTML elements by using DOM hierarchy
+
+- Elements in page are arranged in a DOM hierarchy
+- DOM comprises of root and child elements
+                
+				    window
+                      |
+            --------------------------
+            |                   |
+           document           location
+
+- You can access elements by using DOM hierarchy
+
+        window.document.images[ ]
+        window.document.forms[]
+        window.document.forms.elements[]
+
+- Multiple elements are defined as a collection [Array], you can access using index.
+
+         window.document.images[0]        => first occurance image in page
+
+- Refering using index is faster in access and it is the native method.
+
+- The issue with DOM hierarchy reference is, changing of index every time in code is required when ever element position changed.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function bodyload()
+        {
+            window.document.images[0].src = "../public/images/a1.jpg";
+            window.document.forms[0].elements[2].value = "Register";
+            window.document.forms[1].elements[1].value = "Login";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img width="100" height="100" border="1">
+    </div>
+    <div>
+        <h3>Register</h3>
+        <form>
+            User Name :  <input type="text"> <br><br>
+            Password  :  <input type="password"> <br><br>
+            <input type="button">
+        </form>
+    </div>
+    <div>
+        <h3>Login</h3>
+        <form>
+            Email : <input type="email"> <input type="button">
+        </form>
+    </div>
+</body>
+</html>
+
+2. JavaScript can refer HTML elements by using a reference name.
+
+- Every HTML element in page can have a reference name.
+
+    <img name="poster">
+    <input type="button" name="btnLogin">
+
+- JavaScript can access elements with reference name.
+
+     poster.src=""
+     btnLogin.value=""
+
+- You can't access a child element directly without refering to its parent.
+- Name can be common for several elements in page, hence it is difficult to access element and apply dynamic properties.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function bodyload()
+        {
+           poster.src="../public/images/a2.jpg";
+           frmRegister.btnRegister.value="Register";
+           frmLogin.btnLogin.value = "Login";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img width="100" height="100" border="1" name="poster">
+    </div>
+    <div>
+        <h3>Register</h3>
+        <form name="frmRegister">
+            User Name :  <input type="text" name="UserName"> <br><br>
+            <input type="button" name="btnRegister">
+        </form>
+    </div>
+    <div>
+        <h3>Login</h3>
+        <form name="frmLogin">
+            Email : <input type="email" name="Email"> <input name="btnLogin" type="button">
+        </form>
+    </div>
+</body>
+</html>
+
+3. JavaScript can refer HTML elements by using "ID"
+
+- Every HTML element can have a reference ID.
+- JavaScript can access element with reference ID.
+- You can access any child element directly, without refering to its parent.
+
+     <img id="poster">
+     <input type="button"  id="btnLogin">
+
+- JavaScript method for refering ID is  "document.getElementById()"
+
+      document.getElementById("poster").src=" "
+      document.getElementById("btnLogin").value=" "
+
+- ID can be common for several element, as it is used by CSS.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function bodyload()
+        {
+            document.getElementById("poster").src="../public/images/a3.jpg";
+            document.getElementById("btnLogin").value = "Login";
+            document.getElementById("btnRegister").value = "Register";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img width="100" height="100" border="1" id="poster" name="poster">
+    </div>
+    <div>
+        <h3>Register</h3>
+        <form name="frmRegister">
+            User Name :  <input type="text" name="UserName"> <br><br>
+            <input type="button" name="btnRegister" id="btnRegister">
+        </form>
+    </div>
+    <div>
+        <h3>Login</h3>
+        <form name="frmLogin">
+            Email : <input type="email" name="Email"> <input id="btnLogin" name="btnLogin" type="button">
+        </form>
+    </div>
+</body>
+</html>
+
+4. JavaScript can refer HTML elements using CSS selectors.
+
+- HTML elements can be access with CSS selectors.
+- CSS provides various selectors for configuring styles.
+        a) Type Selector
+        b) Class Selector
+        c) ID selector
+        d) Rational
+        e) Structural Pseudo Classes etc...
+
+- JavaScript uses the method  "document.querySelector()"
+
+        <img>
+        <input type="button" class="btn-primary">
+
+        document.querySelector("img").src="" ;
+        document.querySelector(".btn-primary").value=""
+        document.querySelector("#btn").value=""
+        document.querySelector("nav button")
+        document.querySelector("table+div")
+
+- CSS selector can be common for several elements in page.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function bodyload()
+        {
+             document.querySelector("img").src="../public/images/a4.jpg";
+             document.querySelector(".btn-register").value="Register";
+             document.querySelector("#btnLogin").value = "Login";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img width="100" height="100" border="1">
+    </div>
+    <div>
+        <h3>Register</h3>
+        <form name="frmRegister">
+            User Name :  <input type="text" name="UserName"> <br><br>
+            <input type="button" class="btn-register">
+        </form>
+    </div>
+    <div>
+        <h3>Login</h3>
+        <form name="frmLogin">
+            Email : <input type="email" name="Email"> <input id="btnLogin" name="btnLogin" type="button">
+        </form>
+    </div>
+</body>
+</html>

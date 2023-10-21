@@ -1,0 +1,850 @@
+=========================================== JavaScript ====================================================
+
+
+JavaScript :
+============
+		- JavaScript is light weight interpreted and Just-in-Time [JIT] compiled programming language.
+		- Light weight allows to operate with less memory.
+		- Interpreted allows line by line translation.
+		- Compiled allows to translate all lines simultaneously at the same time.
+		- There are 2 types compiling techniques
+			a) JIT (Just-in-Time)
+			b) AoT (Ahead-of-Time)
+
+		- JIT translates Javascript in browser, when it is requested in browser.
+		- AOT translate JavaScript on server, before it is requested in browser.
+		- AOT requires explicit JavaScript compilers like "V8, Babel, Node" etc.
+		- JavaScript is a programming language that supports various programming approaches like
+			a) Functional Programming
+			b) Structural Programming
+			c) Imperative Programming
+			d) Object Oriented Programming etc..
+
+		Note: JavaScript is not an OOP language, It supports only few features of OOP.
+
+		- JavaScript is a programming language used in various layers and applications.
+		
+	JavaScript can be used : 
+	------------------------
+			a) Client Side                [with HTML]
+			b) Server Side                [with Node JS]
+			c) In Database            [with MongoDB]
+			d) In Animation Tools        [with Flash, CAD Systems]
+
+
+	JavaScript Client Side:
+	----------------------
+
+			- A script client side is required to reduce burden on server.
+			- It can improve the performance of application by managing various interaction client side.
+			- JavaScript can handle various interactions client side, which includes
+
+				a) DOM Manipulation
+					- Adding element to page
+					- Removing element from page
+					- Updating data into element
+					- Configuring styles to element dynamically
+					- Configuring events to element dynamically
+				b) Validation
+					- Verify user input
+					- Validates the input
+					- Reports if it is not according to requirements
+				c)  Client Side Interactions
+					- Managing client memory
+					- Managing client devices
+					- Managing Location
+					- Sharing of data with other applications on client device
+
+			
+	 Issues with JavaScript as Language :
+	 ------------------------------------		
+
+			1. JavaScript is not a strongly typed language.
+
+					var x = 10;        x is number
+					x = "John";        valid
+
+			2. JavaScript is not implicitly strictly typed language.
+
+					age = 22;            valid
+
+			3. JavaScript is not structured in handling data. [Schema less]
+
+					[  
+					  { Name: "TV",  Price: 45000.44 },
+					  { Product:"Mobile", Cost: 12000.33}
+					]
+
+			4. JavaScript is not an OOP language, It have issues with
+					a) Code Extensibility
+					b) Code Level Security
+					c) Dynamic Polymorphism etc..
+
+			5. JavaScript is not secured and can be blocked by browser
+
+
+
+
+	  Solutions :
+	  ----------
+			- You can use "TypeScript" as alternative
+			- It is strongly typed
+			- It is strictly typed
+			- It is an OOP language.
+
+
+
+
+
+
+
+
+
+  Evolution of JavaScript :
+  ========================
+
+		- ECMA Script is the first scripting language used for Web Browsers.
+		- Mosaic is the browser that started implementing client side script.
+		- In early 1995 Netscape communications developed a browser called "Netscape Communicator".
+		- Netscape appointed "Brendan Eich" to design a client side script for Netscape Browser
+		- Brendan Eich designed a script by name "Mocha", later it is renamed as "Live Script".
+		- Netscape given the responsibility of Live Script to "Sun Microsystems".
+		- They renamed Live Script to "JavaScript".
+		- In early 2000 Netscape stopped it services and given the responsibility of JavaScript to ECMA.
+		- ECMA Started mantaining and evolving JavaScript by name "ES Script"
+		- ECMA Script 2014, 2015, 2016, 2017...22 => ES6, ES7, ES8, ECMAScript 2022
+		- JavaScript official documentation is designed by "MDN". [Brendan Eich]
+		- JavaScript is a scripting language, which is used in existing system to handle specific operations.
+		
+		
+
+ Integrating JavaScript into HTML Page :
+ =======================================
+			- You can use javascript
+			   
+				1. Inline
+				2. Embedded
+				3. External File
+				
+				
+    1. Inline : 
+	-----------
+			- Inline is the technique where the JavaScript functions are defined within the element tag. It is faster in access, however can't reuse.
+
+			Syntax:
+				<button  onclick="window.print()">  Print </button>
+
+			Ex:
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Inline</title>
+				<style type="text/css" media="print">
+					button {
+						display: none;
+					}
+				</style>
+			</head>
+			<body>
+				<h1>Ticket</h1>
+				<button onclick="window.print()">Print</button>
+			</body>
+			</html>
+			
+			
+     2. Embedded : 
+	 -------------
+			- Embedded is the technique where javascript functions are kept in <script> container and accessed from any element in page.
+
+			Syntax:
+			   <script>
+				 function Name()
+				 {
+				 }
+			   </script>
+
+				<button onclick="Name()">
+
+			FAQ's:
+			1. What is the MIME type for Script?
+			A.
+				<script type="text/javascript"> </script>
+							(or)
+				<script language="javascript"> </script>
+
+			2. Where to embed script element?
+			A. You can embed in <head> or <body>
+
+			3.  What is strict mode? How to trun on JavaScript strict mode?
+			A.  It is used to force the developers to write logic as per coding standards.
+				  It is required to improve code consistancy.
+				  It is turned on by using the sentance:  "use strict";
+
+			Syntax:
+				<script  type="text/javascript">
+				   "use strict";
+					function Name()
+					{
+					}
+				</script>
+
+			Ex:
+			<script>
+				"use strict";
+				x = 10;                        // invalid  - in strict mode x need to be defined.
+				document.write(`x=${x}`);
+			</script>
+
+			Ex:
+			<script>
+				x = 10;                        // valid
+				document.write(`x=${x}`);
+			</script>
+
+			Ex:
+			<script>
+				"use strict";
+				var x;                        // valid
+				x = 10;
+				document.write(`x=${x}`);
+			</script>
+
+			4. How to target script for Legacy browsers?
+			A. By enclosing functions using HTML comments.
+
+			Syntax:
+			  <script type="text/javascript">
+				  <!--
+				   function Name()
+				   {
+				   }
+				   -->
+			   </script>
+
+			Ex:
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Inline</title>
+				<style type="text/css" media="print">
+					button {
+						display: none;
+					}
+				</style>
+				<script type="text/javascript">
+				   <!--
+					function PrintTicket()
+					{
+						window.print();
+					}
+					-->
+				</script>
+			</head>
+			<body>
+				<!-- HTML Comments -->
+				<h1>Ticket</h1>
+				<button onclick="PrintTicket()">Print</button>
+			</body>
+			</html>
+			
+			
+			
+			
+	  3. External File :
+      ------------------	  
+
+			- JavaScript functions can be defined in external file with extention ".js"
+			- So that you can reuse accross pages.
+			- It will increase the number of requests and also page load time.
+			- You can minify the code.
+
+			Syntax:
+					print.js
+				function Name()
+				{
+
+				}
+
+				<script  type="text/javascript"  src="print.js"> </script>
+				<button onclick="Name()">
+
+			Ex:
+			1. Go to "src/scripts" folder
+			2. Add a new file
+					print.js
+				  <!--
+					function PrintTicket()
+					{
+						window.print();
+					}
+					-->
+			3. Add code in HTML page
+
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Inline</title>
+				<style type="text/css" media="print">
+					button {
+						display: none;
+					}
+				</style>
+				<script type="text/javascript" src="../src/scripts/print.js">
+				 
+				</script>
+			</head>
+			<body>
+				<!-- HTML Comments -->
+				<h1>Ticket</h1>
+				<button onclick="PrintTicket()">Print</button>
+			</body>
+			</html>
+			
+			
+			
+			
+			
+						
+						
+  JavaScript Reference Techniques : 
+  =================================
+
+	   Refering HTML elements using JavaScript:
+	   ----------------------------------------
+
+	   1. JavaScript can refer HTML elements by using DOM hierarchy : 
+	   --------------------------------------------------------------
+
+			- Elements in page are arranged in a DOM hierarchy
+			- DOM comprises of root and child elements
+							
+								window
+								  |
+						--------------------------
+						|                   |
+					   document           location
+
+			- You can access elements by using DOM hierarchy
+
+					window.document.images[ ]
+					window.document.forms[]
+					window.document.forms.elements[]
+
+			- Multiple elements are defined as a collection [Array], you can access using index.
+
+					 window.document.images[0]        => first occurance image in page
+
+			- Refering using index is faster in access and it is the native method.
+
+			- The issue with DOM hierarchy reference is, changing of index every time in code is required when ever element position changed.
+
+			Ex:
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Document</title>
+				<script type="text/javascript">
+					function bodyload()
+					{
+						window.document.images[0].src = "../public/images/a1.jpg";
+						window.document.forms[0].elements[2].value = "Register";
+						window.document.forms[1].elements[1].value = "Login";
+					}
+				</script>
+			</head>
+			<body onload="bodyload()">
+				<div>
+					<img width="100" height="100" border="1">
+				</div>
+				<div>
+					<h3>Register</h3>
+					<form>
+						User Name :  <input type="text"> <br><br>
+						Password  :  <input type="password"> <br><br>
+						<input type="button">
+					</form>
+				</div>
+				<div>
+					<h3>Login</h3>
+					<form>
+						Email : <input type="email"> <input type="button">
+					</form>
+				</div>
+			</body>
+			</html>
+
+			
+			
+	   2. JavaScript can refer HTML elements by using a reference name : 
+	   -----------------------------------------------------------------
+
+			- Every HTML element in page can have a reference name.
+
+				<img name="poster">
+				<input type="button" name="btnLogin">
+
+			- JavaScript can access elements with reference name.
+
+				 poster.src=""
+				 btnLogin.value=""
+
+			- You can't access a child element directly without refering to its parent.
+			- Name can be common for several elements in page, hence it is difficult to access element and apply dynamic properties.
+
+			Ex:
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Document</title>
+				<script type="text/javascript">
+					function bodyload()
+					{
+					   poster.src="../public/images/a2.jpg";
+					   frmRegister.btnRegister.value="Register";
+					   frmLogin.btnLogin.value = "Login";
+					}
+				</script>
+			</head>
+			<body onload="bodyload()">
+				<div>
+					<img width="100" height="100" border="1" name="poster">
+				</div>
+				<div>
+					<h3>Register</h3>
+					<form name="frmRegister">
+						User Name :  <input type="text" name="UserName"> <br><br>
+						<input type="button" name="btnRegister">
+					</form>
+				</div>
+				<div>
+					<h3>Login</h3>
+					<form name="frmLogin">
+						Email : <input type="email" name="Email"> <input name="btnLogin" type="button">
+					</form>
+				</div>
+			</body>
+			</html>
+			
+			
+			
+			
+
+	 3. JavaScript can refer HTML elements by using "ID" :
+	 -----------------------------------------------------
+
+			- Every HTML element can have a reference ID.
+			- JavaScript can access element with reference ID.
+			- You can access any child element directly, without refering to its parent.
+
+				 <img id="poster">
+				 <input type="button"  id="btnLogin">
+
+			- JavaScript method for refering ID is  "document.getElementById()"
+
+				  document.getElementById("poster").src=" "
+				  document.getElementById("btnLogin").value=" "
+
+			- ID can be common for several element, as it is used by CSS.
+
+			Ex:
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Document</title>
+				<script type="text/javascript">
+					function bodyload()
+					{
+						document.getElementById("poster").src="../public/images/a3.jpg";
+						document.getElementById("btnLogin").value = "Login";
+						document.getElementById("btnRegister").value = "Register";
+					}
+				</script>
+			</head>
+			<body onload="bodyload()">
+				<div>
+					<img width="100" height="100" border="1" id="poster" name="poster">
+				</div>
+				<div>
+					<h3>Register</h3>
+					<form name="frmRegister">
+						User Name :  <input type="text" name="UserName"> <br><br>
+						<input type="button" name="btnRegister" id="btnRegister">
+					</form>
+				</div>
+				<div>
+					<h3>Login</h3>
+					<form name="frmLogin">
+						Email : <input type="email" name="Email"> <input id="btnLogin" name="btnLogin" type="button">
+					</form>
+				</div>
+			</body>
+			</html>
+			
+			
+
+		4. JavaScript can refer HTML elements using CSS selectors :
+		-----------------------------------------------------------
+
+			- HTML elements can be access with CSS selectors.
+			- CSS provides various selectors for configuring styles.
+					a) Type Selector
+					b) Class Selector
+					c) ID selector
+					d) Rational
+					e) Structural Pseudo Classes etc...
+
+			- JavaScript uses the method  "document.querySelector()"
+			
+			
+					<img>
+					<input type="button" class="btn-primary">
+
+					document.querySelector("img").src="" ;
+					document.querySelector(".btn-primary").value=""
+					document.querySelector("#btn").value=""
+					document.querySelector("nav button")
+					document.querySelector("table+div")
+					
+					
+			- CSS selector can be common for several elements in page.
+
+			Ex:
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Document</title>
+				<script type="text/javascript">
+					function bodyload()
+					{
+						 document.querySelector("img").src="../public/images/a4.jpg";
+						 document.querySelector(".btn-register").value="Register";
+						 document.querySelector("#btnLogin").value = "Login";
+					}
+				</script>
+			</head>
+			<body onload="bodyload()">
+				<div>
+					<img width="100" height="100" border="1">
+				</div>
+				<div>
+					<h3>Register</h3>
+					<form name="frmRegister">
+						User Name :  <input type="text" name="UserName"> <br><br>
+						<input type="button" class="btn-register">
+					</form>
+				</div>
+				<div>
+					<h3>Login</h3>
+					<form name="frmLogin">
+						Email : <input type="email" name="Email"> <input id="btnLogin" name="btnLogin" type="button">
+					</form>
+				</div>
+			</body>
+			</html>			
+			
+			
+			
+			
+			
+			
+			
+
+
+
+ JavaScript output and Input :
+ ==============================
+
+	
+     JavaScript Output Techniques : 
+	 ------------------------------
+
+				1. alert()
+				2. confirm()
+				3. document.write()
+				4. console methods [log(), warn(), info(), error(), debug()]
+				5. innerHTML
+				6. innerText
+				7. outerHTML
+
+	  alert() : 
+	  ---------
+
+				- It is a window method, that pops up a message box to display a string as output.
+				- It can directly present a string or can evaluate any expression and return result as string.
+
+				Syntax:
+							alert("Welcome to JavaScript");
+							alert(10 + 20);       "30"
+
+				- It will not allow any formats for string. It is RC data type.
+
+							alert("<b>Welcome</b>");      bold not applied to text
+
+				- It will not allow to cancel the message box.
+				- It contains only OK to confirm.
+				- You can display message in multiple lines using "\n" as line break.
+
+							alert("line1\nline2\nline3");
+
+				Ex:
+				<!DOCTYPE html>
+				<html lang="en">
+				<head>
+					<meta charset="UTF-8">
+					<meta name="viewport" content="width=device-width, initial-scale=1.0">
+					<title>Document</title>
+					<script type="text/javascript">
+						function DeleteClick()
+						{
+							alert("are you sure?\nWant to delete?");
+						}
+					</script>
+				</head>
+				<body>
+					<button onclick="DeleteClick()">Delete</button>
+				</body>
+				</html>
+
+	  confirm() : 
+	  -----------
+				- It is similar to alert, but provides cancel to close message box without confirming as OK.
+
+				Syntax:
+						confirm("Are you sure?\nWant to Delete?");
+
+				- It is a boolean method, which returns  "true" on OK and "false" on Cancel.
+
+				Syntax:
+						  flag  = confirm("Are you sure?");
+						  if(flag==true)
+						  {
+							 actions on OK;
+						  }
+						  else
+						  {
+							  actions on Cancel;
+						  }
+
+						 =       it is assignment
+						 ==       it is comparision
+
+				Ex:
+				<!DOCTYPE html>
+				<html lang="en">
+				<head>
+					<meta charset="UTF-8">
+					<meta name="viewport" content="width=device-width, initial-scale=1.0">
+					<title>Document</title>
+					<script type="text/javascript">
+						function DeleteClick()
+						{
+						   flag =  confirm("Are you sure?\nWant to delete?");
+						   if(flag==true)
+						   {
+							  alert("Deleted Successfully..");
+						   }
+						   
+						}
+					</script>
+				</head>
+				<body>
+					<button onclick="DeleteClick()">Delete</button>
+				</body>
+				</html>
+				
+				
+				
+
+	  document.write() : 
+	  ------------------
+	  
+				- It is a document method used to display output on new screen.
+				- It can present string, expression or markup.
+
+				Syntax:
+					document.write("Welcome");
+					document.write("Addition=" + (20+30));
+					document.write("<b> Welcome </b>");
+
+				Note: To present a string within another string, you can switch between double and single quotes.
+
+						"outer ' inner string ' string"
+
+						'outer  " inner string " string'
+
+				Ex:
+				<!DOCTYPE html>
+				<html lang="en">
+				<head>
+					<meta charset="UTF-8">
+					<meta name="viewport" content="width=device-width, initial-scale=1.0">
+					<title>Document</title>
+					<script type="text/javascript">
+						function DeleteClick()
+						{
+						   flag =  confirm("Are you sure?\nWant to delete?");
+						   if(flag==true)
+						   {
+							  document.write("<h3><font color='red'>Deleted Successfully..</font></h3><a href='input.html'>Back</a>");
+						   }
+						   
+						}
+					</script>
+				</head>
+				<body>
+					<button onclick="DeleteClick()">Delete</button>
+				</body>
+				</html>
+				
+				
+				
+
+       innerText : 
+	   -----------
+											
+											
+				- It is a property used for elements, which can display text content.
+				   <header> <nav> <footer> <div> <span> <h2> <p> <li> <blockquote> etc..
+				- It will not allow formats for text.
+				- It is only for plain string or any result of expression.
+				- It will not allow any markup.
+
+				Syntax:
+						document.querySelector("div").innerText = "message | expression";
+
+	   innerHTML : 
+	   -----------
+
+				- It is similar to innerText but allows markup.
+				- It will not replace the existing element with new element.
+
+
+
+	  outerHTML : 
+	  -----------
+
+				- It is similar to innerHTML but will replace the existing element with new element.
+
+				Syntax:
+					document.querySelector("p").outerHTML = "<h2> Welcome </h2>";
+					document.querySelector("p").innerHTML = "<b>Welcome</b>";
+
+										 
+										 
+										 
+	  Console Methods : 
+	  -----------------
+
+				- Console is a CLI [Command Line Interface] tool provided by browser debugging tools.
+				- It is used by developers to test JavaScript functions before implemented.
+				- It is also used to log various messages in development, which includes
+						warn()
+						error()
+						log()
+						info()
+						debug() etc..
+
+				Syntax:
+						console.log("string");
+						console.log(expression);
+						console.log("line1\nline2");
+
+				Ex:
+				<!DOCTYPE html>
+				<html lang="en">
+				<head>
+					<meta charset="UTF-8">
+					<meta name="viewport" content="width=device-width, initial-scale=1.0">
+					<title>Document</title>
+					<script type="text/javascript">
+						function DeleteClick()
+						{
+						   console.warn("Delete Button Clicked");
+						   flag =  confirm("Are you sure?\nWant to delete?");
+						   if(flag==true)
+						   {
+							  console.error("OK Confirmed");
+							  document.querySelector("p").outerHTML = "<h3><font color='red'>Deleted Successfully..</font></h3>"
+						   }
+						   else
+						   {
+							   console.log("Cancel Clicked");
+							   document.querySelector("p").innerText = "<i><b>You canceled..</i></b>";
+						   }
+						   
+						}
+					</script>
+				</head>
+				<body>
+					<button onclick="DeleteClick()">Delete</button>
+					<p></p>
+				</body>
+				</html>
+				
+				
+
+	   
+  JavaScript Input Techniques : 
+  =============================
+	   
+				1. prompt()
+				2. query string
+				3. form input elements
+
+	 
+	 1. prompt() : 
+	 ----------
+				- It can popup an input box in browser window, where user can input a value.
+				- It can access a plain string input. Even a number is converted as string.
+
+				Syntax:
+						prompt("Your Message", "Default_Value");
+
+				- Prompt method returns
+
+						null            ON cancel
+						" "            ON ok without value
+						value        ON ok with value
+
+				Ex:
+				<!DOCTYPE html>
+				<html lang="en">
+				<head>
+					<meta charset="UTF-8">
+					<meta name="viewport" content="width=device-width, initial-scale=1.0">
+					<title>Document</title>
+					<script type="text/javascript">
+						function NewClick(){
+						   result = prompt("Enter Folder Name","New_Folder");
+						   if(result==null){
+							  alert("You Canceled..");
+						   }
+							else if(result==""){
+								alert("Please provide folder name");
+							}
+							else {
+							  document.querySelector("p").innerHTML += "Folder Created :" + result + "<br>";
+						   }
+						}
+					</script>
+				</head>
+				<body>
+					<button onclick="NewClick()">New Folder</button>
+					<p></p>
+				</body>
+				</html>			
+			

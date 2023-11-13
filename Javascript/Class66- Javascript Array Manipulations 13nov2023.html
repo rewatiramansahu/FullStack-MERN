@@ -1,0 +1,232 @@
+
+
+Class66- Date 13nov2023
+
+=============================== Javascript Array Manipulations =============================
+
+Array Manipulation
+map()
+- Creating Element dynamically and appending to page
+        createElement()
+        appendChild()
+
+Ex: Create a table dynamically
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function GenerateClick(){
+          var table = document.createElement("table");
+          table.width= "100%";
+          table.border = "1";
+
+          var thead = document.createElement("thead");
+          var tr = document.createElement("tr");
+          var th1 = document.createElement("th");
+          var th2 = document.createElement("th");
+          th1.innerHTML = "Name";
+          th2.innerHTML = "Price";
+
+          tr.appendChild(th1);
+          tr.appendChild(th2);
+
+          thead.appendChild(tr);
+
+          table.appendChild(thead);
+
+          document.getElementById("container").appendChild(table);
+
+       }
+    </script>
+</head>
+<body>
+    <button onclick="GenerateClick()">Generate Table</button>
+    <br>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+
+Presenting Array Elements in UI:
+- You have to read elements from array using any iterator or loop.
+- For every element in array you have to create HTML element dynamically.
+- Define properties for element.
+- Append to its parent.
+   
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var categories = ["All", "Electronics", "Footwear", "Kid's Fashion"];
+        function bodyload(){
+            categories.map(function(category){
+                var li = document.createElement("li");
+                li.innerHTML = category;
+                document.querySelector("ol").appendChild(li)
+
+                var option = document.createElement("option");
+                option.text = category.toUpperCase();
+                option.value = category;
+                document.querySelector("select").appendChild(option);
+
+                var ul_li = document.createElement("li");
+                var input = document.createElement("input");
+                input.type =  "checkbox";
+                var label = document.createElement("label");
+                label.innerHTML = category;
+
+                ul_li.appendChild(input);
+                ul_li.appendChild(label);
+
+                document.querySelector("ul").appendChild(ul_li);
+
+            })
+        }
+    </script>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body onload="bodyload()">
+    <ol>
+
+    </ol>
+    <select></select>
+    <ul>
+
+    </ul>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var categories = ["All", "Electronics", "Footwear", "Kid's Fashion"];
+        function bodyload(){
+            categories.map(function(category){
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.href = `${category}.html`;
+                a.innerHTML = category;
+                li.appendChild(a);
+                document.querySelector("ul").appendChild(li);
+            })
+        }
+    </script>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body onload="bodyload()">
+   
+    <ul>
+
+    </ul>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var categories = ["All", "Electronics", "Footwear", "Kid's"];
+        function bodyload(){
+            categories.map(function(category){
+                var li = document.createElement("li");
+                li.innerHTML = `<a href=${category}.html>${category}</a>`;
+                document.querySelector("ul").appendChild(li);
+            })
+        }
+    </script>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body onload="bodyload()">
+   
+    <ul>
+
+    </ul>
+</body>
+</html>
+
+
+Ex: Table
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var categories = ["All", "Electronics", "Footwear", "Kid's"];
+        function bodyload(){
+            categories.map(function(category){
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.innerHTML = category;
+                tr.appendChild(td);
+                document.querySelector("tbody").appendChild(tr);
+            })
+        }
+    </script>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body onload="bodyload()">
+    <table border="1" width="300">
+        <thead>
+            <tr>
+                <th>Categories</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
+
+Adding Elements into Array:
+
+    push()        : It adds new element(s) as last element(s).
+    unshift()        : It adds new element(s) as first element(s).
+    splice()        : It adds new element(s) at specific position.
+
+Syntax:
+    arrayName.push("element1", "element2",...)
+    arrayName.unshift("e1", "e2", ...)
+    arrayName.splice(indexNumber, deleteCount, "element1", "element2", ...)
+
+Ex:
+    var categories = ["All", "Electronics"];
+    categories.push("Men's");
+        categories.splice(1,0,"Women");

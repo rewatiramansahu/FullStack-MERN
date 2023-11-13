@@ -1,0 +1,218 @@
+
+Class61- Date 07nov2023
+
+====================================== javascript Selection Statements ======================================
+
+Selection Statements
+- IF Statement
+    a) Forward Jump
+    b) Simple Decision
+    c) Multi Level Decisions
+   
+Multiple Choices:
+- We can provide multiple alternatives to perform specified task.
+
+Syntax:
+    if (condition-1 )
+    {
+      statements on condition-1 true;
+    }
+    else if (condition-2)
+    {
+      statements on condition-2 true;
+    }
+        else
+    {
+      statements when all conditions evaluate to false;
+    }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        var flag = "";
+        function ContinueClick(){
+            var UserId = document.getElementById("UserId").value;
+            var UserIdContainer = document.getElementById("UserIdContainer");
+            var PasswordContainer = document.getElementById("PasswordContainer");
+           
+            if(UserId==="john_nit@gmail.com"){
+                flag = `Login Success - Verification mail sent to ${UserId}`;
+                UserIdContainer.style.display = "none";
+                PasswordContainer.style.display = "block";
+            }
+            else if(UserId==="+919876543210") {
+                flag = `Login Success - OTP Sent to your mobile ${UserId}`;
+                UserIdContainer.style.display = "none";
+                PasswordContainer.style.display = "block";
+            }
+            else{
+                document.getElementById("UserError").innerHTML = `${UserId} doesn't Exist`;
+            }
+        }
+        function LoginClick(){
+            var password = document.getElementById("Password").value;
+            if(password==="john@123"){
+                document.write(`<h1>${flag}</h1>`);
+            } else {
+                document.getElementById("PwdError").innerHTML = "Invalid Password";
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="w-25 border border-1 p-4 rounded">
+        <h2>SignIn</h2>
+        <div id="UserIdContainer">
+            <label class="form-label fw-bold">Email or mobile phone number</label>
+            <div>
+                <input type="text" id="UserId" class="form-control">
+                <div id="UserError" class="text-danger"></div>
+            </div>
+            <div class="mt-4">
+                <button onclick="ContinueClick()" class="btn btn-warning w-100">Continue</button>
+            </div>
+        </div>
+        <div id="PasswordContainer" style="display: none;">
+            <label class="form-label fw-bold">Password</label>
+            <div>
+                <input type="password" id="Password" class="form-control">
+                <div id="PwdError" class="text-danger"</div>
+            </div>
+            <div class="mt-4">
+                <button onclick="LoginClick()" class="btn btn-warning w-100">Login</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+   
+Logical AND :
+- It defines multiple expressions in one statement.
+- It returns true only when all expressions evaluate to true.
+- It returns false if any one condition evaluates to false.
+
+Syntax:
+        expression-1  &&  expression2   && expression3
+
+Logical OR:
+- It defines multiples expressions in one statement.
+- It returns true if any one expression evaluates to true.
+- It returns false if all expressions evaluate to false.
+
+Syntax:
+        expression-1  ||  expression2  || expression3
+
+Program: Write a program to find the greatest among 2 numbers  a & b.
+Startup Code:
+        function  FindGreatest(a, b)
+        {
+            // your logic;
+        }
+Solution :
+        function FindGreatest(a, b)
+        {
+             if(a>b)
+             {
+              document.write(`Your number a=${a} is greater than b=${b}`);
+             }
+            else{
+              document.write(`Your number b=${b} is greater than a=${a}`);
+            }
+        }
+        FindGreatest(20,3);        => a is greater
+        FindGreatest(20,50);        => b is greater
+
+Program: Write a program to find the greatest among 3 number a, b, c
+
+Startup code:
+        function FindGreatest(a, b, c)
+        {
+            // your logic
+        }
+        FindGreatest(20, 12, 65)    => c is greater
+        FindGreatest(12,56,24)        => b is greater
+        FindGreatest(34,11,22)        => a is greater
+
+Solution Code:
+        function FindGreatest(a, b, c)
+        {
+            if(a>b && a>c)
+            {
+                document.write("a is greater");
+            }
+            else if(b>c) {
+                document.write("b is greater");
+            } else {
+                document.write("c is greater");
+            }
+        }
+Ex:
+<script>
+        function FindGreatest(a, b, c)
+        {
+            if(a>b && a>c){
+                document.write(`a=${a} is greater than b=${b} & c=${c}`);
+            } else if(b>c) {
+                document.write(`b=${b} is greater than a=${a} & c=${c}`);
+            } else {
+                document.write(`c=${c} is greater than a=${a} & b=${b}`);
+            }
+        }
+        FindGreatest(110, 240, 50);
+</script>
+
+Program: Find value in range or out of range.
+
+Startup Code:
+        function  FindRange(value, min, max)
+        {
+            // logic
+        }
+
+        FindRange(10, 1, 20);        => In range
+        FindRange(10, 20, 60);        => out of range
+
+Ex:
+<script>
+      function FindRange(value, min, max){
+         if(value>=min && value<=max) {
+             document.write(`Your value ${value} is in range of ${min} to ${max}`);
+         } else {
+            document.write(`Your value ${value} is NOT in range of ${min} to ${max}`);
+         }
+      }
+      FindRange(prompt("Enter Value"), prompt("Enter Min"), prompt("Enter Max"));
+</script>
+
+Program :  Check if a triangle is equilateral, scalene, or isosceles
+
+Startup Code:  
+            function  findTriangleType(side1, side2, side3)
+            {
+                // logic
+            }
+
+Solution Code:
+function findTriangleType(side1, side2, side3) {
+
+  if((side1 == side2) && (side1 == side3)){
+    console.log(`Equilateral triangle.`)
+  }
+  else if ((side1 == side2) || (side2 == side3) || (side1 == side3)){
+    console.log(`Isosceles triangle.`)
+  }
+  else{
+    console.log(`Scalene triangle.`)
+  }
+}
+
+
+findTriangleType(12,12,12) //"Equilateral triangle."
+findTriangleType(20,20,31) //"Isosceles triangle."
+findTriangleType(5,4,3) //"Scalene triangle."

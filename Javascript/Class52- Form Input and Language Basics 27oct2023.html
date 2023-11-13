@@ -1,0 +1,235 @@
+
+
+Class52 - 27oct2023
+==================================== Form Input and Language Basics ====================================== 
+
+Prompt()
+Query String
+Form Input Elements
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function RegisterClick(){
+
+            document.getElementById("detailsContainer").style.display = "block";
+            document.getElementById("buttonContainer").style.display = "none";
+
+            document.getElementById("lblName").innerHTML = document.getElementById("txtName").value;
+            document.getElementById("lblPrice").innerHTML = document.getElementById("txtPrice").value;
+            document.getElementById("lblCity").innerHTML = document.getElementById("lstCities").value;
+
+            stockCheckBox = document.getElementById("optStock");
+            stockStatus = "";
+
+            if(stockCheckBox.checked)
+            {
+                stockStatus = "Available";
+            } else {
+                stockStatus = "Out of Stock";
+            }
+
+            document.getElementById("lblStock").innerHTML = stockStatus;
+
+        }
+        function EditClick(){
+            document.getElementById("lblTitle").innerHTML = "Edit Product";
+            document.getElementById("btnRegister").innerHTML = "Save";
+            document.getElementById("btnRegister").className = "btn btn-success";
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <div id="buttonContainer" class="mt-4">
+        <button class="btn btn-primary" data-bs-target="#register" data-bs-toggle="modal">Add Product</button>
+    </div>
+    <div class="modal fade" id="register">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="lblTitle">Add Product</h2>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <dl>
+                        <dt>Name</dt>
+                        <dd><input type="text" id="txtName" class="form-control"></dd>
+                        <dt>Price</dt>
+                        <dd><input type="number" id="txtPrice" class="form-control"></dd>
+                        <dt>Shipped To</dt>
+                        <dd>
+                            <select class="form-select" id="lstCities">
+                                <option>Select City</option>
+                                <option>Delhi</option>
+                                <option>Hyd</option>
+                            </select>
+                        </dd>
+                        <dt>Stock</dt>
+                        <dd class="form-switch">
+                            <input class="form-check-input" type="checkbox" id="optStock"> <label class="form-check-label">Available</label>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button data-bs-dismiss="modal" onclick="RegisterClick()" id="btnRegister" class="btn btn-primary">Register</button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="detailsContainer" style="display: none;">
+        <h2>Product Details</h2>
+        <dl>
+            <dt>Name</dt>
+            <dd id="lblName"></dd>
+            <dt>Price</dt>
+            <dd id="lblPrice"></dd>
+            <dt>City</dt>
+            <dd id="lblCity"></dd>
+            <dt>Stock</dt>
+            <dd id="lblStock"></dd>
+        </dl>
+        <button onclick="EditClick()" data-bs-target="#register" data-bs-toggle="modal" class="btn btn-warning bi bi-pen-fill"> Edit </button>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
+
+Summary
+- JavaScript Integration
+    a) Inline
+    b) Embedded
+    c) External File
+- JavaScript reference techniques
+    a) Using DOM hierarchy
+    b) Using Name
+    c) Using ID
+    d) Using Query Selector
+- JavaScript Output
+    a) alert()
+    b) confirm()
+    c) console methods
+    d) innerHTML
+    e) outerHTML
+    f) innerText
+    g) document.write()
+- JavaScript Input
+    a) prompt()
+    b) query string
+    c) form input elements
+
+                        JavaScript Language
+1. Variables
+2. Data Types
+3. Operators
+4. Statements
+5. Functions
+6. OOP
+
+
+                         JavaScript Variables
+
+- Variables are storage locations in memory, where you can store a value and use it as a part of any expression.
+
+- Variables are strongly typed in various language. They are defined with specific data type and will not allow other types.
+
+                int  age = "john";        // invalid
+                int  age  = 22;            // valid
+                int  age  = true;        // invalid
+
+- JavaScript variables are not strongly typed.
+- JavaScript variables are implicitly typed. The data type is determined according to the value assigned.
+
+                age    = 22;        // valid
+                age = "John";        // valid
+                age = true;        // valid
+
+- JavaScript variables can be used directly without declaration if javascript is not in strict mode.
+
+Syntax:
+        <script>
+             age = 22;                        => valid
+             document.write("Age=" + age);
+        </script>
+
+        <script>    
+           "use strict";
+            age = 22;                        => Invalid
+            document.write("Age=" + age);
+        </script>
+
+- JavaScript variables are declared by using 3 keywords
+
+        a) var
+        b) let
+        c) const
+
+- Variable configuration in programming language comprises of 3 phases
+
+        a) Declaring
+        b) Assigning
+        c) Initialization
+
+Syntax:
+        var age;            => declaring variable
+        age = 22;            => assigning value into variable
+
+        var age = 22;        => initializing value into variable.
+
+var:
+- It defines a function scope variable.
+- You can declare in any block of a function and can access from any another block inside function.
+- It allows declaring, assigning and initialization.
+
+Ex:
+<script>
+    function f1()
+    {
+        var x;                  // declaring
+        x = 10;                 // assigning
+        if(x==10)
+        {
+            var y = 20;         // initalization
+        }
+        document.write("x=" + x + "<br>" + "y=" + y);
+    }
+    f1();
+</script>
+
+- It allows shadowing.
+- Shadowing is the process of re-declaring same name identifier with in the scope.
+
+Ex:
+<script>
+    function f1()
+    {
+        var x;                  // declaring
+        x = 10;                 // assigning
+        if(x==10)
+        {
+            var y = 20;         // initalization
+            y = 30;             // assigning
+            y = 40;             // assigning
+            var y = 50;         // shadowing
+        }
+        document.write("x=" + x + "<br>" + "y=" + y);
+    }
+    f1();
+</script>
+
+- It allows hoisting.
+- Hoisting allows to use a variable and declare later.
+<script>
+    "use strict";
+    x = 10;
+    document.write("x=" + x);
+    var x;   //hoisting
+</script>

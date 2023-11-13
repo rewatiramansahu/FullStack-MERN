@@ -1,0 +1,183 @@
+
+
+Class65- Date 11nov2023
+
+============================= JavaScript Arrays ===================================
+
+
+- ES5+ versions introduced Array destructuring technique.
+
+Syntax: Without Destructure
+
+    var  products = ["Samsung TV - 45000.55", "Fastrack Watch - 2400.45"];
+        var  tv = products[0];
+        var  watch = products[1];
+
+Syntax: Using Destructure
+
+    var  products = ["Samsung TV - 45000.55", "Fastrack Watch - 2400.45"];
+        var  [tv, watch] = products;
+        var  [tv, watch, mobile] = products;
+
+        mobile = undefined;
+
+- JavaScript array can store any type of value, primitive or non-primitive.
+
+Ex:
+<script>
+    var values = [1, "TV", true, ["Delhi", "Hyd"], function(){document.write("Hello")}];
+    document.write(values[3][1] + "<br>");
+    values[4]();
+</script>
+
+Ex:
+<script>
+    var values = [[10,20],["A","B"],[["X","Y"]]];
+    document.write(values[2][0][1])
+</script>
+
+- JavaScript provides various methods and properties to manipulate array.
+- Manipulation includes querying, adding, removing, sorting etc.
+
+1. Reading values from array (or) Reading Array Elements
+
+      toString()        It returns array elements separated with ","
+      join()            It returns all array elements with custom delimeter.
+      map()            It returns all array elements using an iterator.
+      forEach()        It returns all array elements and their index references.
+      find()            It returns the first occurance element that matches condition.
+      filter()            It returns all elements that match condition.
+      slice()            It returns elements between specified index.
+
+    You can also use explicit techniques for reading and returning values from array.
+
+      for..of            It is a statement that returns all elements.
+      for..in            It is a statement that returns all properties.
+      for                It is a loop that returns elements using counter, condition and
+                    iterator.
+
+Ex-1:
+<script>
+    var categories = ["All", "Electronics", "Fashion"];
+    document.write(categories.toString() + "<br>");
+    document.write(categories.join(" / ") + "<br>");
+    document.write(categories.slice(1,2));
+</script>
+
+Ex-2:
+<script>
+    var categories = ["All", "Electronics", "Fashion"];
+    categories.map(function(category){
+        document.write(`<input type="checkbox"> <label>${category}</label><br>`);
+    })
+</script>
+
+Ex-3:
+<script>
+    var categories = ["All", "Electronics", "Fashion"];
+    categories.forEach(function(category,index){
+        document.write(`[${index}]<input type="checkbox"> <label>${category}</label> <button>Delete</button> <br>`);
+    })
+</script>
+
+
+Ex-4:
+
+<script>
+   var sales = [34000, 46700, 24500, 66700, 21000];
+   var result =  sales.filter(function(value){
+      return value<=40000;
+   });
+   document.write(result);
+</script>
+
+Ex-5:
+<script>
+   var sales = [34000, 46700, 24500, 66700, 21000];
+   for(var property in sales)
+   {
+     document.write(`[${property}] ${sales[property]}<br>`);
+   }
+</script>
+
+Ex-6:
+<script>
+   var sales = [34000, 46700, 24500, 66700, 21000];
+   for(var value of  sales)
+   {
+     document.write(value + "<br>");
+   }
+</script>
+
+Ex-7:
+<script>
+   var sales = [34000, 46700, 24500, 66700, 21000];
+   for(var property in sales)
+   {
+     document.write(property + "<br>");
+   }
+</script>
+
+Ex:
+<script>
+    var values = [[10, 20, 30], [40, 50, 60], [70, 80, 90]];      
+    values.map(function(item){
+        item.map(function(n){
+            document.write(n + "&nbsp; &nbsp;")
+        })
+        document.write("<br>");
+    })
+</script>
+
+Ex:
+<script>
+    var values = [[10, 20, 30], [40, 50, 60], [70, 80, 90]];      
+    for(var item of values)
+    {
+        for(var n of item){
+            document.write(n + "&nbsp; &nbsp;")
+        }
+        document.write("<br>");
+    }
+</script>
+
+FAQ: How to present array elements into HTML document binding with HTML elements?
+Ans : By creating HTML elements dynamically using iterators and appending into
+     document.
+
+
+FAQ: How to create an HTML element dynamically?
+Ans: By using the method
+        "document.createElement("p | div | option | li  | img | a");
+
+
+FAQ: How to add elements into page?
+Ans: By using the methods
+        appendChild()
+        append()
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bodyload(){
+            var pic = document.createElement("img");
+            pic.src = "../public/images/a1.jpg";
+            pic.width = "200";
+            pic.height = "200";
+            pic.border = "2";
+            document.querySelector("div").appendChild(pic);
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+
+    </div>
+</body>
+</html>

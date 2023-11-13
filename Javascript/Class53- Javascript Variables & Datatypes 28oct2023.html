@@ -1,0 +1,150 @@
+
+Class52- Date 28oct2023
+
+=============================== JavaScript Variables and Data Types ==================================
+
+JavaScript Variables
+- declaring
+- assigning
+- initialization
+- var
+
+let:
+- It defines a block scope variable.
+- Block scope uses a closure technique.
+- Closure allows the members of outer block accessible to inner block.
+- It is accessible with in the block where it is declared and its inner blocks.
+- It allows declaring, initialization and assignment.
+- It will not allow shadowing and hoisting.
+
+const:
+- It defines a block scope variable.
+- It allows only initialization.
+- It will not allow declaring and assigning.
+- It will not allow hoisting and shadowing.
+
+FAQ: Can a const variable change its value?
+Ans: Yes. At the time of initializing memory.
+
+FAQ: Is const and readonly same?
+Ans: No. readonly can't change but const can change.
+
+Global Scope for variable:
+- Global scope allows a variable to access from any function.
+- Global scope is technically "Module Scope".
+- Module scope refers to <script> area.
+
+Syntax:
+    <script>
+        // module scope
+        function f1()
+        {
+           // function scope
+        }
+        // module scope
+    </script>
+
+- You can declare a global variable using var, let or const by configuring it at module scope.
+
+Ex:
+<script>
+   
+   let y = 20;
+   const z = 30;
+   var x = 10;
+   function f1(){
+     
+     document.write("function-1 <br> x=" + x + "<br>y=" + y + "<br>z=" + z + "<br>");
+   }
+   function f2(){
+    document.write("function-2 <br> x=" + x + "<br>y=" + y + "<br>z=" + z + "<br>");
+   }
+   f1();
+   f2();
+</script>
+
+FAQ: Can we define a variable in function and make it global in access?
+Ans: Yes. It is possible by configuring variable as "window" variable.
+         [It is possible only for javascript in browser]
+
+Syntax:
+        window.variableName = value;
+
+        document.write(variableName);
+Ex:
+<script>
+   "use strict";
+   let y = 20;
+   const z = 30;
+ 
+   function f1(){
+     window.x = 5;
+     document.write("function-1 <br> x=" + x + "<br>y=" + y + "<br>z=" + z + "<br>");
+   }
+   function f2(){
+    document.write("function-2 <br> x=" + x + "<br>y=" + y + "<br>z=" + z + "<br>");
+   }
+   f1();
+   f2();
+</script>
+
+FAQ: What is local and global scope?
+Ans:  local refers to function & block.
+     global refers to module.
+
+Variable Naming Rules:
+- It must start with an alphabet.
+- You can start with "_" symbol but special characters are not recommended.
+- It can be alpha numeric with special characters, but avoid special characters.
+   
+        var 2023Sales;        // invalid
+        var Sales2023;        // valid
+        var Sales 2023;        // invalid
+        var Sales.2023;        // invalid
+        var Sales_2023;        // valid
+        var _2023Sales;        // valid
+
+- It can't be a keyword.
+
+        var while;            // invalid
+        var class;            // invalid
+
+- It's max length must be upto 255 chars only.
+- It must speak what it is.
+- It is recommended to use "Camel Case".
+
+        var u = "John";            // Not Good
+        var userName = "John";        // Good
+
+        var studentName;
+        var studentFee;
+
+        var _productName;     => Not yet implemented
+
+           
+                        JavaScript Data Types
+
+- Data Type defines complete data structure [DS].
+- It is about the type, range and behaviour.
+- JavaScript can handle various types of data in memory.
+- The data types are classified into 2 categories
+
+    1. Primitive Types
+    2. Non-Primitive Types
+
+Primitive Types:
+- They are immutable types.
+- Immutable mean's structure can't be changed.
+- They have a fixed range for value.
+- Value range can't change.
+- They are stored in memory stack.
+- Stack uses LIFO [Last-in First-out] mechanism.
+- JavaScript Primitive types are
+
+    1. Number
+    2. String
+    3. Boolean
+    4. Null
+    5. Undefined
+    6. Symbol
+    7. Bigint

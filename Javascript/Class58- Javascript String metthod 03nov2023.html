@@ -1,0 +1,162 @@
+
+Class58- 03nov2023
+
+============================== JavaScript String Methods ===================================
+
+String Handling
+length
+charAt()
+charCodeAt()
+indexOf()
+startsWith()
+endsWith()
+
+Syntax:
+     property = value;
+     method(value)
+
+lastIndexOf()    : It returns the last occurance index number of specified character in a
+              string.
+
+Syntax:
+    var str = "Welcome";
+    str.indexOf("e");        1
+    str.lastIndexOf("e");        6
+
+slice()        : It is used to extract the chars between specified index.
+
+Syntax:
+    str.slice(startIndex, endIndex);    => returns chars between start & end index.
+    str.slice(startIndex);            => returns chars from start index to end of string.
+    str.slice(0,7);
+    str.slice(7,0);  // invalid            => end index must be greater than start index.
+    str.slice(7);
+
+
+substr()        : It is used to extract specified number of chars from given index.
+
+Syntax:
+    str.substr(startIndex, totalCountofCharsToRead);
+    str.substr(startIndex);            => It reads upto end.
+    str.substr(7,3);                    => from 7 it reads 3 chars
+    str.substr(7,0);                    => empty
+    str.substr(7);                    => from 7 to end
+
+
+substring()    : It can read the chars between the given index range, which can be
+              bi-directional.
+
+Syntax:
+    str.substring(startIndex, endIndex);  => end index can be bi-directional
+    str.substring(startIndex)               => from specified index to end.
+    str.substring(7);
+    str.substring(7,15);                => from 7 to 15 index
+    str.substring(7,0);                => from 7 to 0 index
+
+
+Program: Write a program to extract and separate email id and domain.
+
+        var email = "somename@gmail.com"
+        var id = email.substring(email.indexOf("@"),0);
+        var domain = email.substring(email.indexOf("@") + 1);
+
+Program:
+        var str = "?username=john";
+
+        var name = str.substring(str.indexOf("=")+1);
+
+Program
+        var str = "?key=value";
+        var key = str.substring(str.indexOf("="),1);
+        var value = str.substring(str.indexOf("=") +1);
+
+Ex:
+<script>
+    var str = "?price=45000";
+    var key = str.substring(str.indexOf("="),1);
+    var value = str.substring(str.indexOf("=")+1);
+    document.write(`
+       Key = ${key} <br>
+       value = ${value}
+    `);
+</script>
+
+split()        : It can split the string at specific character and return array of strings.
+
+Syntax:
+    var str = "Home|About|Contact";
+    var items = str.split('|');            => items[ Home, About, Contact ]
+    items[0]    => Home
+    items[1]   => About
+    items[2]   => Contact
+
+Ex:
+<script>
+    var str = "Home|About|Contact";
+    var items = str.split('|');
+    document.write(`
+        ${items[0]} <br>
+        ${items[1]} <br>
+        ${items[2]}
+    `);
+</script>
+
+Ex:
+<script>
+    var contacts = "john-john_nit@gmail.com, david-david@msn.com";
+    var [john, david, sam] = contacts.split(',');
+    document.write(`
+       ${david} <br>
+       ${john} <br>
+    `);
+</script>
+
+
+trim()        : It is used to remove the leading spaces in string.
+              [space before and after]
+
+Syntax:
+    var str = "   john    ";
+
+    str.trim();  => "john"
+    str        => "  john   ";
+
+
+match()        : It is used to verify the format of input value using a regular expression.
+              It returns boolean "true" if value is matching with expression.
+
+Note: Regular Expression in JavaScript is enclosed in "/   /".
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyPassword(){
+            var password = document.getElementById("Password").value;
+            var pwdError = document.getElementById("pwdError");
+            var regExp = /(?=.*[A-Z])\w{4,15}/;
+            if(password.match(regExp))
+            {
+                pwdError.innerHTML = "Strong Password".fontcolor('green');
+            } else {
+                if(password.length<4) {
+                    pwdError.innerHTML = "Poor Password".fontcolor('red');
+                } else {
+                    pwdError.innerHTML = "Weak Password".fontcolor('goldenrod');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>Password</dt>
+        <dd><input type="password" onkeyup="VerifyPassword()" id="Password"></dd>
+        <dd id="pwdError"></dd>
+    </dl>
+</body>
+</html>

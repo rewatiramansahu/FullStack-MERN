@@ -1,0 +1,217 @@
+
+
+Class59- Date 04nov2023
+
+=================================== JavaScript Boolean Type =====================================
+
+Primitive Types
+- Number
+- String
+
+                           Boolean Type
+- Boolean type is used for decision making in computer programming.
+- JavaScript boolean values can be "true or false".
+- Boolean type can be verified using 0 or 1.
+
+        0     =  false
+        1    =  true
+
+ Syntax:
+        var  x  = 1;        => Number
+        var  x  = true;        => Boolean
+
+        if(x==true)
+        if(x==1)            => true    [Not recommended]
+
+HTML Boolean Attributes:
+        readonly            <input type="text" readonly="true">
+        required
+        disabled
+        checked
+        border [table]        <table border="1">        1 = true, 0 = false
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function CheckBoxChange(){
+            var chkEnable = document.getElementById("chkEnable");
+            var UserName = document.getElementById("UserName");
+            if(chkEnable.checked)
+            {
+                UserName.disabled = true;
+            } else {
+                UserName.disabled = false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="checkbox" onchange="CheckBoxChange()" id="chkEnable"> Enable / Disable User Name
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" id="UserName"></dd>
+    </dl>
+</body>
+</html>
+
+FAQ:
+1. What is the result of   "true + true"?
+A. 2
+
+2. What is the result of   true + "A" ?
+A. trueA
+
+3. What is the result  of   true + 11 ?
+A. 12
+
+4. How to convert string "true" into boolean true.
+A. You have to manually convert by using decision making operators or statements.
+
+Syntax:
+      var x = "true";
+      var result = (x=="true")?true:false;
+      console.log(typeof result);            => boolean
+      console.log(typeof x);                => string
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function SubmitClick(){
+            var choice = document.getElementById("Choice").value;
+            console.log(typeof choice);
+            var result = (choice=="true")?true:false;
+            console.log(typeof result);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="Choice" placeholder="true/false"> <button onclick="SubmitClick()">Submit</button>
+</body>
+</html>
+
+Ternary Operator:
+- It is a special operator used in decision making.
+- It is similar to a simple "IF" statement with "Else" clause.
+- The operator is  "?:"
+
+Syntax:
+    (condition/booleanExpression) ? statement_on_true : statement_of_false
+
+Ex: Toggle with boolean
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        function SortToggle(){
+            var btnSort = document.getElementById("btnSort");
+            btnSort.className = (btnSort.className=="bi bi-sort-alpha-down")?"bi bi-sort-alpha-up":"bi bi-sort-alpha-down";
+        }
+        function StockToggle(){
+            var chkStock = document.getElementById("chkStock");
+            var lblStock = document.getElementById("lblStock");
+            lblStock.innerHTML = (chkStock.checked)?"In Stock":"Out of Stock";
+        }
+        function ShowToggle(){
+            var btnShow = document.getElementById("btnShow");
+            btnShow.innerHTML = (btnShow.innerHTML=="Show")?"Hide":"Show";
+            var img = document.getElementById("poster");
+            img.style.display = (img.style.display=="none")?"block":"none";
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button class="bi bi-sort-alpha-down" id="btnSort" onclick="SortToggle()"></button>
+    </div>
+    <br>
+    <input type="checkbox" onchange="StockToggle()" id="chkStock"> <label id="lblStock">Out of Stock</label>
+    <br>
+    <div>
+        <button id="btnShow" onclick="ShowToggle()">Show</button>
+        <br><br>
+        <img src="../public/images/a1.jpg" width="200" style="display:none" height="200" id="poster">
+    </div>
+</body>
+</html>
+
+Decision Making Operators and Statements:
+
+        ==            Equal
+        ===            Identical Equal
+        !=            Not Equal
+        !==            Not Identical
+        >            Greater than
+        >=            Greater than or Equal
+        <            Less than
+        <=            Less than or Equal
+        &&            Logical AND
+        ||            Logical OR
+        !            NOT
+
+FAQ: What is difference between "==" & "===" ?
+Ans :  "==" can compare values of different types.
+      "===" can compare only values of same type.
+
+Syntax:
+        var x =  10;
+        var y  = "10";
+       
+        x == y         => true
+        x === y    => false
+
+FAQ: How to compare a value with regular expression?
+Ans : By using string method "match()"
+
+    var mobile = "+919876543210";
+    var regExp = /\+91\d{10}/;
+
+    mobile===regExp            => invalid
+    mobile==regExp            => invalid
+    mobile.match(regExp)        => valid
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyPassword(){
+            var pwd = document.getElementById("Pwd").value;
+            var confirmPwd = document.getElementById("confirmPwd").value;
+            var error = document.getElementById("error");
+            if(pwd===confirmPwd)
+            {
+                error.innerHTML = "";
+            } else {
+                error.innerHTML = "Password Mismatch".fontcolor('red');
+            }
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>Password</dt>
+        <dd><input type="password" id="Pwd"></dd>
+        <dt>Confirm Password</dt>
+        <dd><input type="password" onblur="VerifyPassword()" id="confirmPwd"></dd>
+        <dd id="error"></dd>
+    </dl>
+</body>
+</html>

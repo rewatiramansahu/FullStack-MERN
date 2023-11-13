@@ -1,0 +1,266 @@
+
+
+Class57- Date 02nov2023
+
+================================================ String Handling ================================================
+
+String Type
+    a) Data Binding  ${ }
+String Formatting Methods
+    a) Style Binding
+    b) Class Binding
+
+- Data Binding is the process of accessing data from source and binding to UI.
+- Style Binding is the process of binding style attributes to element dynamically.
+- Class Binding is the process of binding CSS classes to element dynamically.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Binding</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function ThemeChange(){
+            var chkTheme = document.getElementById("chkTheme");
+            var form = document.querySelector("form");
+            var button = document.querySelector("button");
+
+            if(chkTheme.checked){
+                form.className = "w-25 bg-dark text-white p-4 border border-2 rounded";
+                button.className = "btn btn-light w-100";
+            } else {
+                form.className = "w-25 bg-light text-dark p-4 border border-2 rounded";
+                button.className = "btn btn-dark w-100";
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <form class="w-25 border border-2 p-4 rounded border-dark">
+        <div class="form-switch">
+            <input type="checkbox" id="chkTheme" onchange="ThemeChange()" class="form-check-input"> <label class="form-check-label">Dark Mode</label>
+        </div>
+        <div>
+            <h3>User Login</h3>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text" class="form-control"></dd>
+                <dt>Password</dt>
+                <dd><input type="password" class="form-control"></dd>
+            </dl>
+            <button class="btn btn-dark w-100">Login</button>
+        </div>
+    </form>
+</body>
+</html>
+
+Task:
+
+                      String Manipulation Properties & Methods
+
+1. length        : It returns the total count of characters in a string.
+
+Syntax:
+    var  str = "Welcome";
+    str.length;            => 7
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyName(){
+            var userName = document.getElementById("txtName").value;
+            var nameError = document.getElementById("nameError");
+            if(userName.length==0) {
+                nameError.innerHTML = "Name Required".fontcolor('red');
+            } else {
+                if(userName.length<4){
+                nameError.innerHTML = "Name too short..".fontcolor('red');
+                } else {
+                    nameError.innerHTML = "";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" onkeyup="VerifyName()" id="txtName"></dd>
+        <dd id="nameError"></dd>
+    </dl>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyChars(){
+            var chars = document.querySelector("textarea").value;
+            var maxLimit = 100;
+            var remain = maxLimit - parseInt(chars.length);
+            document.getElementById("msg").innerHTML = `${remain} chars left`;
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Your Comments</legend>
+        <samp>Note: Max 100 chars</samp>
+        <br><br>
+        <textarea rows="4" maxlength="100" cols="40" onkeyup="VerifyChars()"></textarea>
+        <p id="msg"></p>
+    </fieldset>
+</body>
+</html>
+
+2. charAt()        : It returns the character at specified index.
+
+3. charCodeAt()    : It returns the code of character as specified index. [ASCII]
+
+
+Syntax:
+    var str = "Ajay";
+    str.charAt(0);            => A
+    str.charCodeAt(0);        => 65        65 to 90 [A-Z]
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyName(){
+            var txtName = document.getElementById("txtName").value;
+            var nameError = document.getElementById("nameError");
+            if(txtName.charCodeAt(0)>=65 && txtName.charCodeAt(0)<=90){
+                nameError.innerHTML ="";
+            } else {
+                nameError.innerHTML = "Name must start with uppercase letter".fontcolor('red');
+            }
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" onblur="VerifyName()" id="txtName" placeholder="Name must start with uppercase letter"></dd>
+        <dd id="nameError"></dd>
+    </dl>
+</body>
+</html>
+
+4. startsWith()        : It returns true if string starts with specified char(s).
+
+5. endsWith()        : It returns true if string ends with specified char(s).
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function VerifyCard(){
+            var card = document.getElementById("txtCard").value;
+            var imgCard = document.getElementById("imgCard");
+            if(card.startsWith("4455")) {
+                imgCard.src = "../public/images/master.png";
+            } else {
+                imgCard.src = "../public/images/visa.png";
+            }
+        }
+        function VerifyEmail(){
+            var email = document.getElementById("Email").value;
+            var emailError = document.getElementById("emailError");
+            if(email.endsWith("gmail.com")) {
+                emailError.innerHTML = "";
+            } else {
+                emailError.innerHTML = "Only Gmail is Allowed".fontcolor('red');
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <dl class="mt-4">
+        <dt>Your Card Number</dt>
+        <dd class="input-group">
+            <input type="text" onblur="VerifyCard()" id="txtCard"> <img width="40" height="30" id="imgCard">
+        </dd>
+        <dt>Your Gmail</dt>
+        <dd><input type="email" onblur="VerifyEmail()" id="Email"></dd>
+        <dd id="emailError"></dd>
+    </dl>
+</body>
+</html>
+
+6. indexOf()        : It returns the index number of specified character in a string.
+                  It returns -1 if the character not found.
+                  It returns first occurance index number.
+
+Syntax:
+    var  str = "Welcome";
+    str.indexOf("e");        1
+    str.indexOf("a");        -1
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function VerifyCard(){
+            var card = document.getElementById("txtCard").value;
+            var imgCard = document.getElementById("imgCard");
+            if(card.startsWith("4455")) {
+                imgCard.src = "../public/images/master.png";
+            } else {
+                imgCard.src = "../public/images/visa.png";
+            }
+        }
+        function VerifyEmail(){
+            var email = document.getElementById("Email").value;
+            var emailError = document.getElementById("emailError");
+            if(email.indexOf("@")==-1) {
+                emailError.innerHTML = "Invalid Email".fontcolor('red');
+            } else {
+                if(email.endsWith("gmail.com")) {
+                emailError.innerHTML = "";
+                } else {
+                    emailError.innerHTML = "Only Gmail is Allowed".fontcolor('red');
+                }
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <dl class="mt-4">
+        <dt>Your Card Number</dt>
+        <dd class="input-group">
+            <input type="text" onblur="VerifyCard()" id="txtCard"> <img width="40" height="30" id="imgCard">
+        </dd>
+        <dt>Your Gmail</dt>
+        <dd><input type="email" onblur="VerifyEmail()" id="Email"></dd>
+        <dd id="emailError"></dd>
+    </dl>
+</body>
+</html>

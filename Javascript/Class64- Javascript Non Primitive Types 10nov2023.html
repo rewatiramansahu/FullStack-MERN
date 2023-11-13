@@ -1,0 +1,90 @@
+
+Class64- 10nov2023
+
+============================= JavaScript Non Primitive Types ==========================
+
+Primitive Types
+- Number
+- Bigint
+- String
+- Boolean
+- Null
+- Undefined
+- Symbol
+
+Note: You can submit value of any field without displaying in "form", by using the element <input type="hidden">.
+
+                         Non-Primitive Type
+- They are mutable types.
+- Structure can change dynamically.
+- They doesn't have any fixed range for values.
+- Value range varies according to the memory available.
+- They are stored in memory heap.
+- JavaScript non-primitive types include
+   
+    a) Array
+    b) Object
+    c) Map
+    d) Set [obsolete]
+
+
+                            Array Type
+
+- Arrays are introduced into computer programming to reduce overhead and complexity.
+- Arrays can reduce overhead by storing values in sequential order.
+- Arrays can reduce complexity by storing multiple values under the reference of single name.
+- Array can store various types of values, but some technologies are not capable of storing different types of value in sequential order hence they restrict array for same type of values.
+- JavaScript array can handle various types of values.
+- Array size can change dynamically, which is restricted in various technologies.
+- Array is sequentially arranging elements that can accessed in random.
+
+
+Configuring Array:
+- Array configuration comprises of various phases.
+
+    a) Declare a variable for Array
+    b) Assign or Initialize memory for Array
+    c) Store values in array
+    d) Read values from array
+    e) Manipulate values in array
+
+Syntax:
+     var  values;            // declaring variable for array
+     values = [ ];            // assigning memory using meta character
+     values = new Array();    // assigning memory using constructor.
+
+                        (or)
+      var  values = [ ];                // declaring and initializing memory
+      var  values = new Array();
+
+Note: "new" is dynamic memory allocation operator.
+
+- Meta character refers to a static memory, which is contineous memory. The memory allocated for first request will continue accross other requests. [connected]
+
+- Array constructor refers to a dynamic memory, which is new allocated for every request. It is good for discreet operations. [disconnected]
+
+Storing Values into Array:
+- You can intialize values or assign values.
+- Assignment requires a property reference to store values.
+- Property is a string type that maps to the Index which is number type.
+
+Syntax:
+    var  values = [10, "A", true];
+
+     var values = [ ];
+     values[0] = 10;
+     values["1"] = "A";
+     values["2"] = true;
+
+Ex:
+<script>
+    var values =  new Array();
+    values[0] = 10;
+    values[1] = "A";
+    values[2] = true;
+    values["3"] = "John";
+    for(var property in values){
+        document.write(`${property} [${typeof property}] : ${values[property]}[${typeof values[property]}] <br>`);
+    }
+    document.write(values["1"]);
+</script>

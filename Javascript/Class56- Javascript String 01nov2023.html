@@ -1,0 +1,207 @@
+
+
+Class56- Date 01nov2023
+
+=================================== String =======================================
+
+String Type
+
+- String is a literal with group of characters enclosed in
+
+        a) Single Quotes        '  '
+        b) Double Quotes        " "
+        c) Back Ticks            ` `            
+
+- A literal comprises of alpha numeric and special characters.
+
+        var  anchor = "<a href='home.html'> Home </a>";
+        var  anchor = '<a  href="home.html"> Home </a>';
+
+- Double and single quote string requires lot of concatination with dynamic values.
+
+- JavaScript ES5+ version introduced backtick for string. It allows embedded expression, which is known as data-binding expression.
+
+- Data Binding expression is defined with "${ }".
+
+- Binding expression is not allowed in string with double or single quote.
+
+Syntax:
+        string = `your string ${expression | dynamic value} your string`;
+
+Ex:
+<script>
+    var userName = prompt("Enter Name");
+    var age = parseInt(prompt("Enter Age"));
+    var msg1 = "Hello !" + " " + userName + " " + "you will be" + " " + (age+1) + " " + "next year.<br>";
+    var msg2 = `Hello ! ${userName} you will be ${age+1} next year.`;
+    document.write(msg1);
+    document.write(msg2);
+</script>
+
+Ex:
+<script>
+    var type = prompt("Enter Element Type","text|email|date|radio..");
+    var element = `<input type=${type}>`;
+    document.write(element);
+</script>
+
+Ex:
+<script>
+    var type = prompt("Enter Element Type","text|email|date|radio..");
+    var element = `<input type=${type}><br>`;
+    var component = "<input type=" + type + ">";
+    document.write(element);
+    document.write(component);
+</script>
+
+Note: Data binding expression is used to create complex templates.
+      A template refers to markup with dynamic expressions.
+      Backtick can be used in template binding.
+
+Ex:
+<script>
+    var title = prompt("Enter Title");
+    var label1 = prompt("Enter Label-1");
+    var element1 = prompt("Enter Element 1 type");
+    var button = prompt("Enter Button Text");
+    var component = `
+       <h2>${title}</h2>
+       <dl>
+          <dt>${label1}</dt>
+          <dd><input type=${element1}></dd>
+       </dl>
+       <button>${button}</button>
+    `;
+    document.write(component);
+</script>
+
+- JavaScript provides various methods to format and manipulate string.
+- JavaScript string is technically an object. It is an array of characters.
+
+      Welcome    =>  ["w", "e", "l", "c", "o", "m", "e"]
+
+- JavaScript string formatting methods are
+       
+        bold()
+        italics()
+        fontsize()
+        fontcolor()
+        toUpperCase()
+        toLowerCase()
+        sup()
+        sub()
+        big()
+        small()  etc..
+
+Syntax:
+        var msg = "Welcome".bold().italics().fontcolor('red').fontsize('5');
+
+        O/P:   "<b><i><font color='red' size='5'> Welcome </font> </i></b>"
+
+Note: Some string formats can't be applied to RC data types.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyOTP(){
+            var otp = document.getElementById("txtOtp").value;
+            var error = document.getElementById("error");
+            if(otp=="3465"){
+                error.innerHTML = "OTP Verified".fontcolor('green').italics();
+            } else {
+                error.innerHTML = "Invalid OTP".fontcolor('red').bold().italics();
+            }
+        }
+        function ChangeCase(){
+            var username = document.getElementById("txtName").value;
+            document.getElementById("txtName").value = username.toUpperCase();
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" onkeyup="ChangeCase()" id="txtName" placeholder="Block Letters Only"></dd>
+        <dt>OPT</dt>
+        <dd><input type="text" id="txtOtp" onblur="VerifyOTP()" size="4"></dd>
+        <dd id="error"></dd>
+    </dl>
+</body>
+</html>
+
+- JavaScript provides limited set of formatting methods for string.
+- If you want to apply CSS formats to string then you can defined by using "style" property.
+- In CSS style property is defined with a specific format, but in JavaScript the style properties are defined in camel case.
+
+            CSS                        JavaScript
+           
+            background-color            backgroundColor
+            box-shadow                boxShadow
+            font-weight                fontWeight
+
+Syntax:
+      var str = "Welcome";
+      str.style.fontWeight = "bold";
+      str.style.color = "red";
+      str.style.textShadow = "2px 2px 2px gray";
+
+- The process of configuring styles to HTML element dynamically using JavaScript is known as "Style Binding".
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bodyload(){
+            var para = document.querySelector("p");
+            para.innerHTML = "Welcome to JavaScript";
+            para.style.fontSize = "100px";
+            para.style.fontWeight = "bold";
+            para.style.textShadow = "5px 5px 2px gray";
+            para.style.color = "yellow";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <p></p>
+</body>
+</html>
+
+
+- You can bind styles using CSS class name, which is known as class binding.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text-effects {
+            font-size: 100px;
+            font-weight: bold;
+            text-shadow: 5px 5px 2px gray;
+            color:yellow;
+        }
+    </style>
+    <script>
+        function bodyload(){
+            var para = document.querySelector("p");
+            para.innerHTML = "Welcome to JavaScript";
+            para.className ="text-effects";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <p></p>
+</body>
+</html>

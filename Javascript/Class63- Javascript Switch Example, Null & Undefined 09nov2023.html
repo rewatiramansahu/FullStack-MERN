@@ -1,0 +1,156 @@
+
+Class63- Date 09nov2023
+
+===========================  Switch Example, Null and Undefined ===========================
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Demo</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        var pattern = / /;
+       
+        function CountryChange(){
+            var countryName = document.getElementById("lstCountries").value;
+            var imgFlag = document.getElementById("imgFlag");
+            var txtMobile = document.getElementById("txtMobile");
+            switch(countryName)
+            {
+                case "India":
+                imgFlag.src = "../public/images/india.png";
+                pattern = /\+91\d{10}/;
+                txtMobile.placeholder = "eg: +91 and 10 digits";
+                break;
+                case "US":
+                imgFlag.src = "../public/images/us.png";
+                pattern = /\+\(1\)\(\d{3}\)\s\d{4}-\d{4}/;
+                txtMobile.placeholder = "eg:+(1)(453) 5532-5677";
+                break;
+                case "UK":
+                imgFlag.src = "../public/images/uk.png";
+                pattern = /\+\(44\)\d{4}-\d{5}/;
+                txtMobile.placeholder = "eg: +(44)4567-77883";
+                break;
+                default:
+                imgFlag.src= "";
+                imgFlag.alt = "N/A";
+                pattern = / /;
+                txtMobile.placeholder = "Please select your country";
+                break;
+            }
+        }
+        function VerifyClick(){
+            var mobile = document.getElementById("txtMobile").value;
+            var error = document.getElementById("error");
+            if(mobile.match(pattern)) {
+                document.write("<h1>Mobile Verified Successfully..</h1>");
+            } else {
+                error.innerHTML = `Invalid Mobile : ${document.getElementById("txtMobile").placeholder}`;
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <h3>Verify Mobile</h3>
+    <dl class="w-25">
+        <dt>Select Your Country </dt>
+        <dd>
+            <img width="50" height="50" id="imgFlag">
+        </dd>
+        <dd>
+            <select class="form-select" id="lstCountries" onchange="CountryChange()">
+                <option>Choose Country</option>
+                <option>India</option>
+                <option>US</option>
+                <option>UK</option>
+            </select>
+        </dd>
+        <dt>Your Mobile</dt>
+        <dd>
+            <input type="text" class="form-control" id="txtMobile">
+        </dd>
+        <button class="btn btn-primary w-100" onclick="VerifyClick()">Verify</button>
+    </dl>
+    <p class="text-center text-danger h2" id="error"></p>
+</body>
+</html>
+
+Summary
+- Number
+- String
+- Boolean
+   a) Comparision Operators   ==, ===, >, >=, <, <=, !=, !==
+   b) Logical Operators    &&, ||  
+   c) Selection Statements
+    if, else, switch, case, default
+
+       
+                           Undefined Type
+- It is a type assigned to variables if value is not defined during compile time.
+- It is a type used to verify value in a reference variable during compile time.
+
+Syntax:
+    var price;
+    document.write("Price=" + price);               Price=undefined
+
+- You can use "undefined" keyword to verify value defined or not.
+
+Ex: Not Good Code
+<script>
+    var name = "Samsung TV";
+    var rating;
+    if(rating==undefined){
+        document.write(`Name=${name}`);
+    } else {
+    document.write(`Name=${name} <br> Rating=${rating}`);
+    }
+</script>
+
+Ex: Good Code
+
+<script>
+    var name = "Samsung TV";
+    var rating;
+    if(rating)
+    {
+        document.write(`Name=${name} <br> Rating=${rating}`);
+    } else {
+        document.write(`Name=${name}`);
+    }
+</script>
+
+FAQ: What is difference between undefined and not-defined?
+Ans:  undefined is about the value.
+     not-defined is about the reference.
+
+     If value is not present then it returns undefined.
+     If reference not present then it returns not defined.
+
+
+                             Null Type
+- Null is a type used to verify the values during runtime.
+- If a reference is not provided with value at runtime then javascript returns null.
+- The keyword "null" is used to verify value in a reference.
+
+Syntax:
+    var price = prompt("Enter Price");
+   
+    price => returns string on OK
+    price => returns null on Cancel
+
+Ex:
+<script>
+    var name = "Samsung TV";
+    var rating = prompt("Enter Rating");
+    if(rating==null)
+    {
+        document.write(`Name=${name}`);
+       
+    } else {
+        document.write(`Name=${name} <br> Rating=${rating}`);
+    }
+</script>

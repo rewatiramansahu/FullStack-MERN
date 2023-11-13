@@ -1,0 +1,142 @@
+
+
+Class54- Date 30oct2023
+
+===================================== JavaScript Number Type ============================================
+
+Primitive Data Types of JavaScript
+1. number
+2. string
+3. boolean
+4. null
+5. undefined
+6. bigint
+7. symbol
+
+
+                            Number Type
+
+- Number type refers to numeric value.
+- JavaScript number type can handle
+       
+        Signed Integer        -5
+        Unsigned Integer       5
+        Floating Point         34.00
+        Double                 456.00
+        Decimal                4560.5645 [29]
+        Exponent               2e3 [2000]
+        Bigint                 9983838252n
+        Binary                 0b1010
+        Hexa                   304f94
+        Octa                   0o783
+
+
+         var x = 2e3;        => 2000
+         var x = 0b1010    => 10
+
+- Every value that user inputs from UI is by default string type, hence we need parsing methods to convert a string type into number.
+
+        a) parseInt()
+        b) parseFloat()
+       
+Syntax:
+        parseInt("23");
+        parseInt("23.56");    23
+        parseFloat("23.56");  23.56
+
+Ex:
+<script>
+   var userName = prompt("Enter Name");
+   var age = parseInt(prompt("Enter Age"));
+   document.write("Hello ! " + userName + " You will be " + (age+1) + " Next Year.");
+</script>
+
+Ex:
+<script>
+    var rate = parseFloat(prompt("Enter Interest Rate"));
+    document.write("Interest Rate : " + rate);
+</script>
+
+
+Note: JavaScript can convert any value into number type only when it is starting with a numeric type.
+
+        parseInt("20A") + parseInt("30")        => 50
+        parseInt("A20") + parseInt("30")        => NaN (Not a Number)
+        parseInt("30A20") + parseInt("30")    => 60
+        parseInt("A") + parseInt("30")            => NaN
+
+- You can validate number input by using the method "isNaN()".
+- It returns boolean true if input value is not a number.
+
+Syntax:
+        if (isNan(value))
+        {
+           statement on true;
+        }
+        else
+        {
+          statement on false;
+        }
+
+Ex:
+<script>
+    var age = parseInt(prompt("Enter Age"));
+    if(isNaN(age))
+    {
+        document.write("Age must be a Number");
+    } else {
+        document.write("Age=" + age);
+    }
+</script>
+
+- JavaScript provides methods for converting a number into string.
+
+    a) toString()
+    b) toLocaleString()
+
+- "toString()" converts number into a string format. So that you can handle string operations. [slice, trim, substr, substring, indexOf...]
+
+- "toLocaleString()"  converts number into regional string format, which can be applied with various number and date formats.
+
+Syntax:
+          var  price = 45000.44;
+          price.toLocaleString("local-encode", {  
+            style : "currency | date | time",
+            currency: "format"
+        })
+
+Ex:
+<script>
+    var price = 56000.44;
+    document.write("Price=" + price.toLocaleString("en-IN", {
+        style: 'currency',
+        currency: 'INR'
+    }));
+</script>
+
+    MDN => To get help for JavaScript functions
+
+- JavaScript provides "Math" object to handle various mathematical operations on numbers.
+- The basic arithematic operators of JavaScript are
+
+        +        Addition
+        -        Substraction
+        /        Division
+        %        Modulus
+        *        Multiplication
+        **        Power [Number Raised to Power]
+        ++        Increment
+        --        Decrement
+
+- JavaScript Math library provides various functions and properties
+
+        Math.PI
+        Math.sqrt()
+        Math.pow()    
+        Math.round()
+        Math.random()
+        Math.floor()
+        Math.ceil()
+        Math.sin()
+        Math.cos()
+        Math.tan() etc..

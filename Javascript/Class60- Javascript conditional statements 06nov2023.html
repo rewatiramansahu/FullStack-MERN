@@ -1,0 +1,328 @@
+
+Class60- Date 06nov2023
+
+================================== Conditional Statements =====================================
+
+Conditional Statements:
+
+- A statement is used to control the execution flow in a program.
+- Conditional Statements are used in decision making.
+- Conditional Statements are also known as Selection Statements.
+- JavaScript selection statements are defined using the keyworkd
+        if, else, switch, case, default
+
+The "IF" statement:
+- It is a decision making statement used to execute a set of statements when given condition evaluates to true and another set of statements when it evaluates to false.
+
+- The "IF" statement have various forms
+
+1. Forward Jump
+2. Simple Decision
+3. Multi Level Decisions
+4. Multiple Decisions
+
+Forward Jump:
+- It is a decision making approach where there is no alternative.
+- User will go to next only when the current condition is satisfied.
+
+Syntax:
+    if (condition)
+    {
+     statement on true;
+    }
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyCard(){
+            var card = document.getElementById("Card").value;
+            if(card==="4444555566667890"){
+                document.getElementById("Cvv").disabled = false;
+            }
+        }
+        function VerifyCvv(){
+            var cvv = document.getElementById("Cvv").value;
+            if(cvv==="345") {
+                document.getElementById("Expiry").disabled = false;
+            }
+        }
+        function VerifyExpiry(){
+            var expiry = document.getElementById("Expiry").value;
+            if(expiry==="2024"){
+                document.getElementById("btnPay").disabled = false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="Card" onblur="VerifyCard()" maxlength="16"></dd>
+            <dt>CVV</dt>
+            <dd><input type="text" id="Cvv" onblur="VerifyCvv()" size="4" disabled></dd>
+            <dt>Expiry</dt>
+            <dd>
+                <select id="Expiry" disabled onchange="VerifyExpiry()">
+                    <option>Choose Exipry</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                </select>
+            </dd>
+        </dl>
+        <button id="btnPay" disabled>Pay</button>
+    </fieldset>
+</body>
+</html>
+
+Ex: Show and Hide Container
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyCard(){
+            var card = document.getElementById("Card").value;
+            if(card==="4444555566667890"){
+                document.getElementById("Cvv").disabled = false;
+                document.getElementById("cvvContainer").style.display = "block";
+            }
+        }
+        function VerifyCvv(){
+            var cvv = document.getElementById("Cvv").value;
+            if(cvv==="345") {
+                document.getElementById("Expiry").disabled = false;
+                document.getElementById("expiryContainer").style.display = "block";
+            }
+        }
+        function VerifyExpiry(){
+            var expiry = document.getElementById("Expiry").value;
+            if(expiry==="2024"){
+                document.getElementById("btnPay").disabled = false;
+                document.getElementById("btnPay").style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="Card" onblur="VerifyCard()" maxlength="16"></dd>
+            <div id="cvvContainer" style="display: none;">
+                <dt>CVV</dt>
+                <dd><input type="text" id="Cvv" onblur="VerifyCvv()" size="4" disabled></dd>
+            </div>
+            <div id="expiryContainer" style="display: none;">
+                <dt>Expiry</dt>
+                <dd>
+                    <select id="Expiry" disabled onchange="VerifyExpiry()">
+                        <option>Choose Exipry</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </dd>
+            </div>
+        </dl>
+        <button id="btnPay" style="display: none;" disabled>Pay</button>
+    </fieldset>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function SubmitClick(){
+            var optMale = document.getElementById("optMale");
+            var optFemale = document.getElementById("optFemale");
+            var msg = document.getElementById("msg");
+            if(optMale.checked){
+                msg.innerHTML = `Your Gender : ${optMale.value}`;
+            }
+            if(optFemale.checked){
+                msg.innerHTML = `Your Gender : ${optFemale.value}`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="radio" name="gender" value="Male" id="optMale"> <label>Male</label>
+    <input type="radio" name="gender" value="Female" id="optFemale"> <label>Female</label>
+    <br>
+    <button onclick="SubmitClick()">Submit</button>
+    <p id="msg"></p>
+</body>
+</html>
+
+2. Simple Decision
+- It provides one alternative to execute when the given condition is false.
+- Alternative is defined using "else" clause.
+
+Syntax:
+    if (condition)
+    {
+     statement on true;
+    }
+    else
+    {
+     statement on false;
+    }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyCard(){
+            var card = document.getElementById("Card").value;
+            if(card==="4444555566667890"){
+                document.getElementById("Cvv").disabled = false;
+                document.getElementById("cvvContainer").style.display = "block";
+            } else {
+                alert("Invalid Card");
+            }
+        }
+        function VerifyCvv(){
+            var cvv = document.getElementById("Cvv").value;
+            if(cvv==="345") {
+                document.getElementById("Expiry").disabled = false;
+                document.getElementById("expiryContainer").style.display = "block";
+            } else {
+                alert("Invalid CVV");
+            }
+        }
+        function VerifyExpiry(){
+            var expiry = document.getElementById("Expiry").value;
+            if(expiry==="2024"){
+                document.getElementById("btnPay").disabled = false;
+                document.getElementById("btnPay").style.display = "block";
+            } else {
+                alert("Invalid Expiry")
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="Card" onblur="VerifyCard()" maxlength="16"></dd>
+            <div id="cvvContainer" style="display: none;">
+                <dt>CVV</dt>
+                <dd><input type="text" id="Cvv" onblur="VerifyCvv()" size="4" disabled></dd>
+            </div>
+            <div id="expiryContainer" style="display: none;">
+                <dt>Expiry</dt>
+                <dd>
+                    <select id="Expiry" disabled onchange="VerifyExpiry()">
+                        <option>Choose Exipry</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </dd>
+            </div>
+        </dl>
+        <button id="btnPay" style="display: none;" disabled>Pay</button>
+    </fieldset>
+</body>
+</html>
+
+3. Multi Level Decisions
+- In this approach it uses forward jump and checks every condition individually.
+- So that it can identify the exact issues and report in multiple conditions.
+
+Syntax:
+ if(condition1)
+ {
+    if(condition2)
+    {
+    statement on both conditions true;
+    }else{
+       statement on condition2 false
+    }
+ }
+ else {
+   statement of condition1 false;
+ }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function PayClick(){
+            var card = document.getElementById("Card").value;
+            var cvv = document.getElementById("Cvv").value;
+            var expiry = document.getElementById("Expiry").value;
+            var msg = document.getElementById("msg");
+
+
+            if(card==="4444555566667890"){
+                if(cvv==="345"){
+                    if(expiry==="2024"){
+                        document.write("Payment Success..");
+                    } else {
+                        msg.innerHTML = "Invalid Expiry".fontcolor('red');
+                    }
+                } else {
+                    msg.innerHTML= "Invalid Cvv".fontcolor('red');
+                }
+            } else {
+                msg.innerHTML = "Invalid Card".fontcolor('red');
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="Card"  maxlength="16"></dd>
+            <div id="cvvContainer">
+                <dt>CVV</dt>
+                <dd><input type="text" id="Cvv" size="4" ></dd>
+            </div>
+            <div id="expiryContainer">
+                <dt>Expiry</dt>
+                <dd>
+                    <select id="Expiry">
+                        <option>Choose Exipry</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </dd>
+            </div>
+        </dl>
+        <button id="btnPay" onclick="PayClick()">Pay</button>
+        <p id="msg" align="center"></p>
+    </fieldset>
+</body>
+</html>

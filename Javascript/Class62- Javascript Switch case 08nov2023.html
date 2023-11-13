@@ -1,0 +1,200 @@
+
+Class62- Date 08nov2023
+
+=============================== javascript Switch Case ===============================
+
+Switch Selector:
+- Switch is used to interrupt the flow of electrons in circuit.
+- Switches are classified into various types
+    a) Toggle switch
+    b) Push button switch
+    c) Selector switch
+    d) Joystick switch etc..
+
+- Selector switch allows to choose exactly the block that matches given condition.
+
+Syntax:
+    switch(value | expression)
+    {
+       case  value | expression:
+        statements on match;
+        jump_statement;
+       
+       default:
+        statements when value | expression doesn't match;
+        jump_statement;
+    }
+
+Ex:
+<script>
+     var n = parseInt(prompt("Enter Number"));
+     switch(n)
+     {
+        case 1:
+          document.write("One");
+          break;
+        case 2:
+         document.write("Two");
+         break;
+        case 3:
+         document.write("Three");
+         break;
+        case 4:
+         document.write("Four");
+         break;
+        default:
+         document.write("Please enter 1 to 4 only");
+         break;
+     }
+</script>
+
+FAQ's:
+1. Can we define switch without default ?
+A. Yes.
+
+2. Can we define default above or between cases?
+A. Yes.
+
+3. Can we use case without "jump" statement? [break]
+A. Yes. If jump statement is not defined then it will stop when next jump occurs.
+
+Ex:
+<script>
+     var n = parseInt(prompt("Enter Number"));
+     switch(n)
+     {
+     
+        case 1:
+          document.write("One");
+          break;
+        case 2:
+         document.write("Two");
+         break;
+        case 3:
+         document.write("Three<br>");
+        case 4:
+         document.write("Four");
+         break;
+         default:
+         document.write("Please enter 1 to 4 only");
+         break;
+     }
+</script>
+
+
+4. Can we use "return" as jump statement in switch?
+A. Yes.
+
+5. What is difference between break and return?
+A. break will terminate the current block but will stay in function, compiler is ON.
+     return will terminate the compiling. [stop every thing]
+
+Note: "return" can be used only with in  function.
+
+Ex:
+<script>
+    function f1(){
+      var n = parseInt(prompt("Enter Number"));
+     switch(n)
+     {
+     
+        case 1:
+          document.write("One");
+          break;
+        case 2:
+         document.write("Two");
+         break;
+        case 3:
+         document.write("Three<br>");
+         return;
+        case 4:
+         document.write("Four");
+         break;
+         default:
+         document.write("Please enter 1 to 4 only");
+         break;
+     }
+    }
+    f1();
+</script>
+
+6. Can we define case value as string or boolean?
+A. Yes.
+
+Ex:
+<script>
+    var choice = prompt("Enter Choice", "Y|N");
+    switch(choice)
+    {
+       case "y":
+       document.write("You selected yes to continue");
+       break;
+       case "n":
+       document.write("You selected no to stop");
+       break;
+       default:
+       document.write("Please enter yes or no");
+       break;
+    }
+</script>
+
+7. Can we define multiple cases for single block?
+A. Yes.
+
+Ex:
+<script>
+    var choice = prompt("Enter Choice", "Y|N");
+    switch(choice)
+    {
+       case "y":
+       case "Y":
+       document.write("You selected yes to continue");
+       break;
+       case "n":
+       case "N":  
+       document.write("You selected no to stop");
+       break;
+       default:
+       document.write("Please enter yes or no");
+       break;
+    }
+</script>
+
+Note: You can transform and change case if you are using a string as case value.
+
+Ex:
+<script>
+    var choice = prompt("Enter Choice", "Yes|No");
+    switch(choice.toLowerCase())
+    {
+       case "yes":
+       document.write("You selected yes to continue");
+       break;
+       case "no":
+       document.write("You selected no to stop");
+       break;
+       default:
+       document.write("Please enter yes or no");
+       break;
+    }
+</script>
+
+8. How to define a case and switch for range of values?
+A. By using boolean expression in case and boolean true in switch.
+
+Ex:
+<script>
+    var n = parseInt(prompt("Enter number"));
+    switch(true)
+    {
+       case (n>=1 && n<=10):
+       document.write(`Your number ${n} is between 1 to 10`);
+       break;
+       case (n>10 && n<=20):
+       document.write(`Your number ${n} is between 11 to 20`);
+       break;
+       default:
+       document.write(`Please enter a number between 1 to 20`);
+       break;
+    }
+</script>

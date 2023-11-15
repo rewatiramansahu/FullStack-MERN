@@ -1,0 +1,129 @@
+
+
+
+Class68- date 15nov2023
+
+======================================= JavaScript Object Type =======================================
+
+- In early 1960's  "Alan Kay" introduced the concept of object into computer programming.
+- An object is used to keep all related data and logic together.
+- Object is a "key and value" collection.
+- Key is string type and Value can be any type, primitive or non-primitive.
+- If object represents only "Data" then it is reffered as "JSON" [JavaScript Object Notation].
+        * JSON format is light weight
+        * JSON is cross platform
+        * It is easy to transport in network.
+        * It is not blocked by firewall.
+        * It is not infected with virus.
+        * It can reach low bandwidth devices like smart watch, mobile etc.
+
+Syntax:
+    var  product  = { "Key": value,  "Key": value };
+
+- Every object is a static type, you can access the members of object within object by using "this" keyword and outside by using object reference.
+
+Syntax:
+        product.Key            [dot  is  member invoking operator]
+        product[Key]
+
+Ex:
+<script>
+     var tv = {
+        "Name": "Samsung TV",
+        "Price": 45000.44,
+        "Stock": true,
+        "Cities": ["Delhi", "Hyd"],
+        "Rating": {"Rate":4.3, "Count":6000}
+     };
+     document.write(`${tv.Name} ${tv["Price"]} <br> ${tv.Cities.join(" / ")} <br> ${tv.Rating.Rate} [${tv.Rating["Count"]}] `);
+</script>
+
+- You can configure a JSON file to store data offline. So that it saves round trips.
+- JSON file have extention ".json"
+- JSON is strictly typed, with object or array of objects.
+
+   
+                      JavaScript "Fetch" promise
+                      ------------------------------------
+- JavaScript window object provides "fetch()" promise, which is used to fetch data from a file or remote URL.
+- Promise is a function with "Async" technique. [ AJAX ]
+
+Syntax:
+      fetch("path").then(function(){}).catch(function(){}).finally(function(){})
+
+      then()    => executes on success.
+      catch()    => executes on failure
+      finally()    => executes always
+
+Ex:
+1. Add a new folder "data"
+
+2. Add a new file
+        product.json
+
+{
+    "Title": "APPLE iPhone 14 (Blue, 128 GB)",
+    "Price": 58999,
+    "Features": [
+        "128 GB ROM",
+        "15.49 cm (6.1 inch) Super Retina XDR Display",
+        "12MP + 12MP | 12MP Front Camera",
+        "A15 Bionic Chip, 6 Core Processor Processor",
+        "1 Year Warranty for Phone and 6 Months Warranty for In-Box Accessories"
+    ],
+    "Rating": {"Rate":4.6, "Count": 284670, "Reviews": 8556},
+    "Photo":  "../public/images/iphoneblue.jpg"
+}
+
+3. Add HTML page
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function bodyload(){
+            fetch("../data/product.json")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(product){
+                 document.getElementById("imgProduct").src = product.Photo;
+                 document.getElementById("lblTitle").innerHTML = product.Title;
+                 document.getElementById("lblRating").innerHTML = product.Rating.Rate;
+                 document.getElementById("lblPrice").innerHTML = product.Price.toLocaleString('en-in',{style: 'currency', currency:'INR'});
+                 product.Features.map(function(feature){
+                     var li = document.createElement("li");
+                     li.innerHTML = feature;
+                     document.getElementById("lstFeatures").appendChild(li);
+                 })
+            })
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyload()">
+    <div class="row mt-4">
+        <div class="col-2">
+            <img id="imgProduct" width="300">
+        </div>
+        <div class="col-6 ps-4">
+            <h2 id="lblTitle" class="text-primary"></h2>
+            <div>
+                <span id="lblRating"></span> <span class="bi bi-star-fill text-success"></span>
+            </div>
+            <div>
+                <ul id="lstFeatures">
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-4">
+            <h2 id="lblPrice"></h2>
+        </div>
+    </div>
+</body>
+</html>

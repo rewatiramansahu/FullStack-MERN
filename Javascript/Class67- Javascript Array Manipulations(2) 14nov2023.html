@@ -1,0 +1,192 @@
+
+
+Class67- Date 14nov2023
+
+============================ javascript Array Manipulations =========================
+
+Reading Array Elements
+Add Elements into Array
+    push()
+    unshift()
+    splice()
+Removing Array Elements:
+
+    pop()        : It removes and returns the last element.
+    shift()        : It removes and returns first element.
+    splice()        : It removes and returns specific element.
+
+Syntax:
+    arrayName.pop()
+    arrayName.shift()
+    arrayName.splice(startIndex, deleteCount)
+
+Sorting Array Elements
+   
+    sort()        : It arranges elements in ascending order.
+    reverse()        : It arranges elements in reverse order [bottom to top]
+
+
+Syntax:
+    arrayName.sort()
+    arrayName.reverse()
+
+Searching for Elements in Array:
+
+    indexOf()        : It returns the index number of element. It not found then it returns
+                  "-1". It returns the first occurance index number.
+
+    lastIndexOf()    : It returns the last occurance index number.
+
+    filter()        : It returns every occurance of the element based on condition.
+
+    find()        : It returns the first occurance of element based on condition.
+
+Ex: Array Manipulation
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Manipulation</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        var cities = ["Delhi", "Hyd"];
+        function LoadCities(){
+            document.getElementById("lstCities").innerHTML= "";
+            document.getElementById("lblCount").innerHTML = `Total Number of Cities : ${cities.length}`;
+            cities.map(function(city){
+                 var option = document.createElement("option");
+                 option.text = city;
+                 option.value = city;
+                 document.getElementById("lstCities").appendChild(option);
+            })
+        }
+        function AddClick(){
+            var cityName = document.getElementById("txtCity").value;
+            if(cities.indexOf(cityName)==-1){
+                cities.push(cityName);
+                LoadCities();
+                alert(`${cityName} added to list`);
+                document.getElementById("txtCity").value = "";
+            } else {
+                alert(`${cityName} Exists`);
+            }
+        }
+        function SortAsc(){
+            cities.sort();
+            LoadCities();
+        }
+        function SortDsc(){
+            cities.sort();
+            cities.reverse();
+            LoadCities();
+        }
+        function RemoveCity(){
+            var cityName = document.getElementById("lstCities").value;
+            var cityIndex = cities.indexOf(cityName);
+            var flag = confirm(`Are you sure?\nWant to delete ${cityName}`);
+            if(flag==true){
+                cities.splice(cityIndex,1);
+                LoadCities();
+            }
+        }
+        function RemoveAll(){
+            var flag = confirm(`Are you sure? what to delete all?`);
+            if(flag==true){
+                cities.length = 0;
+                LoadCities();
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="LoadCities()">
+    <h2>Array Manipulation</h2>
+    <div class="w-25">
+        <div>
+            <label class="form-label">Add City</label>
+            <div class="input-group">
+                <input type="text" id="txtCity" class="form-control" placeholder="New City Name"> <button onclick="AddClick()" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+        <div class="mt-4">
+            <label class="form-label">Select City</label>
+            <div class="mt-3 mb-3">
+                <button onclick="SortAsc()" class="bi bi-sort-alpha-down btn btn-success"></button>
+                <button onclick="SortDsc()" class="bi bi-sort-alpha-up btn btn-success"></button>
+            </div>
+            <div>
+                <select class="form-select" size="3" id="lstCities">
+
+                </select>
+                <label class="form-label fw-bold" id="lblCount"></label>
+            </div>
+            <div>
+                <button onclick="RemoveCity()" class="bi bi-trash-fill btn btn-danger"> Remove City</button>
+                <button onclick="RemoveAll()" class="bi bi-trash btn btn-danger"> Clear All</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+Ex: Task
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var appointments = [];
+        function LoadTasks(){
+            document.getElementById("lstTasks").innerHTML = "";
+            appointments.map(function(item){
+                var li = document.createElement("li");
+                li.innerHTML  = item;
+                document.getElementById("lstTasks").appendChild(li);
+            })
+        }
+        function AddClick(){
+            var title = document.getElementById("txtTitle").value;
+            var date = document.getElementById("txtDate").value;
+            var appointment = `${title} - ${date} <button onclick="DeleteClick()">Delete</button>`;
+            appointments.push(appointment);
+            alert(`Appointment Added to your To-DO list`);
+            LoadTasks();
+        }
+        function DeleteClick(){
+           
+        }
+    </script>
+    <style>
+        ul {
+            list-style: none;
+        }
+        li {
+            background-color: gray;
+            color:white;
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 40%;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h3>TO-DO</h3>
+    <div>
+        <input id="txtTitle" type="text" placeholder="Your Appointment Title">
+        <input type="date" id="txtDate">
+        <button onclick="AddClick()">Add</button>
+    </div>
+    <div>
+        <ul id="lstTasks">
+
+        </ul>
+    </div>
+</body>
+</html>

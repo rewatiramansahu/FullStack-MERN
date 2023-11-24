@@ -1,0 +1,157 @@
+
+Class73- Date 22nov2023
+
+====================== JavaScript setInterval Examples =====================
+
+Date and Time functions
+- get()
+- set()
+
+Timer Events
+- setTimeout()
+- clearTimeout()
+
+
+                            setInterval()
+- It loads specified task into memory and release into process at regular intervals.
+- It repeats the task until removed from memory.
+
+Syntax:
+    setInterval(function(){ }, timeInterval)
+
+- You can remove the task from memory using "clearInterval()".
+
+Syntax:
+    clearInterval(refName);
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function LoadTime(){
+            var now = new Date();
+            var time = now.toLocaleTimeString();
+            document.querySelector("p").innerHTML = time;
+        }
+        var timer;
+        function bodyload(){
+           timer =  setInterval(LoadTime, 1000);
+        }
+        function StopClick(){
+            clearInterval(timer);
+        }
+        function StartClick(){
+            bodyload();
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div align="center">
+        <button onclick="StartClick()">Start</button>
+        <button onclick="StopClick()">Stop</button>
+    </div>
+    <p align="center"></p>
+</body>
+</html>
+
+Ex: Progress
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interval</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        progress {
+            width: 300px;
+            height: 30px;
+        }
+        @keyframes ZoomIn
+        {
+            from {
+                width: 5px;
+                height: 5px;
+                transform: rotate(0deg);
+            }
+            to {
+                width: 300px;
+                height: 400px;
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        var count = 1;
+        function ProgressBarAnimation(){
+            count++;
+            document.getElementById("Progress").value = count;
+            document.getElementById("status").innerHTML = `${count} % Loaded`;
+            var img = document.querySelector("img");
+
+            if(count==100){
+                document.getElementById("imageContainer").style.display = "block";
+                img.style.animationName = "ZoomIn";
+                img.style.animationDuration = "4s";
+                document.getElementById("progressContainer").style.display = "none";
+            }
+        }
+
+        var timer;
+        function LoadClick(){
+            document.getElementById("progressContainer").style.display = "block";
+            document.getElementById("buttonContainer").style.display = "none";
+            timer = setInterval(ProgressBarAnimation,100);
+        }
+        function PauseClick(){
+            clearInterval(timer);
+            document.getElementById("status").innerHTML=`${count} % Paused`;
+        }
+        function PlayClick(){
+            timer = setInterval(ProgressBarAnimation,100);
+        }
+    </script>
+</head>
+<body class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="text-center">
+        <div id="buttonContainer">
+            <button class="btn btn-primary" onclick="LoadClick()">Load Image</button>
+        </div>
+        <div id="progressContainer" style="display: none;">
+            <progress min="1" max="100" value="1" id="Progress"></progress>
+            <p>
+                <button onclick="PauseClick()" class="bi bi-pause btn btn-danger"></button>
+                <button onclick="PlayClick()" class="bi bi-play btn btn-primary"></button>
+            </p>
+            <p id="status"></p>
+        </div>
+        <div id="imageContainer" style="display: none;">
+            <img src="../public/images/women-fashion.jpg" width="300" height="400">
+        </div>
+    </div>
+</body>
+</html>
+
+Summary Data Types
+- Primitive
+    number
+    string
+    boolean
+    null
+    undefined
+    bigint
+    symbol
+- Non Primitive
+    array
+    object
+    map
+- Date
+
+
+                        Operators in JavaScript

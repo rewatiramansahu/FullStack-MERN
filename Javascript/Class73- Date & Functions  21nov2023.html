@@ -1,0 +1,190 @@
+
+
+Class73- 21nov2023
+
+============================== javascript Date and Time Function ============================
+
+FAQ: What is difference between object and map ?
+Ans:
+      Object                    Map
+    -------------------------------------------------------
+    Keys are string            	Keys are any type
+    Structured                	Schema less
+    Slow                    	Fast
+    Explicit Manipulations      Implict methods
+    No size attribute           Size attribute for counting keys
+
+
+
+                          Date Type
+- Javascript provides a Date() object, which can handle both date and time values.
+
+Syntax:
+    var departure = new Date();        load and store current date & time
+    var departure = new Date("YY-MM-DD  Hrs:Min:Sec:MilliSec");
+
+Ex:
+<script>
+     var departure = new Date("2023-11-27 18:32:25.68");
+     document.write(`Departure : ${departure}`);
+</script>
+
+- Javascript provides various methods to read date and time
+
+        getHours()                Hours number 0 to 23
+        getMinutes()                0 to 59
+        getSeconds()                0 to 59
+        getMilliSeconds()            0 to 99
+        getDate()                    1 to 28, 29, 30, 31
+        getDay()                    Weekday number  0=Sunday
+        getMonth()                Month number  0=January
+        getFullYear()                Year number
+        toLocaleDateString()
+        toLocaleTimeString()
+
+Syntax:
+    var now = new Date();
+    now.getHours();
+    now.toLocaleDateString();
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Demo</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+
+        function LoadDateTime(){
+            var now = new Date();
+            var weekdays = ["Sunday", "Monday", "Tuesday", "Wed","Thu","Fri","Saturday"];
+            var months = ["Jan","Feb","March","Apri","May","June","July","Aug","Sep","Oct","November", "December"];
+
+            document.getElementById("clock").innerHTML = now.toLocaleTimeString();
+            document.getElementById("cal").innerHTML = ` ${now.getDate()} ${weekdays[now.getDay()]} , ${months[now.getMonth()]} ${now.getFullYear()}`
+        }
+
+        function LoadMessage(){
+            var now = new Date();
+            var hrs = now.getHours();
+            var msg = document.getElementById("msg");
+            var gifImg = document.getElementById("gifImg");
+
+            if(hrs>=0 && hrs<=12) {
+                msg.innerHTML = " Good Morning ! ";
+                gifImg.src = "../public/images/morning.gif";
+            }
+            else if(hrs>12 && hrs<=17) {
+                msg.innerHTML = " Good Afternoon ! ";
+            } else {
+                msg.innerHTML = " Good Evening ! ";
+            }
+        }
+
+        function bodyload(){
+            LoadDateTime();
+            LoadMessage();
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyload()">
+    <nav class="d-flex justify-content-between p-2 bg-dark text-white">
+        <div class="h3">
+            Shopper.
+        </div>
+        <div>
+            <span class="me-4">Home</span>
+            <span class="me-4">About</span>
+            <span class="me-4">Contact</span>
+        </div>
+        <div>
+            <span class="bi bi-calendar me-2" id="cal"> </span>
+            <span class="bi bi-clock" id="clock"> </span>
+        </div>
+    </nav>
+    <article class="p-1 text-center mt-3">
+        <img id="gifImg" width="50" height="50">  <span id="msg"></span>
+    </article>
+</body>
+</html>
+
+
+- Javascript provides various methods to change the date and time dynamically
+
+        setHours()
+        setMinutes()
+        setSeconds()
+        setDate()
+        setMonth()
+        setFullYear()
+
+Syntax:
+    var now = new Date();
+    now.setHours(14);
+    now.setDate(22);
+
+                       
+                        JavaScript Timer Events
+
+setTimeout()
+clearTimeout()
+setInterval()
+clearInterval()
+
+FAQ: What is debouncing ?
+Ans : Bouncing is a technique in electronic devices where a function is released immediately without locking in memory.
+     Debounce allows to lock the function in memory for a specific duration, so that
+     we can allow other tasks to perform in process.
+
+FAQ: How to control bouncing?
+Ans: By using setTimeout() event. It can make the task sleep for specific duration
+    You can use clearTimeout() to remove the task from memory.
+
+Syntax:
+    setTimeout(function(){  }, interval)
+    clearTimeout(refName)
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        function Msg1(){
+            document.querySelector("h1").innerHTML = "Hello !";
+        }
+
+        function Msg2(){
+            document.querySelector("h1").innerHTML = "How are you?";
+        }
+
+        function Msg3(){
+            document.querySelector("h1").innerHTML = "Welcome to JavaScript !";
+        }
+       
+       
+        var m1, m2, m3;
+        function bodyload(){
+           m1 =  setTimeout(Msg1, 3000);
+           m2 =  setTimeout(Msg2, 5000);
+           m3 =  setTimeout(Msg3, 10000);
+        }
+        function CancelClick(){
+            clearTimeout(m2);
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <button onclick="CancelClick()">Cancel Msg2</button>
+    </div>
+    <h1 align="center"></h1>
+   
+</body>
+</html>

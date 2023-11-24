@@ -1,0 +1,247 @@
+
+Class75- Date 24nov2023
+
+============================== JavaScript Timer Events and Operators ==================================
+
+Timer Events
+- setTimeout()
+- clearTimeout()
+- setInterval()
+- clearInterval()
+
+                        JavaScript Operators
+
+- Operator is an object that evaluates a value using any expression.
+
+            x + y
+
+- Based on the number of operands the operators are classified into following types
+
+            a) Unary
+            b) Binary
+            c) Ternary
+
+- Unary operators handle operation of single operand.
+
+            ++    Increment
+            --    Decrement
+            !    NOT
+
+Syntax:
+    x = 10;
+    y = x++;            =>   x=11, y=10    
+
+        Post Increment will assign first and later increments.
+
+    x = 10;
+    y = ++x;            => x = 11,  y = 11
+
+    Pre Increment will increment the value first and later assigns.
+
+Syntax: Decrement
+
+    x = 10;
+    y = x--;            x = 9,  y=10
+    y = --x;            x = 9,  y= 9
+
+Ex: Previous and Next Buttons
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function LoadProduct(id){
+            fetch(`https://fakestoreapi.com/products/${id}`)
+            .then(function(res){
+                return res.json();
+            })
+            .then(function(product){
+                document.getElementById("lblTitle").innerHTML = product.title;
+                document.getElementById("imgProduct").src = product.image;
+                document.getElementById("lblPrice").innerHTML = "$" + product.price;
+            })
+        }
+        function bodyload(){
+            LoadProduct(1);
+        }
+        var productId = 1;
+        function NextClick(){
+            productId++;
+            LoadProduct(productId);
+        }
+        function PreviousClick(){
+            productId--;
+            LoadProduct(productId);
+        }
+    </script>
+    <style>
+        #lblPrice {
+            background-color: red;
+            color:white;
+            padding: 5px;
+            width: 90px;
+            border-radius: 20px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body onload="bodyload()" class="container-fluid d-flex justify-content-center">
+    <div class="card p-2 mt-4 w-50">
+        <div class="card-header text-center">
+            <div id="lblTitle"></div>
+        </div>
+        <div class="card-body p-4 position-relative">
+            <div class="bi bi-tag-fill" id="lblPrice"></div>
+            <img width="100%" height="300" id="imgProduct">
+        </div>
+        <div class="card-footer text-center">
+            <button onclick="PreviousClick()" class="btn btn-primary bi bi-chevron-left"></button>
+            <button onclick="NextClick()" class="btn btn-primary bi bi-chevron-right"></button>
+        </div>
+    </div>
+</body>
+</html>
+
+Ex: Auto  - Play and Pause
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        var count = 0;
+        function LoadProduct(){
+            count++;
+            fetch(`https://fakestoreapi.com/products/${count}`)
+            .then(function(res){
+                return res.json();
+            })
+            .then(function(product){
+                document.getElementById("lblTitle").innerHTML = product.title;
+                document.getElementById("imgProduct").src = product.image;
+                document.getElementById("lblPrice").innerHTML = "$" + product.price;
+            })
+        }
+        function bodyload(){
+            LoadProduct();
+        }
+        var timer;
+        function PlayClick(){
+            timer = setInterval(LoadProduct, 5000);
+            document.getElementById("lblStatus").innerHTML= "Slide Show - Started";
+        }
+        function PauseClick(){
+            clearInterval(timer);
+            document.getElementById("lblStatus").innerHTML= "Slide Show - Paused";
+        }
+       
+    </script>
+    <style>
+        #lblPrice {
+            background-color: red;
+            color:white;
+            padding: 5px;
+            width: 90px;
+            border-radius: 20px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body onload="bodyload()" class="container-fluid d-flex justify-content-center">
+    <div class="card p-2 mt-4 w-50">
+        <div class="card-header text-center">
+            <div id="lblTitle"></div>
+            <div id="lblStatus" class="fw-bold"></div>
+        </div>
+        <div class="card-body p-4 position-relative">
+            <div class="bi bi-tag-fill" id="lblPrice"></div>
+            <img width="100%" height="300" id="imgProduct">
+        </div>
+        <div class="card-footer text-center">
+            <button onclick="PlayClick()" class="btn btn-primary bi bi-play"></button>
+            <button onclick="PauseClick()" class="btn btn-danger bi bi-pause"></button>
+        </div>
+    </div>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+       
+        function LoadProduct(id){
+            fetch(`https://fakestoreapi.com/products/${id}`)
+            .then(function(res){
+                return res.json();
+            })
+            .then(function(product){
+                document.getElementById("lblTitle").innerHTML = product.title;
+                document.getElementById("imgProduct").src = product.image;
+                document.getElementById("lblPrice").innerHTML = "$" + product.price;
+            })
+        }
+        function bodyload(){
+            LoadProduct(1);
+        }
+        function ChangeImage(){
+            LoadProduct(document.getElementById("slider").value);
+        }
+    </script>
+    <style>
+        #lblPrice {
+            background-color: red;
+            color:white;
+            padding: 5px;
+            width: 90px;
+            border-radius: 20px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body onload="bodyload()" class="container-fluid d-flex justify-content-center">
+    <div class="card p-2 mt-4 w-50">
+        <div class="card-header text-center">
+            <div id="lblTitle"></div>
+            <div id="lblStatus" class="fw-bold"></div>
+        </div>
+        <div class="card-body p-4 position-relative">
+            <div class="bi bi-tag-fill" id="lblPrice"></div>
+            <img width="100%" height="300" id="imgProduct">
+        </div>
+        <div class="card-footer text-center">
+           <input type="range" onchange="ChangeImage()" class="form-range" min="1" max="20" value="1" id="slider">
+        </div>
+    </div>
+</body>
+</html>
+
+- Binary operators perform operations on 2 operands
+            X + Y
+            X / Y
+- Ternary operator perform operations of 3 operands.
+       
+            ? :
+   
+    (condition) ? true  : false

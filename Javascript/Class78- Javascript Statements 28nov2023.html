@@ -1,0 +1,136 @@
+
+Class78- Date 28nov2023
+
+=========================== JavaScript	Statements ============================
+	
+Special Operators in JavaScript
+
+- Ternary Operator ?:
+- typeof
+- instanceof
+- delete
+- in
+- new
+- void
+
+                            yield
+- It is used to return the result of an generator function.
+
+Syntax:
+    function* Generator()
+    {
+       yield  value;
+    }
+
+                        JavaScript Statements
+
+- In computer programming statements are used to control the execution flow.
+- Statements are classified into various groups
+
+    1. Selection Statements
+        if, else, switch, case, default
+		
+    2. Looping Control Statements
+        for, while, do while
+		
+    3. Iteration Statements
+        for..in, for..of
+		
+    4. Jump Statements
+        break, return, continue
+		
+    5. Exception Handling Statements
+        try, catch, throw, finally
+
+Looping Control Statements
+- Looping is the process of executing a set of statements repeatedly based on given condition.
+
+- Loop can be created using : for, while & do while.
+- Every loop requires initialization, condition and counter.
+
+        initialization    => where to start
+        condition        => when to stop
+        counter        => how to move [ next / pervious / step ]
+
+For Loop:
+- It is looping control statement used by developers when they are sure about the number of iterations and the iteration counter will not change dynamically.
+
+Syntax:
+    for(initialization; condition; counter)
+    {
+       // statements;
+    }
+
+    Initialization    => It is required to define where to start and remember how many
+                     times the loop executed.
+                     Ex:
+                    var i = 1
+   
+    Condition        => It is a boolean expression that checks the value and compares
+                     with the desired condition, loop executes based on condition.
+
+                     A loop stops when condition evaluates to false.
+                    Ex:
+                    i < = 10
+   
+
+    Counter        =>  It configures the step value to move the looping counter
+                      next or previous.
+                     Ex:
+                    i++
+                    i--
+                    i = i + 5
+                    i = i - 5
+
+Ex:
+    for(var i=1;  i<=5  ; i++)
+    {
+         console.log("Hello !");
+    }
+
+Ex:
+     for(var i=1; i<=10; i++)
+     {
+     console.log(i);
+     }
+
+Ex:
+    var i = 1;
+    for( ; i<=10; i++)
+    {
+       console.log(i);
+    }
+
+Note: for statement requires memory for initialization, condition and counter. But it can be configured outside the parenthesis "( )".
+
+Ex: Multiplication Table
+
+<script>
+    var n = parseInt(prompt("Enter a Number"));
+    for(var i=1; i<=10; i++){
+        document.write(`${n} X ${i} = ${n*i} <br>`);
+    }
+</script>
+
+Q: How to print the given pattern?
+
+    *
+    *   *
+    *   *    *
+    *   *    *    *
+    *   *    *    *    *
+
+Q: Write a program to print factorial of given number.
+
+    var n = parseInt(prompt("Enter number"));
+     5
+               5 x 4 x 3 x 2 x 1 = 120
+
+
+Ex:
+<script>
+   var categories = ["All", "Electronics", "Footwear", "Fashion"];
+   for(var i=0; i<categories.length; i++){
+      document.write(`${i+1}. ${categories[i]}<br>`);
+   }
+</script>

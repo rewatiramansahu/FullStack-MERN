@@ -1,0 +1,139 @@
+
+
+Class77- Date 27nov2023
+
+========================== Operators (Part-2) in Javascript 27nov2023 ===========================
+Operators
+- Arithematic
+- Assignment
+- Comparision
+
+Task: Hotel Registration Form
+- Design using bootstrap nav with tabs.
+
+
+Logical Operators
+
+&&        AND
+||        OR
+!        Not
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <script>
+        function LoginClick(){
+            var userid = document.getElementById("UserId").value;
+            var password = document.getElementById("Password").value;
+            fetch("../data/users.json")
+            .then(function(res){
+                return res.json();
+            })    
+            .then(function(users){
+                  users.map(function(user){
+                       if(user.UserId===userid && user.Password===password){
+                           document.write("Login Success..");
+                       } else {
+                           document.getElementById("msg").innerHTML = "Invalid User Id / Password".fontcolor('red');
+                       }
+                  })
+            })
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <h2>User Login</h2>
+        <dt>UserId</dt>
+        <dd><input type="text" id="UserId"></dd>
+        <dt>Password</dt>
+        <dd><input type="password" id="Password"></dd>
+    </dl>
+    <button onclick="LoginClick()">Login</button>
+    <p id="msg"></p>
+</body>
+</html>
+
+                          Special Operators
+
+1. Ternary  [ ?: ]
+     
+    (condition)?true:false
+
+2. typeof        : It returns the data type of value stored in a reference.
+
+Syntax:
+    var x = 10;
+    document.write(typeof x);    // number
+
+3. instanceof    : It returns true if the given object is derived from specified class.
+
+Ex:
+<script>
+    class Employee
+    {
+
+    }
+    var products = new Array();
+    var emp = new Employee();
+
+    document.write(`Emp is derived from Array ? ${emp instanceof Array} <br>`);
+    document.write(`Emp is derived from Employee? ${emp instanceof Employee}`);
+</script>
+   
+
+4. delete        :  It is used to delete a key / property from object.
+               You can't delete properties of built in objects.
+                All built-in properties are readonly in access.
+
+Syntax:
+         delete  object.key
+
+Ex:
+<script>
+    var product = {
+        Name : "TV",
+        Price: 45000.44
+    }
+    delete product.Price;
+    delete Math.PI;
+    document.write(`Name=${product.Name}<br>Price=${product.Price} <br> PI=${Math.PI}`);
+</script>
+
+5. in     :  It is a boolean operator that returns true, if the given property is available
+           in specified object.
+
+Syntax:
+    var product = {
+        Name : "TV",
+    }
+
+    document.write("Price" in product);        // false
+
+6. new    : It is dynamic memory allocation operator.
+
+Syntax:
+        var  collection = new Array();
+        var  topics = new Map();
+       
+
+7. void    : It is used to discard the return of any function or element.
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- To be implemented -->
+    <a href="javascript:void('')">Home</a>
+</body>
+</html>

@@ -1,0 +1,252 @@
+
+
+Class76- Date 25nov2023
+
+================================ javascript Operators ==============================
+
+- Based on the type of value an operator returns, they are further classified into following types.
+
+1. Arithematic Operators
+    +                    Addition
+    -                    Subtraction
+    *                    Multiplication
+    /                    Division
+    %                    Modulus
+    ** [Math.pow()]        Power
+    ++                    Increment
+    --                    Decrement
+
+
+2. Comparision Operators
+    ==            Equal
+    ===            Identical Equal
+    !=            Not Equal
+    !==            Not Identical
+    >            Greater than
+    >=            Greater than or Equal
+    <            Less than
+    <=            Less than or Equal
+
+Syntax:
+    10 == "10"        => true
+    10 === "10"        => false
+    10 === 10        => true
+    "10" === "10"        => true
+
+FAQ: What is difference between "==" & "===" ?
+Ans:   == equal can compare different types of values.
+      === identical equal can compare only same type of values.
+
+
+3. Assignment Operators
+
+    +=            Add and assign
+    -=
+    *=
+    /=
+    %=
+   
+Syntax:
+    var cost = 100;
+    var addOn = 30;
+   
+    var cost = cost + addOn;    
+    cost+=addOn;
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var position = 0;
+        function MoveRight(){
+            position += 100;
+            document.querySelector("img").style.marginLeft = position + "px";
+        }
+        function MoveLeft(){
+            position -= 100;
+            document.querySelector("img").style.marginLeft = position + "px";
+        }
+    </script>
+</head>
+<body>
+    <button onclick="MoveRight()">Move Right</button>
+    <button onclick="MoveLeft()">Move Left</button>
+    <br><br>
+    <img src="../public/images/a1.jpg" width="200" height="200">
+</body>
+</html>
+
+Ex: KFC Form
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KFC Online - Order</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function PlaceOrderClick(){
+            document.getElementById("lblName").innerHTML = document.getElementById("txtName").value;
+            document.getElementById("lblMobile").innerHTML = document.getElementById("txtMobile").value;
+
+            var mealName = "";
+            var mealCost = 0;
+
+            var adOnName = "";
+            var adOnCost = 0;
+
+            var imgMeal = document.getElementById("imgMeal");
+
+            //Radios
+            var optBurger = document.getElementById("optBurger");
+            var optRoller = document.getElementById("optRoller");
+
+            if(optBurger.checked) {
+                mealName = optBurger.value;
+                mealCost = 120;
+                imgMeal.src = "../public/images/omg1.png";
+            }
+
+            if(optRoller.checked) {
+                mealName = optRoller.value;
+                mealCost = 100;
+                imgMeal.src = "../public/images/omg2.png";
+            }
+
+            //Checkbox
+            var optWings = document.getElementById("optWings");
+            var optKrusher = document.getElementById("optKrusher");
+
+            if(optWings.checked){
+                adOnName += optWings.value + "<br>";
+                adOnCost = 80;
+                mealCost+=adOnCost;
+            }
+
+            if(optKrusher.checked) {
+                adOnName += optKrusher.value + "<br>";
+                adOnCost = 40;
+                mealCost+=adOnCost;
+            }
+
+            document.getElementById("lblMeal").innerHTML = mealName;
+            document.getElementById("lblAdOn").innerHTML = adOnName;
+            document.getElementById("lblTotal").innerHTML = mealCost.toLocaleString('en-in',{style:'currency', currency:'INR'});
+
+        }
+    </script>
+</head>
+<body class="container-fluid bg-danger text-white">
+    <header>
+        <img src="../public/images/kfctop.PNG" width="100%" height="200">
+    </header>
+    <section>
+        <div class="accordion" id="kfc">
+            <!--Customer Details-->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button data-bs-target="#customer" data-bs-toggle="collapse" class="btn btn-danger w-100">Customer Details</button>
+                </div>
+                <div class="accordion-collapse p-2 collapse" id="customer" data-bs-parent="#kfc">
+                    <div class="accordion-body">
+                        <dl>
+                            <dt>Customer Name</dt>
+                            <dd><input type="text" id="txtName" class="form-control"></dd>
+                            <dt>Mobile Number</dt>
+                            <dd><input type="text" id="txtMobile" class="form-control"></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+          <!-- Meal Details -->
+          <div class="accordion-item">
+             <div class="accordion-header">
+                <button data-bs-target="#meal" data-bs-toggle="collapse" class="btn btn-danger w-100">Select Your Meal</button>
+             </div>
+             <div class="accordion-collapse collapse" id="meal" data-bs-parent="#kfc">
+                <div class="accordion-body p-2">
+                    <div class="row">
+                        <div class="col text-center">
+                            <img src="../public/images/omg1.PNG" width="50%">
+                            <div class="mt-2 h3">
+                                <input type="radio" name="meal" value="OMG Burger" id="optBurger" class="form-check-input"> <span>OMG Burger &#8377; 120/-</span>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                            <img src="../public/images/omg2.PNG" width="50%">
+                            <div class="mt-2 h3">
+                                <input type="radio" name="meal" value="OMG Roller" id="optRoller" class="form-check-input"> <span>OMG Roller &#8377; 100/-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+          </div>
+
+          <!--Add On's-->
+          <div class="accordion-item">
+             <div class="accordion-header">
+                <button data-bs-target="#adon" data-bs-toggle="collapse" class="btn btn-danger w-100">Select AD-ON's</button>
+             </div>
+             <div class="accordion-collapse collapse" id="adon" data-bs-parent="#kfc">
+                <div class="accordion-body p-2">
+                    <div class="row">
+                        <div class="col text-center">
+                            <img src="../public/images/wings.PNG" width="50%">
+                            <div class="mt-2 h3">
+                                <input type="checkbox" class="form-check-input" id="optWings" value="Hot Wings"> <span>Hot Wings &#8377; 80/-</span>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                            <img src="../public/images/krusher1.PNG" width="50%">
+                            <div class="mt-2 h3">
+                                <input type="checkbox" class="form-check-input" id="optKrusher" value="Krusher Brownie"> <span>Kruhser Brownie &#8377; 40/-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+          </div>
+        </div>
+        <button onclick="PlaceOrderClick()" data-bs-target="#bill" data-bs-toggle="modal" class="btn btn-danger w-100">Place Order</button>
+        <div class="modal fade" id="bill">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="text-danger">Your Bill Summary</h2>
+                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-dark">
+                        <div class="row">
+                            <div class="col">
+                                <dl>
+                                    <dt>Customer Name</dt>
+                                    <dd id="lblName"></dd>
+                                    <dt>Mobile</dt>
+                                    <dd id="lblMobile"></dd>
+                                    <dt>Meal</dt>
+                                    <dd id="lblMeal"></dd>
+                                    <dt>AdOn's</dt>
+                                    <dd id="lblAdOn"></dd>
+                                    <dt>Total</dt>
+                                    <dd id="lblTotal"></dd>
+                                </dl>
+                            </div>
+                            <div class="col">
+                                <img id="imgMeal" width="100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

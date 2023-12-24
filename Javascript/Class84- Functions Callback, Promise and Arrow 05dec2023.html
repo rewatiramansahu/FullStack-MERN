@@ -1,0 +1,209 @@
+
+
+Class84- Date 05dec2023
+
+========================== Functions Callback, Promise and Arrow =======================
+
+Function Parameters
+Function Return
+Function Recursion
+Function Generator
+Function Closure
+
+
+                        Function Callback
+                     -------------------------
+					 
+- Callback is a technique of configuring functions, which execute according to state and situation.
+- Callback uses Synchronous mechanism, which blocks the other actions while performing the specified.
+
+Syntax:
+    function Name(callback1, callback2)
+    {
+    }
+
+    Name(function(){ }, function(){ });
+
+Ex:
+<script>
+     function FetchData(url, success, failure)
+     {
+          if(url==="http://fakestoreapi.com&quot;){
+             success();
+          }
+          else {
+             failure();
+          }
+     }
+     FetchData(
+      prompt("Enter API Url"),
+      function(){
+         document.write("Data Fetched Successfully...");
+      },
+      function(){
+         document.write("404 Error: Invalid URL");
+      }
+      )
+</script>
+
+Ex:
+<script>
+     function FetchData(url, success, failure)
+     {
+          if(url==="http://fakestoreapi.com&quot;){
+             success({StatusText: "Success : Data Fetched", StatusCode:200, Data:["All","Electronics","Footwear","Fashion"]});
+          }
+          else {
+             failure("404 Error: Invalid URL");
+          }
+     }
+     FetchData(
+      prompt("Enter API Url"),
+      function(response){
+          document.write(`<h2>${response.StatusCode} : ${response.StatusText}</h2>`);
+          response.Data.map(function(item){
+             document.write(`<li>${item}</li>`);
+          })
+      },
+      function(error){
+         document.write(error);
+      }
+      )
+</script>
+
+                        Function Promise
+                        ------------------------
+-  A promise is just like a real life promises that you make.
+-  It have 3 phases
+    a) Initial            Not yet started, Ready to Start
+    b) Resolve        Successfully completed
+    c) Reject            Unable to fullfill the promise
+- JavaScript promise is "Asynchronous", it can execute the task without blocking other tasks in process.
+- Promises are better in performance when compare to callbacks.
+
+Syntax:
+
+    var  ref = new Promise(function(resolve, reject){
+        if(condition)
+        {
+          resolve("response");
+        } else {
+          reject("error");
+        }
+    })
+
+    ref.then(function(response){}).catch(function(error){}).finally(function(always){})
+
+Ex:
+<script>
+     var FetchData = new Promise(function(resolve, reject){
+          var url = prompt("Enter API URL");
+          if(url=="http://fakestoreapi.com&quot;){
+              resolve({StatusText:"Success - Data Fetched", Data:["All","Electronics","Fashion"]});
+          } else {
+              reject("Error: Unable to Fetch Data");
+          }
+     })
+
+     FetchData.then(function(response){
+         document.write(`<h2>${response.StatusText}</h2>`);
+         for(var item of response.Data){
+            document.write(`<li>${item}</li>`);
+         }
+     })
+     .catch(function(error){
+         document.write(error);
+     })
+</script>
+
+                        Arrow Functions
+                        ----------------------
+- Arrow is a short hand technique used for writing function expression.
+- You can used for expression or callbacks.
+
+Syntax: Default expression
+
+    var  hello = function() {  
+         return "Hello JavaScript";    
+     };
+
+Syntax: Arrow expression
+
+    var hello = () => "Hello JavaScript";
+
+
+    ()        function
+    =>        return
+    =>{ }        definition
+
+Ex:
+<script>
+   var hello = () => "Hello ! JavaScript";
+   document.write(hello());    
+</script>
+
+Syntax:
+    var hello = function(userName) {
+       document.write(`Hello ! ${userName}`);
+    }
+
+ShortHand:
+
+    var hello = userName => document.write(`Hello ! ${userName}`);
+   
+    var hello = (userName, Age) => document.write(`${userName}<br>${Age}`);
+
+    var add = (a, b) => a + b;
+    document.write(add(10, 20));
+
+Ex:
+<script>
+    fetch("http://fakestoreapi.com/products/categories&quot;)
+    .then(response => response.json())
+    .then(categories => {
+        categories.map(category=> {
+           document.write(`<li>${category}</li>`);
+        })
+    })
+</script>
+
+
+
+Ex:
+<script>
+  /* var FetchData = new Promise(function(resolve, reject){
+        var url = prompt("Enter API URL");
+        if(url=="http://fakestoreapi.com&quot;){
+            resolve({StatusText:"Success - Data Fetched", Data:["All","Electronics","Fashion"]});
+        } else {
+            reject("Error: Unable to Fetch Data");
+        }
+   })
+
+   FetchData.then(function(response){
+       document.write(`<h2>${response.StatusText}</h2>`);
+       for(var item of response.Data){
+          document.write(`<li>${item}</li>`);
+       }
+   })
+   .catch(function(error){
+       document.write(error);
+   })
+   */
+
+   var FetchData = new Promise((resolve, reject)=>{
+       var url = prompt("Enter URL");
+       if(url=="fakestore"){
+         resolve("Success - Data Fetched");
+       } else {
+         reject("Error - Unable to Fetch Data");
+       }
+   })
+
+   FetchData
+   .then(response=> document.write(response))
+   .catch(error => document.write(error))
+
+
+
+</script>

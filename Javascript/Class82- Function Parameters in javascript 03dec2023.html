@@ -1,0 +1,155 @@
+
+
+Class82- Date 03dec2023
+
+===================== JavaScript Function Parameters ======================
+
+Functions
+- Function Expression
+- Function Declaration
+- Function Definition
+- Function Parameters
+
+                           Rest Parameters
+                           -----------------------
+- JavaScript E5+ version introduced rest parameter.
+- A rest parameter is single parameter in function, which can handle multiple arguments.
+- It is defined by using "..." operator.
+
+Syntax:
+        function  Name(...param)
+        {
+        }
+
+        Name(arg1, arg2, arg3,...);
+
+- Rest parameter is an array type parameter
+
+        ...param[]     =>  [0]=arg1,  [1]=arg2,  [2]=arg3
+
+- Every function can have only one rest parameter.
+
+        function Name(...param1, ...param2)  => invalid
+        {
+        }
+
+- You can define other parameters along with rest parameter.
+
+- But rest parameter must be last parameter in formal list.
+
+Note: Rest parameter reads arguments upto end, hence it must be the last parameter
+      in a list.
+
+Ex:
+<script>
+    function Product(title, ...details)
+    {
+        var [id, name, price, stock] = details;
+        document.write(`
+            <h3>${title}</h3>
+            Id=${id} <br>
+            Name=${name} <br>
+            Price=${price}<br>
+            Stock=${stock}
+        `);
+    }
+    Product( "Product Details" , 1, "TV", 30000.44, true);
+</script>
+
+
+                        Spread Operation
+                        ------------------------
+
+- Spread is the process of expanding one argument into multiple parameters.
+- Spreading one argument values into multiple parameters.
+
+Syntax:
+        function  Name(param1, param2, param3)
+        {
+
+        }
+
+        var values = [val1, val2, val3];
+
+        Name(...values);
+
+        param1 = values[0]
+        param2 = values[1]
+        param3 = values[3]
+
+Ex:
+<script>
+    function Product(id, name, price, stock)
+    {
+        document.write(`
+            Id=${id} <br>
+            Name=${name} <br>
+            Price=${price}<br>
+            Stock=${stock}
+        `);
+    }
+    Product(...[1, "TV", 45000.44, true]);
+</script>
+
+Ex:
+<script>
+    var one = ["A", "B"];
+    var val = "C";
+    console.log([...one, val]);        => ["A", "B", "C"]        [array]
+    console.log([one, val]);        => [ ["A","B"], "C"]        [array]
+    console.log(...one, val);        => A B C              [string]
+    console.log(one, val);            => ["A", "B"], "C"        [array and string]
+</script>
+
+Ex: Concat Arrays
+
+<script>
+    var one = ["A", "B"];
+    var two = ["C", "D"];
+    var result1 = one.concat(two);
+    var result2 = [...one, ...two];
+    console.log(result1);
+    console.log(result2);
+</script>
+
+
+Ex: Copy Array
+
+<script>
+    var one = ["A", "B"];
+    var two = [...one];
+   
+    console.log(one);
+    console.log(two);
+</script>
+
+FAQ: What is difference between rest and spread?
+Ans:  "Rest" is about formal parameters.   [defined in function declaration]
+     "Spread" is about actual arguments. [defined in function call]
+
+     
+                       Function with Return
+                       ----------------------------
+- A function uses "return" to terminate the function before it disposes the memory.
+- So that function memory is available to store values of a function.
+- It can perform specified functionality and store the results.
+
+Syntax:
+    function Name()
+    {
+      return value;
+    }
+
+    Name = value;
+
+
+Ex:
+<script>
+   function Addition(a, b){
+      return a + b;
+   }
+   function Result(){
+      document.write(`Addition=${Addition(30,50)}`);
+   }
+   Result();
+</script>

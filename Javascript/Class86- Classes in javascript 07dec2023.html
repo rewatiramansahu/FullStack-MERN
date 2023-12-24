@@ -1,0 +1,182 @@
+
+Class86- Date 07dec2023
+
+========================== Classes in JavaScript =======================
+
+Various Programming Arch
+
+		- POPS
+		- OBPS
+		- OOPS
+		
+Features of OOP
+Drawbacks of OOP
+Evolution of OOP
+
+		SIMULA
+		SMALL Talk [Trygve]
+		C++, Java, C# etc..
+		
+Modules in OOP
+
+		- Code Reusability    
+		- Code Separation
+		- Easy Extensibility
+		
+Export module members
+Default Export
+Import function from module
+Various Module System
+
+		- Common JS
+		- Require JS
+		- UMD
+		- AMD
+		- ESModule
+
+                              Class in OOP
+- Class is a program template that provides data and logic, which you can implement and customize according to requriements.
+- Class have the behavior of Entity when it comprises of business related interactions.
+- Class have the behavior of Model when it comprises of data related interactions.
+- Class is used as a blue print to customize and create multiple copies according to the requirements.
+
+
+Configuring a class in JavaScript:
+
+a) Declaration
+
+        class   Name
+        {
+
+        }
+
+b) Expression
+
+        var  Name = class {
+
+        }
+
+
+Class Members:
+- JavaScript classes support only following members
+
+    a) Property
+    b) Method
+    c) Accessor
+    d) Constructor
+
+FAQ: Can we define a variable as class member?
+Ans : No. But you can have a variable in class as a member of any method.
+
+FAQ: Why variable can't be a class member?
+Ans : It is immutable and class can have only mutable members.
+
+
+                         Property in Class
+
+- A property in class is used to store data.
+- It is mutable, which can change according to state and situation.
+
+Syntax:
+        class  Name
+        {
+            PropertyName = Value;
+        }
+
+- A property can handle any type of data
+       
+        a) Primtive
+        b) Non Primitive
+        c) Date
+
+- You have to create an instance for class in order to access the class members.
+
+Syntax:
+        class Product
+        {
+            Name;
+            Price;
+        }
+
+        let  tv = new Product();
+        tv.Name = "Samsung TV";
+
+Ex:
+<script>
+    class Product
+    {
+        Name = "";
+        Price = 0;
+        Stock = false;
+        Cities = [];
+        Rating = {Rate:0, Count:0}
+    }
+    let tv = new Product();
+    tv.Name = prompt("Enter Name");
+    tv.Price = parseFloat(prompt("Enter Price"));
+    tv.Stock = (prompt("Enter Stock Status", "true|false")==="true"?true:false);
+    for(var i=0; i<2; i++){
+        tv.Cities[i] = prompt(`Enter City-${i+1}`);
+    }
+    tv.Rating.Rate = parseInt(prompt("Enter Rating"));
+    tv.Rating.Count = parseInt(prompt("Enter Rating Count"));
+
+    console.log(JSON.stringify(tv));
+</script>
+
+
+                              Accessors
+- Accessors are used to configure fine grained control over properties.
+- Accessor can manage read and write operations on a property.
+- Every property comprises of 2 accessors
+   
+        a) get()            Getter
+        b) set()            Setter
+
+- Getter is used to read and return the value defined in property.
+- Setter is used to store a new value into property.
+
+Syntax:
+        Property;
+   
+        get  AliasName()
+        {
+           return  this.Property;
+        }
+
+        set  AliasName(newValue)
+        {
+          this.Property = newValue;
+        }
+
+Ex:
+<script>
+    var userName = prompt("Enter Your Name");
+    var userRole = prompt("Enter Your Role", "admin|customer");
+    var productname = prompt("Enter New Name for Product");
+    class Product
+    {
+        _productName;
+        get ProductName()
+        {
+            return this._productName;
+        }
+        set ProductName(newName)
+        {
+            if(userRole==="admin")
+            {
+                this._productName = newName;
+            }
+            else
+            {
+                document.write(`Hello ! ${userName} you are not authorized to set product name`);
+            }
+        }
+    }
+    let tv = new Product();
+    tv.ProductName = productname;
+    if(tv.ProductName)
+    {
+        document.write(`Product Name : ${tv.ProductName}`);
+    }
+</script>

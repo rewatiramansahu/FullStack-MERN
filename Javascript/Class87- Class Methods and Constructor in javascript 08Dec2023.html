@@ -1,0 +1,278 @@
+
+
+Class86- Date 08dec2023
+
+======================= Class Methods and Constructor ===================
+
+Modules
+Class
+Class Members
+    - Property
+    - Accessor    
+
+- Accessor is also used to set an alias name for property in class to access from a multi level hierarchy.
+
+- If accessor is defined with only "get()" then, it is considered as read-only.
+
+
+Ex:
+<script>
+    class Product
+    {
+        Name = "Samsung TV";
+        Price = 45000.44;
+        Rating = {
+            Vendor: {
+                Bajaj : {Rate:4.3, Count:56},
+                Reliance: {Rate:4.5, Count:30}
+            },
+            Customer: {
+                Rate:4.2, Count:4000
+            }
+        }
+        get RelianceRating(){
+            return this.Rating.Vendor.Reliance.Rate;
+        }
+        set RelianceRating(newRating){
+            this.Rating.Vendor.Reliance.Rate = newRating;
+        }
+    }
+    let tv = new Product();
+    tv.RelianceRating = prompt("Enter Reliance Rating");
+    document.write(`Name=${tv.Name}<br>Reliance Vendor Rating: ${tv.RelianceRating}`);
+</script>
+
+                             Method
+- A method configures the actions to perform.
+- It is mutable.
+- A JavaScript method can be void or return a value.
+
+Syntax:
+    class  Name
+    {
+           MethodName()
+           {
+           }
+       }
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Database
+        {
+            DatabaseName = "";
+
+            Insert(){
+                return `Connected to ${this.DatabaseName} - Record Inserted`;
+            }
+
+            Update(){
+                return `Connected to ${this.DatabaseName} - Record Updated`;
+            }
+
+            Delete(){
+                return `Connected to ${this.DatabaseName} - Record Deleted`;
+            }
+        }
+        function DatabaseAction(action){
+            var msg;
+            var dbName = document.querySelector("select").value;
+            switch(action)
+            {
+                case "Insert":
+                let obj1 = new Database();
+                obj1.DatabaseName = dbName;
+                msg = obj1.Insert();
+                break;
+                case "Update":
+                let obj2 = new Database();
+                obj2.DatabaseName = dbName;
+                msg = obj2.Update();
+                break;
+                case "Delete":
+                let obj3 = new Database();
+                obj3.DatabaseName = dbName;
+                msg = obj3.Delete();
+                break;
+            }
+            document.querySelector("p").innerHTML = msg;
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Connect with Database</legend>
+        <dl>
+            <dt>Select Database</dt>
+            <dd>
+                <select>
+                    <option>Select Database</option>
+                    <option>Oracle</option>
+                    <option>MySql</option>
+                    <option>MongoDB</option>
+                </select>
+            </dd>
+            <dt>Select Action</dt>
+            <dd>
+                <button onclick="DatabaseAction('Insert')">Insert</button>
+                <button onclick="DatabaseAction('Update')">Update</button>
+                <button onclick="DatabaseAction('Delete')">Delete</button>
+            </dd>
+        </dl>
+    </fieldset>
+    <p align="center"></p>
+</body>
+</html>
+
+Ex:
+<script>
+    class Product
+    {
+        Name = "";
+        Price = 0;
+        Qty = 0;
+        Total(){
+            return this.Qty * this.Price;
+        }
+        Print(){
+            document.write(`Name=${this.Name}<br>Price=${this.Price}<br>Qty=${this.Qty}<br>Total=${this.Total()}`);
+        }
+    }
+    var obj = new Product();
+    obj.Name = prompt("Enter Name");
+    obj.Price = parseFloat(prompt("Enter Price"));
+    obj.Qty = parseInt(prompt("Enter Qty"));
+    obj.Print();
+</script>
+
+                               Constructor
+
+- Constructor is a software design pattern used for instantiation.
+- Instantiation is the process of creating a object for class, allocting memory and loading class members into memory.
+- Technically a constructor is used to create an object for class.
+- Every class have a default constructor.
+- Constructor is a special type of "sub routine" [method], which executes automatically for every object.
+- JavaScript constructor is anonymous. [no-name]
+
+Syntax:
+    class Database
+    {
+       constructor() {  }
+    }
+
+- JavaScript constructor can't overload and can't have any access modifiers.
+   [public, private, protected..]
+
+- Constructor can be parameterized.
+- If a constructor is parameterized then the parameters are passed while allocating memory for class.
+
+    var obj = new ClassName(paramValue);
+
+    class  ClassName
+    {
+       constructor(param)
+       {
+       }
+        }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Database
+        {
+           constructor(dbName){
+             document.write(`Connected to ${dbName} Database<br>`);
+           }
+           Insert(){
+             document.write("Record Inserted");
+           }
+           Delete(){
+            document.write("Record Deleted..");
+           }
+        }
+        function InsertClick(){
+            var obj = new Database(document.querySelector("select").value);
+            obj.Insert();
+        }
+        function DeleteClick(){
+            var obj = new Database(document.querySelector("select").value);
+            obj.Delete();
+        }
+     </script>
+</head>
+<body>
+    <div>
+        <select>
+            <option>Choose Database</option>
+            <option>MongoDB</option>
+            <option>Oracle</option>
+            <option>MySql</option>
+        </select>
+    </div>
+    <br><br>
+    <button onclick="InsertClick()">Insert</button>
+    <button onclick="DeleteClick()">Delete</button>
+</body>
+</html>
+
+Summary
+- Property
+- Accessor
+- Method
+- Constructor
+
+Ex:   library/modules/database.js
+
+
+export class Oracle
+{
+    Insert(){
+        return "Record Inserted into Oracle Database";
+    }
+    Update(){
+        return "Record Update on Oracle Database";
+    }
+}
+
+export class MySql
+{
+    Insert(){
+        return "Record Inserted into MySql Database";
+    }
+    Update(){
+        return "Record Update on MySql Database";
+    }
+}
+
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+        import { Oracle } from "../library/modules/database.js";
+
+        let ora = new Oracle();
+        document.querySelector("p").innerHTML = ora.Update();
+
+   
+    </script>
+</head>
+<body>
+    <p></p>
+</body>
+</html>

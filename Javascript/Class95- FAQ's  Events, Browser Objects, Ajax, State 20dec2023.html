@@ -1,0 +1,228 @@
+
+Class95= Date 20dec2023
+
+============================ FAQ ============================
+
+FAQ's 
+Sudhakar Sharma
+•
+8:47 AM
+FAQ's:  Events, Browser Objects, Ajax, State
+
+1. What is the pattern used by event?
+A. Observer
+
+2. What is Event Handler?
+
+3. What is Event Listener?
+
+4. What are default event arguments?
+
+5. Can we pass custom arguments?
+
+6. What is the type for custom argument?
+
+7. Can we define rest and spread for events?
+
+8. How to prevent default event?
+A. Generic elements have default events that fireup automatically.
+    You can prevent the default event by using the event method "preventDefault()".
+
+        function  SubmitClick(e)
+        {
+           e.preventDefault();
+        }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function SubmitClick(e){
+            e.preventDefault();
+            alert("Form will Submit");
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="SubmitClick(event)">
+        User Name :
+        <input type="text" name="Username"> <button>Submit</button>
+    </form>
+</body>
+</html>
+
+
+
+9. How to stop propagation? [Event]
+A. Propagation is the process of executing the parent events automatically after the child element event is triggered.
+    The child event have to stop propagation using event method "stopPropagation()".
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ContainerClick(){
+            alert("You clicked inside container");
+           
+        }
+        function SubmitClick(e){
+           
+            alert("You clicked submit button");
+            e.stopPropagation();
+        }
+    </script>
+</head>
+<body>
+     <div onclick="ContainerClick()" style="border:2px solid black; padding: 20px; width: 200px;">
+        Container
+        <button onclick="SubmitClick(event)">Submit</button>
+     </div>
+</body>
+</html>
+
+10. How to submit form using the events of other elements in page?
+A. By calling the form element "submit()" method on any browser event.
+       
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function CityChanged(){
+            frmRegister.submit();
+        }
+    </script>
+</head>
+<body>
+    <form name="frmRegister" action="ajax-fakestore.html">
+        Your City:
+        <select name="City" onchange="CityChanged()">
+            <option>Choose City</option>
+            <option>Delhi</option>
+            <option>Hyd</option>
+        </select>
+    </form>
+</body>
+</html>
+
+11. What is state?
+
+12. Why you need State?
+
+13. Why Http is known as state less protocol?
+
+14. What are various state management techniques used client side?
+
+15. Difference between localStorage and SessionStorage?
+
+16. What are cookies?
+
+17. How to make a cookie permanent?
+
+18. How to check the status of cookie, enabled or not?
+      [navigator.cookieEnabled]
+
+19. How to delete a permanent cookie?
+      [by configuring expiry to elapsed date]
+
+20. How to navigate to any page dynamically?
+       [location.href]
+
+21. How to check the status of JavaScript, enabled or not?
+A. By using <noscript> element.
+
+    <body>
+        <noscript>
+              please enable javascript on your browser
+        </noscript>
+    </body>
+
+22. How to check the status of any plugin?
+A.  navigator.plugins[]
+
+Ex:
+<script>
+    for(var plugin of navigator.plugins)
+    {
+        document.write(plugin.name  + "<br>");
+    }
+    if(navigator.plugins['Microsoft Edge PDF Viewer'])
+    {
+        document.write("You can watch PDF Documents<br>");
+        alert("You can install additional plugins");
+        location.href = "http://www.adobe.com&quot;;
+    }
+    else
+    {
+        document.write("Please install PDF Plugin");
+    }
+</script>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function Status(){
+            document.querySelector("p").innerHTML = "<div class='spinner-border'></div>Transaction Completed<br>Please Wait we are redirecting..";
+        }
+        function Redirect(){
+            location.href = "http://www.amazon.in&quot;;
+        }
+        function PayClick(){
+            setTimeout(Status,2000);
+            setTimeout(Redirect,10000);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="PayClick()">Pay</button>
+    <p></p>
+</body>
+</html>
+
+23. How to reload a page on button click?
+A.   location.reload()
+
+
+24. How to reload a page at regular time intervals?
+A.
+        <meta http-equiv="refresh"  content="5">
+
+25. How to get current location of client?
+A.   By using navigator.getGeolocation(), using latitude and longitude values.
+
+26. What is Ajax?
+
+27. Why we need Ajax?
+
+28. What is readyState?
+
+29. What are the response types?
+
+30.  How to convert a response into JSON?
+A.    JSON.parse()    => convert string into JSON
+    JSON.stringfy()  => convert JSON into string.
+
+
+                            jQuery
+- John Resig introduced a library for JavaScript in 2006 by name "jQuery".
+- A library contains pre-defined functions.
+- jQuery functions are designed to implement the mechanism "Write Less-Do More".
+- jQuery reduces browser compatibility issues.

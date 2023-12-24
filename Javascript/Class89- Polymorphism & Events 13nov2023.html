@@ -1,0 +1,138 @@
+
+
+Class89 = Date 13nov2023
+
+===================== Polymorphism and Events =====================
+
+Aggregation    : Has-A-Relation
+Inheritance    : Is-A-Relation
+
+                            Polymorphism
+- The term "Poly" refers to "Many" and "Morphos" means "Forms".
+- Polymorphism allows a component to work for various situations.
+- In technical terms a single super class object can use the memory of multiple derived classes, which resembles "Polymorphism".
+
+Syntax:
+    let obj = new Array(new Class1(), new Class2(), ...);
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Employee
+        {
+            FirstName;
+            LastName;
+            Designation;
+            Print(){
+                document.write(`${this.FirstName} ${this.LastName} - ${this.Designation}<br>`);
+            }
+        }
+        class Developer extends Employee
+        {
+            FirstName = "Raj";
+            LastName = "Kumar";
+            Designation = "Developer";
+            Role = "Developer Role : Build, Debug, Test, Deploy";
+            Print(){
+                super.Print();
+                document.write(`${this.Role}`);
+            }
+        }
+        class Admin extends Employee
+        {
+            FirstName = "Kiran";
+            LastName = "Rao";
+            Designation = "Admin";
+            Role = "Admin Role : Authorizations";
+            Print(){
+                super.Print();
+                document.write(`${this.Role}`);
+            }
+        }
+        class Manager extends Employee
+        {
+            FirstName = "Tom";
+            LastName = "Hanks";
+            Designation = "Manager";
+            Role = "Manager Role : Approvals";
+            Print(){
+                super.Print();
+                document.write(`${this.Role}`);
+            }
+        }
+        let employees = [];
+        employees[0] = new Developer();
+        employees[1] = new Admin();
+        employees[2] = new Manager();
+        let designation = prompt("Enter Designation");
+        for(var employee of employees)
+        {
+            if(employee.Designation===designation){
+                employee.Print();
+            }
+        }
+    </script>
+</head>
+<body>
+   
+</body>
+</html>
+
+Task: Create seprate classes for all mathematical operations [+, - , *, %]
+      Create one object that manages all calculations.
+
+
+                            Browser Events
+
+- Event is a message sent by sender to its subscriber in order to notify the change.
+- Event follows a software design pattern called "Observer", which is a communication pattern.
+- Sender Sends a notification to Subscriber.
+- Subscriber comprises of actions to perform when notified.
+
+        function InsertClick()        => Subscriber
+        {
+        }
+
+        <button onclick="InsertClick()">    => Sender
+
+- Event uses a "Delegate" mechanism, which is a function pointer.
+- It is not calling the function, it is pointing towards the function.
+
+Event Handler:
+- Event handler defines the actions to perform on specific element trigger.
+
+        onclick                => Event
+        onclick="InsertClick()"    => Event Handler
+
+Event Listener:
+- It allows to bind any event to element dynamically.
+- It enables clean separation of code and design.
+
+    document.querySelector("button").addEventListener("click", function(){
+
+    })
+
+EX:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bodyload(){
+            document.querySelector("button").addEventListener("click", function(){
+                 alert("Button CLicked");
+            })
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <button>Insert</button>
+</body>
+</html>

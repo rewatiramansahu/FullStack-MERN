@@ -1,0 +1,170 @@
+
+
+Class85- Date 06dec2023
+
+========================== JavaScript OOP =======================
+
+
+Functions in JavaScript
+- Callbacks
+- Promise
+- Closure
+- Return
+- Parameters
+- Rest
+- Spread
+
+                              JavaScript OOP
+- JavaScript is not an OOP language.
+- It supports few features of OOP.
+- In real world development various programming architectures are used
+
+    a) POPS
+    b) OBPS
+    c) OOPS
+
+POPS
+- Process Oriented Programming System
+- It supports low level features.
+- It can directly interact with hardware services.
+- It uses less memory.
+- It is faster.
+
+Ex: C, Pascal etc..
+       
+- No dynamic memory
+- Hard to extend
+- Reusability issues
+
+OBPS
+- Object Based Programming System
+- It supports dynamic memory
+- Can extend
+- Can allow reusability
+- Less memory but legacy
+
+Ex: Visual Basic, JavaScript
+
+- No dynamic polymorphism
+- Extensibility issues
+- Code level security issues
+
+OOPS
+- Object Oriented Programming System
+- Resuability
+- Extensibility
+- Code Security
+- Dynamic Polymorphism
+
+Ex: C++, Java, C#
+
+- It is heavy
+- It uses more memory
+- It can't directly interact with hardware
+- It is slow
+
+Evolution of OOP
+- "Alan Kay" introduced concept of Object in early 1960's
+- "Johan Oley, Kristian Nygaard" developed OOP. [1967]
+- Introduced code reusability.
+- SIMULA is the first OOP language.
+- In early 1970's "Trygve" introduced code separation.
+- Trygve developed MVC architecture [Model-View-Controller]
+- 1970's  C++
+- 1990's  Java
+- 2003    C#
+
+                          JavaScript Modules
+- A module comprises of data and logic.
+- Application is built by using a set of modules.
+- Module enables code resuability and extensibility.
+- JavaScript requires a special module system to use modules.
+- There are various Javascript module systems
+
+        a) Common JS
+        b) Require JS
+        c) UMD [Universal Module Distribution]
+        d) AMS [Asynchronous Module Distribution]
+        e) ES Module
+
+Creating a JS Module:
+- Every JavaScript file is technically a module.
+- Hence to create a module you have to add a "JS" file into project
+
+                index.js
+
+- The file name is used as module name. [Index module]
+- Every JS module comprises of
+        a) Classes
+        b) Functions
+        c) Variables
+
+Syntax:
+            index.js
+       
+        var name="John";
+
+        function Hello(){
+            return `Hello ! ${name}`;
+        }
+
+- The members of module are by default private in access.
+- To access outside module scope we have to mark them as "export".
+
+        export function Hello() { }
+        export name;
+
+- You can import and use in any page.
+
+        <script type="module">
+           
+                import  { Hello }  from  "../home.js";
+   
+        </script>
+
+- Every module can have one default export.
+- A default export loads and unload automantically.
+- It doesn't require a block to configure start and stop.
+
+    export default function Hello() { }
+
+    import  Hello  from  "home.js";        => valid
+
+    import { Hello } from "home.js" ;        => invalid
+
+Ex:
+1. Add new folders into project
+
+        Library => Modules
+
+2. Add a new file  "home.js" into modules folder
+
+var title = "Fashion Store | Home";
+
+export function PrintTitle(){
+    return title;
+}
+
+export default function PrintSubTitle(){
+    return "<b>Shop Online - Kids, Men, Women Fashion - 50% OFF</b>";
+}
+
+3. Add a new HTML page and import modules
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+        import PrintSubTitle, { PrintTitle } from "../library/modules/home.js";
+        document.querySelector("h1").innerHTML = PrintTitle();
+        document.querySelector("p").innerHTML = PrintSubTitle();
+    </script>
+</head>
+<body>
+    <h1 align="center"></h1>
+    <p></p>
+</body>
+</html>

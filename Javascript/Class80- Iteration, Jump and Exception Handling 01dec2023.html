@@ -1,0 +1,189 @@
+
+Class80- Date 01dec2023
+
+======================= Iteration, Jump and Exception Handling =====================
+
+Loops
+    - for
+    - while
+    - do while
+Iterations
+    - for..in
+    - for..of
+
+ Iteration is a software design pattern, which is used to read elements from a collection in sequential order.
+
+Syntax:
+    for(var property in collection)            => It reads all properties
+    {
+    }
+
+    for(var value of collection)            => It reads all values
+    {
+    }
+
+Iteration doesn't require initialization, condition and counter.
+
+Ex:
+<script>
+   var categories = ["All", "Electronics", "Fashion"];
+   // Loop
+   for(var i=0; i<categories.length; i++)
+   {
+      document.write(categories[i] + "<br>");
+   }
+
+   // Iteration
+   for(var value of categories)
+   {
+      document.write(value  + "<br>");
+   }
+</script>
+
+FAQ: How an iterator works?
+Ans:  It uses a function Generator.
+     A function generator have implicit methods to read and return values from a
+     collection.
+
+                         Jump Statements
+- break
+- return
+- continue
+
+- break terminates the current block, but stays in function.
+- return terminates the block and compilation. [It exits the function].
+- continue skips the counter that matches given condition.
+
+Ex:
+<script>
+   fetch("http://fakestoreapi.com/products&quot;)
+   .then(function(res){
+     return res.json();
+   })
+   .then(function(products){
+       for(var product of products){
+           if(product.category==="electronics" || product.category==="women's clothing"){
+               continue;
+           }
+           document.write(`${product.title} - <b> <font color='red'> ${product.category} </font> </b> <br>`);      
+        }
+   })
+</script>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+      function VerifyUserId(){
+          var userid = document.getElementById("UserId").value;
+          var lblError = document.getElementById("lblError");
+          fetch("../data/users.json")
+          .then(function(res){
+            return res.json();
+          })
+          .then(function(users){
+              for(var user of users)
+              {
+                   if(user.UserId===userid){
+                      lblError.innerHTML = "User Id Taken - Try Another".fontcolor('red');
+                      return;
+                   } else {
+                      lblError.innerHTML = "User ID Available".fontcolor('green');
+                   }
+              }
+          })
+      }
+  </script>
+</head>
+<body>
+   <dl>
+    <h3>Register User</h3>
+    <dt>User Id</dt>
+    <dd><input type="text" id="UserId" onkeyup="VerifyUserId()"></dd>
+    <dd id="lblError"></dd>
+   </dl>
+</body>
+</html>
+
+FAQ: When an unreachable code is configured and how it is configured?
+Ans: If the code is not implemented and need to implement then we can stop the compiler by using "return", so that it can't reach the code which is not implemented.
+   
+Syntax:
+    function f1()
+    {
+      statement-1;
+      break;            => invalid
+      statement-2;
+    }
+
+    function f1()
+    {
+     statement-1;
+     return;            => valid
+     statement-2;
+    }
+
+
+                        Exception Handling Statements
+                    ------------------------------------------
+- The errors in computer programming are classified into 2 types
+    a) Compile time errors
+    b) Runtime errors
+
+- Compile time errors will occur when a compiler is unable to understand the keywords, syntax and blocks in your code. If a compile time error occurs then it stops the compilation and can't start your application.
+
+- Runtime errors will occur at the time of using application. A program compiles and executes successfully. However it may terminate abnormally when compiler is unable to understand and process your instructions at runtime.
+
+- Hence exception handling is required to avoid abnormal termination.
+
+- Exception handling is configured using
+
+    a) try            : monitioring block, contains statements to execute.
+    b) catch          : handler block, can catch the exception thrown.
+    c) throw          : throw is used to throw exception explicitly.
+    d) finally        : It is a block that executes always.
+
+Syntax:
+    try
+    {
+     statements to execute
+     throw "exception";
+    }
+    catch(exception)
+    {    
+      report exception;
+    }
+    finally
+    {
+      statements to execute always;
+    }
+
+Ex:
+<script>
+    try
+    {
+        var a = parseInt(prompt("Enter A"));
+        var b = parseInt(prompt("Enter B"));
+        if(b==0){
+            throw "Can't Divide By Zero";
+        }
+        if(b>a){
+            throw "Can't divide by larger number";
+        }
+        var c = a / b;
+        document.write(`Division=${c}<br>`);
+    }
+    catch(error)
+    {
+        document.write(error + "<br>");
+    }
+    finally
+    {
+        document.write("End to Program");
+    }
+</script>

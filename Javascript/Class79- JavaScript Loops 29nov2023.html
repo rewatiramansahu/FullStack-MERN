@@ -1,0 +1,123 @@
+
+
+Class79- Date 29nov2023
+
+=========================== javaScript Loops ==========================
+
+Looping Control
+- for loop
+    a) Initialization
+    b) Condition
+    c) Counter
+
+Ex: Nested Loop
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script>
+      var menuItems = [
+         {Category: "Electronics", Products:["TV","Mobile", "Watch"]},
+         {Category: "Fashion", Products: ["Kid's", "Women", "Men's"]}
+      ];
+      function bodyload(){
+         for(var i=0; i<menuItems.length; i++)
+         {
+              var olLi = document.createElement("li");
+              olLi.innerHTML = menuItems[i].Category;
+              for(var j=0; j<menuItems[i].Products.length; j++)
+              {
+                  var ul = document.createElement("ul");
+                  var ulLi = document.createElement("li");
+                  ulLi.innerHTML = menuItems[i].Products[j];
+                  ul.appendChild(ulLi);
+                  olLi.appendChild(ul);
+                  document.querySelector("ol").appendChild(olLi);
+              }
+         }
+      }
+   </script>
+</head>
+<body onload="bodyload()">
+   <ol></ol>
+</body>
+</html>
+
+Ex:
+<script>
+     var n = parseInt(prompt("Enter Number"));
+
+     for(var i=1; i<=n; i++) {
+        for(var j=1; j<=i; j++) {
+            document.write( "*"  + "&nbsp; &nbsp;");
+        }
+        document.write("<br>");
+     }
+</script>
+
+                             While Loop
+- It is used for collections when developer is not sure about the number of iterations and iteration counter may change dynamically.
+- It will use initialization, condition and counter.
+- It will start loop only when condition evaluates to true.
+
+Syntax:
+    initialization;
+    while(condition)
+    {
+       statements;
+       counter;
+    }
+Ex:
+<script>
+     var i = 5;
+     while(i<=10)
+     {
+        document.write(i + "<br>");
+        i++;
+     }
+</script>
+
+Ex:
+<script>
+     
+     var i = 1;
+     while(i<=3)
+     {
+        var n = parseInt(prompt("Enter an Even Number"));
+        if(n % 2 == 0)
+        {
+            document.write("Success..");
+            break;
+        }
+        else {
+            alert(`Not an Even Number - ${3-i} attempts left`);
+        }
+        i++;
+     }
+</script>
+
+Note: You need jump statement with in looping control to exit the loop based on specified condition. [break, return]
+
+                         do while
+- While and do-while are similar.
+- But do-while ensures that the statement will execute at least once even when the condition is false.
+
+Syntax:
+    do
+    {
+      statements;
+      counter;
+    } while(condition);
+
+Ex:
+<script>
+   var i = 15;
+   do
+   {
+     document.write(i + "<br>");
+     i++;
+   }while(i<=10);
+</script>

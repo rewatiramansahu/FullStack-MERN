@@ -1,0 +1,267 @@
+
+Class91= 15dec2023
+
+==================================== Events Continued ==================================
+
+Event Arguments
+Events
+- Mouse Events
+
+                         Keyboard Events
+
+- onkeyup
+- onkeydown
+- onkeypress
+
+Note: If you are writing for character then use keyup & keydown.
+          If you are writing for character code then use keypress.
+      The key event args are:
+            keyCode
+            charCode
+            which
+            shiftKey
+            ctrlKey
+            altKey
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyUser(){
+            var userid = document.getElementById("UserId").value;
+            var userError = document.getElementById("UserError");
+
+            fetch("../data/users.json")
+            .then(response=> response.json())
+            .then(users=>{
+                for(var user of users)
+                {
+                    if(user.UserId===userid){
+                        userError.innerHTML = "User Id Taken - Try Another".fontcolor('red');
+                        break;
+                    } else {
+                        userError.innerHTML = "User Id Available".fontcolor('green');
+                    }
+                }
+            })
+        }
+        function VerifyCaps(e){
+            var PwdError = document.getElementById("PwdError");
+            if(e.keyCode>=65 && e.keyCode<=90){
+                PwdError.style.display = "block";  
+            } else {
+                PwdError.style.display = "none";
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    <fieldset>
+        <legend>Register User</legend>
+        <dl>
+            <dt>User Id</dt>
+            <dd><input type="text" onkeyup="VerifyUser()" id="UserId"></dd>
+            <dd id="UserError"></dd>
+            <dt>Password</dt>
+            <dd><input type="password" onkeypress="VerifyCaps(event)" id="Password"></dd>
+            <dd id="PwdError" style="color:goldenrod;display: none;">
+                <span class="bi bi-exclamation-triangle"></span> Warning : CAPS ON
+            </dd>
+        </dl>
+    </fieldset>
+</body>
+</html>
+
+                            Button Events
+- onclick                [left single click]
+- ondblclick            [left double click]
+- oncontextmenu        [right single click]
+
+Note: If you want to disable any event, then configure a function that returns false.
+
+Syntax:
+    document.oncontextmenu = function(){
+        return false;
+    }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function OpenImage(){
+            window.open("../public/images/women-fashion.jpg","Fashion","width=400 height=500");
+        }
+        document.oncontextmenu = function(){
+            alert("Right Click Not Allowed");
+            return false;
+        }
+        document.onselectstart = function(){
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <img src="../public/images/women-fashion.jpg" ondblclick="OpenImage()" width="100" height="100">
+    <p>Double Click to view large.</p>
+    <p>Selection Disabled on this page.</p>
+</body>
+</html>
+
+                            Element State Events
+
+-onchange
+-onfocus
+-onblur
+-onselectstart
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyUserId(obj){
+            var userError = document.getElementById("userError");
+            if(obj.value==""){
+                userError.innerHTML = "User ID Required".fontcolor('red');
+            } else {
+                userError.innerHTML = "";
+                document.getElementById("UserId").value = obj.value.toUpperCase();
+            }
+        }
+        function ShowTip(){
+            document.getElementById("userError").innerHTML = "Name in Block Letters Only".fontcolor('gold');  
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Register User</legend>
+        <dl>
+            <dt>User Id</dt>
+            <dd><input type="text" id="UserId" onfocus="ShowTip()" onblur="VerifyUserId(this)"></dd>
+            <dd id="userError"></dd>
+        </dl>
+    </fieldset>
+</body>
+</html>
+
+                          Clipboard Events
+
+oncut
+oncopy
+onpaste
+
+- Clipboard is the temporary memory for windows.
+- The content that you cut or copy is kept on clipboard.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Cut(){
+              document.getElementById("lblStatus").innerHTML = "Removed - Copied to Clipboard";
+        }
+        function Copy(){
+            document.getElementById("lblStatus").innerHTML = "Copied to Clipboard";
+        }
+    </script>
+</head>
+<body>
+   <dl>
+    <dt>OTP</dt>
+    <dd><input type="text" id="OTP" oncut="Cut()" oncopy="Copy()" value="88456"></dd>
+    <dd id="lblStatus"></dd>
+    <dt>Password</dt>
+    <dd><input type="password" onpaste="return false"></dd>
+   </dl>
+</body>
+</html>
+
+Syntax:
+    <script>
+        document.oncopy = function() {
+            return false;
+        }
+    </script>
+
+                            TimerEvents
+setTimeout()
+clearTimeout()
+setInterval()
+clearInterval()
+
+                            Touch Events
+ontouchstart
+ontouchend
+ontouchmove
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ShowOffer(val)
+        {
+            var p = document.querySelector("p");
+            switch(val)
+            {
+                case "women":
+                 p.innerHTML = "20% OFF on women fashion";
+                 break;
+                case "men":
+                p.innerHTML = "50% oFF on latest arrivals - Men Fashion";
+                break;
+                case "kids":
+                p.innerHTML = "15% OFF on Kids Fashhion";
+                break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <img ontouchstart="ShowOffer('women')" src="../public/images/women-fashion.jpg" width="200" height="300">
+    <img ontouchstart="ShowOffer('men')" src="../public/images/men-fashion.jpeg" width="200" height="300">
+    <img ontouchstart="ShowOffer('kids')" src="../public/images/kids-fashion.jpg" width="200" height="300">
+    <p></p>
+</body>
+</html>
+
+                        Form Events
+onsubmit
+onreset
+
+- These are the events configure for <form> element.
+- They define actions to perform when user submits or reset a form.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onreset="alert('Form will reset')" onsubmit="alert('form data will be submitted to API')">
+        UserName : <input type="text" name="UserName"> <button>Submit</button> <button type="reset">Cancel</button>
+    </form>
+</body>
+</html>

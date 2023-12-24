@@ -1,0 +1,160 @@
+
+Class92= Date 16nov2023
+
+============================ BOM ===========================
+
+Browser Objects
+                        [BOM - Browser Object Model]
+
+1. window
+2. location
+3. navigator
+4. history
+5. document
+
+window:
+- It provides properties and methods that are used to control the browser window.
+
+            alert()
+            prompt()
+            confirm()
+            open()
+            close()
+            print() etc..
+
+Syntax:
+        window.alert()
+        alert()
+
+location:
+- It provides properties and methods that are used to access client location details.
+
+        host            IP address / server name
+        port            It returns the port number
+        href            It returns complete URL
+        protocol        It returns the protocol [http, https, file..]
+        search        	It returns query string
+        hash        	It returns current location "id"  [ #name ]        
+        reload()        It reloads current page.
+
+Ex:
+<script>
+    if(location.protocol==="http:") {
+        document.write(`
+         Your IP : ${location.host}  <br>
+         Port Number : ${location.port} <br>
+         URL : ${location.href} <br>
+         
+    `);
+    } else {
+        document.write(`Please run the app using live server - You are not using live server`);
+    }
+</script>
+
+FAQ: How to navigate dynamically in JavaScript?
+Ans:  By using "location.href"
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function LoginClick(){
+            var username = document.getElementById("UserName").value;
+            var password = document.getElementById("Password").value;
+            if(username==="john" && password==="john@123"){
+                location.href="../javascript-examples/kfc-online.html";
+            } else {
+                location.href="error.html";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>User Login</h2>
+    <dl>
+        <dt>UserName</dt>
+        <dd><input type="text" id="UserName"></dd>
+        <dt>Password</dt>
+        <dd><input type="password" id="Password"></dd>
+    </dl>
+    <button onclick="LoginClick()">Login</button>
+</body>
+</html>
+
+Navigator:
+- It provides properties and methods that are used to get client browser details.
+
+            appName        : browser family name
+            appVersion        : browser version
+            userAgent        : browser supported platforms
+            platform            : current client OS platform
+            language            : current client browser language
+            cookieEnabled    : cookie status
+            plugins[]            : gets all plugins installed on browser
+            mimeTypes[]        : gets all supports file types on browser.
+            geoLocation        : gets the current geolocation.
+
+Ex:
+<script>
+    document.write(`
+          Your Browser Version : ${navigator.appVersion} <br>
+          Cookies : ${(navigator.cookieEnabled===true)?"You can login":"Please Enable Cookies"} <br>
+          Platform : ${navigator.platform} <br>
+          Language: ${navigator.language}
+    `);
+</script>
+
+Ex:
+<script>
+    for(var item of navigator.plugins){
+        document.write(item.name  + "<br>");
+    }
+</script>
+
+Ex:
+<script>
+    for(var item of navigator.mimeTypes){
+        document.write(item.type  + "<br>");
+    }
+</script>
+
+Ex: GeoLocation
+
+<script>
+     navigator.geolocation.getCurrentPosition(function(position){
+          document.write(`
+                Latitude : ${position.coords.latitude} <br>
+                Longitude : ${position.coords.longitude}
+          `);
+     })
+</script>
+
+history:
+- It used to access current browsing history details.
+
+        length        : gets total count of pages in current browsing history
+        forward()        : moves to next page in current history
+        back()        : moves to previous page in current history
+        go()            : moves to specific page in history.
+
+Ex:
+<script>
+    var now = new Date();
+    document.write(`
+        You opened the page at : ${now.toLocaleTimeString()} <br>
+        You Visited ${history.length} Page(s)
+    `)
+</script>
+
+Document:
+- It provides all properties and methods to handle elements in document.
+
+    getElementById()
+    querySelector()
+    write()  
+    appendChild() etc..

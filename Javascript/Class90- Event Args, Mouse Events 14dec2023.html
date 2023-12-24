@@ -1,0 +1,308 @@
+
+Class90= 14dec2023
+
+========================= Event Args, Mouse Events ===========================
+
+JavaScript Browser Events
+- Sender
+- Subscriber
+- Observer
+- Delegate
+- Event
+- Event Handler
+- Event Listener
+   
+                        Event Arguments
+
+- Every event comprises of default and custom arguments.
+- The default event args are
+        a) this
+        b) event
+
+- "this" sends information about current element, which includes  id, name, class, value etc..
+- "event" sends information about current event, which includes
+        clientX
+        clientY
+        altKey
+        ctrlKey
+        shiftKey
+        keyCode
+        charCode
+        which  etc..
+Syntax:
+
+        <button onclick="Insert(this, event)">
+
+        function Insert(obj, e)
+        {
+        }
+
+- You can use any argument without order dependency.
+
+        onclick="Insert(event, this)">
+        onclick="Insert(this)">
+        onclick="Insert(event)">
+       
+- You can send specific details
+
+        onclick="Insert(this.id)"
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function InsertClick(obj, e){
+            document.write(`
+                 Button Id : ${obj.id} <br>
+                 Button Name: ${obj.name} <br>
+                 Button Class: ${obj.className} <br>
+                 X Position: ${e.clientX} <br>
+                 Ctrl Key  : ${e.ctrlKey}
+            `);
+       }
+    </script>
+</head>
+<body>
+    <button onclick="InsertClick(this, event)" id="btnInsert" name="Insert" class="btn btn-primary">Insert</button>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function SetColor(color){
+        document.querySelector("h1").style.color = color;
+       }
+    </script>
+</head>
+<body>
+    <button onclick="SetColor(this.name)" name="Red">Red</button>
+    <button onclick="SetColor(this.name)" name="Green">Green</button>
+    <button onclick="SetColor(this.name)" name="Blue">Blue</button>
+    <h1>Welcome to JavaScript</h1>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function GetObject(e){
+          var p = document.querySelector("p");
+          if((e.clientX>=119 && e.clientX<=154) && (e.clientY>=149 && e.clientY<=175)) {
+             p.innerHTML = "Lavie Hand Bag : 3000/-";
+          } else {
+            p.innerHTML = "";
+          }
+       }
+    </script>
+</head>
+<body>
+   <img onclick="GetObject(event)" src="../public/images/women-fashion.jpg" width="200" height="200">
+   <p></p>
+</body>
+</html>
+
+- You can pass custom arguments, which can be primitive or non-primitive.
+- You can pass the custom arguments along with default arguments.
+
+Syntax:
+        <button onclick="Insert( { }, [ ], 0, ' ', true)">
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function InsertClick(...args){
+            var [title, cities, rating, button] = args;
+            document.write(`
+               <h2>${title}</h2>
+               ${cities.toString()} <br>
+               Rating : ${rating.Rate} [${rating.Count}] <br>
+               Button Id : ${button.id}
+            `);
+       }
+    </script>
+</head>
+<body>
+   <button id="btnInsert" onclick="InsertClick('Welcome',['Delhi, Hyd'], {Rate:4.3, Count:4560}, this)">Insert</button>
+</body>
+</html>
+
+                        Various Browser Events
+- All JavaScript events are related to browser.
+- The browser events can be configured to any element in page.
+- Browser events are of various categories
+
+    1. Mouse Events
+    2. Keyboard Events
+    3. Button Events
+    4. Clipboard Events
+    5. Timer Events
+    6. Element State Events
+    7. Touch Events
+    8. Form Events etc...
+
+                            Mouse Events
+- onmouseover
+- onmouseout
+- onmousedown
+- onmouseup
+- onmousemove
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: 2fr 10fr;
+        }
+        nav div {
+            width: 80px;
+            height: 80px;
+            padding: 2px;
+            margin-bottom: 20px;
+            border:2px solid blue;
+        }
+        nav div :hover {
+            cursor: grab;
+        }
+        .zoomIn {
+            transform: scale(3);
+            transition: 2s;
+        }
+        .zoomOut{
+            width: 400px;
+            height: 500px;
+        }
+    </style>
+    <script>
+         function ShowPreview(src){
+            document.getElementById("imgPreview").src = src;
+         }
+         function ZoomIn(){
+            document.getElementById("imgPreview").className = "zoomIn";
+         }
+         function ZoomOut(){
+            document.getElementById("imgPreview").className = "zoomOut";
+         }
+    </script>
+</head>
+<body>
+    <section>
+        <nav>
+            <div>
+                <img onmouseover="ShowPreview(this.src)" src="../public/images/iphone/m1.png" width="80" height="80">
+            </div>
+            <div>
+                <img onmouseover="ShowPreview(this.src)" src="../public/images/iphone/m2.png" width="80" height="80">
+            </div>
+            <div>
+                <img onmouseover="ShowPreview(this.src)" src="../public/images/iphone/m3.png" width="80" height="80">
+            </div>
+            <div>
+                <img onmouseover="ShowPreview(this.src)" src="../public/images/iphone/m4.png" width="80" height="80">
+            </div>
+        </nav>
+        <main>
+            <div style="width: 400px; height: 500px; overflow: hidden; border:1px solid gray">
+                <img width="400" height="500" onmousedown="ZoomIn()" onmouseup="ZoomOut()" id="imgPreview">
+            </div>
+        </main>
+    </section>
+</body>
+</html>
+
+Ex: Mouse Move
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function GetPosition(e){
+            var pic = document.querySelector("img");
+            pic.style.position = "fixed";
+            pic.style.top = e.clientY + "px";
+            pic.style.left = e.clientX + "px";
+        }
+    </script>
+</head>
+<body onmousemove="GetPosition(event)">
+    <div style="height: 1000px;">Move mouse pointer to test..</div>
+    <img src="../public/images/flag.gif" width="50" height="50">
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function GetPosition(e){
+           var star = document.getElementById("star");
+           star.style.position = "fixed";
+           star.style.top = e.clientY + "px";
+           star.style.left= e.clientX + "px";
+           star.style.animationName = "Blink";
+           star.style.animationDuration = "700ms";
+           star.style.animationIterationCount = "infinite";
+        }
+    </script>
+    <style>
+        .bi-star-fill {
+            font-size: 30px;
+            color:green;
+        }
+        @keyframes Blink {
+            from {
+                opacity: 0;
+                font-size: 10px;
+            }
+            to {
+                opacity: 1;
+                font-size: 40px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body onmousemove="GetPosition(event)">
+    <div style="height: 1000px;">Move mouse pointer to test..</div>
+    <div class="bi bi-star-fill" id="star"></div>
+</body>
+</html>
+
+
+                        Keyboard Events
+- onkeyup
+- onkeydown
+- onkeypress

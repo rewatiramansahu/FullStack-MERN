@@ -1,0 +1,203 @@
+
+Class94= Date 19dec2023
+
+============================ JavaScript AJAX ============================
+
+State Management
+    - Query String
+    - Local Storage
+    - Session Storage
+    - Cookies
+
+                                             Cookies
+- Cookies a simple text document, which is created and saved on client device.
+- A cookie comprises of client related data, which is made available across pages used by client.
+- To use cookies, they must be enabled on browser.
+- You can verify the cookie status using "navigator.cookieEnabled" property.
+- Cookies are 2 types
+        a) In memory cookie
+        b) Persistent cookie
+
+- In memory cookie is temporary cookie. It expires when session is closed.
+
+Syntax:
+    document.cookie = "key=value";
+
+- Persistent cookie is permanent cookie. It is defined with expiry.
+
+Syntax:
+    document.cookie = "key=value; expires=date/time";
+
+Note: The date and time must be defined in UTC format.
+
+                Fri, 22 Dec 2023 16:40:30 GMT
+
+Ex:
+1. login.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script>
+        function LoginClick(){
+            var userId = document.getElementById("UserId").value;
+            document.cookie = `userid=${userId}; expires=Fri, 22 Dec 2023 00:00:00 GMT`;
+            location.href = "home.html";
+        }
+    </script>
+</head>
+<body>
+   
+        <dl>
+            <h3>Login</h3>
+            <dt>User Id</dt>
+            <dd><input type="text" name="UserId" id="UserId"></dd>
+        </dl>
+        <button onclick="LoginClick()">Login</button>
+   
+</body>
+</html>
+
+2. home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script>
+        function bodyload(){
+          document.querySelector("p").innerHTML = document.cookie.substring(document.cookie.indexOf("=")+1);
+        }
+        function SignoutClick(){
+         
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h3>Home  <button onclick="SignoutClick()">Signout</button> </h3>
+    <p></p>
+</body>
+</html>
+
+Note: JavaScript Applications can use various 3rd party state management libraries.
+      The popular predictable state container for JS apps is "Redux".
+
+
+                           JavaScript AJAX
+
+- Asynchronous JavaScript And XML.
+- AJAX is used to achive "Partial Postback".
+- It allows to add new content into page without reloading the page.
+- It can submit a specific portion of page without reloading the page.
+- It improves the performance of application.
+- JavaScript uses "XMLHttpRequest" object to handle AJAX calls.
+
+Syntax:
+        var http = new XMLHttpRequest();
+
+        http.open()        => It configure the request, which includes
+                                a) request type [get, post..]
+                                b) URL
+                                c) Async [boolean]
+
+        http.send()        => It will process the request.
+
+        http.onreadyStateChange => It defines the function to execute when                                              requested path is available.
+
+        http.readyState    => It have 4 stages
+                                1    = Initial
+                                2    = send
+                                3    = process
+                                4    = ready with response
+
+        http.response        => It defines the response text, xml and html.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <script>
+        function bodyload(){
+            var now = new Date();
+            document.querySelector("p").innerHTML = `Page Requested on ${now.toLocaleString()}`
+        }
+        function LoadClick(){
+            var http = new XMLHttpRequest();
+            http.open("get", "../data/help.txt",true);
+            http.send();
+            http.onreadystatechange = function(){
+                if(http.readyState==4)
+                {
+                     document.getElementById("data").innerHTML = http.responseText;
+                }
+            }
+        }
+        function LoadShop(){
+            var http = new XMLHttpRequest();
+            http.open("get", "../shopper-template.html", true);
+            http.send();
+            http.onreadystatechange =  function(){
+                if(http.readyState==4){
+                    document.querySelector("section").innerHTML = http.responseText;
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body onload="bodyload()">
+    <p id="time"></p>
+    <button onclick="LoadClick()">Load Help</button>
+    <button onclick="LoadShop()">Shop</button>
+    <pre id="data"></pre>
+    <section>
+
+    </section>
+</body>
+</html>
+
+Ex: Fakestore using Ajax XMLHttpRequest
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function LoadClick(){
+            var http = new XMLHttpRequest();
+            http.open("get", "http://fakestoreapi.com/products&quot;, true);
+            http.send();
+
+            http.onreadystatechange = function(){
+                if(http.readyState==4){
+                    var products = JSON.parse(http.responseText);
+                    products.map(function(product){
+                        var img = document.createElement("img");
+                        img.src= product.image;
+                        img.width = "100";
+                        img.height = "100";
+
+                        document.getElementById("container").appendChild(img);
+                    })
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="LoadClick()">Load Products</button>
+    <div id="container" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+
+    </div>
+</body>
+</html>

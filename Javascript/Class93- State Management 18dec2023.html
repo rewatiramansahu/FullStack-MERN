@@ -1,0 +1,243 @@
+
+
+Class93= Date 18dec2023
+
+================================== State Management =================================
+
+Browser Objects
+- window
+- location
+- navigator
+- history
+- document
+
+                           State Management
+
+- Web applications use "http" as protocol.
+- A protocol defines rules, which are followed by computers in a network to communicate with each other.
+       
+            SMTP	- 	Email Communication
+            HTTP    - 	Web
+            HTTPS   - 	Web Secured
+            MSMQ    - 	Messaging Service
+            FTP		- 	File Transfer [Intranet]
+            etc..
+
+- HTTP is a state less protocol.
+
+- A server allocates memory for the request made by client, It will process the request and sends a response to client. After sending response it cleans up client related information from memory. [This is known as stateless]
+
+- Stateless nature of server is good to manage memory. But it is not good for contineous operations from client
+
+- Every web application requires state management techniques, so that client related information can be saved and accessed across requests.
+
+- State management techniques are classified into 2 categories
+       
+        a) Client Side State Management
+        b) Server Side State Management
+
+- Client Side State Management allows to store client details on the client device.
+
+        a) Query String
+        b) Cookies
+        c) Session Storage
+        d) Local Storage
+
+Query String:
+- It is a value appended into URL and stored in browser address bar.
+- It comprises of Key and Value appended using "?"
+
+            ?key=value&key=value
+
+- A query string can carry data from one page to another.
+- How ever it is not safe, can't submit complex data and have limit for data. [2048chars]
+- You can access the querystring using "location.search".
+
+Ex:
+1. Add 2 pages
+    a) login.html
+    b) home.html
+
+2. login.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form method="get" action="home.html">
+        <dl>
+            <h3>Login</h3>
+            <dt>User Id</dt>
+            <dd><input type="text" name="UserId" id="UserId"></dd>
+        </dl>
+        <button>Login</button>
+    </form>
+</body>
+</html>
+
+3. home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script>
+        function bodyload(){
+            var str = location.search;
+            var uname = str.substring(str.indexOf("=")+1);
+            document.querySelector("p").innerHTML = `Hello ! ${uname}`;
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h3>Home</h3>
+    <p></p>
+</body>
+</html>
+
+Local Storage:
+- It is a memory location in your browser.
+- It is permanent storage.
+- It is accessible for other tabs in browser.
+- It is available even after you close browser or shutdown your device.
+- You have to delete manually.
+- You can store large amount of data.
+- It is a key and value collection same like "map".
+
+        localStorage.setItem("key", "value");
+        localStorage.getItem("key");
+        localStorage.removeItem("key");
+
+Ex:
+1. Login.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script>
+        function LoginClick(){
+            var userId = document.getElementById("UserId").value;
+            localStorage.setItem("UserId", userId);
+            location.href = "home.html";
+        }
+    </script>
+</head>
+<body>
+   
+        <dl>
+            <h3>Login</h3>
+            <dt>User Id</dt>
+            <dd><input type="text" name="UserId" id="UserId"></dd>
+        </dl>
+        <button onclick="LoginClick()">Login</button>
+   
+</body>
+</html>
+
+2. home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script>
+        function bodyload(){
+             var userid = localStorage.getItem("UserId");
+             if(userid===null) {
+                location.href = "login.html";
+             } else {
+                document.querySelector("p").innerHTML = `Hello ! ${userid}`;
+             }
+        }
+        function SignoutClick(){
+            localStorage.removeItem("UserId");
+            location.href="login.html";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h3>Home  <button onclick="SignoutClick()">Signout</button> </h3>
+    <p></p>
+</body>
+</html>
+
+
+Session Storage:
+- It is the memory of browser allocated for client.
+- It is temporary memory.
+- It is accessible only to current tab.
+- It is removed when browser is closed.
+
+Syntax:
+     sessionStorage.setItem(key, value)
+     sessionStorage.getItem(key)
+     sessionStorage.removeItem(key)
+
+Ex:
+1. login.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script>
+        function LoginClick(){
+            var userId = document.getElementById("UserId").value;
+            sessionStorage.setItem("UserId", userId);
+            location.href = "home.html";
+        }
+    </script>
+</head>
+<body>
+   
+        <dl>
+            <h3>Login</h3>
+            <dt>User Id</dt>
+            <dd><input type="text" name="UserId" id="UserId"></dd>
+        </dl>
+        <button onclick="LoginClick()">Login</button>
+   
+</body>
+</html>
+
+2. home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script>
+        function bodyload(){
+             var userid = sessionStorage.getItem("UserId");
+             if(userid===null) {
+                location.href = "login.html";
+             } else {
+                document.querySelector("p").innerHTML = `Hello ! ${userid}`;
+             }
+        }
+        function SignoutClick(){
+            sessionStorage.removeItem("UserId");
+            location.href="login.html";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h3>Home  <button onclick="SignoutClick()">Signout</button> </h3>
+    <p></p>
+</body>
+</html>

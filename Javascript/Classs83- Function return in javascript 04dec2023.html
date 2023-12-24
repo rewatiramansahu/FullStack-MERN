@@ -1,0 +1,166 @@
+
+
+Class83- Date 04dec2023
+
+========================== Functions in JavaScript ========================
+
+Rest Parameters
+Spread Operator
+                       
+					   Function Return
+                    ----------------------
+					
+- A function with return allows to configure a functionality and store the data.
+- A function can return any type of data
+    a) Primitive
+    b) Non Primitive
+    c) Function
+
+Ex:
+<script>
+   function Addition(a, b){                => returns number
+      return a + b;
+   }
+   function Result(){
+      document.write(`Addition=${Addition(30,50)}`);
+   }
+   Result();
+</script>
+
+Ex: Return Array
+
+<script>
+   function GetCategories()
+   {
+       return ["All", "Electronics", "Fashion"];
+   }
+   GetCategories().map(function(category){
+      document.write(category + "<br>");
+   })
+</script>
+
+                       Function Closure
+                       -----------------------
+- Closure is a technique used in function configuration, where the members of outer function are accessible to inner function.
+- Every function by default uses a closure mechanism.
+
+Syntax:
+    function Outer()
+    {
+         //closure
+        var x = 10;
+        function Inner(){    
+           var y = 20;
+           return  x + y;
+        }
+        document.write("Result=" + Inner());
+    }
+
+
+Ex:
+<script>
+      function Outer(){
+           var a = 10;
+           function Inner(){
+              var b = 20;
+              var c = a + b;
+              return c;
+           }
+           document.write("C=" + Inner());
+      }
+      Outer();
+</script>
+
+Ex: Function returning another function
+
+<script>
+      function Component()
+      {
+          return (function(){
+            return "<h2>Welcome to Functions</h2>";
+          });
+      }
+      document.write(Component()());
+</script>
+
+FAQ: Can function have multiple returns?
+Ans : Yes.
+
+FAQ: Why we need multiple returns?
+Ans:  To achive conditional rendering.
+
+Ex:
+<script>
+      function Component(markup)
+      {
+           if(markup=="login"){
+              return `
+                <h2>User Login </h2>
+                <dl>
+                   <dt>User Name</dt>
+                   <dd><input type="text"></dd>
+                   <dt>Password</dt>
+                   <dd><input type="password"></dd>
+                </dl>
+                <button>Login</button>
+              `;
+           } else if (markup=="register"){
+               return `
+               <h2>Register </h2>
+                <dl>
+                   <dt>User Name</dt>
+                   <dd><input type="text"></dd>
+                   <dt>Password</dt>
+                   <dd><input type="password"></dd>
+                   <dt>Mobile</dt>
+                   <dd><input type="text"></dd>
+                </dl>
+                <button>Register</button>
+               `;
+           } else {
+              return `Please Choose Login or Register`;
+           }
+      }
+      document.write(Component(prompt("Enter Component Name", "login|register")));
+</script>
+
+                        Function Recursion
+                        ---------------------------
+
+- Recursion is a technique where the function is called within the context of same function.
+- It is mostly used to configure batch operations.
+
+Syntax:
+    function  Name()
+    {
+           Name();
+    }
+
+Ex:
+<script>
+      function Factorial(n){
+          if(n==1) {
+             return 1;
+          } else {
+              return n * Factorial(n-1);
+          }
+      }
+      document.write(`Factorial of 6 is ${Factorial(6)}`);
+</script>
+
+                        Function  Generator
+                        ---------------------------
+
+Ex:
+<script>
+     function* Collection()
+     {
+        yield "A";
+        yield "B";
+        yield "C";
+     }
+     var obj = Collection();
+     console.log(obj.next().value);
+     console.log(obj.next().value);
+     console.log(obj.next().value);
+</script>

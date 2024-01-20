@@ -1,0 +1,154 @@
+
+Class105= Date 03jan2024
+
+===================	Netflix UI - React 17 ====================
+
+Summary
+- Creating component using functions
+- Rules for function component
+
+Ex: Netflix Design
+
+1.  Create a new folder for project
+
+        D:\netflix-react-app
+
+2. Open project folder in VS code
+
+
+3. Add package.json
+
+        > npm  init  -y
+
+4. Install following libraries
+
+        > npm  i  react    react-dom    @babel/standalone   --save
+
+        > npm  i  bootstrap   bootstrap-icons   --save
+
+     Library files are kept in "node_modules" folder
+
+
+5. Add following folders into project
+
+        > public        [static resources]        html, text docs, images, pdf, videos..
+        > src        [dynamic resources]    css, scss, js, ts, jsx, tsx ..
+
+6. Add index.html into public folder
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <style>
+        .bg-image {
+            background-image: url("netflix-banner.jpg");
+            background-size: cover;
+            height: 100vh;
+        }
+        .bg-shade {
+            height: 100vh;
+            background-color: rgba(0,0,0,0.6);
+        }
+        .brand-title {
+            font-size: 40px;
+            color:red;
+            font-family: Arial;
+            font-weight: bold;
+        }
+        main {
+            margin-top: 100px;
+        }
+        .main-title {
+            font-size: 60px;
+            font-family: Arial;
+            font-weight: bold;
+        }
+        .main-subtitle {
+            font-size: 30px;
+            font-family: Arial;
+            margin-top: 20px;
+        }
+        form {
+            margin-left: 350px;
+            margin-right: 350px;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/@babel/standalone/babel.js"></script>
+
+    <script type="text/babel">
+
+        function NetflixHeader(){
+            return (
+                <header className="d-flex p-4 justify-content-between">
+                    <div>
+                        <span className="brand-title">NETFLIX</span>
+                    </div>
+                    <div>
+                        <div className="input-group">
+                            <span className="bi input-group-text bi-translate"></span>
+                            <select className="form-select">
+                                <option>Language</option>
+                                <option>English</option>
+                            </select>
+                            <button className="btn ms-2 btn-danger">Signin</button>
+                        </div>
+                    </div>
+                </header>
+            )
+        }
+
+        function NetflixRegister(){
+            return(
+                <form>
+                   <p> Ready to watch? Enter your email to create or restart your membership. </p>    
+                   <div className="input-group input-group-lg">
+                      <input type="email" placeholder="Your email address" className="form-control" />
+                      <button className="btn btn-danger ms-2">
+                         Get Started <span className="bi bi-chevron-right"> </span>  
+                      </button>
+                   </div>
+                </form>
+            )
+        }
+
+
+        function NetflixMain(){
+            return(
+                <main className="text-white text-center">
+                    <div className="main-title">Unlimited movies, TV shows and more</div>
+                    <div className="main-subtitle">Watch anywhere. Cancel anytime.</div>
+                    <NetflixRegister />
+                </main>
+            )
+        }
+
+
+         function NetflixIndex(){
+            return(
+                <div className="bg-image">
+                  <div className="bg-shade">
+                     <NetflixHeader />
+                     <NetflixMain />
+                  </div>
+                </div>
+            )
+         }
+
+         ReactDOM.render(<NetflixIndex />, document.getElementById("root"));
+    </script>
+</head>
+<body>
+    <noscript>please enable javascript on your browser</noscript>
+    <div id="root"></div>
+</body>
+</html>

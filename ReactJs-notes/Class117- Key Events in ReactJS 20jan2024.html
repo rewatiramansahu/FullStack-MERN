@@ -1,0 +1,155 @@
+
+Class117- Date 20nov2024
+
+================= Key Events in ReactJS ==================
+
+
+SyntheticEvents
+- Mouse Events
+- Touch Events
+
+3. Keyboard Events
+    onKeyUp                        
+    onKeyDown
+    onKeyPress
+ 
+  - KeyUp & KeyDown are used when developer have to handle the characters.
+  - KeyPress is used when developer have to handle the char code. [ASCII code]
+  - React can verify the char code by using key event properties
+
+            a) keyCode
+            b) charCode
+            c) which
+            d) shiftKey
+            e) ctrlKey
+            f) altKey
+
+       
+Ex:
+public/users.json
+
+[
+    {
+        "UserName": "john"
+    },
+    {
+        "UserName": "john12"
+    },
+    {
+        "UserName": "john_nit"
+    },
+    {
+        "UserName": "david"
+    }
+]
+
+
+keydemo.jsx
+
+import axios from "axios"
+import { useState } from "react"
+
+export function KeyDemo()
+{
+
+    const [userError, setUserError] = useState('');
+    const [isUserValid, setIsUserValid] = useState(false);
+    const [showPwdError, setPwdError] = useState('d-none')
+
+    function handleUserName(e){
+        if(e.target.value===""){
+            setUserError('User Name Required');
+            setIsUserValid(false);
+        } else {
+            axios.get("users.json")
+            .then(response=>{
+                for(var user of response.data)
+                {
+                    if(user.UserName===e.target.value){
+                        setUserError('User Name Taken - Try Another');
+                        setIsUserValid(false);
+                        break;
+                    } else {
+                        setUserError('User Name Available');
+                        setIsUserValid(true);
+                    }
+                }
+            })
+        }
+    }
+    function handlePassword(e){
+        if(e.which>=65 && e.which<=90) {
+            setPwdError('d-block');
+        } else {
+            setPwdError('d-none');
+        }
+    }
+
+    return (
+        <div className="container-fluid">
+            <h2>Register User</h2>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text" onKeyUp={handleUserName} /></dd>
+                <dd className={(isUserValid)?'text-success':'text-danger'}>{userError}</dd>
+                <dt>Password</dt>
+                <dd><input type="password" onKeyPress={handlePassword} /></dd>
+                <dd className={showPwdError}>
+                    <span className="bi bi-exclamation-triangle text-warning"> Caps ON </span>
+                </dd>
+            </dl>
+        </div>
+    )
+}
+
+                        Element State Events
+onBlur
+onFocus
+onChange
+
+
+Ex:
+import axios from "axios"
+import { useState } from "react"
+
+export function KeyDemo()
+{
+
+    const [msg, setMsg] = useState('');
+    const [meterValue, setMeterValue] = useState(1);
+
+    function handleFocus(){
+        setMsg('Password 4 to 15 chars with at least one uppercase letter');
+    }
+    function handleBlur(){
+        setMsg('');
+    }
+
+    function handleKeyUp(e){
+        if(e.target.value.match(/(?=.*[A-Z])\w{4,15}/)){
+            setMsg('Strong Password');
+            setMeterValue(100);
+        } else {
+            if(e.target.value.length<4){
+                setMsg('Poor Password');
+                setMeterValue(20);
+            } else {
+                setMsg('Weak Password');
+                setMeterValue(70);
+            }
+        }
+    }
+   
+    return (
+        <div className="container-fluid">
+            <h3>Verify Password</h3>
+            <input type="text" onFocus={handleFocus} onKeyUp={handleKeyUp} onBlur={handleBlur} />
+            <div>
+                <meter min='1' value={meterValue} max='100' style={{width:'190px', height:'20px'}}></meter>
+            </div>
+            <div>
+                {msg}
+            </div>
+        </div>
+    )
+}

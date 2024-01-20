@@ -1,0 +1,152 @@
+
+Class107= Date 05jan2024
+
+===================	React v18 Component ====================
+
+Summary
+- Create React 18 Application with Webpack Bundler
+- File System of React App
+    node_modules
+    public
+    src
+    package.json / lock.json
+    .gitignore
+    .readme.md
+- Basic React flow
+    component.js => index.js => index.html
+    ReactDOM.createRoot().render()
+    ReactDOM.render()
+- Start application
+    > npm start
+
+                        React 18 Components
+                   ------------------------------
+- Components are building-blocks for SPA. [Single Page Application]
+- A component comprises of markup, styles and logic.
+- Every component design comprises of
+
+        a) Markup using HTML
+        b) Styles with CSS
+        c) Functionality with JavaScript [JSX] / TypeScript [TSX]
+
+- A component is easy to reuse and extend.
+- It enables simplified testing approach.
+   [reusability , extensibility, testablility, maintainability..]
+
+Creating a Component:
+- A component is designed with following files
+     a) component.jsx | js        => Markup & Functionality
+     b) component.css            => Styles
+     c) component.spec.js | test.js => Test File [Testing Logic]
+             [JEST Framework]
+
+- A component can be designed using JavaScript
+    a) Function
+    b) Class
+
+- A function component can be configured using declaration or expression.
+
+    function name()            => declaration
+    {
+    }
+
+    const  name = function() {    => expression
+
+    }
+
+- In a module system every member is private in access, you have to mark as "export" to make public in access.
+
+    export  function  Name()
+    {
+    }
+
+- Component name must start with uppercase letter.
+- A component function must  return a function.
+
+    export  function  Name()
+    {
+      return ( );                => ( )  Anonymous function
+    }
+
+- Every component function must return a function with fragment. It can return only one fragment.
+- Fragment is rendered in virtual DOM.
+- A fragment can be configured using various techniques
+   
+        a) You can use any HTML container
+            <div> <span> <h1> <form> <main> etc..
+
+        b) You can use empty fragment
+            <> </>
+
+        c) You can use "React.Fragment" component, which is good for providing
+             various types of services to a component.
+
+            <React.Fragment>
+
+            </React.Fragment>
+
+- Every component have to import the CSS individually or globally in index.js
+
+            import  "./login.css";
+
+Ex:
+1. Add a new folder in SRC by name "components"
+
+2. Add a folder for component "login"
+
+3. Add following files into login
+
+        login.jsx
+        login.css
+
+4. login.css
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+form {
+    padding: 20px;
+    border:1px solid gray;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px black;
+}
+dt {
+    font-weight: bold;
+}
+
+4. login.jsx
+
+import React from "react";
+import "./login.css";
+
+export function Login()
+{
+    return(
+        <React.Fragment>
+            <main>
+                <form>
+                    <h3>User Login</h3>
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd><input type="text" /></dd>
+                        <dt>Password</dt>
+                        <dd><input type="password" /></dd>
+                    </dl>
+                    <button>Login</button>
+                </form>
+            </main>
+        </React.Fragment>
+    )
+}
+
+5. Go to Index.js and keep login in startup
+
+         <React.StrictMode>
+                <Login />
+          </React.StrictMode>
+
+                          Data Binding
+

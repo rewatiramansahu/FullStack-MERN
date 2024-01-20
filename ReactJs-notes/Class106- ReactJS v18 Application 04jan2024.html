@@ -1,0 +1,75 @@
+
+Class106= Date 04jan2024
+
+===================	React JS v18 Application ====================
+
+
+
+- React 18 is a complete re-write of react library.
+- 18x versions are backward compatible.
+   [Easy to migrate from previous version to new version]
+- 18x versions introduced a client DOM library for handling virtual DOM.
+       
+                react
+                react-dom/client
+
+ Syntax: 17 Rendering
+
+        ReactDOM.render(component, targetElement);
+
+ Syntax: 18 Rendering
+
+        let  root =  ReactDOM.createRoot("targetElement");
+        root.render(component);
+
+- 18x versions introduces new Hooks for functions. [Hook is a special method].
+- 18x versions use functions for components, however you also use a class.
+- 18x have better error handling. It provides compile time and debug time error handling.
+- 18x have more security features.
+
+Creating React 18 Application using Webpack Bundler [Implicitly]:
+
+1. Open any PC location in command prompt
+
+        D:\>
+
+2. Run the following command
+
+        D:\> npx  create-react-app  react-project
+
+Note: Default react-app is created with JavaScript as language.
+
+
+3. Open project folder in your Editor [VS  Code]
+
+
+4. React project file system comprises of following
+
+    File / Folder                Description
+    ----------------------------------------------------------------------------------------
+    node_modules          It comprises of all library files installed in project.
+    public                It comprises of all static resources [html, images, docs..]
+    src                   It comprises of dynamic resources [.js, .ts, .css, .scss..]
+    package.json          It comprises project meta data
+    package.lock.json     It comprises of library meta data
+    .gitignore            It configures the repository to ignore while publishing on
+                          GIT.
+    Readme.md              It is a help documentation provided for developers.
+
+
+React Basic Flow:
+ 
+   - Application starts with "index.html" [public]
+   - Code for index.html comes from "index.js" [src]
+   - index.js is using a component "<App>" to render into index.html
+   - <App> component code is defined in "App.js"
+
+    <div id="root"> </div>            => index.html
+
+     const root = ReactDOM.createRoot(document.getElementById("root");
+     root.render( <App /> )
+
+To start project
+
+     > npm start        
+    http://localhost:3000

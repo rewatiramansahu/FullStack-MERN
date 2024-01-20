@@ -1,0 +1,111 @@
+
+Class103= Date 01jan2023
+
+============================= Setup Environment for React =============================
+
+Setup Environment for React
+
+1. Download and Install Node JS
+    [ NPM - Package Manager]
+
+2. Download and Install Visual Studio Code editor
+
+3. Download and Install extentions for VS Code
+
+        - Live Server
+        - vscode-icons
+        - IntelliSense for CSS class name in HTML
+
+
+React in Existing web application:
+
+1. Create a new folder for web application
+   
+        F:\react-web-app
+
+2. Open in VS code and add the following
+
+         > npm   init  -y                [adds package.json]
+       
+3. Add folders
+       
+        > public            [static resources: images, html, docs..]
+        > src            [dynamic : .js, .ts, .css, .scss, .jsx, .tsx ]
+
+4. Add following files into public folder
+
+        index.html
+        home.html
+
+Basic Requirements for Integrating React into a Web Page:
+
+1. React Core Library
+    react.js
+    - It provides all basic functions and classes required for building react application.
+    - It provides various services for react.
+    - Service is a pre-defined business logic, which you can inject into application and
+      implement a functionality.
+
+
+2. React DOM library
+    react-dom.js
+    - It provides properties and methods to handle Virtual DOM
+    - It updates the actual DOM by transcompiling the virtual DOM actions.
+
+3. Babel Library
+    @babel/standalone
+ 
+     - It is a compiler used for JavaScript based applications.
+     - React uses "JSX" [JavaScript Extention] as language, which requires babel like
+       compiler.
+
+Note: You can get all the libraries using CDN or install with package manager.
+
+- Projects upto 17x versions of react can get help from
+
+        https://legacy.reactjs.org/docs/cdn-links.html
+
+- Project from 18x versions of react can use the new
+
+        https://react.dev/
+- Babel
+        https://babeljs.io/docs/babel-standalone
+
+Ex: React 17 Integration
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Web Application - Index</h1>
+    <p>This page is not using any React library.</p>
+     React is in <a href="home.html"> Home </a> Page
+</body>
+</html>
+
+home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script&gt;
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script&gt;
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script&gt;
+    <script type="text/babel">
+            ReactDOM.render("Welcome to React", document.getElementById("root"));
+    </script>
+</head>
+<body>
+    <noscript>Please enable JavaScript on your browser</noscript>
+    <div id="root"></div>
+</body>
+</html>

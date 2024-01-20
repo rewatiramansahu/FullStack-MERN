@@ -1,0 +1,216 @@
+
+Class109- date 07jan2024
+
+======================== Primitive and Non Primitive Types ========================
+
+Summary
+
+- Creating React App 18 with Webpack bundler
+- Components in React 18
+- Data Binding
+- Primitive Data Types
+    Number
+    String
+    Boolean
+   
+                            Undefined
+- It is a type configured for variable when value is not initialized or assigned.
+- You can check by using "undefined" keyword.
+
+Syntax:
+        var Price;
+        (Price)? defined : not-defined
+                     (or)    
+        (Price==undefined) ? not-defined : defined
+
+Ex:
+data-binding.jsx
+
+export function DataBinding(){
+
+    var Name = "Samsung TV";
+    var Price=40000.44;
+
+    return(
+        <div className="container-fluid">
+           <div className="mt-4">
+               <dl>
+                 <dt>Name</dt>
+                 <dd>{Name}</dd>
+                 {
+                    (Price)?<div><dt>Price</dt> <dd>{Price}</dd></div>:""
+                 }
+               </dl>
+           </div>
+        </div>
+    )
+}
+                              Null
+- It refers to the value from any method into a reference variable dynamically.
+- If value is not provided dynamically then it returns "null".
+
+Syntax:
+        var  Price = prompt("Enter Price");
+
+        (Price==null) ? not-defined : defined
+
+Ex:
+data-binding.jsx
+
+export function DataBinding(){
+
+    var Name = "Samsung TV";
+    var Price= prompt("Enter Price") ;
+
+    return(
+        <div className="container-fluid">
+           <div className="mt-4">
+               <dl>
+                 <dt>Name</dt>
+                 <dd>{Name}</dd>
+                 {
+                    (Price==null)?"":<div><dt>Price</dt> <dd>{Price}</dd></div>
+                 }
+               </dl>
+           </div>
+        </div>
+    )
+}
+
+Summary
+- Number
+- String
+- Boolean
+- Undefined
+- Null
+
+                         Non Primtive Types
+
+1. Array
+- Arrays are used to reduce overhead and complexity.
+- JS array can handle various types of data.
+- JS array size can change dynamically.
+
+Configuring Array:
+
+        var  values = new Array();
+        var  values = [ ];
+
+Reading Data from Array:
+
+    map()            It reads all elements from array.
+    forEach()            It reads all elements with index.
+    filter()            It reads and returns all elements that match given condition
+    find()            It reads and returns only first element that match the condition
+    slice()            It reads elements between specified index.
+
+Syntax:
+    collection.map(function(item){         => not good for react
+
+    })
+
+    collection.map(item => <div> </div>)    => good for react
+
+
+Note: React requires a unique key for every repeating element.
+
+    collection.map(item => <div key={item}> </div>
+
+Ex:
+data-binding.css
+
+
+.scrollable {
+    width: 150px;
+    height: 60px;
+    border: 1px solid gray;
+    padding: 5px;
+    overflow: auto;
+    list-style: none;
+}
+
+data-binding.jsx
+
+import './data-binding.css';
+
+export function DataBinding(){
+
+    var categories = ["All", "Electronics", "Footwear", "Fashion"];
+
+    return(
+        <div className="container-fluid">
+           <div className="mt-4">
+              <ol>
+                {
+                    categories.map(category=> <li key={category}> {category} </li>)
+                }
+              </ol>
+              <select>
+                  {
+                    categories.map(category => <option key={category}> {category.toUpperCase()} </option>)
+                  }
+              </select>
+              <ul className='scrollable'>
+                 {
+                    categories.map(category => <li key={category}> <input type="checkbox" /> <label>{category}</label> </li> )
+                 }
+              </ul>
+           </div>
+        </div>
+    )
+}
+
+FAQ: How to query and present elements that match given condition?
+Ans : By using find() & filter() methods of array.
+
+Syntax:
+    collection.filter(value => value>40000).map(item => <div key={item}> </div>)
+
+Ex:
+data-binding.jsx
+
+import './data-binding.css';
+
+export function DataBinding(){
+
+    var sales = [45000, 35000, 23000, 56000, 34000];
+
+    return(
+        <div className="container-fluid">
+           <div className="mt-4">
+                <ul>
+                    {
+                        sales.filter(value => value > 40000 ).map(sale=> <li key={sale}>{sale}</li>)
+                    }
+                </ul>
+           </div>
+        </div>
+    )
+}
+
+Ex: Toolbar
+
+import './data-binding.css';
+
+export function DataBinding(){
+
+    var menu = ["Home", "Shop", "Men's Fashion", "Women's Fashion"];
+
+    return(
+        <div className="container-fluid">
+           <nav className='navbar navbar-expand-lg bg-warning text-white'>
+                <div className='container-fluid'>
+                <h2 className='navbar-brand text-white'>Amazon.</h2>
+                <button className='navbar-toggler'> <span className='navbar-toggler-icon'></span> </button>
+                  <ul className='navbar-nav'>
+                    {
+                        menu.map(item=> <li className='nav-item' key={item}> <a className='nav-link'> {item} </a> </li>)
+                    }
+                  </ul>
+                </div>
+           </nav>
+        </div>
+    )
+}
+
+                            Object - JSON

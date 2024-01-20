@@ -1,0 +1,180 @@
+
+Class116= Date 19-jan-2024
+
+====================== Mouse & Touch Events =====================
+
+1. What is Event?
+2. Event Handler
+3. SyntheticEvent Base
+4. Event Args
+    a) Default Args
+    b) Custom Args
+5. Stop Propagation
+6. Prevent Default
+
+                        Various Synthetic Events
+
+1. Mouse Events
+2. Keyboard Events
+3. Button Events
+4. Clipboard Events
+5. Form Events
+6. Touch Events
+7. Timer Events
+8. Element State Events
+    etc..
+
+
+                          Mouse Events
+onMouseOver
+onMouseOut
+onMouseDown
+onMouseUp
+onMouseMove
+
+Ex:   MouseOver, Out, Down, Up
+
+mouse-demo.css
+
+nav img {
+    border:1px solid black;
+}
+nav img:hover {
+    border:2px solid blue;
+    cursor: grab;
+}
+
+
+mouse-demo.jsx
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./mouse-demo.css";
+
+export function MouseDemo()
+{
+    const [pics, setPics] = useState([{image_url:''}]);
+    const [activeImage, setActiveImage] = useState('m1.jpg');
+
+    useEffect(()=>{
+        axios.get("pics.json")
+        .then(response=>{
+            setPics(response.data);
+        })
+    },[]);
+
+    function handleMouseOver(e){
+        setActiveImage(e.target.src);
+    }
+    function handleMouseDown() {
+        setActiveImage('sale.jpg');
+    }
+    function handleMouseUp(){
+        setActiveImage('m1.jpg');
+    }
+
+    return(
+        <div className="container-fluid">
+            <div className="row">
+                <nav className="col-2">
+                    {
+                        pics.map(pic=>
+                            <div className="mt-3 mb-3" key={pic.image_url} style={{width:'60%', height:'50px'}}>
+                                <img onMouseOver={handleMouseOver} border="2" src={pic.image_url} width="60%" height="50"></img>
+                            </div>
+                            )
+                    }
+                </nav>
+                <div className="col-10 mt-4">
+                    <img onMouseUp={handleMouseUp} onMouseDown={handleMouseDown} width="300" src={activeImage} height="400" />
+                    <p>Hold down mouse button to view offers</p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+Ex: Mouse Move
+
+mouse-demo.jsx
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./mouse-demo.css";
+
+export function MouseDemo()
+{
+    const [styleObj, setStyleObj] = useState({position:'', top:'', left:''});
+
+    function handleMouseMove(e){
+        setStyleObj({
+            position: 'fixed',
+            left: e.clientX + 'px',
+            top: e.clientY + 'px'
+        })
+    }
+
+    return(
+        <div className="container-fluid" onMouseMove={handleMouseMove} >
+            <div style={{height:'1000px'}}>
+                    <p>Mouse mouse pointer to test</p>
+                    <img src="sale.jpg" />
+            </div>
+            <img style={styleObj} src="flag.gif" width="50" height="50"/>
+        </div>
+    )
+}
+
+
+Task:
+
+                            Touch Events
+- They are similar to mouse events, but can handle functionality using touch handler.
+- It identifies the location where user is touching on screen.
+- You can test only on device that support touch.
+
+a) onTouchStart
+b) onTouchEnd
+c) onTouchMove
+
+Ex:
+touch-demo.jsx
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+export function TouchDemo()
+{
+    const [msg, setMsg] = useState('');
+
+    function handleTouch(){
+        setMsg('Offer Price : 1,39,999');
+    }
+
+    return(
+        <div className="container-fluid">
+            <img  src="m1.jpg" onTouchStart={handleTouch} width="300" height="400" />
+            <h1>{msg}</h1>
+        </div>
+    )
+}
+
+
+Ex:
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./mouse-demo.css";
+
+export function MouseDemo()
+{
+    const [positon, setPosition] = useState({position:'', left:''});
+    function handleTouchMove(e){
+        setPosition({position:'absolute', left: e.targetTouches[0].clientX + 'px'});
+    }
+
+    return(
+        <div className="container-fluid">
+            <img src="sale.jpg" style={positon} onTouchMove={handleTouchMove} />
+        </div>
+    )
+}

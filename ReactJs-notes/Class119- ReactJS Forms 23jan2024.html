@@ -1,0 +1,172 @@
+
+Class119- 23jan2024
+
+========================= ReactJS Forms ==========================
+
+React
+- Data Binding
+- Style Binding
+- Class Binding
+- Event Binding
+
+                          Forms in React
+- Form provides an interface from where user can interact with the data.
+- It allows to handle CRUD operations.
+
+            C    - Create    
+            R    - Read
+            U    - Update
+            D    - Delete
+			
+- Handling form in React way is always complex.
+- It requires lot of event and data binding techniques.
+- React can design a form interface without using <form> element.
+- This approach is required when your interface is not submitting data to server, it is just handling client side interactions.
+
+Ex: EMI Calculator
+
+import { useState } from "react"
+
+
+export function FormDemo(){
+
+    const [amount, setAmount] = useState(100000);
+    const [years, setYears] = useState(1);
+    const [rate, setRate] = useState(10.45);
+    const [EMI, setEMI] = useState(0);
+
+    function handleAmountChange(e){
+        setAmount(e.target.value);
+    }
+    function handleYearChange(e){
+        setYears(e.target.value);
+    }
+    function handleRateChange(e){
+        setRate(e.target.value);
+    }
+
+    function handleCalculateClick(){
+        var P = amount;
+        var r = rate/12/100;
+        var n = years * 12;
+        var EMI = P * r * Math.pow(1+r,n) / Math.pow(1+r,n) - 1;
+        setEMI(EMI);
+    }
+
+    return(
+        <div className="container-fluid bg-dark text-white">
+            <div className="mt-4 p-4">
+                <h4 className="text-center">Personal Loan EMI Calculator</h4>
+                <div className="p-2 bg-light text-dark">
+                    <div className="row">
+                        <div className="col">
+                            Amount you need <input type="text" value={amount}  size="10"/>
+                        </div>
+                        <div className="col">
+                            for <input type="text" size="4" value={years} /> years
+                        </div>
+                        <div className="col">
+                            Interest rate <input type="text" value={rate} size="4" /> %
+                        </div>
+                    </div>
+                    <div className="row mt-4">
+                        <div className="col">
+                          1,00,000 <input type="range" onChange={handleAmountChange} min="100000" max="1000000" value={amount} /> 10,00,000
+                        </div>
+                        <div className="col">
+                        1 <input type="range" onChange={handleYearChange} min="1" max="5" value={years} /> 5
+                        </div>
+                        <div className="col">
+                         10.45% <input type="range" onChange={handleRateChange} min="10.45" value={rate} max="18.45"  step="0.01"/> 18.45%
+                        </div>
+                    </div>
+                    <div className="row mt-4">
+                        <div className="col text-end">
+                            <button onClick={handleCalculateClick} className="btn btn-primary">Calculate</button>
+                        </div>
+                    </div>
+                    <div className="row mt-4">
+                        <div className="col">
+                            Your monthly installment is <b>{Math.round(EMI).toLocaleString('en-in', {style:'currency', currency:'INR'})}</b> for {years} years.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+- The approach of UI within form element is mostly required while communicating with backend API, that allow to submit data from client.
+- React provides support for various 3rd party form libraries to configure and validate a form.
+
+                a) Formik
+                b) React Hook Form
+                c) Telerik Kendo Form
+                etc..
+
+                npmjs.com    
+
+
+                        Formik Forms
+                        ------------------
+- It is a 3rd party form library for React.
+- It provides pre-defined components that make the form implementation easy.
+
+1. Install formik library for your project
+
+        >npm  i formik --save
+
+2. Formik library provides "useFormik()" hook, which is used to configure a form.
+
+    import  { useFormik  } from "formik";
+
+    const  formik = useFormik({ options });
+
+    options:
+        a) initialValues
+        b) onSubmit
+        c) validation
+        d) validationSchema
+
+3. Formik have various built-in events
+        a) handleChange
+        b) handleBlur
+        c) handleSubmit
+        etc..
+
+Ex: formik-demo.jsx
+
+import { useFormik } from "formik";
+
+export function FormikDemo(){
+
+    const formik = useFormik({
+        initialValues : {
+            Name: '',
+            Price: 0,
+            Stock: false
+        },
+        onSubmit: (values)=> {
+            alert(JSON.stringify(values));
+        }
+    })
+
+    return(
+        <div className="container-fluid">
+            <form onSubmit={formik.handleSubmit}>
+                <h3>Register Product</h3>
+                <dl>
+                    <dt>Name</dt>
+                    <dd><input type="text" onChange={formik.handleChange} name="Name" /></dd>
+                    <dt>Price</dt>
+                    <dd><input type="number" onChange={formik.handleChange} name="Price" /></dd>
+                    <dt>Stock</dt>
+                    <dd>
+                        <input type="checkbox" onChange={formik.handleChange} name="Stock" /> <label>In Stock</label>
+                    </dd>
+                </dl>
+                <button>Submit</button>
+            </form>
+        </div>
+    )
+}

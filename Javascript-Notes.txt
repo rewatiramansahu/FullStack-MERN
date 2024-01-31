@@ -86,6 +86,7 @@ Solution:
 - It is an OOP language.
 
 
+
 ======================================== Integrating JavaScript into HTML page ===============================================
 
 Evolution of JavaScript:
@@ -277,6 +278,7 @@ Ex:
     <button onclick="PrintTicket()">Print</button>
 </body>
 </html>
+
 Class49- 19oct2023
 
 ================================== JavaScript Reference Techniques ============================
@@ -506,6 +508,7 @@ Ex:
     </div>
 </body>
 </html>
+
 
 Class50- 20oct2023
 
@@ -768,6 +771,7 @@ Ex:
 
 
 
+
 Class51- 26oct2023
 ================================== QueryString and Form Input Eelements ================================================
 
@@ -940,6 +944,7 @@ Ex:
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 </body>
 </html>
+
 
 Class52 - 27oct2023
 ==================================== Form Input and Language Basics ====================================== 
@@ -1174,6 +1179,7 @@ Ex:
     document.write("x=" + x);
     var x;   //hoisting
 </script>
+
 Class52- Date 28oct2023
 
 =============================== JavaScript Variables and Data Types ==================================
@@ -1324,6 +1330,7 @@ Primitive Types:
     6. Symbol
     7. Bigint
 
+
 Class54- Date 30oct2023
 
 ===================================== JavaScript Number Type ============================================
@@ -1464,6 +1471,7 @@ Ex:
         Math.sin()
         Math.cos()
         Math.tan() etc..
+
 
 Class55- Date 31oct2023
 
@@ -1673,6 +1681,7 @@ Ex:
 </body>
 </html>
 
+
 Class56- Date 01nov2023
 
 =================================== String =======================================
@@ -1878,6 +1887,7 @@ Ex:
     <p></p>
 </body>
 </html>
+
 
 Class57- Date 02nov2023
 
@@ -2143,6 +2153,7 @@ Ex:
     </dl>
 </body>
 </html>
+
 Class58- 03nov2023
 
 ============================== JavaScript String Methods ===================================
@@ -2304,6 +2315,7 @@ Ex:
     </dl>
 </body>
 </html>
+
 
 Class59- Date 04nov2023
 
@@ -2520,6 +2532,7 @@ Ex:
     </dl>
 </body>
 </html>
+
 Class60- Date 06nov2023
 
 ================================== Conditional Statements =====================================
@@ -2847,6 +2860,7 @@ Ex:
     </fieldset>
 </body>
 </html>
+
 Class61- Date 07nov2023
 
 ====================================== javascript Selection Statements ======================================
@@ -3064,6 +3078,7 @@ function findTriangleType(side1, side2, side3) {
 findTriangleType(12,12,12) //"Equilateral triangle."
 findTriangleType(20,20,31) //"Isosceles triangle."
 findTriangleType(5,4,3) //"Scalene triangle."
+
 Class62- Date 08nov2023
 
 =============================== javascript Switch Case ===============================
@@ -3263,6 +3278,7 @@ Ex:
        break;
     }
 </script>
+
 Class63- Date 09nov2023
 
 ===========================  Switch Example, Null and Undefined ===========================
@@ -3418,6 +3434,7 @@ Ex:
         document.write(`Name=${name} <br> Rating=${rating}`);
     }
 </script>
+
 Class64- 10nov2023
 
 ============================= JavaScript Non Primitive Types ==========================
@@ -3507,6 +3524,7 @@ Ex:
     }
     document.write(values["1"]);
 </script>
+
 
 Class65- Date 11nov2023
 
@@ -3689,6 +3707,7 @@ Ex:
     </div>
 </body>
 </html>
+
 
 Class66- Date 13nov2023
 
@@ -3921,6 +3940,7 @@ Ex:
     categories.push("Men's");
         categories.splice(1,0,"Women");
 
+
 Class67- Date 14nov2023
 
 ============================ javascript Array Manipulations =========================
@@ -4113,6 +4133,7 @@ Ex: Task
 </html>
 
 
+
 Class68- date 15nov2023
 
 ======================================= JavaScript Object Type =======================================
@@ -4239,6 +4260,7 @@ Ex:
     </div>
 </body>
 </html>
+
 Class69- Date 16nov2023
 
 ============================ JSON Type - Object Manipulations ============================
@@ -4511,6 +4533,7 @@ home.html
     </table>
 </body>
 </html>
+
 Class70- Date 17nov2023
 
 ============================= Nasa API ===========================
@@ -4650,6 +4673,7 @@ Ex: Nasa-Cards
 </html>
 
 Ex:  http://fakestoreapi.com
+
 
 Class71- Date 18nov2023
 
@@ -4803,6 +4827,7 @@ Ex:
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 </body>
 </html>
+
 
 Class72- 20nov2023
 
@@ -5070,6 +5095,7 @@ Ex:
      document.write(`Product with ${product[Id]} is ready to dispatch`);
 </script>
 
+
 Class73- 21nov2023
 
 ============================== javascript Date and Time Function ============================
@@ -5258,6 +5284,7 @@ Ex:
    
 </body>
 </html>
+
 Class73- Date 22nov2023
 
 ====================== JavaScript setInterval Examples =====================
@@ -5414,6 +5441,7 @@ Summary Data Types
 
 
                         Operators in JavaScript
+
 Class75- Date 24nov2023
 
 ============================== JavaScript Timer Events and Operators ==================================
@@ -5660,6 +5688,7 @@ Ex:
             ? :
    
     (condition) ? true  : false
+
 
 Class76- Date 25nov2023
 
@@ -5912,6 +5941,7 @@ Ex: KFC Form
 </body>
 </html>
 
+
 Class77- Date 27nov2023
 
 ========================== Operators (Part-2) in Javascript 27nov2023 ===========================
@@ -6049,6 +6079,7 @@ Ex:
     <a href="javascript:void('')">Home</a>
 </body>
 </html>
+
 Class78- Date 28nov2023
 
 =========================== JavaScript	Statements ============================
@@ -6185,6 +6216,7 @@ Ex:
    }
 </script>
 
+
 Class79- Date 29nov2023
 
 =========================== javaScript Loops ==========================
@@ -6306,6 +6338,7 @@ Ex:
      i++;
    }while(i<=10);
 </script>
+
 Class80- Date 01dec2023
 
 ======================= Iteration, Jump and Exception Handling =====================
@@ -6495,6 +6528,7 @@ Ex:
     }
 </script>
 
+
 Class82- Date 03dec2023
 
 ===================== JavaScript Function Parameters ======================
@@ -6648,6 +6682,7 @@ Ex:
    }
    Result();
 </script>
+
 
 Class84- Date 05dec2023
 
@@ -6857,6 +6892,7 @@ Ex:
 
 </script>
 
+
 Class85- Date 06dec2023
 
 ========================== JavaScript OOP =======================
@@ -7025,6 +7061,7 @@ export default function PrintSubTitle(){
     <p></p>
 </body>
 </html>
+
 Class86- Date 07dec2023
 
 ========================== Classes in JavaScript =======================
@@ -7206,6 +7243,7 @@ Ex:
         document.write(`Product Name : ${tv.ProductName}`);
     }
 </script>
+
 
 Class86- Date 08dec2023
 
@@ -7484,6 +7522,7 @@ HTML
 </body>
 </html>
 
+
 Class88- Date 12dec2023
 
 ================== Code Reusability and Extensibility =====================
@@ -7721,6 +7760,7 @@ Ex:
     let obj = new DerivedClass();
 </script>
 
+
 Class89 = Date 13nov2023
 
 ===================== Polymorphism and Events =====================
@@ -7857,6 +7897,7 @@ EX:
     <button>Insert</button>
 </body>
 </html>
+
 Class90= 14dec2023
 
 ========================= Event Args, Mouse Events ===========================
@@ -8164,6 +8205,7 @@ Ex:
 - onkeyup
 - onkeydown
 - onkeypress
+
 Class91= 15dec2023
 
 ==================================== Events Continued ==================================
@@ -8430,6 +8472,7 @@ Ex:
     </form>
 </body>
 </html>
+
 Class92= Date 16nov2023
 
 ============================ BOM ===========================
@@ -8589,6 +8632,7 @@ Document:
     querySelector()
     write()  
     appendChild() etc..
+
 
 Class93= Date 18dec2023
 
@@ -8831,6 +8875,7 @@ Ex:
     <p></p>
 </body>
 </html>
+
 Class94= Date 19dec2023
 
 ============================ JavaScript AJAX ============================
@@ -9033,14 +9078,15 @@ Ex: Fakestore using Ajax XMLHttpRequest
     </div>
 </body>
 </html>
+
 Class95= Date 20dec2023
 
 ============================ FAQ ============================
 
 FAQ's 
 Sudhakar Sharma
-•
-8:47 AM
+â€¢
+8:47â€¯AM
 FAQ's:  Events, Browser Objects, Ajax, State
 
 1. What is the pattern used by event?
@@ -9260,6 +9306,7 @@ A.    JSON.parse()    => convert string into JSON
 - A library contains pre-defined functions.
 - jQuery functions are designed to implement the mechanism "Write Less-Do More".
 - jQuery reduces browser compatibility issues.
+
 Class96= Date 21dec2023
 
 ============================ JQuery ============================
@@ -9546,6 +9593,7 @@ Ex:
      <p></p>
 </body>
 </html>
+
 Class97- Date = 22dec2023
 
 ======================= jQuery Ajax ========================
@@ -9798,6 +9846,7 @@ Ex: SPA [Single Page Application]
     </main>
 </body>
 </html>
+
 Class98= Date 23dec2023
 
 ========================== jQuery UI and Ajax Cycle =========================
@@ -9985,19 +10034,509 @@ Ex:
     <div id="faqs">
             <h1>What is Netflix?</h1>
             <div>
-                <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.</p>
+                <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more â€“ on thousands of internet-connected devices.</p>
 
-                <p> You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</p>
+                <p> You can watch as much as you want, whenever you want, without a single ad â€“ all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</p>
             </div>
             <h1>How much does Netflix cost?</h1>
             <div>
-                <p> You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</p>
+                <p> You can watch as much as you want, whenever you want, without a single ad â€“ all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</p>
             </div>
     </div>
 </body>
 </html>
 
                         jQuery Plugin's
+
+Class99= Date 26dec2023
+
+======================= jQuery Plugins ======================
+
+jQuery UI
+
+- Interactions
+    draggable
+    resizeable
+    sortable
+    selectable
+- Widgets
+    accordion
+    dialog
+    datepicker etc..
+
+
+                                  jQuery Plugins
+
+- Plugin is an extention for application.
+- jQuery provides various 3rd party plugins [extentions] which you can use for your application.
+- Plugin comprises of pre-defined styles and logic, which you can customize and implement.
+
+                        npmjs.com
+
+Ex: Barcode
+
+1. Install the following library
+
+        >npm  i   jquery-ean13 --save
+
+2. Import the library
+
+    <script src="../node_modules/jquery-ean13/dist/jquery-ean13.js"></script>
+
+3. Insert canvas element
+
+    <canvas id="code" width="300" height="100"> </canvas>
+
+4. Assign a 12 or 13 digit code in string format to canvas using EAN13()
+
+    $("#code").EAN13("991133491112")
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ean13/dist/jquery-ean13.js"></script>
+    <script>
+        $(function(){
+             $("#code").EAN13("9988111200118");
+        })
+    </script>
+</head>
+<body>
+    <img width="300" height="400" src="../public/images/iphone/m1.png">
+    <br><br>
+    <canvas id="code" width="300" height="100"></canvas>
+</body>
+</html>
+
+Ex: jQuery Grid
+
+1. Install  Grid library
+
+    >npm  i  jsgrid --save
+
+2. Import the CSS and supported jQuery files
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid.css">
+    <link rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.css">
+
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jsgrid/dist/jsgrid.js"></script>
+    <script>
+         $(function(){
+            $("#jsGrid").jsGrid({
+                width: "100%",
+                height: "400px",
+           
+                filtering: true,
+                editing: true,
+                sorting: true,
+                paging: true,
+           
+                data: [
+                    {Name: "Samsung TV", Price: 60000.33, Stock: true},
+                    {Name: "Nike Casuals", Price:1200.33, Stock: false}
+                ],
+           
+                fields: [
+                    { name: "Name", type: "text", width: 150 },
+                    { name: "Price", type: "number", width: 50 },
+                    { name: "Stock", type: "checkbox", title: "In Stock", sorting: false },
+                    { type: "control" }
+                ]
+            });
+         })
+    </script>
+</head>
+<body>
+    <div id="jsGrid">
+
+    </div>
+</body>
+</html>
+
+
+Ex: Datepicker
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/jquery-ui/jquery-ui.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui/jquery-ui.js"></script>
+    <script>
+         $(function(){
+              $("#dept").datepicker();
+         })
+    </script>
+</head>
+<body>
+    Departure :
+    <input type="text" id="dept">
+</body>
+</html>
+
+                                          jQuery Cookies
+
+Class100= Date 27dec2023
+
+======================= jQuery Cookies and Sass ======================
+
+
+jQuery Cookies
+
+
+1. Install Cookie library for jQuery
+
+    >npm install  jquery.cookie  --save
+
+2. Link the cookie library file
+
+    <script src="../node_modules/jquery.cookie/jquery.cookie.js"></script>
+
+3. Create a cookie
+
+      $.cookie("name", "value", { expiry : daysNumber })
+
+4. To access cookie value
+
+      $.cookie("name")
+
+5. To verify cookie
+
+      $.cookie("name")===undefined         => returns true if cookie deleted
+
+6. To remove cookie
+
+      $.removeCookie("name")
+
+
+Ex:
+1. login.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script>
+         $(function(){
+             $("button").click(()=>{
+                   $.cookie("username", $("#UserName").val(), { expires: 2 });
+                   location.href = "success.html";
+             })
+         })
+    </script>
+</head>
+<body>
+    <h2>Login</h2>
+    <input type="text" id="UserName" placeholder="User Name"> <button>Login</button>
+</body>
+</html>
+
+2. success.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script>
+         $(function(){
+              if($.cookie("username")===undefined) {
+                  location.href = "login.html";
+              } else {
+                $("#lblName").html($.cookie("username"));
+              }
+           
+            $("button").click(()=>{
+                $.removeCookie("username");
+                location.href = "login.html";
+            })
+         })
+    </script>
+</head>
+<body>
+    <h3>Hello ! <span id="lblName"></span> <button>Signout</button> </h3>
+</body>
+</html>
+
+                                Sass
+                      (Syntactically Awesome Style Sheet)
+
+- It is CSS pre-processor or pre-compiler.
+- It provides all programming features so that you can re-use, separate and make the logic simplified for styles.
+- You have to trans compile sass into css.
+
+Install Sass on your PC:
+
+    C:\> npm  install  -g   sass
+
+
+Create sass file in your project:
+
+        input.scss
+
+     .container {
+     border:2px solid red;
+     padding: 20px;
+     h2 {
+          color:red;
+     }
+     p {
+        font-family:Arial;
+     }
+     }
+
+Translate into CSS:
+- Open the scss file location in terminal
+
+     >sass  input.scss  output.css            // for compiling
+
+- It will generate a new file by name output.css with css code.
+- Link output.css to any HTML page.
+
+Note: After every modification in SCSS file your have transcompile the code.
+
+Ex:
+1.  input.scss
+
+.container {
+    border: 2px solid red;
+    border-radius: 20px;
+    background-color: rgb(249, 214, 214);
+    padding: 20px;
+    h2 {
+        color:rgb(187, 13, 13);
+    }
+    p {
+        color:rgb(235, 130, 130);
+    }
+}
+
+> sass input.scss  output.css
+
+2. index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/scss/output.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Delete Record</h2>
+        <p>Record will be deleted</p>
+    </div>
+</body>
+</html>
+
+                                  Sass Variables
+- Sass variables are declared by using
+     $name : value;
+
+- Value can any CSS value type.
+        10px, Arial,  red ...
+
+- You can access and use variable by using "$refName"
+
+Ex:
+input.scss
+
+$bgcolor : rgb(214, 249, 226);
+$txtColor : green;
+
+.container {
+    border: 2px solid red;
+    border-radius: 20px;
+    background-color: $bgcolor;
+    padding: 20px;
+    h2 {
+        color:$txtColor;
+    }
+    p {
+        color:rgb(235, 130, 130);
+    }
+}
+table {
+    background-color: $bgcolor;
+    color: $txtColor;
+}
+
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/scss/output.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Delete Record</h2>
+        <p>Record will be deleted</p>
+    </div>
+    <br><br>
+    <table width="300" border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+</html>
+
+
+                        Sass Built in Functions
+                            [Statements]
+- @If
+- @else if
+- @else
+- @for
+
+Syntax:
+    @if  condition
+    {
+
+    }
+    @else
+    {
+    }
+
+Ex:
+input.scss
+
+$bgcolor : gray;
+$txtColor : black;
+$border : 2px solid black;
+$themeName : red;
+
+
+@if $themeName==green
+{
+    $bgcolor : rgb(214, 249, 226);
+    $txtColor : green;
+    $border : 2px solid green;
+}
+@else if $themeName==red
+{
+    $bgcolor : rgb(249, 217, 214);
+    $txtColor : rgb(128, 0, 0);
+    $border : 2px solid red;
+} @else {
+    $bgcolor : gray;
+    $txtColor : black;
+    $border : 2px solid black;
+}
+
+.container {
+    border: $border;
+    border-radius: 20px;
+    background-color: $bgcolor;
+    padding: 20px;
+    h2 {
+        color:$txtColor;
+    }
+    p {
+        color:rgb(235, 130, 130);
+    }
+}
+
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/scss/output.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Delete Record</h2>
+        <p>Record will be deleted</p>
+    </div>
+   
+</body>
+</html>
+
+Syntax:
+    @for  $i  from 1 through 10
+    {
+    }
+
+    #{ }         => binding expression
+
+Ex:
+input.scss
+
+div {
+    width: 100px;
+    height: 100px;
+    border:2px solid black;
+}
+@for $i from 1 through 4
+{
+     .box-#{$i} {
+        margin-left: $i * 100px;
+     }
+}
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/scss/output.css">
+</head>
+<body>
+    <div class="box-1">
+        <img src="../public/images/a1.jpg" width="100" height="100">
+    </div>
+    <div class="box-2">
+        <img src="../public/images/a2.jpg" width="100" height="100">
+    </div>
+    <div class="box-3">
+        <img src="../public/images/a3.jpg" width="100" height="100">
+    </div>
+    <div class="box-4">
+        <img src="../public/images/a4.jpg" width="100" height="100">
+    </div>
+
+</body>
+</html>
+
 
 Class83- Date 04dec2023
 

@@ -1,0 +1,3937 @@
+
+Class103= Date 01jan2023
+
+============================= Setup Environment for React =============================
+
+Setup Environment for React
+
+1. Download and Install Node JS
+    [ NPM - Package Manager]
+
+2. Download and Install Visual Studio Code editor
+
+3. Download and Install extentions for VS Code
+
+        - Live Server
+        - vscode-icons
+        - IntelliSense for CSS class name in HTML
+
+
+React in Existing web application:
+
+1. Create a new folder for web application
+   
+        F:\react-web-app
+
+2. Open in VS code and add the following
+
+         > npm   init  -y                [adds package.json]
+       
+3. Add folders
+       
+        > public            [static resources: images, html, docs..]
+        > src            [dynamic : .js, .ts, .css, .scss, .jsx, .tsx ]
+
+4. Add following files into public folder
+
+        index.html
+        home.html
+
+Basic Requirements for Integrating React into a Web Page:
+
+1. React Core Library
+    react.js
+    - It provides all basic functions and classes required for building react application.
+    - It provides various services for react.
+    - Service is a pre-defined business logic, which you can inject into application and
+      implement a functionality.
+
+
+2. React DOM library
+    react-dom.js
+    - It provides properties and methods to handle Virtual DOM
+    - It updates the actual DOM by transcompiling the virtual DOM actions.
+
+3. Babel Library
+    @babel/standalone
+ 
+     - It is a compiler used for JavaScript based applications.
+     - React uses "JSX" [JavaScript Extention] as language, which requires babel like
+       compiler.
+
+Note: You can get all the libraries using CDN or install with package manager.
+
+- Projects upto 17x versions of react can get help from
+
+        https://legacy.reactjs.org/docs/cdn-links.html
+
+- Project from 18x versions of react can use the new
+
+        https://react.dev/
+- Babel
+        https://babeljs.io/docs/babel-standalone
+
+Ex: React 17 Integration
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Web Application - Index</h1>
+    <p>This page is not using any React library.</p>
+     React is in <a href="home.html"> Home </a> Page
+</body>
+</html>
+
+home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script&gt;
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script&gt;
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script&gt;
+    <script type="text/babel">
+            ReactDOM.render("Welcome to React", document.getElementById("root"));
+    </script>
+</head>
+<body>
+    <noscript>Please enable JavaScript on your browser</noscript>
+    <div id="root"></div>
+</body>
+</html>
+
+Class104= Date 02jan2024
+
+==================== React v17 Components =================
+
+
+Adding react to existing application: [17 ver]
+react.js
+react-dom.js
+babel.js
+
+Adding react 17 libraries to a project:
+
+- You can add any library using package manager
+- Node JS provides NPM as package manager
+- Open Terminal in your project and install the following
+
+    > npm  install   react   --save
+    > npm  install   react-dom   --save
+    > npm  install  @babel/standalone  --save
+
+Note: react is backward compatible, you can use the 17 techniques in 18 library.
+
+- NPM install latest versions of  libraries copied into "node_modules" folder
+- NPM provides 2 basic module systems
+        a) CJS    [Common JS]
+        b) UMD    [Universal Module Distribution]
+- Node & babel compiler can use library from UMD, hence you have to link UMD library files into page.
+
+                /umd/react.development.js
+                /umd/react-dom.development.js
+
+- The language used for UI in react is JSX [JavaScript Extention].
+- It requires the MIME type for script as  "text/babel"  or  "text/jsx"
+- React upto 17 version uses  "ReactDOM.render()"  method to render a component in virtual DOM.
+
+Syntax:
+    <script type="text/babel">
+
+    ReactDOM.render("your component content",  document.getElementById("root"));
+
+        </script>
+
+       <div id="root"> </div>
+
+Ex:
+ home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/@babel/standalone/babel.js"></script>
+    <script type="text/babel">
+        ReactDOM.render("Welcome to React JS", document.getElementById("root"));
+    </script>
+</head>
+<body>
+    <noscript>Please enable JavaScript on your browser</noscript>
+    <div id="root"></div>
+</body>
+</html>
+
+                         React Components
+- A component comprises of
+        a) Markup
+        b) Styles
+        c) Functionality
+- Markup is the presentation defined with HTML.
+- Styles are the attributes defined with CSS to make interactive design.
+- Functionality is configured with JavaScript or TypeScript. [JSX, TSX]
+- A component allows reusability and easy extensibility.
+- You can create components in "React" by using 2 techniques
+
+        a) function    
+        b) class
+
+Function Components in React:
+
+1. Every react component function declaration must have Title Case.
+
+        function  UserLogin()    => valid
+        {
+        }
+
+        function userLogin()    => not valid
+
+2. Every component function must return a markup.
+
+3. Every component function can return only one fragment as markup.
+
+Syntax:
+        function  Login()
+        {
+           return(
+               <div>
+
+               </div>
+            );
+        }
+
+            ReactDOM.render(<Login> </Login>, document.getElementById("root"));
+
+- JSX will not allow void elements, every element must have end token.
+
+        <img>                => invalid
+        <img> </img>        => valid
+        <img />            => valid
+        <input> </input>
+        <input type="text" />
+
+- JSX will not allow attributes, you have to use only properties.
+
+        <img>        src [ attribute /  property ]
+                    class => attribute
+                    className => property
+
+home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        .login-form {
+            border:2px solid gray;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 2px gray;
+            width: 250px;
+        }
+    </style>
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/@babel/standalone/babel.js"></script>
+    <script type="text/babel">
+
+        function Login(){
+            return (
+                <div className="login-form">
+                    <h1> User Login </h1>
+                    <dl>
+                        <dt>User Id</dt>
+                        <dd><input type="text" /></dd>
+                        <dt>Password</dt>
+                        <dd><input type="password" /></dd>
+                    </dl>
+                    <button>Login</button>
+                </div>
+                );
+        }
+
+        ReactDOM.render(<Login></Login>, document.getElementById("root"));
+    </script>
+</head>
+<body>
+    <noscript>Please enable JavaScript on your browser</noscript>
+    <div id="root"></div>
+</body>
+</html>
+
+Class105= Date 03jan2024
+
+===================	Netflix UI - React 17 ====================
+
+Summary
+- Creating component using functions
+- Rules for function component
+
+Ex: Netflix Design
+
+1.  Create a new folder for project
+
+        D:\netflix-react-app
+
+2. Open project folder in VS code
+
+
+3. Add package.json
+
+        > npm  init  -y
+
+4. Install following libraries
+
+        > npm  i  react    react-dom    @babel/standalone   --save
+
+        > npm  i  bootstrap   bootstrap-icons   --save
+
+     Library files are kept in "node_modules" folder
+
+
+5. Add following folders into project
+
+        > public        [static resources]        html, text docs, images, pdf, videos..
+        > src        [dynamic resources]    css, scss, js, ts, jsx, tsx ..
+
+6. Add index.html into public folder
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <style>
+        .bg-image {
+            background-image: url("netflix-banner.jpg");
+            background-size: cover;
+            height: 100vh;
+        }
+        .bg-shade {
+            height: 100vh;
+            background-color: rgba(0,0,0,0.6);
+        }
+        .brand-title {
+            font-size: 40px;
+            color:red;
+            font-family: Arial;
+            font-weight: bold;
+        }
+        main {
+            margin-top: 100px;
+        }
+        .main-title {
+            font-size: 60px;
+            font-family: Arial;
+            font-weight: bold;
+        }
+        .main-subtitle {
+            font-size: 30px;
+            font-family: Arial;
+            margin-top: 20px;
+        }
+        form {
+            margin-left: 350px;
+            margin-right: 350px;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="../node_modules/@babel/standalone/babel.js"></script>
+
+    <script type="text/babel">
+
+        function NetflixHeader(){
+            return (
+                <header className="d-flex p-4 justify-content-between">
+                    <div>
+                        <span className="brand-title">NETFLIX</span>
+                    </div>
+                    <div>
+                        <div className="input-group">
+                            <span className="bi input-group-text bi-translate"></span>
+                            <select className="form-select">
+                                <option>Language</option>
+                                <option>English</option>
+                            </select>
+                            <button className="btn ms-2 btn-danger">Signin</button>
+                        </div>
+                    </div>
+                </header>
+            )
+        }
+
+        function NetflixRegister(){
+            return(
+                <form>
+                   <p> Ready to watch? Enter your email to create or restart your membership. </p>    
+                   <div className="input-group input-group-lg">
+                      <input type="email" placeholder="Your email address" className="form-control" />
+                      <button className="btn btn-danger ms-2">
+                         Get Started <span className="bi bi-chevron-right"> </span>  
+                      </button>
+                   </div>
+                </form>
+            )
+        }
+
+
+        function NetflixMain(){
+            return(
+                <main className="text-white text-center">
+                    <div className="main-title">Unlimited movies, TV shows and more</div>
+                    <div className="main-subtitle">Watch anywhere. Cancel anytime.</div>
+                    <NetflixRegister />
+                </main>
+            )
+        }
+
+
+         function NetflixIndex(){
+            return(
+                <div className="bg-image">
+                  <div className="bg-shade">
+                     <NetflixHeader />
+                     <NetflixMain />
+                  </div>
+                </div>
+            )
+         }
+
+         ReactDOM.render(<NetflixIndex />, document.getElementById("root"));
+    </script>
+</head>
+<body>
+    <noscript>please enable javascript on your browser</noscript>
+    <div id="root"></div>
+</body>
+</html>
+
+Class106= Date 04jan2024
+
+===================	React JS v18 Application ====================
+
+
+
+- React 18 is a complete re-write of react library.
+- 18x versions are backward compatible.
+   [Easy to migrate from previous version to new version]
+- 18x versions introduced a client DOM library for handling virtual DOM.
+       
+                react
+                react-dom/client
+
+ Syntax: 17 Rendering
+
+        ReactDOM.render(component, targetElement);
+
+ Syntax: 18 Rendering
+
+        let  root =  ReactDOM.createRoot("targetElement");
+        root.render(component);
+
+- 18x versions introduces new Hooks for functions. [Hook is a special method].
+- 18x versions use functions for components, however you also use a class.
+- 18x have better error handling. It provides compile time and debug time error handling.
+- 18x have more security features.
+
+Creating React 18 Application using Webpack Bundler [Implicitly]:
+
+1. Open any PC location in command prompt
+
+        D:\>
+
+2. Run the following command
+
+        D:\> npx  create-react-app  react-project
+
+Note: Default react-app is created with JavaScript as language.
+
+
+3. Open project folder in your Editor [VS  Code]
+
+
+4. React project file system comprises of following
+
+    File / Folder                Description
+    ----------------------------------------------------------------------------------------
+    node_modules          It comprises of all library files installed in project.
+    public                It comprises of all static resources [html, images, docs..]
+    src                   It comprises of dynamic resources [.js, .ts, .css, .scss..]
+    package.json          It comprises project meta data
+    package.lock.json     It comprises of library meta data
+    .gitignore            It configures the repository to ignore while publishing on
+                          GIT.
+    Readme.md              It is a help documentation provided for developers.
+
+
+React Basic Flow:
+ 
+   - Application starts with "index.html" [public]
+   - Code for index.html comes from "index.js" [src]
+   - index.js is using a component "<App>" to render into index.html
+   - <App> component code is defined in "App.js"
+
+    <div id="root"> </div>            => index.html
+
+     const root = ReactDOM.createRoot(document.getElementById("root");
+     root.render( <App /> )
+
+To start project
+
+     > npm start        
+    http://localhost:3000
+
+Class107= Date 05jan2024
+
+===================	React v18 Component ====================
+
+Summary
+- Create React 18 Application with Webpack Bundler
+- File System of React App
+    node_modules
+    public
+    src
+    package.json / lock.json
+    .gitignore
+    .readme.md
+- Basic React flow
+    component.js => index.js => index.html
+    ReactDOM.createRoot().render()
+    ReactDOM.render()
+- Start application
+    > npm start
+
+                        React 18 Components
+                   ------------------------------
+- Components are building-blocks for SPA. [Single Page Application]
+- A component comprises of markup, styles and logic.
+- Every component design comprises of
+
+        a) Markup using HTML
+        b) Styles with CSS
+        c) Functionality with JavaScript [JSX] / TypeScript [TSX]
+
+- A component is easy to reuse and extend.
+- It enables simplified testing approach.
+   [reusability , extensibility, testablility, maintainability..]
+
+Creating a Component:
+- A component is designed with following files
+     a) component.jsx | js        => Markup & Functionality
+     b) component.css            => Styles
+     c) component.spec.js | test.js => Test File [Testing Logic]
+             [JEST Framework]
+
+- A component can be designed using JavaScript
+    a) Function
+    b) Class
+
+- A function component can be configured using declaration or expression.
+
+    function name()            => declaration
+    {
+    }
+
+    const  name = function() {    => expression
+
+    }
+
+- In a module system every member is private in access, you have to mark as "export" to make public in access.
+
+    export  function  Name()
+    {
+    }
+
+- Component name must start with uppercase letter.
+- A component function must  return a function.
+
+    export  function  Name()
+    {
+      return ( );                => ( )  Anonymous function
+    }
+
+- Every component function must return a function with fragment. It can return only one fragment.
+- Fragment is rendered in virtual DOM.
+- A fragment can be configured using various techniques
+   
+        a) You can use any HTML container
+            <div> <span> <h1> <form> <main> etc..
+
+        b) You can use empty fragment
+            <> </>
+
+        c) You can use "React.Fragment" component, which is good for providing
+             various types of services to a component.
+
+            <React.Fragment>
+
+            </React.Fragment>
+
+- Every component have to import the CSS individually or globally in index.js
+
+            import  "./login.css";
+
+Ex:
+1. Add a new folder in SRC by name "components"
+
+2. Add a folder for component "login"
+
+3. Add following files into login
+
+        login.jsx
+        login.css
+
+4. login.css
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+form {
+    padding: 20px;
+    border:1px solid gray;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px black;
+}
+dt {
+    font-weight: bold;
+}
+
+4. login.jsx
+
+import React from "react";
+import "./login.css";
+
+export function Login()
+{
+    return(
+        <React.Fragment>
+            <main>
+                <form>
+                    <h3>User Login</h3>
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd><input type="text" /></dd>
+                        <dt>Password</dt>
+                        <dd><input type="password" /></dd>
+                    </dl>
+                    <button>Login</button>
+                </form>
+            </main>
+        </React.Fragment>
+    )
+}
+
+5. Go to Index.js and keep login in startup
+
+         <React.StrictMode>
+                <Login />
+          </React.StrictMode>
+
+                          Data Binding
+
+
+
+Class107= Date 06jan2024
+
+===================	React JS Enable Bootstrap & Data Binding ====================
+
+Enable Bootstrap for React Application:
+
+1. Install bootstrap for project
+
+    > npm  install  bootstrap   bootstrap-icons  --save
+
+2. Import following files into "index.js"
+
+    import   '../node_modules/bootstrap/dist/css/bootstrap.css';
+    import   '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+
+3. Implement bootstrap & icons with pre-defined classes
+
+    <h2  className="bi bi-person-fill">  User Login </h2>
+
+    <input type="text"  className="form-control" />
+   
+    <button className="btn btn-primary w-100"> Login </button>
+
+
+                             Data Binding
+
+- It is a technique used in web applications, where the data is accessed from a source and binded to UI.
+
+            var userName = "John";
+
+            <p> </p>
+
+- JavaScript uses lot of DOM methods for data binding.
+
+            function  bodyload()
+            {
+              document.querySelector("p").innerHTML = userName;
+            }
+
+- React uses a data binding expression defined with "{  }", which allows to bind any data directly to UI elements without using any DOM methods.
+
+            var  userName = "John";
+
+            <p> { userName } </p>
+
+- React can use all data types provided by JavaScript
+
+        a) Primitive Types
+            number
+            string
+            boolean
+            null
+            undefined
+            bigint
+            symbol
+        b) Non Primitive Types
+            array
+            object
+            map
+            set
+        c) Additional Types
+            date
+            regExp
+               
+- Binding Primitive Data Types
+
+1. Number Type
+
+- You can present a numeric value exactly as defined
+
+        var  price = 45000.55;
+       
+        <p> { price } </p>
+
+- You can present in local format
+
+        <p>  { price.toLocaleString('en-in', {style : "currency", currency: "INR"}) } </p>
+        <p>  { price.toLocaleString() } </p>
+
+Ex:
+data-binding.jsx
+
+export function DataBinding(){
+
+    var price = 450000.44;
+
+    return(
+        <div className="container-fluid">
+            <h2> {price} </h2>
+            <h2>  {price.toLocaleString('en-in',{style:'currency', currency: 'INR'})} </h2>
+        </div>
+    )
+}
+
+
+2. String Type
+
+- A string can be presented exactly as defined.
+
+        var  title = "amazon";
+
+        <p> { title } </p>
+
+- You can format string using various string formatting methods and present
+
+        <p> { title.toUpperCase() } </p>
+       
+          bold()
+          italics()
+          fontcolor()
+          fontsize()
+          sup()
+          sub()
+          toUpperCase() etc..
+
+Note: A React application is enabled with security that prevents "Cross Site Scripting Attacks" [XSS], you can disable the security to use various formats of string.
+
+- You can manipulate a string while binding using various string manipulation methods.
+
+        charAt(), charCodeAt(), startsWith(), endsWith(), indexOf(), lastIndexOf()
+        slice(), substr(), substring(), split(), trim(), match() etc..
+
+Note: JSX element will not allow any statements within the context of element.
+      You can use in function but not in element scope.
+
+                - Selection Statements
+                - Iteration Statements
+                - Jump Statements
+                - Looping Statements
+                - Exception Handling Statements
+
+       You can handle various interactions in JSX using operators and methods.
+
+Ex:
+data-binding.jsx
+
+export function DataBinding(){
+
+    var email = "john_nit@outlook.com"
+
+    return(
+        <div className="container-fluid">
+           <div className="mt-4">
+                <h1> Your Id  <span className="text-success">{ email.substring(0, email.indexOf("@")) }</span> Registered At  <span className="text-primary">{email.slice(email.indexOf("@")+1)}</span> </h1>
+                <div>
+                  { (email.endsWith("outlook.com")?"You have Microsoft Account": "You have google account") }
+                </div>
+           </div>
+        </div>
+    )
+}
+
+3. Boolean Type
+
+- JSX can't display a boolean "true / false".
+- You have to use various decision manking techniques to convert and display the relative value for boolean.
+
+Ex:
+data-binding.jsx
+
+export function DataBinding(){
+
+    var stock = false;
+
+    return(
+        <div className="container-fluid">
+           <div className="mt-4">
+                <h2> Stock { (stock==true)?"Available":"Out of Stock" } </h2>
+           </div>
+        </div>
+    )
+}
+
+
+
+Class109- date 07jan2024
+
+======================== Primitive and Non Primitive Types ========================
+
+Summary
+
+- Creating React App 18 with Webpack bundler
+- Components in React 18
+- Data Binding
+- Primitive Data Types
+    Number
+    String
+    Boolean
+   
+                            Undefined
+- It is a type configured for variable when value is not initialized or assigned.
+- You can check by using "undefined" keyword.
+
+Syntax:
+        var Price;
+        (Price)? defined : not-defined
+                     (or)    
+        (Price==undefined) ? not-defined : defined
+
+Ex:
+data-binding.jsx
+
+export function DataBinding(){
+
+    var Name = "Samsung TV";
+    var Price=40000.44;
+
+    return(
+        <div className="container-fluid">
+           <div className="mt-4">
+               <dl>
+                 <dt>Name</dt>
+                 <dd>{Name}</dd>
+                 {
+                    (Price)?<div><dt>Price</dt> <dd>{Price}</dd></div>:""
+                 }
+               </dl>
+           </div>
+        </div>
+    )
+}
+                              Null
+- It refers to the value from any method into a reference variable dynamically.
+- If value is not provided dynamically then it returns "null".
+
+Syntax:
+        var  Price = prompt("Enter Price");
+
+        (Price==null) ? not-defined : defined
+
+Ex:
+data-binding.jsx
+
+export function DataBinding(){
+
+    var Name = "Samsung TV";
+    var Price= prompt("Enter Price") ;
+
+    return(
+        <div className="container-fluid">
+           <div className="mt-4">
+               <dl>
+                 <dt>Name</dt>
+                 <dd>{Name}</dd>
+                 {
+                    (Price==null)?"":<div><dt>Price</dt> <dd>{Price}</dd></div>
+                 }
+               </dl>
+           </div>
+        </div>
+    )
+}
+
+Summary
+- Number
+- String
+- Boolean
+- Undefined
+- Null
+
+                         Non Primtive Types
+
+1. Array
+- Arrays are used to reduce overhead and complexity.
+- JS array can handle various types of data.
+- JS array size can change dynamically.
+
+Configuring Array:
+
+        var  values = new Array();
+        var  values = [ ];
+
+Reading Data from Array:
+
+    map()            It reads all elements from array.
+    forEach()            It reads all elements with index.
+    filter()            It reads and returns all elements that match given condition
+    find()            It reads and returns only first element that match the condition
+    slice()            It reads elements between specified index.
+
+Syntax:
+    collection.map(function(item){         => not good for react
+
+    })
+
+    collection.map(item => <div> </div>)    => good for react
+
+
+Note: React requires a unique key for every repeating element.
+
+    collection.map(item => <div key={item}> </div>
+
+Ex:
+data-binding.css
+
+
+.scrollable {
+    width: 150px;
+    height: 60px;
+    border: 1px solid gray;
+    padding: 5px;
+    overflow: auto;
+    list-style: none;
+}
+
+data-binding.jsx
+
+import './data-binding.css';
+
+export function DataBinding(){
+
+    var categories = ["All", "Electronics", "Footwear", "Fashion"];
+
+    return(
+        <div className="container-fluid">
+           <div className="mt-4">
+              <ol>
+                {
+                    categories.map(category=> <li key={category}> {category} </li>)
+                }
+              </ol>
+              <select>
+                  {
+                    categories.map(category => <option key={category}> {category.toUpperCase()} </option>)
+                  }
+              </select>
+              <ul className='scrollable'>
+                 {
+                    categories.map(category => <li key={category}> <input type="checkbox" /> <label>{category}</label> </li> )
+                 }
+              </ul>
+           </div>
+        </div>
+    )
+}
+
+FAQ: How to query and present elements that match given condition?
+Ans : By using find() & filter() methods of array.
+
+Syntax:
+    collection.filter(value => value>40000).map(item => <div key={item}> </div>)
+
+Ex:
+data-binding.jsx
+
+import './data-binding.css';
+
+export function DataBinding(){
+
+    var sales = [45000, 35000, 23000, 56000, 34000];
+
+    return(
+        <div className="container-fluid">
+           <div className="mt-4">
+                <ul>
+                    {
+                        sales.filter(value => value > 40000 ).map(sale=> <li key={sale}>{sale}</li>)
+                    }
+                </ul>
+           </div>
+        </div>
+    )
+}
+
+Ex: Toolbar
+
+import './data-binding.css';
+
+export function DataBinding(){
+
+    var menu = ["Home", "Shop", "Men's Fashion", "Women's Fashion"];
+
+    return(
+        <div className="container-fluid">
+           <nav className='navbar navbar-expand-lg bg-warning text-white'>
+                <div className='container-fluid'>
+                <h2 className='navbar-brand text-white'>Amazon.</h2>
+                <button className='navbar-toggler'> <span className='navbar-toggler-icon'></span> </button>
+                  <ul className='navbar-nav'>
+                    {
+                        menu.map(item=> <li className='nav-item' key={item}> <a className='nav-link'> {item} </a> </li>)
+                    }
+                  </ul>
+                </div>
+           </nav>
+        </div>
+    )
+}
+
+                            Object - JSON
+
+Class110= Date 08jan2024
+
+===================	Object, Map, Date ====================
+
+Data Binding  in React
+- Primitive Type
+- Non Primitive
+
+                              Object Type
+                            -----------------
+- It is a key and value collection
+- Key is string and value can be any type.
+
+Syntax:
+        var  obj = { "Key" : value }
+
+        <p> { obj.Key } </p>
+
+Ex:
+data-binding.jsx
+
+import './data-binding.css';
+
+export function DataBinding(){
+
+    var product = {
+       "Name": "Samsung TV",
+       "Price": 34000.44,
+       "Stock": true,
+       "Cities": ["Delhi", "Hyd"],
+       "Rating": { "Rate":4.3, "Count": 3000 }
+    }
+
+    return(
+        <div className="container-fluid">
+            <h2>Product Details</h2>
+            <dl>
+              <dt>Name</dt>
+              <dd>{product.Name}</dd>
+              <dt>Price</dt>
+              <dd>{product.Price}</dd>
+              <dt>Stock</dt>
+              <dd>{(product.Stock==true)?"Avaialble":"Out of Stock"}</dd>
+              <dt>Cities</dt>
+              <dd>
+                 <ul>
+                    {
+                      product.Cities.map(city=><li key={city}> {city} </li>)
+                    }
+                 </ul>
+              </dd>
+              <dt>Rating</dt>
+              <dd> {product.Rating.Rate} <span className='bi bi-star-fill text-success'></span> [{product.Rating.Count}] </dd>
+            </dl>
+        </div>
+    )
+}
+
+FAQ's:
+1. How to get the list of all keys in object?
+A. Object.keys()   or   for..in  statement
+
+Syntax:
+        var product = { Name: "TV",  Price: 45000.44 }
+
+        {
+          Object.keys(product).map(key=> <li key={key}> {key} </li>)
+        }
+
+2. How to remove a key from object?
+A. By using "delete" operator
+
+Syntax:
+        delete  object.key
+
+3. How to check for any key in object?
+A. By using "in" operator
+
+Syntax:
+        "key"  in  object        => true if key available
+
+                 
+                              Map Type
+- It is a key and value collection.
+- Key can be any type and value any type.
+- Map provides pre-defined methods and properties to mapulate the keys and values.
+- It is faster than object.
+
+Syntax:
+        var  obj = new Map();
+        obj.set(key, value)
+        obj.get(key)
+        obj.delete(key)
+        obj.clear()
+        obj.has(key)
+        obj.size
+        obj.keys()
+        obj.values()
+        obj.entries()
+
+FAQ: What is difference between object and map?
+Ans:
+
+        Object                        			Map
+---------------------------------------------------------------------------------
+        Key / Value collection            		Key / Value collection
+       
+        Key is string type                		Key can be any type
+       
+        It requires all explicit methods    	It provides built-in methods
+        for manipulation.                		for manipulation
+
+        It is slow in access                	It is fast in access
+
+        It is structured                    	It is schema less.
+
+
+                          Array of Objects
+- Data is stored as collection.
+- Collection comprises multiple objects.
+- Each object comprises of keys and values.
+
+Syntax:
+    var  products = [
+                    { Name: "TV", Price: 40000.55},
+                    { Name: "Mobile", Price: 31000.34}
+                ]
+
+- You can use various array methods to read and present data.
+
+Ex:
+data-binding.jsx
+
+import './data-binding.css';
+
+export function DataBinding(){
+
+  var  products = [
+    { Name: "TV", Price: 40000.55},
+    { Name: "Mobile", Price: 31000.34}
+  ];
+
+ 
+    return(
+        <div className="container-fluid">
+          <table className='table table-hover mt-3'>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+               {
+                 products.map(product=><tr key={product.Name}> <td>{product.Name}</td> <td>{product.Price}</td> </tr>)
+               }
+            </tbody>
+          </table>
+        </div>
+    )
+}
+
+                         Date Type
+- Date in JavaScript is configured using a "Date()" constructor
+- React uses all JavaScript date manipulates using get & set methods.
+
+Syntax:
+        var  mfd  = new Date("year-month-day  hrs:min:sec.milliSeconds");
+        var  now = new Date();
+
+Date Methods:
+        getHours()                setHours()
+        getMinutes()                setMinutes()
+        getSeconds()                setSeconds()
+        getMilliSeconds()            setMilliSeconds()
+        getDay()                    setDate()
+        getDate()                    setMonth()
+        getMonth()                setYear()
+        getFullYear()
+        toString()
+        toLocaleString()
+        toDateString()
+        toTimeString()
+        toLocaleDateString()
+        toLocaleTimeString()
+
+Syntax:
+        var  mfd  = new Date("2024-01-21  16:23:45.67");
+       
+        { mfd.toLocaleDateString() }
+
+Note: A react component can't store and use data from a variable.
+          Variables a immutable types and component can't use immutable data.
+
+                   
+                          State in React Component
+                    ------------------------------------
+- HTTP is a state less protocol.
+- It removes the memory allocated for a request when it completes the request.
+- React components are handled over multiple requests, hence they require a state to store the data and use across requests.
+- React provides state for class components, but not for function components.
+- React 18 introduced new Hooks [methods] to configure a state for function component.
+                           "useState()"
+
+Configuring State for React Function Component:
+
+1. Import useState hook from react core library
+
+    import  { useState  }  from "react";
+
+2. useState provides 2 members [accessors]
+   
+    a) getter to read value
+    b) setter to write value
+
+    const  [getter, setter] = useState();
+    const  [name, setName] = useState('John'); => state is any type
+
+    { name }
+
+Ex:
+data-binding.jsx
+
+import './data-binding.css';
+
+import { useState } from 'react';
+
+export function DataBinding(){
+
+    const [product] = useState({Name:'TV', Price:50000.33});
+    const [categories] = useState(["All","Electronics","Fashion"]);
+ 
+    return(
+        <div className="container-fluid">
+            Name : {product.Name} <br/>
+            Price : {product.Price}
+            <ul>
+              {
+                categories.map(category=> <li key={category}> { category }</li>)
+              }
+            </ul>
+        </div>
+    )
+}
+                    Data Binding Techniques
+
+
+
+Class111= Date 09jan2024
+
+===================	Two Way Data Binding in React JS ====================
+
+FAQ: Why developers always use "const" for configuring state?
+Ans:  State requires initialization and should not allow assignment.
+         "var & let" in Javascript will allow assignment, hence it is always recommended to
+       use "const" for configuring state.
+
+            let  [name] = useState();        // not good
+            const [name] = useState();    // good
+
+                    Data Binding Techniques
+                ---------------------------------
+
+- Modern web application use separation concerns by implementing MVC framework.
+- MVC is "Model-View-Controller".
+- "Trygve" introduced MVC framework in early 1970's and formulated with a language called "Small Talk".
+- Code resuability and Separation concerns.
+
+                JAVA        - Spring MVC
+                .NET        - ASP.NET MVC
+                Python      - Django, Flask, Grock
+                Ruby        - Ruby on Rails
+                PHP         - Cake PHP, Code Igniter
+                JavaScript  - SPINE
+                etc..
+
+- MVC separates application into 3 components
+
+        a) Model
+        b) View
+        c) Controller
+
+- "Model" represents data.
+- "View" represents UI.
+- "Controller" represents application logic.
+
+One Way Data Binding:
+- It is the process of accessing data from model and updating into UI.
+- Identifying the changes in model and update into UI, everytime when model changes.
+- React uses one way binding technique implicitly.
+- It provides more security to the data.
+
+Two Way Data Binding:
+- It is the process of accessing data from model and updating into UI.
+- Identifying changes in data and updating back to Model from UI.
+- Several technologies that support "Two way binding" they implicilty manage this approach by using various methods.
+- React have to manage "Two way binding" explicitly using various "Event Binding" techniques.
+- React events are "SyntheticEvents" that map to "BrowserEvents".
+
+  SyntheticEvent [Virtual DOM]  => onChange => BrowserEvent [DOM] => onchange
+
+- React can use only "onChange" as event for element to identify the changes in value.
+- It can use other events to handle various other interactions, but not value change.
+
+Syntax:
+    <input type="text"  onChange={functionName} />
+    <select onChange={functionName} />
+    <input type="checkbox" onChange={functionName} />
+
+Ex:
+data-binding.jsx
+
+import './data-binding.css';
+
+import { useState } from 'react';
+
+export function DataBinding(){
+
+    const [userName, setUserName] = useState('John');
+ 
+    function handleUserName(e){
+         setUserName(e.target.value);
+    }
+
+    return(
+        <div className="container-fluid">
+           <h2>Two Way Binding</h2>
+           <dl>
+            <dt>User Name</dt>
+            <dd><input type="text" onChange={handleUserName} value={userName} /></dd>
+           </dl>
+           <p>Hello ! {userName} </p>
+        </div>
+    )
+}
+
+
+Class112- 10jan2024
+
+=========================== Use State & Use Effect =======================
+
+Note: In two way binding approach "Model" is considered as "Single-Source-of-Truth".
+
+Ex:
+data-binding.jsx
+
+import './data-binding.css';
+
+import { useState } from 'react';
+
+export function DataBinding(){
+
+    const [product, setProduct] = useState({Name:'', Price:0, City:'', Stock:false});
+   
+    function handleNameChange(e){
+        setProduct({
+            Name: e.target.value,
+            Price: product.Price,
+            City: product.City,
+            Stock: product.Stock
+        })
+    }
+
+    function handlePriceChange(e){
+        setProduct({
+            Name: product.Name,
+            Price: e.target.value,
+            City: product.City,
+            Stock: product.Stock
+        })
+    }
+
+    function handleCityChange(e){
+        setProduct({
+            Name: product.Name,
+            Price: product.Price,
+            City: e.target.value,
+            Stock: product.Stock
+        })
+    }
+
+    function handleStockChange(e){
+        setProduct({
+            Name: product.Name,
+            Price: product.Price,
+            City: product.City,
+            Stock: e.target.checked
+        })
+    }
+
+
+
+
+    return(
+        <div className="container-fluid">
+           <div className='row mt-4'>
+                <div className='col-3'>
+                    <dl>
+                        <h3>Register Product</h3>
+                        <dt>Name</dt>
+                        <dd><input type="text" onChange={handleNameChange} className='form-control' /></dd>
+                        <dt>Price</dt>
+                        <dd><input type="number" onChange={handlePriceChange} className='form-control' /></dd>
+                        <dt>Shipped To</dt>
+                        <dd>
+                            <select className='form-select' onChange={handleCityChange}>
+                                <option>Select City</option>
+                                <option>Delhi</option>
+                                <option>Hyd</option>
+                            </select>
+                        </dd>
+                        <dt>Stock</dt>
+                        <dd className='form-switch'>
+                            <input onChange={handleStockChange} type="checkbox" className='form-check-input' /> <label>Available</label>
+                        </dd>
+                    </dl>
+                </div>
+                <div className='col-9 ps-4'>
+                    <h3>Product Details</h3>
+                    <dl>
+                        <dt>Name</dt>
+                        <dd>{product.Name}</dd>
+                        <dt>Price</dt>
+                        <dd>{product.Price}</dd>
+                        <dt>Shipped To</dt>
+                        <dd>{product.City}</dd>
+                        <dt>Stock</dt>
+                        <dd> {(product.Stock==true)?"Available":"Out of Stock"} </dd>
+                    </dl>
+                </div>
+           </div>
+        </div>
+    )
+}
+
+
+Ex:
+data-binding.jsx
+
+import './data-binding.css';
+
+import { useState } from 'react';
+
+export function DataBinding(){
+
+    const [product, setProduct] = useState({Name:'', Price:0, City:'', Stock:false});
+    const [formData, setFormData] = useState({Name:'', Price:0, City:'', Stock:false});
+   
+    function handleNameChange(e){
+        setProduct({
+            Name: e.target.value,
+            Price: product.Price,
+            City: product.City,
+            Stock: product.Stock
+        })
+    }
+
+    function handlePriceChange(e){
+        setProduct({
+            Name: product.Name,
+            Price: e.target.value,
+            City: product.City,
+            Stock: product.Stock
+        })
+    }
+
+    function handleCityChange(e){
+        setProduct({
+            Name: product.Name,
+            Price: product.Price,
+            City: e.target.value,
+            Stock: product.Stock
+        })
+    }
+
+    function handleStockChange(e){
+        setProduct({
+            Name: product.Name,
+            Price: product.Price,
+            City: product.City,
+            Stock: e.target.checked
+        })
+    }
+
+     function handleSubmitClick(){
+         setFormData(product);
+     }
+
+
+    return(
+        <div className="container-fluid">
+           <div className='row mt-4'>
+                <div className='col-3'>
+                    <dl>
+                        <h3>Register Product</h3>
+                        <dt>Name</dt>
+                        <dd><input type="text" onChange={handleNameChange} className='form-control' /></dd>
+                        <dt>Price</dt>
+                        <dd><input type="number" onChange={handlePriceChange} className='form-control' /></dd>
+                        <dt>Shipped To</dt>
+                        <dd>
+                            <select className='form-select' onChange={handleCityChange}>
+                                <option>Select City</option>
+                                <option>Delhi</option>
+                                <option>Hyd</option>
+                            </select>
+                        </dd>
+                        <dt>Stock</dt>
+                        <dd className='form-switch'>
+                            <input onChange={handleStockChange} type="checkbox" className='form-check-input' /> <label>Available</label>
+                        </dd>
+                    </dl>
+                    <button onClick={handleSubmitClick} className='btn btn-primary w-100'>Submit</button>
+                </div>
+                <div className='col-9 ps-4'>
+                    <h3>Product Details</h3>
+                    <dl>
+                        <dt>Name</dt>
+                        <dd>{formData.Name}</dd>
+                        <dt>Price</dt>
+                        <dd>{formData.Price}</dd>
+                        <dt>Shipped To</dt>
+                        <dd>{formData.City}</dd>
+                        <dt>Stock</dt>
+                        <dd> {(formData.Stock==true)?"Available":"Out of Stock"} </dd>
+                    </dl>
+                </div>
+           </div>
+        </div>
+    )
+}
+
+FAQ: When state is created for a component?
+Ans : State is configured for component at the time of creating instance of component.
+
+FAQ: How you will configure actions for component at the time of loading component?
+Ans:  Component have "Mount" phase, which is the loading phase.
+          A function component configures mount phase using a hook called "useEffect()".
+          A class componenent configure mount phase using the methods:
+        a) componentWillMount()
+        b) componentDidMount()
+
+Syntax:
+    import  {  useEffect }  from  "react";
+
+    useEffect(()=>{
+   
+        //actions
+
+    },[dependencies]);
+
+    Dependencies specify when a component have to mount again.
+
+Binding Data from API :
+- XMLHttpRequest
+- Fetch()
+- jQuery Ajax
+- 3rd party library
+
+
+Ex:
+import { useEffect, useState } from "react"
+
+
+export function ApiDataBinding()
+{
+
+    const [products, setProducts] = useState([]);
+
+    function LoadData(){
+        var http = new XMLHttpRequest();
+        http.open("get", "products.json", true);
+        http.send();
+        http.onreadystatechange = function(){
+            if(http.readyState==4){
+                setProducts(JSON.parse(http.responseText));
+                console.log(http.responseText);
+            }
+        }
+    }
+
+    useEffect(()=>{
+        LoadData();
+    },[]);
+
+    return(
+        <div className="container-fluid">
+            <h2>Products Table</h2>
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        products.map(product =>
+                            <tr key={product.Name}>
+                                <td>{product.Name}</td>
+                                <td>{product.Price}</td>
+                            </tr>
+                            )
+                    }
+                </tbody>
+            </table>
+        </div>
+    )
+}
+
+
+========================= Various API methods ====================
+
+Accessing Data from API
+1. XMLHttpRequest
+    - It is the native object of browser that handles Ajax calls.
+        - It can return data in XML & Text format.
+        - It requires various external parsing methods to translate other data types.
+    - It not async by default, it requires explicit async configuration.
+        - It is poor in error handling.
+        - It is not good with exceptions returned by Ajax request.
+
+Syntax:
+    var http = new XMLHttpRequest();
+    http.open("requestMethod", "url", booleanAsync);
+    http.send();
+    http.onhttpreadystatechange = function() {
+
+          if(http.readyState==4)
+          {
+
+            // use responseText
+          }    
+    }    
+
+    readyState    =>         0    pending
+                        1    intial
+                        2    complete    
+                        3    success
+                        4    ready
+
+Ex:
+1. Add a new file in public folder
+        products.json
+
+[
+    {
+        "Name":"Samsung TV",
+        "Price": 45000.33
+    },
+    {
+        "Name": "Nike Casuals",
+        "Price": 3000.33
+    }
+]
+
+2. api-data-binding.jsx
+
+import { useEffect, useState } from "react"
+
+
+export function ApiDataBinding()
+{
+
+    const [products, setProducts] = useState([]);
+
+    function LoadData(){
+        var http = new XMLHttpRequest();
+        http.open("get", "products.json", true);
+        http.send();
+        http.onreadystatechange = function(){
+            if(http.readyState==4){
+                setProducts(JSON.parse(http.responseText));
+                console.log(http.responseText);
+            }
+        }
+    }
+
+    useEffect(()=>{
+        LoadData();
+    },[]);
+
+    return(
+        <div className="container-fluid">
+            <h2>Products Table</h2>
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        products.map(product =>
+                            <tr key={product.Name}>
+                                <td>{product.Name}</td>
+                                <td>{product.Price}</td>
+                            </tr>
+                            )
+                    }
+                </tbody>
+            </table>
+        </div>
+    )
+}
+
+2. Fetch method
+    - fetch() is a window method. [BOM]
+    - It is a promise of JavaScript.
+    - It is async by default.
+    - It is faster when compared to XMLHttpRequest.
+    - It returns data in binary format.
+    - It requires explicit conversions.
+    - It have promise methods to handle errors but they are explicit.
+   
+Syntax:
+     fetch("url").then(()=>{ }).catch(()=>{ }).finally(()=>{ })
+
+api-data-binding.jsx
+
+import { useEffect, useState } from "react"
+
+
+export function ApiDataBinding()
+{
+
+    const [products, setProducts] = useState([]);
+
+    function LoadData(){
+        fetch("products.json")
+        .then(response=> response.json())
+        .then(data=> {
+            setProducts(data);
+        })
+    }
+
+    useEffect(()=>{
+        LoadData();
+    },[]);
+
+    return(
+        <div className="container-fluid">
+            <h2>Products Table</h2>
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        products.map(product =>
+                            <tr key={product.Name}>
+                                <td>{product.Name}</td>
+                                <td>{product.Price}</td>
+                            </tr>
+                            )
+                    }
+                </tbody>
+            </table>
+        </div>
+    )
+}
+
+3. jQuery Ajax Methods
+
+    - jQuery is a JavaScript library for building UI.
+    - It introduces the approach "write less, do more".
+    - jQuery provides various Ajax methods
+            $.ajax()
+            $.getJSON()
+    - It also provides various life cycle methods that track the proccess of ajax request.
+            ajaxStart()    
+            ajaxEnd()
+            ajaxSuccess()
+            ajaxComplete()
+            ajaxEnd()
+     - It is good in errors and exceptions.
+     - It returns data in the format exactly how defined by response header
+     - Explicit parsing methods not required.
+     - It have CORS [Cross Origin Resource Sharing] issues.
+     - Browser may block the data from across orign.
+     - It requires various explicit methods for handling CORS.
+
+ Ex:
+ 1. Install jQuery library for react project
+
+        >npm  install  jquery --save
+
+  2. Import complete jquery library into component
+
+        import  $  from "jquery";
+
+  3. jQuery Ajax methods
+
+         $.ajax({
+            method: "get | post | put | delete",
+            url: "api_url",
+            success : function( response ) { },
+            error : function(errorObj) { }
+         })
+
+api-data-binding.jsx
+
+import { useEffect, useState } from "react";
+import $ from "jquery";
+
+
+export function ApiDataBinding()
+{
+
+    const [products, setProducts] = useState([]);
+
+    function LoadData(){
+        $.ajax({
+            method: 'get',
+            url: 'products.json',
+            success:(data)=> {
+                setProducts(data);
+            }
+        })
+    }
+
+    useEffect(()=>{
+        LoadData();
+    },[]);
+
+    return(
+        <div className="container-fluid">
+            <h2>Products Table</h2>
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        products.map(product =>
+                            <tr key={product.Name}>
+                                <td>{product.Name}</td>
+                                <td>{product.Price}</td>
+                            </tr>
+                            )
+                    }
+                </tbody>
+            </table>
+        </div>
+    )
+}
+
+ 4. 3rd party libraries for react ajax request [npmjs.com]
+   
+            axios, whatwgFetch, telerik, devexpress, mui etc..
+
+- Axios is a popular library for react.
+- It provides various methods for Ajax calls.
+- It is more secured.
+- It handles CORS issues.
+- It is good in errors & exceptions.
+- It can handle multiple request simultaneously at the same time.
+ 
+Ex:
+1. Install axios library for project
+
+    >npm install axios --save
+
+2. import "axios"
+
+    import   axios  from  "axios";
+
+    axios.get()
+    axios.post()
+    axios.put()
+    axios.delete()    
+    axios.get([ ])
+
+3. Axios methods are javascript promises.
+
+    axios.get("url").then().catch().finally()
+
+4. axios returns the reponse object with various details
+
+    data            => data returned by API
+    headers        => it comprises of information about response data type
+    statusText    => it returns response status [not found, server error..]
+   
+Ex:
+api-data-binding.jsx
+
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+
+export function ApiDataBinding()
+{
+
+    const [products, setProducts] = useState([]);
+
+    function LoadData(){
+         axios.get("products.json")
+         .then(response=> {
+             setProducts(response.data);
+         })
+    }
+
+    useEffect(()=>{
+        LoadData();
+    },[]);
+
+    return(
+        <div className="container-fluid">
+            <h2>Products Table</h2>
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        products.map(product =>
+                            <tr key={product.Name}>
+                                <td>{product.Name}</td>
+                                <td>{product.Price}</td>
+                            </tr>
+                            )
+                    }
+                </tbody>
+            </table>
+        </div>
+    )
+}
+
+
+Class114 = Date 12jan2024
+
+========================= Style and Class binding ====================
+
+XMLHttpRequest
+fetch()
+jQuery Ajax
+axios
+                             Style Binding
+
+- Style binding is a technique used in web applications to bind css style attributes to any element. [React JSX element]
+
+Syntax: HTML
+        <input type="text"  style="border:none" id="User">
+
+Syntax: JavaScript
+         document.getElementById("User").style.cssAttribute = value;
+
+Syntax: React
+         <input type="text"  style={ { cssAttribute: 'value' } } />
+
+- Style attributes are configured using "camelCase".
+
+        background-color        => backgroundColor
+        font-size                => fontSize
+        text-align                => textAlign
+        color                => color
+Ex:
+  <input type="text"  style={ {border:'none', backgroundColor:'yellow' } } />
+
+CSS Rules:
+- Priority of selectors
+    1st        id
+    2nd        class
+    3rd        type
+- Inline, external and embedded
+    1st         inline
+    2nd        embedded
+    3rd         external file
+- Inheritance
+    inherit
+    initial
+    unset
+
+Ex:
+        const [styleObj, setStyleObj] = useState({ border:'', textAlign:'' });
+
+        setStyleObj( {border:'none', textAlign:'center'} )
+       
+        <h2  style={styleObj}> </h2>
+
+style-demo.jsx
+
+import { useEffect, useState } from "react"
+
+
+export function StyleDemo(){
+
+    const [errorStyle, setErrorStyle] = useState({border:''});
+
+    function handleNameChange(e){
+         console.log(e.target.value);
+         
+         if(e.target.value==""){
+             setErrorStyle({
+                border:'2px solid red',
+                outline:'none'
+             })
+         } else {
+            setErrorStyle({
+                border: '2px solid green',
+                outline: 'none'
+            })
+         }
+    }
+   
+
+    function handleNameFocus(){
+        setErrorStyle({
+            border:'none',
+            outline: 'none'
+        })
+    }
+
+
+    return(
+        <div className="container-fluid">
+            <h3 >Register</h3>
+            <dl>
+                <dt>User Name</dt>
+                <dd>
+                    <input type="text" onFocus={handleNameFocus} style={errorStyle} onChange={handleNameChange} placeholder="Name required" />
+                </dd>
+            </dl>
+        </div>
+    )
+}
+
+                           Class Binding
+- A css class comprises of set of attributes and functions, which you can change dynamically.
+- React uses "className" property to bind and css class dynamically.
+- className is a string that splits multiple classes using blank space.
+
+Syntax:
+        <input type="text"  className={ 'class1 class2 class3..' } />
+
+Ex:
+    const [btnClass, setbtnClass] = useState(' ');
+
+    setbtnClass('btn btn-primary w-100');
+
+    <button  className={btnClass}> Login </button>
+
+class-binding.jsx
+
+import { useState } from "react"
+
+export function ClassBinding(){
+
+    const [theme, setTheme] = useState('w-25');
+    const [btnClass, setBtnClass] = useState('btn btn-dark w-100');
+
+    function handleThemeChange(e){
+        if(e.target.checked){
+            setTheme('w-25 bg-dark text-white');
+            setBtnClass('btn btn-light w-100');
+        } else {
+            setTheme('w-25');
+            setBtnClass('btn btn-dark w-100');
+        }
+    }
+
+    return(
+        <div className="container-fluid d-flex justify-content-center mt-4">
+           
+            <form className={theme}>
+                <h3 className="bi bi-person">User Login</h3>
+                <div className="form-switch">
+                <input onChange={handleThemeChange} type="checkbox" className="form-check-input"/> <label>Dark Theme</label>
+                </div>
+                <dl>
+                    <dt>User Id</dt>
+                    <dd><input type="text"  className="form-control"/></dd>
+                    <dt>Password</dt>
+                    <dd><input type="password" className="form-control" /></dd>
+                </dl>
+                <button className={btnClass}>Login</button>
+            </form>
+        </div>
+    )
+}
+
+Ex:
+class-binding.jsx
+
+import { useEffect, useState } from "react"
+
+export function ClassBinding(){
+
+   
+    const [sortClass, setSortClass] = useState('bi bi-sort-alpha-down btn btn-primary');
+    const [themeColor, setThemeColor] = useState('dark')
+
+    function handleSortClick(){
+        setSortClass((sortClass==='bi bi-sort-alpha-down btn btn-primary')?'bi bi-sort-alpha-up btn btn-warning':'bi bi-sort-alpha-down btn btn-primary');
+    }
+
+    return(
+        <div className="container-fluid d-flex justify-content-center mt-4">
+
+            <div style={{padding:'50px'}} className={(themeColor==='dark')?'bg-dark':'bg-danger'}>
+                <h2>Theme Color</h2>
+                <button onClick={handleSortClick} className={sortClass}></button>
+            </div>
+        </div>
+    )
+}
+
+                            Event Binding
+
+Class115 = Date 18jan2024
+
+============================= Event Binding ========================
+Data Binding
+Style Binding
+Class Binding
+
+                             
+
+- Event is a message sent by sender to its subscriber in order to notify the change.
+
+                function InsertClick()    => Subscriber
+                {
+                }
+
+                <button  onclick="InsertClick()">  => Sender
+
+- Subscriber comprises of the actions to perform.
+- Sender triggers a notification and invokes the actions defined by subscriber.
+- Event follows a communication pattern called "Observer". [Behavioural Patterns]
+- Event uses "Delegate" mechanism, which is a function pointer.
+
+Event Handler:
+- Every event is configured with a handler.
+
+        onclick                =>      Event
+        onclick="InsertClick()"    =>     Event Handler
+
+- React event handler can be defined using various techniques
+
+        <button onClick={ InsertClick }>
+        <button onClick={ () => InsertClick() }>
+
+- The function pointer  "{ InsertClick }"  can pass default "event" argument that send information about event and object.
+
+         function  InsertClick(e)
+         {
+            e.target.id, name, className, value etc..
+            e.clientX, clientY, keyCode, shiftKey, ctrlKey etc..
+         }
+
+        <button onClick={ Insertlick } >
+
+- The function return  " { () => InsertClick('values') }> " allows to pass custom args.
+- You can pass any type of arguments
+        a) Primitive
+        b) Non Primitive
+
+        function InsertClick(ref)
+        {
+        }
+       
+        <button onClick={ ( ) => InsertClick(anyValue) }>
+
+
+- The function return also allows to pass the default arguments along with custom arguments.
+
+           function InsertClick('custom', e)
+        {
+        }
+
+        <button onClick={ (e) => InsertClick('customValue', e)
+
+        e.target.id, name, className..
+        e.clientX, clientY, keyCode ...
+
+Ex:
+event-demo.jsx
+
+export function EventDemo(){
+
+    function InsertClick(cities, id){
+        alert(`${cities}\n${id}`);
+    }
+
+    return(
+        <div className="container-fluid">
+            <button id="btnInsert" onClick={(e)=>InsertClick(['Delhi','Hyd'], e.target.id)}>Insert</button>
+        </div>
+    )
+}
+
+- All events are configured by JavaScript  window object. Hence they are reffered as Browser Events. [BOM]
+
+- React uses a library called "SyntheticEvents", which map to Browser Events.
+
+        SyntheticEvents        => Virtual DOM Events
+        Browser Events        => DOM Events
+
+           Virtual DOM               DOM
+        [SyntheticEvent]           [Browser Event]
+        ----------------------------------------------------------
+          onClick                 onclick
+          onChange                onchange
+          onFocus                 onfocus
+          onSubmit                onsubmit
+          etc...
+
+- Event Propagation & Prevent Default
+- PreventDefault is used to stop the default functionality configured for "Generic" elements in a <form>.
+
+Ex:
+event-demo.jsx
+
+export function EventDemo(){
+
+
+    return(
+        <div className="container-fluid">
+            <form onSubmit={(e)=> { e.preventDefault(); alert('Submit Clicked');}}>
+                Name : <input type="text" name="UserName" /> <button type="submit">Submit</button>
+            </form>
+        </div>
+    )
+}
+
+- StopPropagation will not allow the child events to simulate and trigger the parent events.
+
+Ex:
+event-demo.jsx
+
+export function EventDemo(){
+
+    function ContainerClick(){
+        alert('Container Clicked');
+    }
+
+    function ButtonClick(e){
+        alert('ButtonClicked');
+        e.stopPropagation();
+    }
+
+    return(
+        <div className="container-fluid">
+            <div className="m-4 p-4 bg-warning" onClick={ContainerClick}>
+                <h3>Parent</h3>
+                <button className="btn btn-dark" onClick={ButtonClick}>Button</button>
+            </div>
+        </div>
+    )
+}
+
+Class116= Date 19-jan-2024
+
+====================== Mouse & Touch Events =====================
+
+1. What is Event?
+2. Event Handler
+3. SyntheticEvent Base
+4. Event Args
+    a) Default Args
+    b) Custom Args
+5. Stop Propagation
+6. Prevent Default
+
+                        Various Synthetic Events
+
+1. Mouse Events
+2. Keyboard Events
+3. Button Events
+4. Clipboard Events
+5. Form Events
+6. Touch Events
+7. Timer Events
+8. Element State Events
+    etc..
+
+
+                          Mouse Events
+onMouseOver
+onMouseOut
+onMouseDown
+onMouseUp
+onMouseMove
+
+Ex:   MouseOver, Out, Down, Up
+
+mouse-demo.css
+
+nav img {
+    border:1px solid black;
+}
+nav img:hover {
+    border:2px solid blue;
+    cursor: grab;
+}
+
+
+mouse-demo.jsx
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./mouse-demo.css";
+
+export function MouseDemo()
+{
+    const [pics, setPics] = useState([{image_url:''}]);
+    const [activeImage, setActiveImage] = useState('m1.jpg');
+
+    useEffect(()=>{
+        axios.get("pics.json")
+        .then(response=>{
+            setPics(response.data);
+        })
+    },[]);
+
+    function handleMouseOver(e){
+        setActiveImage(e.target.src);
+    }
+    function handleMouseDown() {
+        setActiveImage('sale.jpg');
+    }
+    function handleMouseUp(){
+        setActiveImage('m1.jpg');
+    }
+
+    return(
+        <div className="container-fluid">
+            <div className="row">
+                <nav className="col-2">
+                    {
+                        pics.map(pic=>
+                            <div className="mt-3 mb-3" key={pic.image_url} style={{width:'60%', height:'50px'}}>
+                                <img onMouseOver={handleMouseOver} border="2" src={pic.image_url} width="60%" height="50"></img>
+                            </div>
+                            )
+                    }
+                </nav>
+                <div className="col-10 mt-4">
+                    <img onMouseUp={handleMouseUp} onMouseDown={handleMouseDown} width="300" src={activeImage} height="400" />
+                    <p>Hold down mouse button to view offers</p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+Ex: Mouse Move
+
+mouse-demo.jsx
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./mouse-demo.css";
+
+export function MouseDemo()
+{
+    const [styleObj, setStyleObj] = useState({position:'', top:'', left:''});
+
+    function handleMouseMove(e){
+        setStyleObj({
+            position: 'fixed',
+            left: e.clientX + 'px',
+            top: e.clientY + 'px'
+        })
+    }
+
+    return(
+        <div className="container-fluid" onMouseMove={handleMouseMove} >
+            <div style={{height:'1000px'}}>
+                    <p>Mouse mouse pointer to test</p>
+                    <img src="sale.jpg" />
+            </div>
+            <img style={styleObj} src="flag.gif" width="50" height="50"/>
+        </div>
+    )
+}
+
+
+Task:
+
+                            Touch Events
+- They are similar to mouse events, but can handle functionality using touch handler.
+- It identifies the location where user is touching on screen.
+- You can test only on device that support touch.
+
+a) onTouchStart
+b) onTouchEnd
+c) onTouchMove
+
+Ex:
+touch-demo.jsx
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+export function TouchDemo()
+{
+    const [msg, setMsg] = useState('');
+
+    function handleTouch(){
+        setMsg('Offer Price : 1,39,999');
+    }
+
+    return(
+        <div className="container-fluid">
+            <img  src="m1.jpg" onTouchStart={handleTouch} width="300" height="400" />
+            <h1>{msg}</h1>
+        </div>
+    )
+}
+
+
+Ex:
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./mouse-demo.css";
+
+export function MouseDemo()
+{
+    const [positon, setPosition] = useState({position:'', left:''});
+    function handleTouchMove(e){
+        setPosition({position:'absolute', left: e.targetTouches[0].clientX + 'px'});
+    }
+
+    return(
+        <div className="container-fluid">
+            <img src="sale.jpg" style={positon} onTouchMove={handleTouchMove} />
+        </div>
+    )
+}
+
+Class117- Date 20nov2024
+
+================= Key Events in ReactJS ==================
+
+
+SyntheticEvents
+- Mouse Events
+- Touch Events
+
+3. Keyboard Events
+    onKeyUp                        
+    onKeyDown
+    onKeyPress
+ 
+  - KeyUp & KeyDown are used when developer have to handle the characters.
+  - KeyPress is used when developer have to handle the char code. [ASCII code]
+  - React can verify the char code by using key event properties
+
+            a) keyCode
+            b) charCode
+            c) which
+            d) shiftKey
+            e) ctrlKey
+            f) altKey
+
+       
+Ex:
+public/users.json
+
+[
+    {
+        "UserName": "john"
+    },
+    {
+        "UserName": "john12"
+    },
+    {
+        "UserName": "john_nit"
+    },
+    {
+        "UserName": "david"
+    }
+]
+
+
+keydemo.jsx
+
+import axios from "axios"
+import { useState } from "react"
+
+export function KeyDemo()
+{
+
+    const [userError, setUserError] = useState('');
+    const [isUserValid, setIsUserValid] = useState(false);
+    const [showPwdError, setPwdError] = useState('d-none')
+
+    function handleUserName(e){
+        if(e.target.value===""){
+            setUserError('User Name Required');
+            setIsUserValid(false);
+        } else {
+            axios.get("users.json")
+            .then(response=>{
+                for(var user of response.data)
+                {
+                    if(user.UserName===e.target.value){
+                        setUserError('User Name Taken - Try Another');
+                        setIsUserValid(false);
+                        break;
+                    } else {
+                        setUserError('User Name Available');
+                        setIsUserValid(true);
+                    }
+                }
+            })
+        }
+    }
+    function handlePassword(e){
+        if(e.which>=65 && e.which<=90) {
+            setPwdError('d-block');
+        } else {
+            setPwdError('d-none');
+        }
+    }
+
+    return (
+        <div className="container-fluid">
+            <h2>Register User</h2>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text" onKeyUp={handleUserName} /></dd>
+                <dd className={(isUserValid)?'text-success':'text-danger'}>{userError}</dd>
+                <dt>Password</dt>
+                <dd><input type="password" onKeyPress={handlePassword} /></dd>
+                <dd className={showPwdError}>
+                    <span className="bi bi-exclamation-triangle text-warning"> Caps ON </span>
+                </dd>
+            </dl>
+        </div>
+    )
+}
+
+                        Element State Events
+onBlur
+onFocus
+onChange
+
+
+Ex:
+import axios from "axios"
+import { useState } from "react"
+
+export function KeyDemo()
+{
+
+    const [msg, setMsg] = useState('');
+    const [meterValue, setMeterValue] = useState(1);
+
+    function handleFocus(){
+        setMsg('Password 4 to 15 chars with at least one uppercase letter');
+    }
+    function handleBlur(){
+        setMsg('');
+    }
+
+    function handleKeyUp(e){
+        if(e.target.value.match(/(?=.*[A-Z])\w{4,15}/)){
+            setMsg('Strong Password');
+            setMeterValue(100);
+        } else {
+            if(e.target.value.length<4){
+                setMsg('Poor Password');
+                setMeterValue(20);
+            } else {
+                setMsg('Weak Password');
+                setMeterValue(70);
+            }
+        }
+    }
+   
+    return (
+        <div className="container-fluid">
+            <h3>Verify Password</h3>
+            <input type="text" onFocus={handleFocus} onKeyUp={handleKeyUp} onBlur={handleBlur} />
+            <div>
+                <meter min='1' value={meterValue} max='100' style={{width:'190px', height:'20px'}}></meter>
+            </div>
+            <div>
+                {msg}
+            </div>
+        </div>
+    )
+}
+
+Class118 = 22jan2024
+
+========================= Form Events, Clipboard Events =========================
+
+Stop Propagation
+Prevent Default
+Event Args
+
+Mouse Events
+Keyboard
+Touch Events
+Element State Events
+
+
+                         Clipboard Events
+onCut
+onCopy
+onPaste
+
+FAQ: How to disable paste in any element? How to disable copy and cut from element?
+Ans:  Any event you can disable by returning "false". It requires the DOM events to invoke and return false.
+
+        document.onpaste = () => return false;
+        document.onselectstart = () => return false;
+        document.oncopy = () => return false;
+
+Ex:
+key-demo.jsx
+
+import axios from "axios"
+import { useState } from "react"
+
+export function KeyDemo()
+{
+    const [status, setStatus] = useState('');
+
+    function handleCopy(){
+        setStatus("Number Copied");
+    }
+    function handleBlur(){
+        setStatus("");
+    }
+    function handlePaste(){
+        document.onpaste = ()=> {
+            return false;
+        }
+    }
+   
+    return (
+        <div className="container-fluid">
+           <dl>
+            <h3>Verify Account</h3>
+            <dt>Account Number</dt>
+            <dd><input type="text" onCopy={handleCopy} onBlur={handleBlur} /></dd>
+            <dd>{status}</dd>
+            <dt>Confirm Number</dt>
+            <dd><input type="text" onPaste={handlePaste} /></dd>
+           </dl>
+        </div>
+    )
+}
+
+                             Form Events
+onSubmit
+onReset
+
+- The form events are defined for <form> element.
+- They can be controlled only with generic elements
+    a) Submit Button
+    b) Reset Button
+
+Syntax:
+        <form  onSubmit={  }  onReset={ }>
+
+            <button type="submit"> Submit </button>
+            <button type="reset"> Reset </button>
+        </form>
+
+FAQ:
+1. Can we have multiple forms in a component?
+A. Yes.
+
+2. Can we define a form within the context of another form?
+A. No. Always uses multi level components instead of "forms".
+
+    <form>
+        parent
+        <form>
+            child
+        </form>
+    </form>
+
+3. Can a form have multiple submit buttons?
+A. Yes.
+
+4. Why you need multiple submit buttons?
+A. To handle various actions using single form.
+
+5. How form knows which submit button is clicked?
+A. By accessing the form elements reference using "target" attribute.
+
+Ex:
+import axios from "axios"
+import { useState } from "react"
+
+export function KeyDemo()
+{
+    function SubmitClick(e){
+        e.preventDefault();
+        for(var item of e.target){
+            if(item.name=="submit"){
+                if(item.value=="Insert"){
+                    console.log("Record Inserted");
+                    break;
+                } else {
+                    console.log("Record Deleted");
+                }
+            }
+        }
+    }
+   
+    return (
+        <div className="container-fluid">
+           <form onSubmit={SubmitClick}>
+              <dl>
+                <dt>User Name</dt>
+                <dd><input type="text" name="UserName"/></dd>
+              </dl>
+              <button name="submit" value="Insert" type="submit">Insert</button>
+              <button name="submit" value="Delete" type="submit">Delete</button>
+           </form>
+        </div>
+    )
+}
+
+6. How to access data from all elements in form on submit?
+A.
+
+Class119- 23jan2024
+
+========================= ReactJS Forms ==========================
+
+React
+- Data Binding
+- Style Binding
+- Class Binding
+- Event Binding
+
+                          Forms in React
+- Form provides an interface from where user can interact with the data.
+- It allows to handle CRUD operations.
+
+            C    - Create    
+            R    - Read
+            U    - Update
+            D    - Delete
+			
+- Handling form in React way is always complex.
+- It requires lot of event and data binding techniques.
+- React can design a form interface without using <form> element.
+- This approach is required when your interface is not submitting data to server, it is just handling client side interactions.
+
+Ex: EMI Calculator
+
+import { useState } from "react"
+
+
+export function FormDemo(){
+
+    const [amount, setAmount] = useState(100000);
+    const [years, setYears] = useState(1);
+    const [rate, setRate] = useState(10.45);
+    const [EMI, setEMI] = useState(0);
+
+    function handleAmountChange(e){
+        setAmount(e.target.value);
+    }
+    function handleYearChange(e){
+        setYears(e.target.value);
+    }
+    function handleRateChange(e){
+        setRate(e.target.value);
+    }
+
+    function handleCalculateClick(){
+        var P = amount;
+        var r = rate/12/100;
+        var n = years * 12;
+        var EMI = P * r * Math.pow(1+r,n) / Math.pow(1+r,n) - 1;
+        setEMI(EMI);
+    }
+
+    return(
+        <div className="container-fluid bg-dark text-white">
+            <div className="mt-4 p-4">
+                <h4 className="text-center">Personal Loan EMI Calculator</h4>
+                <div className="p-2 bg-light text-dark">
+                    <div className="row">
+                        <div className="col">
+                            Amount you need <input type="text" value={amount}  size="10"/>
+                        </div>
+                        <div className="col">
+                            for <input type="text" size="4" value={years} /> years
+                        </div>
+                        <div className="col">
+                            Interest rate <input type="text" value={rate} size="4" /> %
+                        </div>
+                    </div>
+                    <div className="row mt-4">
+                        <div className="col">
+                          1,00,000 <input type="range" onChange={handleAmountChange} min="100000" max="1000000" value={amount} /> 10,00,000
+                        </div>
+                        <div className="col">
+                        1 <input type="range" onChange={handleYearChange} min="1" max="5" value={years} /> 5
+                        </div>
+                        <div className="col">
+                         10.45% <input type="range" onChange={handleRateChange} min="10.45" value={rate} max="18.45"  step="0.01"/> 18.45%
+                        </div>
+                    </div>
+                    <div className="row mt-4">
+                        <div className="col text-end">
+                            <button onClick={handleCalculateClick} className="btn btn-primary">Calculate</button>
+                        </div>
+                    </div>
+                    <div className="row mt-4">
+                        <div className="col">
+                            Your monthly installment is <b>{Math.round(EMI).toLocaleString('en-in', {style:'currency', currency:'INR'})}</b> for {years} years.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+- The approach of UI within form element is mostly required while communicating with backend API, that allow to submit data from client.
+- React provides support for various 3rd party form libraries to configure and validate a form.
+
+                a) Formik
+                b) React Hook Form
+                c) Telerik Kendo Form
+                etc..
+
+                npmjs.com    
+
+
+                        Formik Forms
+                        ------------------
+- It is a 3rd party form library for React.
+- It provides pre-defined components that make the form implementation easy.
+
+1. Install formik library for your project
+
+        >npm  i formik --save
+
+2. Formik library provides "useFormik()" hook, which is used to configure a form.
+
+    import  { useFormik  } from "formik";
+
+    const  formik = useFormik({ options });
+
+    options:
+        a) initialValues
+        b) onSubmit
+        c) validation
+        d) validationSchema
+
+3. Formik have various built-in events
+        a) handleChange
+        b) handleBlur
+        c) handleSubmit
+        etc..
+
+Ex: formik-demo.jsx
+
+import { useFormik } from "formik";
+
+export function FormikDemo(){
+
+    const formik = useFormik({
+        initialValues : {
+            Name: '',
+            Price: 0,
+            Stock: false
+        },
+        onSubmit: (values)=> {
+            alert(JSON.stringify(values));
+        }
+    })
+
+    return(
+        <div className="container-fluid">
+            <form onSubmit={formik.handleSubmit}>
+                <h3>Register Product</h3>
+                <dl>
+                    <dt>Name</dt>
+                    <dd><input type="text" onChange={formik.handleChange} name="Name" /></dd>
+                    <dt>Price</dt>
+                    <dd><input type="number" onChange={formik.handleChange} name="Price" /></dd>
+                    <dt>Stock</dt>
+                    <dd>
+                        <input type="checkbox" onChange={formik.handleChange} name="Stock" /> <label>In Stock</label>
+                    </dd>
+                </dl>
+                <button>Submit</button>
+            </form>
+        </div>
+    )
+}
+
+
+Class120- Date 24jan2024
+
+=================================== Formik Validate =================================
+
+
+- Formik provides "useFormik()" hook to configure form and handle interactions.
+
+    let formik = useFormik({
+        initialValues: { }
+        onSubmit : () => { }
+        validate : ()=> { }
+        validationSchema: { }
+    })
+
+- initialValues : configure the values that a form have to handle.
+             These values are mapped to form elements.
+             They can access the store the new value and bind the initial value.
+
+    <input type="text" name="UserName" onChange={formik.handleChange} />
+    <select name="City" onChange={formik.handleChange} />
+
+ Note: Every formik element must have "name" attribute mapping to initialValues.
+
+- onSubmit  :  It is a function that handles form "onSubmit" event.
+               It can collect the form values and submit to server.
+               All form elements values are returned as "object".
+
+     <form  onSubmit={formik.handleSubmit}> </form>
+
+      onSubmit : (values) => {
+        // submit to server
+       }
+
+
+                          Form Validation
+
+- Validation is the process of verifying user input.
+- Validation is required to ensure that contradictionary and unauthorized data is not get stored into data base.
+- Formik handles client side validations.
+- Formik validates by using traditional JavaScript functions and logic.
+- Formik requires a validation function to return errors object.
+
+        function  ValidateForm(formdata)
+        {
+             var errors = { Field: ' ', Field: ' ' };
+
+              // logic for validating form data
+
+             returns errors;
+        }
+
+- Formik can use the validation function by using "validate" property
+
+        {
+          initialValues: { },
+          validate: ValidateForm,
+          onSubmit : (values) => { }
+        }
+
+- Formik "validate" property returns all errors, which you can access by using "formik.errors" object.
+
+        { formik.errors.fieldName }
+
+Ex:  formik with validation
+
+formik-demo.jsx
+
+import { useFormik } from "formik";
+
+export function FormikDemo(){
+
+
+    function ValidateProduct(FormData){
+         var errors = {Name:'', Price:'', Stock:'', City:''};
+
+         //Validating Name
+         if(FormData.Name.length==0) {
+            errors.Name = "Name Required";
+         } else {
+            if(FormData.Name.length<4){
+                errors.Name = "Name too short min 4 chars required";
+            } else {
+                errors.Name = "";
+            }
+         }
+
+         //Validate Price
+         if(FormData.Price.length==0){
+            errors.Price = "Price Required";
+         } else {
+            if(isNaN(FormData.Price)){
+                errors.Price = "Price must be a number";
+            } else {
+                errors.Price = "";
+            }
+         }
+
+         //Validate City
+         if(FormData.City=="-1"){
+            errors.City = "Please select a city";
+         } else {
+            errors.City = "";
+         }
+
+         return errors;
+    }
+
+    const formik = useFormik({
+        initialValues : {
+            Name: '',
+            Price: '',
+            City: '',
+            Stock: false
+        },
+        validate: ValidateProduct,
+        onSubmit: (values)=> {
+            alert(JSON.stringify(values));
+        }
+    })
+
+    return(
+        <div className="container-fluid">
+            <form onSubmit={formik.handleSubmit}>
+                <h3>Register Product</h3>
+                <dl>
+                    <dt>Name</dt>
+                    <dd><input type="text" onBlur={formik.handleBlur} onChange={formik.handleChange} name="Name" /></dd>
+                    <dd className="text-danger">{formik.errors.Name}</dd>
+                    <dt>Price</dt>
+                    <dd><input type="text" onBlur={formik.handleBlur} onChange={formik.handleChange} name="Price" /></dd>
+                    <dd className="text-danger">{formik.errors.Price}</dd>
+                    <dt>Stock</dt>
+                    <dd>
+                        <input type="checkbox" onChange={formik.handleChange} name="Stock" /> <label>In Stock</label>
+                    </dd>
+                    <dt>Shipped To</dt>
+                    <dd>
+                        <select name="City" onChange={formik.handleChange}>
+                            <option value="-1">Select Your City</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Hyd">Hyd</option>
+                        </select>
+                    </dd>
+                    <dd className="text-danger">{formik.errors.City}</dd>
+                </dl>
+                <button>Submit</button>
+            </form>
+        </div>
+    )
+}
+
+
+                        Yup library for Validation
+
+Class121= Date 25jan2024
+
+============================= Yup Library ==========================
+
+3rd Party Form - Formik
+   
+                          Yup Library
+- It is a schema builder.
+- It defines the data structure for every field in a form.
+- Data structure specifies the type of data and behaviour of data.
+- It also restricts data.
+- It is async in operations.
+- It provides various validation services to validate input value.
+    required()
+    min()
+    max()
+    string()
+    number()
+    email()
+    matches()
+    etc..
+- It is not a form builder, it just validates the form.
+
+Syntax:
+1. Install yup library
+
+    >npm  i  yup  --save
+
+2. You can import specific services or all services.
+
+    import   required, min, max  as  yup  from  "yup";
+    import   * as yup from "yup";
+
+3. Yup uses "object()" method, which is used to create the schema
+
+    yup.object({
+        FieldName: yup.service1().service2(),
+    })
+
+Note: Yup maps the methods to HTML validation attributes:
+       required, minlength, pattern, email, url etc..
+
+4. Yup schema is configured with form container using formik "ValidationSchema" property.
+
+Syntax:
+        const formik = useFormik({
+            initialValues: { },
+            validationSchema: yup.object({ field:yup.service() })
+        })
+
+5. Formik can return all schema errors using "formik.errors" property.
+
+        { formik.errors.fieldName }
+
+Ex: Yup
+formik-demo.jsx
+
+import { useFormik } from "formik";
+import { useEffect } from "react";
+import * as yup from "yup";
+
+export function FormikDemo(){
+
+
+    const formik = useFormik({
+        initialValues : {
+            Name: '',
+            Price: '',
+            VendorContact: ''
+        },
+        validationSchema: yup.object({
+            Name: yup.string().required("Name Required").min(4, "Name too short"),
+            Price: yup.number().required("Price Required").min(1000,"Price min 1000").max(10000,"Price can be max 10000 only"),
+            VendorContact: yup.string().matches(/\+91\d{10}/,"Invalid Contact +91 10 digits required").required("Mobile Required")
+        }) ,
+        onSubmit: (values)=> {
+            alert(JSON.stringify(values));
+        }
+    })
+
+    return(
+        <div className="container-fluid">
+            <form onSubmit={formik.handleSubmit}>
+                <h3>Register Product</h3>
+                <dl>
+                    <dt>Name</dt>
+                    <dd><input type="text"  onChange={formik.handleChange} name="Name" /></dd>
+                    <dd className="text-danger">{formik.errors.Name}</dd>
+                    <dt>Price</dt>
+                    <dd><input type="text"  onChange={formik.handleChange} name="Price" /></dd>
+                    <dd className="text-danger">{formik.errors.Price}</dd>
+                    <dt>Vendor Contact</dt>
+                    <dd> <input type="text" name="VendorContact" onChange={formik.handleChange} /> </dd>
+                    <dd className="text-danger"> {formik.errors.VendorContact} </dd>
+                </dl>
+                <button>Submit</button>
+            </form>
+        </div>
+    )
+}
+
+- Formik provides a "spread" approach for configuring all events for element.    
+
+        {...formik.getFieldProps("Name") }
+
+  It reads all formik events and binds with the specified field.
+
+Ex:
+formik-demo.jsx
+
+
+import { useFormik } from "formik";
+import { useEffect } from "react";
+import * as yup from "yup";
+
+export function FormikDemo(){
+
+
+    const formik = useFormik({
+        initialValues : {
+            Name: '',
+            Price: '',
+            VendorContact: ''
+        },
+        validationSchema: yup.object({
+            Name: yup.string().required("Name Required").min(4, "Name too short"),
+            Price: yup.number().required("Price Required").min(1000,"Price min 1000").max(10000,"Price can be max 10000 only"),
+            VendorContact: yup.string().matches(/\+91\d{10}/,"Invalid Contact +91 10 digits required").required("Mobile Required")
+        }) ,
+        onSubmit: (values)=> {
+            alert(JSON.stringify(values));
+        }
+    })
+
+    return(
+        <div className="container-fluid">
+            <form onSubmit={formik.handleSubmit}>
+                <h3>Register Product</h3>
+                <dl>
+                    <dt>Name</dt>
+                    <dd><input type="text" {...formik.getFieldProps("Name")} name="Name" /></dd>
+                    <dd className="text-danger">{formik.errors.Name}</dd>
+                    <dt>Price</dt>
+                    <dd><input type="text" {...formik.getFieldProps("Price")} name="Price" /></dd>
+                    <dd className="text-danger">{formik.errors.Price}</dd>
+                    <dt>Vendor Contact</dt>
+                    <dd> <input type="text" name="VendorContact" {...formik.getFieldProps("VendorContact")} /> </dd>
+                    <dd className="text-danger"> {formik.errors.VendorContact} </dd>
+                </dl>
+                <button>Submit</button>
+            </form>
+        </div>
+    )
+}
+
+-Formik provides built-in components for designing a form and its fields.
+-Formik components a configured with UI, Funcitonality and Validation.
+-The formik components are
+   
+            <Formik>
+            <Form>
+            <Field>
+            <ErrorMessage>
+            etc..
+
+Syntax:
+    <Formik  initialValues={ }   validation={ }  validationSchema={}  onSubmit={}>
+        <Form>
+            <Field type="text|number|email..."> </Field>
+            <ErrorMessage name=""> </ErrorMessage>
+        </Form>
+    </Formik>
+
+Ex:
+formik-demo.jsx
+
+import { useFormik, Formik, Form, ErrorMessage, Field } from "formik";
+import { useEffect } from "react";
+import * as yup from "yup";
+
+export function FormikDemo(){
+
+    return(
+        <div className="container-fluid">
+            <Formik initialValues={{Name:'',Price:'', VendorContact:''}} validationSchema={yup.object({Name:yup.string().required('Name Required').min(4, 'Name too short'), Price: yup.number().min(1000,"Min 1000 required").max(10000, "Max 10000 only"), VendorContact:yup.string().matches(/\+91\d{10}/,"Invalid Mobile +91 10digits").required("Mobile Required")})} onSubmit={(values)=>{alert(JSON.stringify(values))}} >
+                <Form>
+                    <dl>
+                        <dt>Name</dt>
+                        <dd> <Field type="text" name="Name" /> </dd>
+                        <dd className="text-danger"> <ErrorMessage name="Name" /> </dd>
+                        <dt>Price</dt>
+                        <dd> <Field type="text" name="Price" /> </dd>
+                        <dd className="text-danger"> <ErrorMessage name="Price" /> </dd>
+                        <dt>Vendor Contact</dt>
+                        <dd> <Field type="text" name="VendorContact" /> </dd>
+                        <dd className="text-danger"> <ErrorMessage name="VendorContact" /> </dd>
+                    </dl>
+                    <button>Submit</button>
+                </Form>
+            </Formik>
+        </div>
+    )
+}
+
+- Formik provides validation services which include
+
+        a) Input State Validation
+        b) Form State Validation
+
+Class122= Date 26jan2024
+
+========================== Formik & HookForm =========================
+
+Formik Components
+<Formik>
+<Form>
+<Field>
+<ErrorMessage>
+
+- Verifying every field in a form is known as "Input State Validation".
+- Input State individually verifies the values in every field.
+- Formik provides "Form State Validation".
+- A form state returns boolean true or false based on all validation errors defined in form container.
+- Form state comprises of services like
+
+            valid            : It returns true if all fields are valid
+            invalid        : It returns true if any one field is invalid
+            dirty            : It returns true if any one field modified its value.
+
+    <Formik>
+      {
+         form => <Form> </Form>
+          }
+    </Form>
+
+            {form.isValid}
+            {form.isInvalid}
+            {form.dirty}
+            {form.touched}
+            {form.values}
+            {form.errors}
+
+Ex:
+import { useFormik, Formik, Form, ErrorMessage, Field } from "formik";
+import { useEffect } from "react";
+import * as yup from "yup";
+
+export function FormikDemo(){
+
+    return(
+        <div className="container-fluid">
+            <Formik initialValues={{Name:'',Price:'', VendorContact:''}} validationSchema={yup.object({Name:yup.string().required('Name Required').min(4, 'Name too short'), Price: yup.number().min(1000,"Min 1000 required").max(10000, "Max 10000 only"), VendorContact:yup.string().matches(/\+91\d{10}/,"Invalid Mobile +91 10digits").required("Mobile Required")})} onSubmit={(values)=>{alert(JSON.stringify(values))}} >
+                {
+                    form =>
+                    <Form>
+                        <dl>
+                            <dt>Name</dt>
+                            <dd> <Field type="text" name="Name"  /> </dd>
+                            <dd className="text-danger"> <ErrorMessage name="Name" /> </dd>
+                            <dt>Price</dt>
+                            <dd> <Field type="text" name="Price" /> </dd>
+                            <dd className="text-danger"> <ErrorMessage name="Price" /> </dd>
+                            <dt>Vendor Contact</dt>
+                            <dd> <Field type="text" name="VendorContact" /> </dd>
+                            <dd className="text-danger"> <ErrorMessage name="VendorContact" /> </dd>
+                        </dl>
+                        <button disabled={(form.isValid)?false:true} >Submit</button>
+                        <button className={(form.dirty)?'d-inline':'d-none'}>Save</button>
+                    </Form>
+                }
+            </Formik>
+        </div>
+    )
+}
+   
+                               React Hook Form
+                         (3rd Party Form Library)
+
+1. Install hook form library
+
+        >npm  i react-hook-form --save                (npmjs.com)
+
+2. It provides "useForm" hook to configure a form element.
+
+    import  { useForm  }  from  "react-hook-form";
+
+    const  { formName, handleSubmit, formState: {errors} } = useForm();
+
+    formName        => reference name for form element to acces all its services.
+    handleSubmit        => it configures actions on submit
+    formState        => it provides errors object, that can handle input state                                  validation.
+
+
+3. Bind "useForm" with input elements to configure field and errors.
+
+    <input  type="text" name="Name"  {...register("Name", { validationAttributes }) } />
+
+4. Access the errors from element and display in UI by using the formstate error object.
+    - Every field validation is configured as optional in hook-form library.
+    - Hence you have to define as optional field
+       
+  {error.fieldName?.type==='validationType')?<span></pan>:<span></span> }
+
+    - Make sure that all validation services are configured with error messages
+    - You can use logical operators "&& , || " to bind multiple expressions.
+
+Ex:
+hook-form-demo.jsx
+
+import { useForm } from "react-hook-form" ;
+
+export function HookFormDemo(){
+
+    const {register, handleSubmit, formState:{errors}} = useForm();
+
+    const submit = (values)=> {
+        alert(JSON.stringify(values));
+    }
+
+    return(
+        <div className="container-fluid">
+           <form onSubmit={handleSubmit(submit)}>
+                <dl>
+                    <dt>Name</dt>
+                    <dd><input type="text" name="Name" {...register("Name",{ required:true, minLength:4 })} /></dd>
+                    <dd className="text-danger">
+                       {(errors.Name?.type==='required')?<span>Name Required</span>:<span></span> && (errors.Name?.type==='minLength')?<span>Name too short</span>:<span></span> }
+                    </dd>
+                </dl>
+                <button>Submit</button>
+           </form>
+        </div>
+    )
+}
+
+Class123 = Date 27Jan2024
+
+============================== Timer Events ========================
+
+formik
+react-hook-form
+yup
+
+FAQ: What is debounce?
+Ans : It is the process of making any task inactive for a specific duration of time and
+     release into process after specified time interval.
+
+     You can control by using timer events
+
+        a) setTimeout()
+        b) clearTimeout()
+        c) setInterval()
+        d) clearInterval()
+
+Syntax:
+    setTimeout(function(){} , interval)
+    clearTimeout(reference);
+
+
+                               useRef()
+							   
+- It is a new hook introduced into react 18x version.
+
+- It creates a memory reference, which is used internally by the process and not for rendering in UI.
+
+- Techically it can manage application "Threads" in process.
+
+- It is a reference used dynamically, hence the default value is "null".
+
+    let  task = useRef(null);
+    task.current = someTask();
+   
+- You can access the task from reference memory using "current" property.
+
+Syntax:
+       task.current = setTimeout(()=>{}, interval);
+
+       clearTimeout(task.current);
+
+Ex:
+ debounce-demo.jsx
+
+import { useRef, useState } from "react"
+
+export function DebounceDemo(){
+
+    const [msg, setMsg] = useState('');
+    let flag = useRef(null);
+
+    function Msg1(){
+        setMsg('Hello !');
+    }
+    function Msg2(){
+        setMsg('How are you ?');
+    }
+    function Msg3(){
+        setMsg('Welcome to React Events');
+    }
+
+    function PlayClick(){
+       setTimeout(Msg1, 3000);
+       flag.current =  setTimeout(Msg2, 6000);
+       setTimeout(Msg3, 10000);
+    }
+    function PauseClick(){
+        clearTimeout(flag.current);
+    }
+
+    return(
+        <div className="container-fluid">
+            <div className="mt-4">
+                <button onClick={PlayClick} className="bi me-3 bi-play btn btn-dark"></button>
+                <button onClick={PauseClick} className="bi bi-pause btn btn-dark"></button>
+            </div>
+            <div className="mt-4">
+                <span className="h2"> {msg} </span>
+            </div>
+        </div>
+    )
+}
+
+
+Class124 = Date 29jan2024
+
+=================================== Timer Events =================================
+
+setTimeout()
+clearTimeout()
+useRef()
+
+                            setInterval()
+- It loads task into memory and releases a  copy of task into process.
+- It repeats the task at specific time intervals until removed from memory.
+
+Syntax:
+    setInterval(()=>{ } , interval)
+
+- You can remove from memory using "clearInterval()".
+
+Syntax:
+    clearInterval(refName);
+
+
+Ex:
+interval-demo.jsx
+
+import axios from "axios"
+import { useEffect, useRef, useState } from "react"
+
+export function IntervalDemo(){
+
+    const [product, setProduct] = useState({});
+    const [status, setStatus] = useState('');
+    let ProductId = useRef(1);
+    let Thread = useRef(null);
+
+    function LoadProduct(id){
+         axios.get(`https://fakestoreapi.com/products/${id}`)
+         .then(res=> {
+            setProduct(res.data);
+         })
+    }
+
+    function LoadProductAuto(){
+        ProductId.current++;
+        axios.get(`https://fakestoreapi.com/products/${ProductId.current}`)
+         .then(res=> {
+            setProduct(res.data);
+         })
+    }
+
+    useEffect(()=>{
+        LoadProduct(ProductId.current)
+    },[])
+
+    function NextClick(){
+        ProductId.current = ProductId.current + 1;
+        LoadProduct(ProductId.current);
+    }
+
+    function PrevClick(){
+        ProductId.current = ProductId.current - 1;
+        LoadProduct(ProductId.current);
+    }
+
+    function PlayClick(){
+       Thread.current =  setInterval(LoadProductAuto, 5000);
+        setStatus('Slide Show - Started');
+    }
+    function PauseClick(){
+        clearInterval(Thread.current);
+        setStatus('Slide Show - Paused');
+    }
+
+    return(
+        <div className="container-fluid d-flex justify-content-center">
+            <div className="card p-2 w-50 mt-4">
+                <div className="card-header text-center">
+                    {product.title}
+                    <br />
+                    {status}
+                </div>
+                <div className="card-body">
+                    <div className="row">
+                      <div className="col-1 d-flex flex-column align-items-center justify-content-center">
+                            <button onClick={PrevClick} className="bi bi-chevron-left btn"></button>
+                      </div>
+                      <div className="col-10">
+                        <img width="100%" src={product.image} height="300" />
+                      </div>
+                      <div className="col-1 d-flex flex-column align-items-center justify-content-center">
+                        <button onClick={NextClick} className="bi bi-chevron-right btn "></button>
+                      </div>
+                    </div>
+                </div>
+                <div className="card-footer text-center">
+                    <button onClick={PlayClick} className="btn btn-primary me-2 bi bi-play"></button>
+                    <button onClick={PauseClick} className="btn btn-danger bi bi-pause"></button>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+Ex:
+Progress-Demo.jsx
+
+import { useRef, useState } from "react"
+
+export function ProgressDemo(){
+
+    const [Progressdisplay, setProgressDisplay] = useState('d-none');
+    const [ImageDisplay, setImageDisplay] = useState('d-none');
+    const [buttonDisplay, setButtonDisplay] = useState('d-block');
+    const [count, setCount] = useState(1);
+
+    let i = 1;
+    function Progress(){
+        i++;
+        setCount(i);
+        if(i==100){
+            setImageDisplay('d-block');
+            setProgressDisplay('d-none');
+        }
+    }
+
+    function LoadClick(){
+        setInterval(Progress,100);
+        setProgressDisplay('d-block');
+        setButtonDisplay('d-none');
+    }
+
+    return(
+        <div className="d-flex container-fluid justify-content-center align-items-center" style={{height:'100vh'}}>
+            <div className={buttonDisplay}>
+                <button onClick={LoadClick} className="btn btn-primary">Load Image</button>
+            </div>
+            <div className={Progressdisplay}>
+                <progress min="1" max="100" value={count} style={{width:'300px', height:'30px'}}></progress>
+                <p className="text-center">{count} % Completed</p>
+            </div>
+            <div className={ImageDisplay}>
+                <img src="m1.jpg" width="300" height="400" />
+            </div>
+        </div>
+    )
+}
+
+                        Component Properties
+                        Hooks
+
+
+
+
+Class125 = Date 30jan2024
+
+=================================== Component Properties & Conditional Render =================================
+
+Summary - Component
+- Data Binding
+- Style Binding
+- Class Binding
+- Event Binding
+- Forms
+- Validations
+
+   
+                        Component Properties
+
+- A property is used to customize component.
+- You can modify a component with properties.
+- JSX elements can be configure with a set of properties, which allow to reuse and customize component 
+according to state and situation.
+
+Syntax: Component without Properties
+    function Home()            
+    {
+       return ( <> </> );
+    }
+
+    <Home />
+
+- A component can configure properties using parameters, if it is a function component.
+- A component parameter is object type, with key and value.
+
+Syntax:
+    function Home(props)
+    {
+        returns( <> {props.key } </> )
+    }
+
+    <Home  key="value" />
+
+Ex:
+1. Add a new folder
+    "component-library"
+
+2. Add folder for "react-navbar"
+
+     react-navbar.jsx
+
+
+export function ReactNavbar(props){
+    return(
+        <nav className={"p-3 m-2 border border-1 d-flex justify-content-between " + props.ThemeName}>
+            <div>
+                <span className="h3">{props.BrandName}</span>
+            </div>
+            <div>
+                {
+                    props.MenuItems.map(item=>
+                        <span className="me-3"> <a>{item}</a> </span>
+                        )
+                }
+            </div>
+            <div>
+                <div className="input-group">
+                    <input type="text"  className="form-control"/>
+                    <button className="bi bi-search btn btn-warning"></button>
+                </div>
+            </div>
+        </nav>
+    )
+}
+
+3. You inject and use in any component
+
+progress-demo.jsx
+
+import { useRef, useState } from "react"
+import { ReactNavbar } from "../../component-library/react-navbar/react-navbar";
+
+export function ProgressDemo(){
+
+    const [Progressdisplay, setProgressDisplay] = useState('d-none');
+    const [ImageDisplay, setImageDisplay] = useState('d-none');
+    const [buttonDisplay, setButtonDisplay] = useState('d-block');
+    const [count, setCount] = useState(1);
+
+    let i = 1;
+    function Progress(){
+        i++;
+        setCount(i);
+        if(i==100){
+            setImageDisplay('d-block');
+            setProgressDisplay('d-none');
+        }
+    }
+
+    function LoadClick(){
+        setInterval(Progress,100);
+        setProgressDisplay('d-block');
+        setButtonDisplay('d-none');
+    }
+
+    return(
+        <div>
+            <header>
+                <ReactNavbar BrandName="Shopper." MenuItems={["Home", "Shop", "Blog", "Pages", "Contact"]} ThemeName="bg-dark text-white" />
+
+                <ReactNavbar BrandName="Tutorials" MenuItems={["Home", "Java", ".NET", "React", "Angular", "Blogs"]} ThemeName="bg-danger text-white" />
+            </header>
+            <div className="d-flex container-fluid justify-content-center align-items-center" style={{height:'100vh'}}>
+            <div className={buttonDisplay}>
+                <button onClick={LoadClick} className="btn btn-primary">Load Image</button>
+            </div>
+            <div className={Progressdisplay}>
+                <progress min="1" max="100" value={count} style={{width:'300px', height:'30px'}}></progress>
+                <p className="text-center">{count} % Completed</p>
+            </div>
+            <div className={ImageDisplay}>
+                <img src="m1.jpg" width="300" height="400" />
+            </div>
+          </div>
+        </div>
+    )
+}
+
+                         Conditional Rendering
+- A component can render different content.
+- It can be configure with multiple "return()" statements.
+- However component can return only one JSX fragment, which is decided using a condition.
+- The process of rendering various JSX fragments according to state and situation is known as "Conditional Rendering".
+
+Syntax:
+    function Component(props)
+    {
+       if(props.key==="somevalue"){
+        return (<> </> );
+       }
+      else {
+        return (<> </>);
+       }
+    }
+     
+Ex:
+react-grid.jsx
+
+export function ReactGrid(props){
+    if(props.layout==="grid"){
+        return(
+            <div className="container-fluid">
+                <table className="table table-hover caption-top">
+                    <caption>{props.caption}</caption>
+                    <thead>
+                        {
+                            props.fields.map(field=><th key={field}>{field}</th>)
+                        }
+                    </thead>
+                    <tbody>
+                        {
+                            props.data.map(item=>
+                                <tr key={item}>
+                                    {
+                                        Object.keys(item).map(key=>
+                                            <td>{item[key]}</td>
+                                            )
+                                    }
+                                </tr>
+                                )
+                        }
+                    </tbody>
+                </table>
+            </div>
+        )
+    } else {
+        return(
+            <div className="d-flex flex-wrap p-2 m-2">
+                {
+                    props.data.map(item=>
+                        <div className="card m-2 p-2" style={{width:'200px'}}>
+                            <div className="card-header">
+                                {item.FirstName}
+                            </div>
+                            <div className="card-footer">
+                                <button className="btn btn-primary w-100">Login</button>
+                            </div>
+                        </div>
+                        )
+                }
+            </div>
+        )
+    }
+}
+
+progress-demo.jsx
+
+import { useRef, useState } from "react"
+import { ReactNavbar } from "../../component-library/react-navbar/react-navbar";
+import { ReactGrid } from "../../component-library/react-grid/react-grid";
+
+export function ProgressDemo(){
+
+    const [Progressdisplay, setProgressDisplay] = useState('d-none');
+    const [ImageDisplay, setImageDisplay] = useState('d-none');
+    const [buttonDisplay, setButtonDisplay] = useState('d-block');
+    const [count, setCount] = useState(1);
+
+    let i = 1;
+    function Progress(){
+        i++;
+        setCount(i);
+        if(i==100){
+            setImageDisplay('d-block');
+            setProgressDisplay('d-none');
+        }
+    }
+
+    function LoadClick(){
+        setInterval(Progress,100);
+        setProgressDisplay('d-block');
+        setButtonDisplay('d-none');
+    }
+
+    return(
+        <div>
+            <header>
+                <ReactNavbar BrandName="Shopper." MenuItems={["Home", "Shop", "Blog", "Pages", "Contact"]} ThemeName="bg-dark text-white" />
+                <ReactNavbar BrandName="Tutorials" MenuItems={["Home", "Java", ".NET", "React", "Angular", "Blogs"]} ThemeName="bg-danger text-white" />
+            </header>
+            <section>
+                <h2>Grid Demo</h2>
+                <ReactGrid layout="grid" caption="Product Details - Updated Jan-2024" fields={["Name", "Price", "Rating"]} data={[{Name:"TV", Price:45000.44, Rating:4.5}, {Name:"Mobile", Price:12300.33, Rating:3.2}]} />
+                <h2>Employee Data</h2>
+                <ReactGrid caption="Employee Details - Recently Viewed Jan -2024" fields={["First Name", "Last Name"]} data={[{FirstName:"Raj", LastName:"Kumar"}]} />
+            </section>
+            <div className="d-flex container-fluid justify-content-center align-items-center" style={{height:'100vh'}}>
+            <div className={buttonDisplay}>
+                <button onClick={LoadClick} className="btn btn-primary">Load Image</button>
+            </div>
+            <div className={Progressdisplay}>
+                <progress min="1" max="100" value={count} style={{width:'300px', height:'30px'}}></progress>
+                <p className="text-center">{count} % Completed</p>
+            </div>
+            <div className={ImageDisplay}>
+                <img src="m1.jpg" width="300" height="400" />
+            </div>
+          </div>
+        </div>
+    )
+}
+
+
+                        Component Hooks
+

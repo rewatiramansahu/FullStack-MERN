@@ -37,8 +37,7 @@ This course is designed to provide you with comprehensive knowledge and hands-on
 - Best practices and project structuring
 
 ## Prerequisites
-- Basic knowledge of HTML, CSS, and JavaScript
-- Familiarity with version control systems like Git
+- Nothing
 
 ## Getting Started
 To get started with the course, clone this repository and follow the instructions provided in each module's directory. Make sure you have all the prerequisites installed on your system.

@@ -3935,3 +3935,1169 @@ export function ProgressDemo(){
 
                         Component Hooks
 
+
+Class126 = Date 31jan2024
+
+========================== ReactJS Hooks ============================
+
+React Hooks
+
+Component Properties
+Conditional Rendering
+   
+                            React Hooks
+- Hook is a function used as service for component.
+- Service is a pre-defined business logic, which you can inject and use in your application.
+- Service uses "single ton" pattern.
+  [object created for first request and same is used across multiple requests]
+- Service is controlled using 2 components
+
+    a) Provider
+    b) Injector
+
+- Provider is responsible for locating a service value or function in memory.
+- Injector is responsible for injecting values  or functions into component.
+- The mechanism of locating a value in memory and injecting into component is known as "Dependency Injection". [DI]
+- React provides several pre-defined hooks and also allows to create custom hooks.
+- React 17+ versions introduced hooks.
+- React Hooks can be used only in "function components".
+
+Rules:
+- Hook must be a JS function.
+- It can't be void type.
+- It must return a value.
+- It must be defined with a return type.
+- It must be used always at highier hierarchy.
+- You can't use a hook inside any another function. [configuring at global scope allowed]
+- It must be in camel case.
+   [component must be in pascal case - first letter caps]
+- It can be parameterized or parameter less.
+- If it is parameterized then it must be configured with a event that mounts the hook again when ever parameter changes.
+
+Ex:
+1. Add a new folder into "src" by name "hooks"
+
+2. Add following files into hooks folder
+           
+         captcha.js
+
+export function useCaptcha(){
+    var code = '';
+    var a = Math.random() * 10;
+    var b = Math.random() * 10;
+    var c = Math.random() * 10;
+    var d = Math.random() * 10;
+    var e = Math.random() * 10;
+    var f = Math.random() * 10;
+    code = `${Math.round(a)} ${Math.round(b)} ${Math.round(c)} ${Math.round(d)} ${Math.round(e)} ${Math.round(f)}`
+    return code;
+}
+
+              getapi.js
+
+import { useEffect, useState } from "react";
+
+export function useAPI(url){
+    const [data, setData] = useState();
+    useEffect(()=>{
+        fetch(url)
+        .then(res => res.json())
+        .then(content => setData(content));
+    },[url]);
+    return data;
+}
+
+3. Goto login component
+
+    login.jsx
+
+import React from "react";
+import { useCaptcha } from "../../hooks/captcha";
+import { useAPI } from "../../hooks/getapi";
+
+import "./login.css";
+
+export function Login()
+{
+    const code = useCaptcha();
+    const categories = useAPI('https://fakestoreapi.com/products/categories&#39;);
+    return(
+        <React.Fragment>
+            <main>
+                <form>
+                    <h3 className="bi bi-person-fill"> User Login</h3>
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd><input type="text" className="form-control" /></dd>
+                        <dt>Password</dt>
+                        <dd><input type="password" className="form-control" /></dd>
+                        <dt>Select Category</dt>
+                        <dd>
+                            <select>
+                               {
+                                 categories.map(category=>
+                                    <option key={category}>{category}</option>
+                                    )
+                               }
+                            </select>
+                        </dd>
+                        <dt>Verify Code</dt>
+                        <dd>{code}</dd>
+                    </dl>
+                    <button className="btn btn-primary w-100">Login</button>
+                </form>
+            </main>
+        </React.Fragment>
+    )
+}
+
+- React provides various pre-defined hooks with its core library
+            useState()
+            useEffect()
+            useMemo()
+            useCallback()
+            useRef()
+            useReducer()
+            useContext()
+            etc..
+
+Class127 = Date 01feb2024
+
+========================== Use Context ============================
+
+
+useState()
+useEffect()
+useRef()
+
+                            useContext()
+
+- Context is the memory allocated for a component.
+- Context memory is accessible to the components that run within the context of existing component. [parent component].
+- State of every component is individual for component and not accessible to others.
+- Hence you have to use a context memory to store value and provides access to the components that run within context.
+- Context is used as service with provider and injector.
+   
+Syntax:
+1. You have to create a context memory explicitly
+
+
+    let  contextName = createContext(null);
+
+
+2. You have to configure the scope for context memory
+
+    <contextName>
+        ..components..
+    </contextName>
+
+3. Context requires a provider to configure and locate values in memory
+
+    <contextName.Provider    value={ }>
+
+    </contextName.Provider>
+
+4. You have to inject the context values into child component
+
+      let  refName = useContext(contextName);
+
+Ex:
+context-demo.jsx
+
+import { createContext, useContext, useState } from "react"
+
+let UserContext = createContext(null);
+
+export function LevelTwoComponent(){
+    let user = useContext(UserContext);
+
+    return(
+    <div className="bg-warning p-3">
+        <h3>Level-2 Component - {user}</h3>
+    </div>)
+}
+
+
+export function LevelOneComponent(){
+    let user = useContext(UserContext);
+    return(
+    <div className="bg-danger text-white p-3">
+        <h3>Level-1 Component - {user} </h3>
+        <LevelTwoComponent />
+    </div>)
+}
+
+
+export function ContextDemo(){
+    const [user, setUser] = useState('')
+    function handleNameChange(e){
+        setUser(e.target.value);
+    }
+    return(
+        <div className="container-fluid bg-dark p-4 text-white">
+           <UserContext.Provider value={user}>
+                <input type="text" onChange={handleNameChange} placeholder="User Name" />
+                <h2>Parent Component - {user} </h2>
+                <LevelOneComponent />
+           </UserContext.Provider>
+        </div>
+    )
+}
+
+                           useReducer()
+
+- It is used to configure a predictable state container.
+- Developer need a predictable state to know exactly when, why, where and how an application state is going to change.
+- React 18x versions provide "useReducer" for application state.
+- However your use external predictable state for large scale applications using a JavaScript "Redux" library.
+- A predictable state is easy to debug, trace and test.
+
+Class128 = Date 02feb2024
+
+========================== useReducer in ReactJS ============================
+
+
+
+- useReducer manages operations using following components
+    a) Store
+    b) State
+    c) Reducer
+    d) Actions
+
+- Store is the location where centralized data is kept.
+- State is used by component to access the data from store and render in UI.
+- Reducer defines the actions and state.
+- Actions specify when the store need to update.
+
+Syntax:
+1. Configure a store globally with initial state.
+
+       let  initialState = {usersCount : 0 };        => store
+
+2. Configure a reducer, which is a function that comprises of state and actions.
+
+      function reducer(state, action)
+      {
+          switch(action.type)
+          {
+            case "join":
+            return  { usersCount: state.usersCount + 1 }
+            case "exit":
+            return  { userCount: state.usersCount - 1 }
+          }
+      }
+
+
+3. A component can access the store and use the actions from reducer by using a hook
+        "useReducer()"
+
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+
+4. Dispatch actions on various events
+
+     function JoinClick(){
+        dispatch({type:"join"})                { state.usersCount }
+     }
+
+    functon ExitClick(){
+           dispatch({type:"exit"})                { state.usersCount }
+    }
+
+Ex:
+import { useReducer } from "react";
+
+let initialState = {usersCount: 0};
+
+function reducer(state, action){
+    switch(action.type){
+        case "join":
+        console.log();
+        return {usersCount: state.usersCount + 1};
+        case "exit":
+        return {usersCount: state.usersCount - 1};
+    }
+}
+
+export function ReducerDemo(){
+
+
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    function handleJoinClick(){
+        dispatch({type: 'join'});
+    }
+    function handleExitClick(){
+        dispatch({type:'exit'});
+    }  
+
+    return(
+        <div className="container-fluid d-flex justify-content-center">
+            <div className="card p-2 m-4 w-50">
+                <div className="card-header text-center">
+                    <h4>React JS Live</h4>
+                    <p>Live Users : {state.usersCount} </p>
+                </div>
+                <div className="card-body">
+                    <iframe src="https://www.youtube.com/embed/tm7kVn8abSg&quot; width="100%" height="300" />
+                </div>
+                <div className="card-footer text-center">
+                    <button onClick={handleJoinClick} className="btn btn-primary me-2">Join</button>
+                    <button onClick={handleExitClick} className="btn btn-danger">Exit</button>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+                        React Class Components
+
+- Class is a program template that provides sample data and logic, which you can implement and customize according to the requirements.
+
+Issues with OOP:
+- It doesn't support low level features.
+- It can't directly interact with hardware services.
+- It uses more memory.
+- It is slow.
+
+- Class components
+    * Have built-in state (without explicit state configuration it can manage data)
+    * Easy to extend.
+    * Losely coupled architecture.
+   
+Concepts:
+- Class Members
+    a) Property
+    b) Method
+    c) Accessor
+    d) Constructor
+- Inheritance
+- Polymorphism
+- Module System
+
+
+Date = 03Feb2024
+
+===================== React Class Components =========================
+
+JavaScript Classes Overview:
+
+1. What is a class?
+A. Class is a program template with set of properties and methods, which you can
+     implement and customize according to requirements.
+ 
+     If a class is representing data then it is reffered as "Model".
+     If a class is representing the business logic then it is reffered as "Entity".
+
+
+2. How to configure a class?
+A.
+    a) Class Expression
+    b) Class Declaration
+
+
+    Syntax: Expression
+
+        let  Product = class {   };
+
+    Syntax: Declaration
+
+        class  Product
+        {
+        }
+
+3. What are the members of class?
+A.
+    a) Property
+    b) Accessor
+    c) Method
+    d) Constructor
+
+4. Can we define function or variable as class member?
+A. No.
+
+5. Can we have a class or variable in class?
+A. Yes
+
+6. Why variable & function are not allowed as class member?
+A. They are immutable types and class is a template, which can have only multable members.
+
+                         Property
+- A class property is used to store data.
+- It can handle any type of data.
+- It is mutable type.
+- You can control property by using "accessors".
+
+Syntax:
+        class  Product
+        {
+            Property = anyValue;         => Primitive, Non-Primitive
+        }
+
+- You can control read and write operations using accessors
+
+        a) get()            => getter to read and return value
+        b) set()            => setter to assign a value
+
+Ex:
+<script>
+    var userName = prompt("Enter User Name");
+    var role = prompt("Enter Your role","customer|admin");
+
+    class Product
+    {
+       _productName;
+
+       get ProductName(){
+          return this._productName;
+       }
+       set ProductName(newName){
+          if(role==="admin"){
+            this._productName = newName;
+          } else {
+            document.write(`Hello ! ${userName} You are not authorized to set Product Name`);
+          }
+       }
+    }
+    let obj = new Product();
+    obj.ProductName = prompt("Enter Product Name");
+    if(obj.ProductName)
+    {
+        document.write(`Product Name : ${obj.ProductName}`);
+    }
+</script>
+
+Ex:
+<script>
+    class Product
+    {
+        Name = "Samsung TV";
+        Rating = {
+             VendorRating: {
+                 "Y24": {
+                    Rate:4.2, Count:450
+                 },
+                 "Y23": {
+                    Rate:3.7, Count: 7433
+                 }
+             }
+        }
+
+        get Vendor24Rating(){
+            return this.Rating.VendorRating.Y24.Rate;
+        }
+
+        set Vendor24Rating(newRate){
+            this.Rating.VendorRating.Y24.Rate = newRate;
+        }
+
+    }
+    let obj = new Product();
+    obj.Vendor24Rating = prompt("Enter New Rating for 2024");
+    document.write(`Vendor Rating 2024 : ${obj.Vendor24Rating}`);
+</script>
+
+                             Methods
+- A method configures the functionality.
+- Method is mutable.
+- All methods behaviours are same as functions.
+     * Parameterized
+     * Parameter less
+     * Void
+     * Return Type
+     * Rest & Spread
+     etc..
+
+Syntax:
+      class Name
+      {
+           Method() {
+
+           }
+      }
+
+Ex:
+<script>
+    class Product
+    {
+         Name = "TV";
+         Price = 45000;
+         Qty = 3;
+         Total(){
+            return this.Qty * this.Price;
+         }
+         Print(){
+            document.write(`Name=${this.Name}<br>Price=${this.Price}<br>Qty=${this.Qty}<br>Total=${this.Total()}`)
+         }
+    }
+    let obj = new Product();
+    obj.Print();
+</script>
+       
+                            Constructor
+- A constructor is used for instantiation.
+- It is responsible for creating an object for class.
+- JS constructor is anonymous type.
+- It can be parameterized or parameter less.
+- You can't restrict or overload constructors in JS.
+- If you want to configure any funcitonality at the time of creating instance of class, then you can configure using constructor.
+- A constructor can execute only once for object.
+- Constructor is a special type of subroutine in class that executed automatically for every object.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         class Database{
+            constructor(){
+                document.write(`Connected with Database<br>`);
+            }
+            Insert(){
+                document.write(`Record Inserted<br>`);
+            }
+            Delete(){
+                document.write(`Record Deleted`);
+            }
+         }
+         function InsertClick(){
+            let obj = new Database();
+            obj.Insert();
+         }
+         function DeleteClick(){
+            let obj = new Database();
+            obj.Delete();
+         }
+    </script>
+</head>
+<body>
+    <button onclick="InsertClick()">Insert</button>
+    <button onclick="DeleteClick()">Delete</button>
+</body>
+</html>
+
+Ex: Parameterized
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         class Database{
+            constructor(dbName){
+                document.write(`Connected with ${dbName}  Database<br>`);
+            }
+            Insert(){
+                document.write(`Record Inserted<br>`);
+            }
+            Delete(){
+                document.write(`Record Deleted`);
+            }
+         }
+         function InsertClick(){
+            let obj = new Database(document.querySelector("select").value);
+            obj.Insert();
+         }
+         function DeleteClick(){
+            let obj = new Database(document.querySelector("select").value);
+            obj.Delete();
+         }
+    </script>
+</head>
+<body>
+    <select>
+        <option>Select Database</option>
+        <option>Oracle</option>
+        <option>MySql</option>
+    </select>
+    <button onclick="InsertClick()">Insert</button>
+    <button onclick="DeleteClick()">Delete</button>
+</body>
+</html>
+
+                            Inheritance
+
+Class130= Date 05feb2024
+
+========================== Class Components in ReactJS ============================
+
+
+- Classes
+    a) Property
+    b) Accessor
+    c) Method
+    d) Constructor
+- Inheritance
+    Super Class
+    Derived Class
+    extends
+   
+Note: A derived class constructor must call the super class constructor.
+
+Syntax:
+    class Super
+    {
+       constructor() { }
+    }
+    class Derived extends Super
+    {
+        constructor(){
+         super();
+        }
+    }
+
+- Polymorphism
+    A single super class reference can use the memory of multiple derived classes.
+
+
+                           React Class Components
+
+- React class component is designed by using JavaScript class.
+
+        export class ComponentName
+        {
+
+        }
+
+- Every component class gets the behaviour from the base classes
+
+        a) React.Component    
+        b) React.PureComponent
+
+- "Component" base will load entire component when ever change occured.
+- "PureComponent" base loads only the changes in component.
+
+Syntax:
+    import  React from "react";
+
+    export class Register extends  React.Component | React.PureComponent
+    {
+    }
+
+- Class component returns a "Fragment" using "render()" method.
+- It must call the super constructor.
+
+Syntax:
+    export class Register extends React.Component
+    {
+       constructor(){
+        super();
+       }
+       render(){
+         return(
+            <>
+
+            </>
+         )
+       }
+    }
+
+Ex:
+register-user.jsx
+
+import React from "react";
+
+export class RegisterUser extends React.Component
+{
+    constructor(){
+        super();
+    }
+    render(){
+        return(
+            <div>
+                <h2>Register Class Component</h2>
+            </div>
+        )
+    }
+}
+
+- Data Binding, Class & Style binding are same as you defined in function component.
+- Data can't be stored in "Variables" as they are not allowed in class as class member.
+- Data can be Property but it is immutable in a component.
+- You can't use "useState()" hook in class component.
+- Hooks are functions and they are not allowed in class.
+
+Ex: Data in Property
+
+import React from "react";
+export class RegisterUser extends React.Component
+{
+    constructor(){
+        super();
+    }
+    Title = "Welcome to React Class Components";
+    Cities = ["All", "Delhi", "Hyd"];
+    render(){
+        return(
+            <div>
+                <h2> {this.Title} </h2>
+                <select>
+                    {
+                        this.Cities.map(city=><option key={city}>{city}</option>)
+                    }
+                </select>
+            </div>
+        )
+    }
+}
+
+- React.Component base provides a "State"
+- The custom component can access the state, which is an object type.
+- State is initialized in constructor of custom component using "this.state".
+
+Syntax:
+        constructor()
+        {
+            this.state = {
+             key : value,
+             key : value
+              }
+        }
+
+- You can access the state using "this.state"
+
+        <p> { this.state.key } </p>
+
+- React.Component base provide "setState()" which is used to initialize a new value into state.
+
+         this.setState({key: value, key:value})
+
+- React.Component provides "componentDidMount()  & componentWillMount()" methods, which are used to define actions to perform at the time of mounting component.
+
+Syntax:
+        componentDidMount() {
+            this.setState({ key : value })
+        }
+
+Ex:
+ register-user.jsx
+
+import React from "react";
+
+export class RegisterUser extends React.Component
+{
+    constructor(){
+        super();
+        this.state = {
+            Title: "",
+            Categories: []
+        }
+    }
+
+    componentDidMount(){
+        this.setState({
+            Title: 'Hello ! React',
+            Categories: ["All", "Electronics", "Footwear", "Fashion"]
+        })
+    }
+   
+    render(){
+        return(
+            <div>
+                <h2>{this.state.Title}</h2>
+                <ol>
+                    {
+                        this.state.Categories.map(category=><li key={category}>{category}</li>)
+                    }
+                </ol>
+            </div>
+        )
+    }
+}
+
+Ex: Style & Class
+import React from "react";
+
+
+export class RegisterUser extends React.Component
+{
+    constructor(){
+        super();
+        this.state = {
+            Title: "",
+            Categories: []
+        }
+    }
+
+    componentDidMount(){
+        this.setState({
+            Title: 'Hello ! React',
+            Categories: ["All", "Electronics", "Footwear", "Fashion"],
+            StyleObj : {boxShadow:'12px 12px 12px gray'}
+        })
+    }
+   
+    render(){
+        return(
+            <div style={this.state.StyleObj} className="container mt-2 bg-dark text-white p-2">
+                <h2>{this.state.Title}</h2>
+                <ol>
+                    {
+                        this.state.Categories.map(category=><li key={category}>{category}</li>)
+                    }
+                </ol>
+            </div>
+        )
+    }
+}
+
+                          Two Way Binding in Class
+- Events are same as function component.
+- Events are derived from "SyntheticEvents". [Virtual DOM Events]
+- In class events subscriber is method.
+- Event sends a message to the subscriber.
+
+Syntax:
+        class   Name
+        {
+             MethodName() {
+             }
+        }
+
+        <button  onClick={this.MethodName}>
+
+Ex:
+import React from "react";
+
+
+export class RegisterUser extends React.Component
+{
+    constructor(){
+        super();
+        this.state = {
+            Title: "",
+            Categories: []
+        }
+    }
+
+    componentDidMount(){
+        this.setState({
+            Title: 'Hello ! React',
+            Categories: ["All", "Electronics", "Footwear", "Fashion"],
+            StyleObj : {boxShadow:'12px 12px 12px gray'}
+        })
+    }
+
+    handleOkClick(){
+        alert('OK Clicked');
+    }
+   
+    render(){
+        return(
+            <div style={this.state.StyleObj} className="container mt-2 bg-dark text-white p-2">
+                <h2>{this.state.Title}</h2>
+                <ol>
+                    {
+                        this.state.Categories.map(category=><li key={category}>{category}</li>)
+                    }
+                </ol>
+                <button onClick={this.handleOkClick} className="btn btn-light">OK</button>
+            </div>
+        )
+    }
+}
+
+Note: You need various binding techniques in order to bind the event with state.
+      Events can't use the state directly.
+
+Class131 = Date 06feb2024
+
+========================== Events in Components in ReactJS ============================
+
+Events in Class Component
+
+Class Component in React
+- React.Component
+- React.PureComponent
+- State [Built-in]
+- componentDidMount()
+
+FAQ: Why can't we write actions to perform while creating instance for component?
+         [actions in constructor]
+
+Ans:  Constructor is a special type of sub-routine that executes only once per object.
+      It can't assign new values on change.
+      Setting state in constructor at the time of initializing state will lead to "bug".
+      It is not recommended to set state before mounting a component.
+
+Events in Class component
+- All events are synthetic events.
+- In class component events map to methods.
+
+            handleNameChange()
+            {
+            }
+
+            <input type="text" onChange={this.handleNameChange}>
+
+- Methods defined for events can't use state.
+- You have to register every method at the time on constructing a component, and bind with the class memory. So that it can use the state.
+- React provides "bind()" method to bind the actions with current class state.
+- You can bind the method using "eager loading" approach.
+
+        constructor()
+        {
+           this.handleName = this.handleName.bind(this);
+           this.handleAge = this.handleAge.bind(this);
+        }
+
+- You can bind the method using "lazy loading" approach. It binds only when it is used.
+
+    <input type="text"  onChange={this.handleName.bind(this)} />
+
+- You can use all event args in the same way how u defined in function components.
+   
+      handleName(e)
+      {
+        e.clientX, keyCode, which
+        e.target.id, name, value
+      }
+
+FAQ: Can we configure event handlers without bind method?
+Ans: Yes. You have to configure a function that returns the current method memory to the current class.
+
+Syntax:
+    <input type="text"  onChange={ (e)=> this.handleName(e) }  />
+
+Ex:
+register-user.jsx
+
+import React from "react";
+
+
+export class RegisterUser extends React.Component
+{
+    constructor(){
+        super();
+        this.state = {
+            Name: '',
+            Age: 0      
+        }
+        this.handleNameChange = this.handleNameChange.bind(this);
+    }
+
+    handleNameChange(e){
+        this.setState({
+            Name: e.target.value,
+            Age: this.state.Age
+        })
+    }
+    handleAgeChange(e) {
+        this.setState({
+            Age: e.target.value,
+            Name:this.state.Name
+        })
+    }
+
+    render(){
+        return(
+            <div className="container mt-2  p-2">
+                <h3>Register</h3>
+                <dl>
+                    <dt>Name</dt>
+                    <dd><input type="text" onChange={this.handleNameChange} /></dd>
+                    <dt>Age</dt>
+                    <dd><input type="number" onChange={(e)=> this.handleAgeChange(e)} /></dd>
+                </dl>
+                <p>
+                    Name : {this.state.Name} <br />
+                    Age : {this.state.Age}
+                </p>
+            </div>
+        )
+    }
+}
+
+- Component can use properties by using "this.props" derived from base "Component" class.
+- "this.props" is an object.
+
+Ex:
+ tool-bar.jsx
+
+import React from "react";
+
+export class ToolBar extends React.Component
+{
+     constructor(){
+         super();
+     }
+     render(){
+         return(
+            <div>
+               <nav className="bg-dark text-white p-2">
+                 <h4>{this.props.title}</h4>
+               </nav>
+            </div>
+         )
+     }
+}
+
+Class133 = Date 08Feb2024
+
+=============== Component Hooks Methods & MUI - Material UI ==============
+
+
+Component Life Cycle Hooks
+- componentWillMount()
+- componentDidMount()
+- componentDidUpdate()
+- componentWillUnmount()
+
+Ex:
+cycle-demo.jsx
+
+import React from "react";
+
+export class Admin extends React.Component {
+    constructor(){
+        super();
+    }
+    componentDidMount(){
+        console.log(`Admin Component Requested and Mounted`);
+    }
+    componentWillUnmount(){
+        console.log(`Admin Component Will Unmount`);
+    }
+    render(){
+        return(
+            <div>
+                <span>Admin Portal</span>
+            </div>
+        )
+    }
+}
+
+export class Customer extends React.Component {
+    constructor(){
+        super();
+    }
+    componentDidMount(){
+        console.log(`Customer Component Requested and Mounted`);
+    }
+    componentWillUnmount(){
+        console.log(`Customer Component Will Unmount`);
+    }
+    render(){
+        return(
+            <div>
+                <span>Customer Portal</span>
+            </div>
+        )
+    }
+}
+
+export class CycleDemo extends React.Component
+{
+     constructor(){
+        super();
+        this.state = {
+            Component: ''
+        }
+     }
+
+     handleAdminClick(){
+        this.setState({
+            Component: <Admin />
+        })
+     }
+     handleCustomerClick(){
+        this.setState({
+            Component: <Customer />
+        })
+     }
+
+     render(){
+        return(
+            <div>
+                <h3>Main Component</h3>
+                <button onClick={this.handleAdminClick.bind(this)}>Admin</button>
+                <button onClick={this.handleCustomerClick.bind(this)} >Customer</button>
+                <hr></hr>
+                <div className="mt-4">
+                    {this.state.Component}
+                </div>
+            </div>
+        )
+     }
+}
+
+FAQ: Do we have life cycle hooks for function components?
+Ans: Life cycle hooks are methods used only for class components.
+        Function components have hooks but not life cycle hooks.
+
+FAQ: How to define actions on mount for function component?
+Ans:   By using "useEffect()".
+
+FAQ: How to define unmount actions for function component?
+Ans:  By using "useEffect()" with return statement.
+
+Syntax:
+        useEffect(()=>{
+
+            // actions on mount
+           
+            return ()=>{
+
+               // actions on unmount
+
+            }
+   
+        },[]);
+
+               
+                            React Material UI
+                                 [ MUI ]
+
+- It is a component library for React.
+- It provides built in components and services for React.
+- Components are required for building better UI.
+- Services are required for better performance.
+- MUI Core provides components for free.
+- MUI X provides functions for various use-cases. [User Experince]
+- MUI have fully-built templates.
+- It provides tools for building interactive apps.
+
+Setup MUI for Project:
+
+   > npm install @mui/material @emotion/react @emotion/styled
+
+Note: MUI for React 18x versions use "@emotion" library, which is a complete re-write from its previous  versions.
+
+
+Ex:
+import { Button } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import { useState } from "react";
+
+
+export function MUIDemo(){
+    const [userName, setUserName] = useState('');
+
+    function handleNameChange(e){
+        setUserName(e.target.value)
+    }
+
+    return(
+        <div className="container-fluid">
+            <h1>MUI Demo</h1>
+            <dl className="w-25">
+                <dt>Bootstrap TextBox</dt>
+                <dd><input type="text" className="form-control" placeholder="User Name" /></dd>
+                <dd><button className="btn btn-primary">Submit</button></dd>
+                <dt>MUI TextBox</dt>
+                <dd>
+                    <TextField onChange={handleNameChange} label="User Name" variant="standard" />
+                </dd>
+                <dd>
+                    <Button variant="contained" color="error" > Submit </Button>
+                </dd>
+            </dl>
+            <h3>Hello ! { userName }</h3>
+        </div>
+    )
+}

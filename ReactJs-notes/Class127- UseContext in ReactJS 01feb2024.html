@@ -1,0 +1,91 @@
+
+Class127 = Date 01feb2024
+
+========================== Use Context ============================
+
+
+useState()
+useEffect()
+useRef()
+
+                            useContext()
+
+- Context is the memory allocated for a component.
+- Context memory is accessible to the components that run within the context of existing component. [parent component].
+- State of every component is individual for component and not accessible to others.
+- Hence you have to use a context memory to store value and provides access to the components that run within context.
+- Context is used as service with provider and injector.
+   
+Syntax:
+1. You have to create a context memory explicitly
+
+
+    let  contextName = createContext(null);
+
+
+2. You have to configure the scope for context memory
+
+    <contextName>
+        ..components..
+    </contextName>
+
+3. Context requires a provider to configure and locate values in memory
+
+    <contextName.Provider    value={ }>
+
+    </contextName.Provider>
+
+4. You have to inject the context values into child component
+
+      let  refName = useContext(contextName);
+
+Ex:
+context-demo.jsx
+
+import { createContext, useContext, useState } from "react"
+
+let UserContext = createContext(null);
+
+export function LevelTwoComponent(){
+    let user = useContext(UserContext);
+
+    return(
+    <div className="bg-warning p-3">
+        <h3>Level-2 Component - {user}</h3>
+    </div>)
+}
+
+
+export function LevelOneComponent(){
+    let user = useContext(UserContext);
+    return(
+    <div className="bg-danger text-white p-3">
+        <h3>Level-1 Component - {user} </h3>
+        <LevelTwoComponent />
+    </div>)
+}
+
+
+export function ContextDemo(){
+    const [user, setUser] = useState('')
+    function handleNameChange(e){
+        setUser(e.target.value);
+    }
+    return(
+        <div className="container-fluid bg-dark p-4 text-white">
+           <UserContext.Provider value={user}>
+                <input type="text" onChange={handleNameChange} placeholder="User Name" />
+                <h2>Parent Component - {user} </h2>
+                <LevelOneComponent />
+           </UserContext.Provider>
+        </div>
+    )
+}
+
+                           useReducer()
+
+- It is used to configure a predictable state container.
+- Developer need a predictable state to know exactly when, why, where and how an application state is going to change.
+- React 18x versions provide "useReducer" for application state.
+- However your use external predictable state for large scale applications using a JavaScript "Redux" library.
+- A predictable state is easy to debug, trace and test.

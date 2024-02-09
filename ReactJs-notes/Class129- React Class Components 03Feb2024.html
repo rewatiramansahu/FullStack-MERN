@@ -1,0 +1,246 @@
+
+Date = 03Feb2024
+
+===================== React Class Components =========================
+
+JavaScript Classes Overview:
+
+1. What is a class?
+A. Class is a program template with set of properties and methods, which you can
+     implement and customize according to requirements.
+ 
+     If a class is representing data then it is reffered as "Model".
+     If a class is representing the business logic then it is reffered as "Entity".
+
+
+2. How to configure a class?
+A.
+    a) Class Expression
+    b) Class Declaration
+
+
+    Syntax: Expression
+
+        let  Product = class {   };
+
+    Syntax: Declaration
+
+        class  Product
+        {
+        }
+
+3. What are the members of class?
+A.
+    a) Property
+    b) Accessor
+    c) Method
+    d) Constructor
+
+4. Can we define function or variable as class member?
+A. No.
+
+5. Can we have a class or variable in class?
+A. Yes
+
+6. Why variable & function are not allowed as class member?
+A. They are immutable types and class is a template, which can have only multable members.
+
+                         Property
+- A class property is used to store data.
+- It can handle any type of data.
+- It is mutable type.
+- You can control property by using "accessors".
+
+Syntax:
+        class  Product
+        {
+            Property = anyValue;         => Primitive, Non-Primitive
+        }
+
+- You can control read and write operations using accessors
+
+        a) get()            => getter to read and return value
+        b) set()            => setter to assign a value
+
+Ex:
+<script>
+    var userName = prompt("Enter User Name");
+    var role = prompt("Enter Your role","customer|admin");
+
+    class Product
+    {
+       _productName;
+
+       get ProductName(){
+          return this._productName;
+       }
+       set ProductName(newName){
+          if(role==="admin"){
+            this._productName = newName;
+          } else {
+            document.write(`Hello ! ${userName} You are not authorized to set Product Name`);
+          }
+       }
+    }
+    let obj = new Product();
+    obj.ProductName = prompt("Enter Product Name");
+    if(obj.ProductName)
+    {
+        document.write(`Product Name : ${obj.ProductName}`);
+    }
+</script>
+
+Ex:
+<script>
+    class Product
+    {
+        Name = "Samsung TV";
+        Rating = {
+             VendorRating: {
+                 "Y24": {
+                    Rate:4.2, Count:450
+                 },
+                 "Y23": {
+                    Rate:3.7, Count: 7433
+                 }
+             }
+        }
+
+        get Vendor24Rating(){
+            return this.Rating.VendorRating.Y24.Rate;
+        }
+
+        set Vendor24Rating(newRate){
+            this.Rating.VendorRating.Y24.Rate = newRate;
+        }
+
+    }
+    let obj = new Product();
+    obj.Vendor24Rating = prompt("Enter New Rating for 2024");
+    document.write(`Vendor Rating 2024 : ${obj.Vendor24Rating}`);
+</script>
+
+                             Methods
+- A method configures the functionality.
+- Method is mutable.
+- All methods behaviours are same as functions.
+     * Parameterized
+     * Parameter less
+     * Void
+     * Return Type
+     * Rest & Spread
+     etc..
+
+Syntax:
+      class Name
+      {
+           Method() {
+
+           }
+      }
+
+Ex:
+<script>
+    class Product
+    {
+         Name = "TV";
+         Price = 45000;
+         Qty = 3;
+         Total(){
+            return this.Qty * this.Price;
+         }
+         Print(){
+            document.write(`Name=${this.Name}<br>Price=${this.Price}<br>Qty=${this.Qty}<br>Total=${this.Total()}`)
+         }
+    }
+    let obj = new Product();
+    obj.Print();
+</script>
+       
+                            Constructor
+- A constructor is used for instantiation.
+- It is responsible for creating an object for class.
+- JS constructor is anonymous type.
+- It can be parameterized or parameter less.
+- You can't restrict or overload constructors in JS.
+- If you want to configure any funcitonality at the time of creating instance of class, then you can configure using constructor.
+- A constructor can execute only once for object.
+- Constructor is a special type of subroutine in class that executed automatically for every object.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         class Database{
+            constructor(){
+                document.write(`Connected with Database<br>`);
+            }
+            Insert(){
+                document.write(`Record Inserted<br>`);
+            }
+            Delete(){
+                document.write(`Record Deleted`);
+            }
+         }
+         function InsertClick(){
+            let obj = new Database();
+            obj.Insert();
+         }
+         function DeleteClick(){
+            let obj = new Database();
+            obj.Delete();
+         }
+    </script>
+</head>
+<body>
+    <button onclick="InsertClick()">Insert</button>
+    <button onclick="DeleteClick()">Delete</button>
+</body>
+</html>
+
+Ex: Parameterized
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         class Database{
+            constructor(dbName){
+                document.write(`Connected with ${dbName}  Database<br>`);
+            }
+            Insert(){
+                document.write(`Record Inserted<br>`);
+            }
+            Delete(){
+                document.write(`Record Deleted`);
+            }
+         }
+         function InsertClick(){
+            let obj = new Database(document.querySelector("select").value);
+            obj.Insert();
+         }
+         function DeleteClick(){
+            let obj = new Database(document.querySelector("select").value);
+            obj.Delete();
+         }
+    </script>
+</head>
+<body>
+    <select>
+        <option>Select Database</option>
+        <option>Oracle</option>
+        <option>MySql</option>
+    </select>
+    <button onclick="InsertClick()">Insert</button>
+    <button onclick="DeleteClick()">Delete</button>
+</body>
+</html>
+
+                            Inheritance

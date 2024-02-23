@@ -1,0 +1,113 @@
+
+Class140- Date 16Feb2024
+
+=============== MongoDB ==============
+
+MongoDB
+
+MERN Stack
+
+MongoDB
+
+- Features
+- Setup Server & Client [MongoDB Compass]
+    mongodb127.0.0.127017
+    mongodblocalhost27017
+
+MongoDB Terminology
+
+            MongoDB            Description            Other DB
+            Database                store                Database
+            Collection            table                Table
+            Document            row                    Record
+            Field                column header        Field
+            Embedded Document    Joins                Joins
+   
+             Oracel, MySql.. = Database = Table = Records
+            MongoDB      = Database = Collection = Documents [BSON]
+
+Database for To-Do Application
+- To design database for application developer have to create various database models.
+- Database models are classified into 4 types
+
+    1. Conceptual Model
+    2. Physical Model
+    3. Logical Model
+    4. Entity Model
+
+- Conceptual model comprises of list of modules that require data.
+- Physical Model specifies information about every module that require data.
+  [table name, field name, data type]
+- Logical Model identfies the relation between modules.
+  [FK, PK] Foreign Key, Primary Key
+- Entity Model describes the complete business requirement with table, field, data type and relationship.
+
+Data Models for To-Do App
+1. Conceptual
+        - Users
+        - Appointment
+
+2. Physical Model
+        Users
+        --------
+    collection name     users
+    fields
+        UserId         string
+        UserName     string
+        Password     string
+        Mobile         string
+        Email         string
+       
+        Appointments
+        ------------------
+     collection name     appointments
+     fields
+        Appointment_Id     number
+        Title                 string
+        Description         string
+        Date                 DateTime
+        UserId             string
+
+3. Logical Model
+
+        users
+        -------
+        UserId [PK]
+        UserName
+        Password
+        Email
+        Mobile
+
+        appointments
+        -------------------
+        Appointment_Id [PK]
+        Title
+        Description
+        Date
+        UserId [FK]
+
+Mongo Shell Commands to Manipulate Data
+
+1. To view the list of existing databases
+   
+         show dbs
+
+2. To create a new database
+
+         use   dbName
+
+     If the database exists the it switches into the existing database.
+     New database is not displayed in list, if it is empty.
+
+3. To view the current active database
+       
+         db
+
+4. To create a new collection [table]
+
+         db.createCollection(name, { options })
+         db.createCollection(users)
+
+5. To view the list of collections [tables]
+   
+         show collections

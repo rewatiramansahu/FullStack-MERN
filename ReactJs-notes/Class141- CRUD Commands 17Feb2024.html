@@ -1,0 +1,112 @@
+
+=================== Class141- CRUD Commands 17Feb2024 =====================
+
+CRUD Commands
+
+Database Models
+Database Commands
+- Create Database
+- Create Collection
+
+            >db.createCollection("name", {options})
+
+            option                    description
+            --------------------------------------------------------------
+            autoIndexId (boolean)        It defines an implicit primary key field for
+                                    every document.    
+
+            size            (number)        It specifies the memory allocated for
+                                    collection. [bytes]
+
+            max            (number)        It defines the maximum number of docs
+                                    allowed.
+       
+            capped        (boolean)        If it is set to true then new document can't
+                                    be stored in collection after the max length.
+
+                                    It set to false the new document replaces
+                                    old document.
+
+Syntax:
+    >db.createCollection("admin", { autoIndexId:true, max:10, size:2097152, capped:false})
+   
+        8bits                = 1 byte
+        1024 bytes        = 1 kb
+        1024 kb            = 1 mb
+        1024 mb            = 1 gb
+        1024 gb            = 1 tb
+
+- To view existing collections
+
+        > show collections
+
+- To remove any collection
+
+        > db.collectionName.drop()
+        > db.admin.drop()
+
+- To Add documents into collection
+
+         a) insertOne()
+        b) insertMany()
+
+    >db.collectionName.insertOne({ Key:Value, Key:value })
+    >db.collectionName.insertMany([ { }, { } ])
+
+Syntax:
+    >db.appointments.insertOne({ Appointment_Id:1, Title: "Birthday", Description: "Something about Birthday", Date: { $date: "2024-03-12" } }, UserId:"john_nit")
+
+       >db.users.insertOne({UserId:"john_nit", UserName:"John", Password:"john@123", Mobile:"+919876543210", Email:"john@gmail.com"})
+
+- Querying Documents from collection
+
+       >db.collectionName.find({query})
+   
+   
+        { }                        : It returns all documents
+       
+        {fieldName:value}            : It refers to exact match or equal to
+
+        $gt                        : greater than
+        $gte                        : greater than or equal
+        $lt                        : less than
+        $lte                        : less than or equal
+        $ne                        : not equal
+        $and                    : AND
+        $or                        : OR
+
+Syntax:
+    >db.products.find({category:"jewelery"})
+    >db.products.find({id:2})
+    >db.products.find({price: {$gt:500})
+    >db.products.find({$and:[{category:"jewelery"}, {price:{$gt:500}}]})
+
+            { $and: [ {exp1}, {exp2} ] }
+
+
+- Update Document
+
+        a) updateOne()
+        b) updateMany()
+
+    >db.collectionName.updateOne({find_query},{update_query})
+   
+   
+        $set                : to change value in any field
+        $unset            : to remove field
+        $rename            : to change field name
+
+    >db.products.updateOne({id:5}, {$set:{price:700}})
+    >db.products.updateMany({ }, {$rename: {"price":"cost"})
+
+- Delete Documents
+
+    a) deleteOne()
+    b) deleteMany()
+
+    >db.products.deleteOne({findQuery})
+    >db.products.deleteOne({id:3})
+    >db.products.deleteMany({$and:[{category:"jewelery"}, {category:"electronics"]})
+
+   
+                               API

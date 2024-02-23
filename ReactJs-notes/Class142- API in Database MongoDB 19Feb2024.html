@@ -1,0 +1,111 @@
+
+
+=============== Class142- API in Database MongoDB 19Feb2024 ==============
+
+API
+Database - MongoDB
+
+                                    API
+                    [ Application Programming Interface ]
+
+Distributed Computing:
+- Distributed computing allows 2 different applications running on 2 different devices to share information.
+- It also allows 2 different objects running in 2 different process of same device to share information.
+- There are various distributed computing technologies for different types of languages and frameworks
+
+            CORBA
+            DCOM
+            RMI
+            EJB
+            Web Service
+            Remoting
+            etc..
+
+Web Service:
+- Web Service is distributed computing technology know to many languages and frameworks.
+- Web Service uses 3 specifications for communication
+
+        a) SOAP
+        b) REST
+        c) JSON
+
+SOAP
+- Service Oriented Architecture Protocol
+- Service consumer makes XML request
+- Service provider sends XML response
+
+    Request:
+    <Appointments>
+        <Appointment>
+        <UserId>Sam_NIT</UserId>
+       </Appointment>
+       </Appointments>
+
+    Response:
+    <Appointments>
+        <Appointment>
+           ... all details...
+        </Appointment>
+        ... all appointments..
+    </Appointments>
+
+REST:
+- Representational State Transfer
+- Service consumer will make a query request
+- Servicer provider will send an XML response or JSON response.
+
+    Request:
+    http://some.domain.com/appointments?user_id=sam_nit
+   
+    Response:
+          <Appointments>                [
+          <Appointment>                  {
+            ....                             "Appointment_Id" : 2,
+              </Appointment>                     "Title" : " ",
+        </Appointments>                         "User_Id": "sam_nit"
+                                       },
+                                    ]
+   
+JSON:
+- JavaScript Object Notation
+- Service consumer will make a JSON request.
+- Service provider will send an JSON response.
+
+Request:
+        {
+         User_Id: "sam_nit"
+        }
+
+Response:        
+        [
+          {
+          }
+        ]
+
+Issues with Web Service:
+- It can run only over "HTTP"
+- It is primarly based on SOAP.
+- It returns only XML.
+- It can be hosted only of Webservers.
+
+Solution
+- API
+- Application Programming Interface
+- It introduces REST full services.
+- It returns XML & JSON.
+- It runs over various protocols.
+- It is cross platform.
+- It can reach any device & OS services. [Primary aim]
+- It can run on low band width devices.
+
+       
+                              Business Logic
+                                      [ API ]
+- Application runs on "Tiers".
+    a) Presentation Tier
+    b) Application Tier
+    c) Database Tier
+- Application is built on "Layers"
+    a) UI Layer
+    b) Business Layer [Express JS, Node JS]
+    c) Data Layer

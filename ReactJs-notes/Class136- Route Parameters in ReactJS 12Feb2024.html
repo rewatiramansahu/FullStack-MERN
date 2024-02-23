@@ -1,0 +1,29 @@
+
+Class136= 12Feb2024
+======================= Route Parameters ======================
+
+Routing
+<BrowserRouter>
+<Routes>
+<Route>
+<Link>
+
+                         Route Parameters
+- Route Parameter is configured for routes, so that they can query and render any content within a component.
+
+- Route parameter is configured in route path.
+
+        <Route  path="name/:param1/:param2"   element={ } />
+
+- Values into parameters are passed from address bar of browser
+
+        http://localhost:3000/name/val1/val2
+
+- React components can collect the route parameters using a hook  "useParams()".
+
+- "useParams()" returns an object with key-value pair.
+
+        {
+          param1: val1,
+          param2: val2
+        }

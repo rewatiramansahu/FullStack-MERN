@@ -1,0 +1,201 @@
+
+===================== Class151- Contracts & Classes 01march2024 ==================
+
+1. Contracts
+
+- Contract defines rules.
+- Interface
+
+Syntax:
+    interface  IName
+    {
+       // rules;
+    }
+
+- Contract comprises of rules for data and logic.
+- It contains rules for properties and methods.
+- Rule for property specifies the property name and data type.
+
+        {
+           PropertyName:DataType;
+        }
+
+- Rule for method specifies the  Method Name, Parameter Name, Parameter Type and Method return type.
+
+        {
+           Method(param:dataType): DataType|void;
+        }
+
+Ex:
+
+interface IProduct
+{
+     Name:string;
+     Price:number;
+     Qty:number;
+     Total():number;
+     Print():void;
+}
+
+let Product: IProduct = {
+     Name: "TV",
+     Price: 35000.44,
+     Qty: 2,
+     Total: function(){
+          return this.Qty * this.Price;
+     },
+     Print: function(){
+          console.log(`Name=${this.Name}\nPrice=${this.Price}\nQty=${this.Qty}\nTotal=${this.Total()}`);
+     }
+}
+Product.Print();
+
+- A contract can have optional rules.
+- Optional rules are defined by using null-reference character "?".
+
+Syntax:
+        {
+            Property?:DataType;
+            Method?():DataType|void;
+        }
+
+- A contract can have readonly rules.
+- A read-only rule will not allow to assign values after initalization.
+- If property is not readonly then you can assign values and modify the initial values.
+
+Syntax:
+        {
+          readonly Property:dataType;
+        }
+
+Ex:
+
+interface IProduct
+{
+     Name:string;
+     readonly Price:number;
+     Qty:number;
+     Total():number;
+     Print():void;
+}
+
+let Product: IProduct = {
+     Name: "TV",
+     Price: 35000.44,
+     Qty: 2,
+     Total: function(){
+          return this.Qty * this.Price;
+     },
+     Print: function(){
+          console.log(`Name=${this.Name}\nPrice=${this.Price}\nQty=${this.Qty}\nTotal=${this.Total()}`);
+     }
+}
+Product.Qty = 3;                  // valid
+Product.Price = 60000.55;               // invalid - Price is readonly
+Product.Print();
+
+- A contract can be extended by another contract.
+- It supports multiple inheritance and multi-level inheritance.
+
+Syntax:
+    interface  A
+    {
+    }
+    interface B extens A
+    {
+    }
+    interface C
+    {
+    }
+    interface D extends B, C
+    {
+    }
+- If same name rules are defined then the latest is implemented.
+
+Ex:
+
+interface IProduct
+{
+     Name:string;
+     readonly Price:number;
+     Qty:number;
+     Total():number;
+     Print():void;
+}
+interface ICategory
+{
+     CategoryName:string;
+     Rating:number;
+}
+interface Product extends ICategory, IProduct
+{
+     Name:string;
+}
+
+let Product: Product = {
+     Name: "TV",
+     Price: 35000.44,
+     Qty: 2,
+     CategoryName: "Electronics",
+     Rating: 3.5,
+     Total: function(){
+          return this.Qty * this.Price;
+     },
+     Print: function(){
+          console.log(`Name=${this.Name}\nPrice=${this.Price}\nQty=${this.Qty}\nTotal=${this.Total()}\nCategory=${this.CategoryName}\nRating=${this.Rating}`);
+     }
+}
+Product.Print();
+
+2. Classes
+- Class Declaration        ]
+- Class Expression        ]    same as in Javascript
+- Class Members        ]
+- Instance of class        ]
+
+Static & Non Static members: [Memory]
+
+Static:
+- The term static refers to contineous memory.
+- It is the memory allocated for first object and the same is used for other objects.
+- The memory allocated for first object will continue to next.
+- It uses more memory and not safe.
+- Static members are defined by using "static" keyword.
+- They are accessible within or outside class by using class name.
+
+Non-Static
+- It refers to discreet memory
+- Memory is newly allocated for every object.
+- Memory is destroyed with object completes the actions.
+- It is safe and used less memory.
+- However it is not good for contineous operations.
+- It is accessible outside class using instance of class and inside class by using "this" keyword.
+
+
+Ex:
+
+class Demo
+{
+     static s = 0;
+     n = 0;
+     constructor(){
+          Demo.s = Demo.s + 1;
+          this.n = this.n + 1;
+     }
+     Print(){
+          console.log(`s=${Demo.s} n=${this.n}`);
+     }
+}
+let obj1 = new Demo();
+obj1.Print();
+
+let obj2=  new Demo();
+obj2.Print();
+
+let obj3 = new Demo();
+obj3.Print();
+
+- Generics
+- Enums
+- Modules
+- Namespaces

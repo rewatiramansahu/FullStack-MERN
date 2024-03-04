@@ -1,0 +1,215 @@
+
+===================== Class150- Data Type, Operators, Statements, Functions 29Feb2024 ==================
+
+
+Primitive Type
+Non Primitive
+- Array
+  let  values:any[] = new Array();
+  values[0] = 10;
+  values[1] = "A";
+- Object
+
+Object Type:
+- Object comprises of key and values.
+- Keys are defined with data type in typescript.
+- Every key is a required key, you can make it optional by using "?" [null reference character].
+
+Syntax:
+    let product: {Name:string, Price?:number}  = {
+       
+        Name :  "TV",
+        Price : 34000.44
+   
+    }
+
+- Object manipulation techniques are same as in Javascript.
+   
+        a) reading keys & values
+        b) finding a key
+        c) know the data type of key & value
+        d) delete a key etc..
+
+- Array of Objects:
+
+        let  products: { }[]   = [ {  }, { } ]
+
+Ex:
+
+  let products:{Id:number, Name:string, Rating?:number}[] = [
+     {Id: 1, Name: "TV"},
+     {Id: 2, Name: "Mobile", Rating:3.5}
+  ]
+
+Date Type:
+
+        let  Manufactured:Date = new Date("Year-Month-Day Hrs:Min:Sec:MilliSec");
+
+- All date functions are same as in Javascript.
+    a) get()
+    b) set()
+
+Ex:
+
+let Mfd:Date = new Date("2024-03-12 20:11:56");
+
+console.log(Mfd.toDateString());
+
+Regular Expression:
+- It is built with meta characters and quantifiers.
+- Typescript provides the data type "RegExp" for handling regular expressions.
+- It is enclosed in "/ your expression /".
+
+Syntax:
+    let  regexp:RegExp = / \+91\d{10} /;
+
+Ex:
+let mobile:string = "+919876543210";
+let regEx:RegExp = /\+91\d{10}/;
+
+if(mobile.match(regEx))
+{
+     console.log("Verified");
+} else {
+     console.log("Invalid Mobile");
+}
+
+Map Type:
+- It is a Generic type.
+- It comprises of keys and values.
+- Typescript can restrict the key and value type.
+- In JavaScript they are any type.
+
+Syntax:
+    let   data:Map<number, any> = new Map();
+    let   data:Map<any, any> = new Map();
+    let   data:Map<any, string> = new Map();
+
+- All manipulation methods are same as in Javascript.
+
+Ex:
+
+let data:Map<number, any> = new Map();
+
+data.set(1, "");
+data.set(2, []);
+data.set(3, {});
+
+data.get(3);
+data.has(3);
+data.delete(3);
+data.keys();
+data.values();
+data.entries();
+data.size;
+
+Typescript Statements & Operators
+- Same as in Javascript
+- Statements
+    a) Selection
+    b) Looping
+    c) Jump
+    d) Iteration
+    e) Exception Handling
+- Operators
+    a) Arithematic
+    b) Logical
+    c) Comparision
+    d) Assignment    
+    e) Bitwise
+    f) Special [ in, delete, typeof, instanceof, new, yield, void..]
+
+
+                         Typescript Functions
+-  Function declaration & expression is same as in JavaScript but requires return type to configure.
+
+Syntax:
+       function  Name():returnType | void
+       {
+       }
+
+- The parameters are same but requires data type to configure.
+- You can have optional parameters.
+
+Syntax:
+      function Name(param?:dataType) : returnType|void
+      {
+      }
+- Make sure that all optional parameter are configured as last parameter(s) in formal list.
+- A required parameter cannot follow an optional parameter.
+
+Ex:
+
+function Details(Id:number, Name:string, Rating?:number):void
+{
+     if(Rating){
+          console.log(`Id=${Id}\nName=${Name}\nRating=${Rating}`);
+     } else {
+          console.log(`Id=${Id}\nName=${Name}`);
+     }
+}
+
+Details(1, "TV", 4.2);
+
+-The rest and spread operators are used with in function same as in JS, but requires a data type to configure.
+
+Syntax:
+        function  Name(...params:any[])
+        {
+        }
+
+Ex:
+
+function Details(...product:any[]):void
+{
+     let [Id, Name, Rating] = product;
+     if(Rating){
+          console.log(`Id=${Id}\nName=${Name}\nRating=${Rating}`);
+     } else {
+          console.log(`Id=${Id}\nName=${Name}`);
+     }
+}
+
+Details(1, "TV", 4.2);
+
+Ex:
+function Total(a:number, b:number) : number {
+     return a + b;
+}
+
+- Function Colsure
+- Function Generator
+- Function Callbacks
+- Function Promise
+- Async Functions
+- Function Recursion
+- Anonymous Functions
+
+                             Typescript OOP
+
+1. Contracts
+- A contract comprises of rules for designing a component.
+- In OOP languages contracts are defined using "interface".
+- It comprises of only rules not their implementation.
+
+Syntax:
+    interface  Name
+    {
+       // rules;
+    }
+
+Ex:
+
+interface IProduct
+{
+     Name:string;
+     Price:number;
+     Stock:boolean;
+}
+
+let Product: IProduct = {
+     Name: "TV",
+     Price: 35000.44,
+     Stock: true,
+     Rating: 4.2                // invalid
+}

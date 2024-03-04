@@ -6374,3 +6374,1164 @@ app.get("/appointments/:userid", (req, res)=>{
 
 app.listen(7000);
 console.log(`Server Started : http://127.0.0.1:7000`);
+
+
+Server Side API for To-Do App
+
+GET			/users
+POST		/register-user
+GET			/appointments/user_id
+POST		/add-task
+PUT			/edit-task/1
+DELETE		/delete-task/1
+
+						       api.js
+
+var express = require("express");
+var cors = require("cors");
+var mongoClient = require("mongodb").MongoClient;
+
+var app = express();
+app.use(cors());
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+
+var conString = "mongodb://127.0.0.1:27017";
+
+app.get("/users", (req, res)=>{
+    mongoClient.connect(conString).then(clientObject=>{
+        var database  = clientObject.db("sampledb");
+        database.collection("users").find({}).toArray().then(documents=>{
+            res.send(documents);
+            res.end();
+        });
+    });
+});
+
+app.post("/register-user", (req, res)=>{
+      var user = {
+          UserId: req.body.UserId,
+          UserName: req.body.UserName,
+          Password: req.body.Password,
+          Mobile: req.body.Mobile,
+          Email:req.body.Email
+      };
+
+      mongoClient.connect(conString).then(clientObject=>{
+           var database = clientObject.db("sampledb");
+           database.collection("users").insertOne(user).then(()=>{
+                console.log("User Added..");
+                res.end();
+           });
+      });
+
+
+});
+
+app.get("/appointments/:userid", (req, res)=>{
+
+    mongoClient.connect(conString).then(clientObject=>{
+            var database  = clientObject.db("sampledb");
+            database.collection("appointments").find({UserId:req.params.userid}).toArray().then(documents=>{
+                res.send(documents);
+                res.end();
+            });
+    });
+});
+
+app.post("/add-task", (req, res)=>{
+     var task = {
+          Appointment_Id: parseInt(req.body.Appointment_Id),
+          Title: req.body.Title,
+          Description: req.body.Description,
+          Date: new Date(req.body.Date),
+          UserId: req.body.UserId
+     }
+     mongoClient.connect(conString).then(clientObject=>{
+          var database = clientObject.db("sampledb");
+          database.collection("appointments").insertOne(task).then(()=>{
+               console.log("Task Added");
+               res.end();
+          })
+     })
+});
+
+app.put("/edit-task/:id", (req, res)=>{
+     var id = parseInt(req.params.id);
+     mongoClient.connect(conString).then(clientObject=>{
+            var database = clientObject.db("sampledb");
+            database.collection("appointments").updateOne({Appointment_Id:id},{$set: {Appointment_Id:id, Title:req.body.Title, Description: req.body.Description, Date: new Date(req.body.Date), UserId: req.body.UserId}}).then(()=>{
+                console.log("Task-Updated");
+                res.end();
+            });
+     });
+});
+
+app.delete("/delete-task/:id", (req, res)=>{
+
+    var id = parseInt(req.params.id);
+
+    mongoClient.connect(conString).then(clientObject=>{
+        var database = clientObject.db("sampledb");
+        database.collection("appointments").deleteOne({Appointment_Id:id}).then(()=>{
+              console.log("Task-Deleted");
+              res.end();
+        });
+     });
+});
+
+
+app.listen(7000);
+console.log(`Server Started : http://127.0.0.1:7000`);
+
+					  Front End React Application
+					  --------------------------------------
+
+1. Create a new React Application
+
+	>npx  create-react-app   to-do
+
+2. Install following libraries into project
+
+	>npm i  bootstrap  bootstrap-icons   --save
+	>npm i  axios  formik    yup    react-router-dom  --save
+	>npm i  react-cookie --save
+	>npm i  cors  mongodb  express --save
+
+===================== Class148- TypeScript 27Feb2024 ==================
+
+Type Script
+- Typescript is strictly typed mode of Javascript.
+- It is strongly typed language.
+- It is an OOP language.
+- "Anders Hejlberg" is the architect of Typescript.
+   [Well known for C# language]
+- Typescript belongs to Microsoft.
+- Typescript is built with Typescript.
+- It support low level features.
+- It is used to build large scale applications with Microsoft technologies.
+- Typescript is transcompiled into Javascript in browser.
+
+TypeScript  Architecture:
+
+1. Core Compiler    : It is responsible for translating typescript program into OS native
+                  code. It tracks the errors and reports to develover.
+                  - core.ts            It is the base for compiling
+                  - program.ts        It configure the execution flow
+                  - parser.ts        It converts one type into another
+                  - scanner.ts        It manages input actions
+                  - emitter.ts        It manages output actions    
+                  - checker.ts        It handles data structure
+
+2. Standalone TS Compiler:  It is responsible for translating TS program into Javascript.
+                  - tsc.ts
+                  - It is used only for web applications.
+                  - It transcompiles TS into JS.
+
+
+3. Language Service    : It is a pre-defined business logic provided by Typescript.
+                      It is the repository of Typescript language, which is used
+                      by the core compiler.
+                      - service.ts
+
+4. TS Server            : Typescript programs are hosted and processed on server.
+                      It have an internal server managed by "server.ts"
+
+
+5. VS Shim            : Visual Studio Shim is a library from Microsoft used to make
+                      the Typescript language "Platform Neutral".
+                      - shims.ts
+
+6. Managed Language Service:  It is the language service used to make Typescript
+                             understandable to every OS.
+   
+                             The un-managed code is OS specific &  Managed code
+                              is cross platform.
+
+
+Setup Typescript on your PC:
+
+1. Open windows command prompt
+
+2. Run the command
+
+    C:\>npm  install  -g   typescript
+
+3. Check the version
+
+     C:\> tsc  -v
+         5.3.3
+
+4. Typescript programs have extention ".ts" and they are trans compiled into JS.
+
+                    index.ts
+          console.log("welcome to typescript");
+     
+    > tsc   index.ts                // generates  index.js
+    > node index.js
+
+
+                    Typescript  Language Basics
+
+===================== Class149- Typescript Language Basics 28Feb2024 ==================
+
+- What is Typescript
+- TypeScript Architecture
+- Setup Typescript
+
+Note: JavaScript rules are configured by using "ESLint", which is a language
+      analysis tool.
+
+            > npm  init  @eslint/config                [run in JS project]
+
+Create a TypeScript Project:
+1. Add a new physical path for project
+
+        d:\typescript
+
+2. Open in visual studio code
+
+3. Run the following command in terminal
+
+        > tsc  -init
+
+4. It generates Typescript configuration file  "tsconfig.json"
+
+5. Add a new file    "index.ts"
+   
+        console.log("Welcome to Typescript");
+
+6. Compile from terminal
+
+        > tsc  index.ts
+
+7. Run from terminal
+       
+        > node index.js
+
+                   
+                             Variables & DataTypes
+                         --------------------------------
+- Typescript is strongly typed language.
+- You have to define data type for variables.
+- Variable declaration, assignment and initialization all are same as Javascript.
+   [var, let, const]
+
+Syntax:
+        var  variableName:dataType = value;
+
+- Data Types all are same as Javascript
+
+    a) Primitive Types
+    b) Non Primitive Types
+
+Configuring Primitive Types:
+--------------------------------------
+
+        let  userName:string;
+        let  age:number;
+        let  subscribed:boolean;
+        let  mobile:null;
+        let  email:undefined;
+
+- If type is not defined for variable, then the default is "any" type.
+- "any" is the root for all data types.
+- However Typescript supports "Type Inference". The data type is determined and configured for a variable according to the value initialized.
+
+        let  age = 22;            => age:number
+        age  = "A";            => invalid
+
+
+        let age;                => age:any
+        age = 22;                => number
+        age = "A";            => string
+
+- Typescript supports "Union" of types.
+
+        let  value:number | string | boolean;
+
+- Type Inference is used only when the data type not defined.
+- The union allows values to initialize or assign.
+
+
+Configuring Non-Primitive Types:
+--------------------------------------------
+        - Array
+        - Object
+        - Map
+        - Set [obsolete]
+        - Date
+        - RegExpression
+
+Typescript Array:
+- Array is used to reduce overhead and complexity.
+- Typescript array can be configured for various type or same type.
+
+Syntax:
+        let  categories:string[] = [ ];
+        let  categories:string[] = new Array();
+        let  sales:number[] = [ ];
+        let  values:any[] = [ ];           // can handle various types - "tuple"
+
+- If you initialize values using "Array()" it will not allow a tuple.
+- Tuple allows only initialization, with meta character [ ].
+
+Note: You can't initialize different types of values into Array() constructor even if the data type is configured as "any". However your assign different values.
+
+      Array() constructor set the data type according the first value value type you
+      initialized into constructor.
+
+Synax:
+        let  values:any[] = new Array(10, ...numbers[]);
+        let  values:any[] = new Array("A", ...string[]);
+
+Syntax:
+        let values:any[] = [10, "A"];        // valid
+
+        let values:any[] = new Array();
+        values[0] = "A";                // valid
+        values[1] = 10;
+
+- Typescript supports union of types for Array.
+
+Syntax:
+        let values:number[] | string[]  =  [10, "A"];        // invalid
+       
+        let values:number[] | string[] = [ ];
+        values[0]=10;                                // valid
+        values[1]="A";
+
+        let values:number[] | string[] = [10, 20];
+        values[0] = 10;
+        values[1] = "A";                            //invalid
+
+- All array manipulations are same as Javascript.
+       
+        a) Reading Elements
+        b) Adding Elements
+        c) Removing Elements
+        d) Copying and Sorting Elements
+        etc..
+
+Typescript Object:
+- It is a set of key and values collection.
+- Keys are string type and value can be any type.
+- Object type can be restricted by configuring keys and values.
+
+Syntax:
+    let obj : {key:dataType}   = {    }
+
+Ex:
+  let product:{Id:number, Name:string, Stock:boolean} = {
+       Id: 1,
+       Name: "TV",
+       Stock:true
+  }
+
+===================== Class150- Data Type, Operators, Statements, Functions 29Feb2024 ==================
+
+
+Primitive Type
+Non Primitive
+- Array
+  let  values:any[] = new Array();
+  values[0] = 10;
+  values[1] = "A";
+- Object
+
+Object Type:
+- Object comprises of key and values.
+- Keys are defined with data type in typescript.
+- Every key is a required key, you can make it optional by using "?" [null reference character].
+
+Syntax:
+    let product: {Name:string, Price?:number}  = {
+       
+        Name :  "TV",
+        Price : 34000.44
+   
+    }
+
+- Object manipulation techniques are same as in Javascript.
+   
+        a) reading keys & values
+        b) finding a key
+        c) know the data type of key & value
+        d) delete a key etc..
+
+- Array of Objects:
+
+        let  products: { }[]   = [ {  }, { } ]
+
+Ex:
+
+  let products:{Id:number, Name:string, Rating?:number}[] = [
+     {Id: 1, Name: "TV"},
+     {Id: 2, Name: "Mobile", Rating:3.5}
+  ]
+
+Date Type:
+
+        let  Manufactured:Date = new Date("Year-Month-Day Hrs:Min:Sec:MilliSec");
+
+- All date functions are same as in Javascript.
+    a) get()
+    b) set()
+
+Ex:
+
+let Mfd:Date = new Date("2024-03-12 20:11:56");
+
+console.log(Mfd.toDateString());
+
+Regular Expression:
+- It is built with meta characters and quantifiers.
+- Typescript provides the data type "RegExp" for handling regular expressions.
+- It is enclosed in "/ your expression /".
+
+Syntax:
+    let  regexp:RegExp = / \+91\d{10} /;
+
+Ex:
+let mobile:string = "+919876543210";
+let regEx:RegExp = /\+91\d{10}/;
+
+if(mobile.match(regEx))
+{
+     console.log("Verified");
+} else {
+     console.log("Invalid Mobile");
+}
+
+Map Type:
+- It is a Generic type.
+- It comprises of keys and values.
+- Typescript can restrict the key and value type.
+- In JavaScript they are any type.
+
+Syntax:
+    let   data:Map<number, any> = new Map();
+    let   data:Map<any, any> = new Map();
+    let   data:Map<any, string> = new Map();
+
+- All manipulation methods are same as in Javascript.
+
+Ex:
+
+let data:Map<number, any> = new Map();
+
+data.set(1, "");
+data.set(2, []);
+data.set(3, {});
+
+data.get(3);
+data.has(3);
+data.delete(3);
+data.keys();
+data.values();
+data.entries();
+data.size;
+
+Typescript Statements & Operators
+- Same as in Javascript
+- Statements
+    a) Selection
+    b) Looping
+    c) Jump
+    d) Iteration
+    e) Exception Handling
+- Operators
+    a) Arithematic
+    b) Logical
+    c) Comparision
+    d) Assignment    
+    e) Bitwise
+    f) Special [ in, delete, typeof, instanceof, new, yield, void..]
+
+
+                         Typescript Functions
+-  Function declaration & expression is same as in JavaScript but requires return type to configure.
+
+Syntax:
+       function  Name():returnType | void
+       {
+       }
+
+- The parameters are same but requires data type to configure.
+- You can have optional parameters.
+
+Syntax:
+      function Name(param?:dataType) : returnType|void
+      {
+      }
+- Make sure that all optional parameter are configured as last parameter(s) in formal list.
+- A required parameter cannot follow an optional parameter.
+
+Ex:
+
+function Details(Id:number, Name:string, Rating?:number):void
+{
+     if(Rating){
+          console.log(`Id=${Id}\nName=${Name}\nRating=${Rating}`);
+     } else {
+          console.log(`Id=${Id}\nName=${Name}`);
+     }
+}
+
+Details(1, "TV", 4.2);
+
+-The rest and spread operators are used with in function same as in JS, but requires a data type to configure.
+
+Syntax:
+        function  Name(...params:any[])
+        {
+        }
+
+Ex:
+
+function Details(...product:any[]):void
+{
+     let [Id, Name, Rating] = product;
+     if(Rating){
+          console.log(`Id=${Id}\nName=${Name}\nRating=${Rating}`);
+     } else {
+          console.log(`Id=${Id}\nName=${Name}`);
+     }
+}
+
+Details(1, "TV", 4.2);
+
+Ex:
+function Total(a:number, b:number) : number {
+     return a + b;
+}
+
+- Function Colsure
+- Function Generator
+- Function Callbacks
+- Function Promise
+- Async Functions
+- Function Recursion
+- Anonymous Functions
+
+                             Typescript OOP
+
+1. Contracts
+- A contract comprises of rules for designing a component.
+- In OOP languages contracts are defined using "interface".
+- It comprises of only rules not their implementation.
+
+Syntax:
+    interface  Name
+    {
+       // rules;
+    }
+
+Ex:
+
+interface IProduct
+{
+     Name:string;
+     Price:number;
+     Stock:boolean;
+}
+
+let Product: IProduct = {
+     Name: "TV",
+     Price: 35000.44,
+     Stock: true,
+     Rating: 4.2                // invalid
+}
+
+===================== Class151- Contracts & Classes 01march2024 ==================
+
+1. Contracts
+
+- Contract defines rules.
+- Interface
+
+Syntax:
+    interface  IName
+    {
+       // rules;
+    }
+
+- Contract comprises of rules for data and logic.
+- It contains rules for properties and methods.
+- Rule for property specifies the property name and data type.
+
+        {
+           PropertyName:DataType;
+        }
+
+- Rule for method specifies the  Method Name, Parameter Name, Parameter Type and Method return type.
+
+        {
+           Method(param:dataType): DataType|void;
+        }
+
+Ex:
+
+interface IProduct
+{
+     Name:string;
+     Price:number;
+     Qty:number;
+     Total():number;
+     Print():void;
+}
+
+let Product: IProduct = {
+     Name: "TV",
+     Price: 35000.44,
+     Qty: 2,
+     Total: function(){
+          return this.Qty * this.Price;
+     },
+     Print: function(){
+          console.log(`Name=${this.Name}\nPrice=${this.Price}\nQty=${this.Qty}\nTotal=${this.Total()}`);
+     }
+}
+Product.Print();
+
+- A contract can have optional rules.
+- Optional rules are defined by using null-reference character "?".
+
+Syntax:
+        {
+            Property?:DataType;
+            Method?():DataType|void;
+        }
+
+- A contract can have readonly rules.
+- A read-only rule will not allow to assign values after initalization.
+- If property is not readonly then you can assign values and modify the initial values.
+
+Syntax:
+        {
+          readonly Property:dataType;
+        }
+
+Ex:
+
+interface IProduct
+{
+     Name:string;
+     readonly Price:number;
+     Qty:number;
+     Total():number;
+     Print():void;
+}
+
+let Product: IProduct = {
+     Name: "TV",
+     Price: 35000.44,
+     Qty: 2,
+     Total: function(){
+          return this.Qty * this.Price;
+     },
+     Print: function(){
+          console.log(`Name=${this.Name}\nPrice=${this.Price}\nQty=${this.Qty}\nTotal=${this.Total()}`);
+     }
+}
+Product.Qty = 3;                  // valid
+Product.Price = 60000.55;               // invalid - Price is readonly
+Product.Print();
+
+- A contract can be extended by another contract.
+- It supports multiple inheritance and multi-level inheritance.
+
+Syntax:
+    interface  A
+    {
+    }
+    interface B extens A
+    {
+    }
+    interface C
+    {
+    }
+    interface D extends B, C
+    {
+    }
+- If same name rules are defined then the latest is implemented.
+
+Ex:
+
+interface IProduct
+{
+     Name:string;
+     readonly Price:number;
+     Qty:number;
+     Total():number;
+     Print():void;
+}
+interface ICategory
+{
+     CategoryName:string;
+     Rating:number;
+}
+interface Product extends ICategory, IProduct
+{
+     Name:string;
+}
+
+let Product: Product = {
+     Name: "TV",
+     Price: 35000.44,
+     Qty: 2,
+     CategoryName: "Electronics",
+     Rating: 3.5,
+     Total: function(){
+          return this.Qty * this.Price;
+     },
+     Print: function(){
+          console.log(`Name=${this.Name}\nPrice=${this.Price}\nQty=${this.Qty}\nTotal=${this.Total()}\nCategory=${this.CategoryName}\nRating=${this.Rating}`);
+     }
+}
+Product.Print();
+
+2. Classes
+- Class Declaration        ]
+- Class Expression        ]    same as in Javascript
+- Class Members        ]
+- Instance of class        ]
+
+Static & Non Static members: [Memory]
+
+Static:
+- The term static refers to contineous memory.
+- It is the memory allocated for first object and the same is used for other objects.
+- The memory allocated for first object will continue to next.
+- It uses more memory and not safe.
+- Static members are defined by using "static" keyword.
+- They are accessible within or outside class by using class name.
+
+Non-Static
+- It refers to discreet memory
+- Memory is newly allocated for every object.
+- Memory is destroyed with object completes the actions.
+- It is safe and used less memory.
+- However it is not good for contineous operations.
+- It is accessible outside class using instance of class and inside class by using "this" keyword.
+
+
+Ex:
+
+class Demo
+{
+     static s = 0;
+     n = 0;
+     constructor(){
+          Demo.s = Demo.s + 1;
+          this.n = this.n + 1;
+     }
+     Print(){
+          console.log(`s=${Demo.s} n=${this.n}`);
+     }
+}
+let obj1 = new Demo();
+obj1.Print();
+
+let obj2=  new Demo();
+obj2.Print();
+
+let obj3 = new Demo();
+obj3.Print();
+
+- Generics
+- Enums
+- Modules
+- Namespaces
+
+===================== Class152- Abstraction 02March2024 ==================
+
+Abstraction
+
+TypeScript OOP
+- Interface
+- Classes
+    a) Static
+    b) Non Static
+
+                         Access Modifiers
+- Access modifier is used to configure access restriction for properties and methods in classes.
+        a) public
+        b) private
+        c) protected
+
+Syntax:
+     class Name
+     {
+        public  PropertyName;
+        private MethodName():void {
+        }
+    }
+
+- public
+    * It is accessible within class or outside class.
+    * It is accessible with instance of class or with instance of derived class.
+    * It is public in access.
+    * It is the default access modifier for members in class.
+
+- private
+    * It is accessible within class.
+    * It is not accessible outside class.
+    * You can't access with class obj or a derived class object.
+   
+- protected
+    * It is accessible within class.
+    * It is accessible outside class but only within the derived class and only by using      
+      derived cass object.
+
+Ex:
+class Product
+{
+     public Name = "Samsung TV";
+     private Price = 45000.33;
+     protected Stock = true;
+     public Print():void
+     {
+          console.log(`Name=${this.Name}\nPrice=${this.Price}\nStock=${this.Stock}`);
+     }
+}
+class Derived extends Product
+{
+     public Print():void {
+          let obj = new Derived();
+          obj.Name;            // public
+          obj.Stock;          //protected
+     }
+}
+let obj = new Derived();
+obj.Name;                     // public
+
+
+Access Witin Class                Access Outside Class       Access with Derived Obj
+--------------------------------------------------------------------------------------------------------------------
+public                        public                  public
+private                        protected                      protected
+protected                        [not outside derived]      [inside derived class]
+
+
+- Inheritance is same as in JavaScript
+    a) Aggregation
+    b) Inheritance
+- Typescript class can implement contracts.
+- Contract defines rules for creating a class and configuring its members.
+- A class can implement multiple contracts.
+
+Syntax:
+    interface  IProduct
+    {
+    }
+    class Product implements IProduct
+    {
+    }
+
+Ex:
+interface IProduct
+{
+     Name:string;
+     Price:number;
+     Qty:number;
+     Total():number;
+     Print?():void;
+}
+interface ICategory
+{
+     CategoryName:string;
+}
+export class Product implements IProduct, ICategory
+{
+     Name = "TV";
+     Price = 45000.33;
+     Qty = 2;
+     CategoryName = "Electronics";
+     Total(){
+       return this.Qty * this.Price
+     }
+     Print(){
+          console.log(`Name=${this.Name}\nPrice=${this.Price}\nQty=${this.Qty}\nTotal=${this.Total()}\nCategory=${this.CategoryName}`);
+     }
+}
+let obj = new Product();
+obj.Print();
+
+                          Templates in OOP
+- A template comprises of features already implemented and some are left for customization and implementation.
+- A template hides the structure and provides only implementation, which is known as "Abstraction".
+- It is mostly used in "Rollouts".
+- Rollout is a process of developing template for client requirements, so that it can be customized and implemented by client.
+- Templates in OOP are created as  "Abstract Classes".
+- An abstract class comprisess of members which are implemented with functionality and some not-implemented.
+- The members need to be implemented are marked as "abstract".
+- If a class is having at least one abstract member, then class is also marked as "abstract".
+
+
+Ex:
+interface IProduct
+{
+     Name:string;
+     Price:number;
+     Qty:number;
+     Total():number;
+     Print():void;
+}
+abstract class ProductTemplate implements IProduct
+{
+     public Name:string = "";
+     public Price:number = 0;
+     public Qty:number = 0;
+     abstract Total():number;
+     abstract Print():void;
+}
+class ProductComponent extends ProductTemplate
+{
+     Name = "Samsung TV";
+     Price = 50000.44;
+     Qty = 2;
+     Total() {
+          return this.Qty * this.Price;
+     }
+     Print(){
+          console.log(`Name=${this.Name}\nPrice=${this.Price}\nTotal=${this.Total()}`);
+     }
+}
+let obj = new ProductComponent();
+obj.Print();
+
+===================== Class153- Generics TypeScript OOP 04march2024 ==================
+
+Generics
+
+TypeScript OOP
+- Interfaces
+- Classes
+- Static & Non Static
+- Access Modifiers
+- Abstract Classes
+
+                            Generics
+- Generic refers to "Type Safe".
+- A generic type is open to handle any type of value and can restrict to specific type when knows the data type of initialized value.
+- Generic can be defined to
+    a) Function
+    b) Parameter
+    c) Property
+    d) Class
+
+Syntax:
+        function  Name<Type>(param:Type): Type
+        {
+
+        }
+
+- Generic types will not allow any operators directly, as their type is unknown. You have to handle manipulation using functions.
+
+Ex:
+function sum_concat(a:any, b:any){
+     return a + b;
+}
+
+function Demo<T>(a:T, b:T):T {
+     return sum_concat(a,b);
+}
+
+console.log(Demo<string>("Raj", "Kumar"));
+console.log(Demo<number>(30, 60));
+
+
+Ex: Generic Class & Generic Property
+
+interface IOracle
+{
+     UserId:string;
+     Password:string;
+     Database:string;
+}
+interface IMySql
+{
+     User:string;
+     Host:string;
+     DbName:string;
+     Pwd:string;
+}
+interface IMongoDB
+{
+     Url:string;
+}
+
+class Database<T>
+{
+     ConnectionString:T|null = null;
+     Print():void {
+          for(var property in this.ConnectionString){
+               console.log(`${property} : ${this.ConnectionString[property]}`);
+          }
+     }
+}
+
+let ora = new Database<IOracle>();
+ora.ConnectionString = {
+     UserId: "scott",
+     Password: "tiger",
+     Database: "todoDb"
+}
+ora.Print();
+
+console.log(`-------------------------------------`);
+
+let mysql = new Database<IMySql>();
+mysql.ConnectionString = {
+     User: 'root',
+     Host: 'localhost',
+     Pwd: '1234',
+     DbName: 'EmpDb'
+}
+mysql.Print();
+
+Note: Typescript will not allow "generic" constructor, but supports generic parameters in constructor.
+
+Ex: Generic parameter in constructor
+
+interface IOracle
+{
+     UserId:string;
+     Password:string;
+     Database:string;
+}
+interface IMySql
+{
+     User:string;
+     Host:string;
+     DbName:string;
+     Pwd:string;
+}
+interface IMongoDB
+{
+     Url:string;
+}
+
+class Database<T>
+{
+    constructor(conStr:T){
+     for(var property in conStr){
+          console.log(`${property} : ${conStr[property]}`);
+     }
+    }
+}
+
+let ora = new Database<IOracle>({UserId:"scott", Password:"tiger", Database:'ToDoDb'});
+
+
+console.log(`-------------------------------------`);
+
+let mysql = new Database<IMySql>({User: 'root', Host: 'localhost', Pwd: '1234', DbName: 'EmpDb'});
+
+Ex: Generic Methods
+
+interface IProduct
+{
+     Name:string;
+     Price:number;
+}
+interface IEmployee
+{
+     FirstName:string;
+     Designation:string;
+     Salary:number;
+}
+
+class Service
+{
+     GetData<T>(response:T){  
+          console.log(response);
+     }
+}
+
+let tv = new Service();
+tv.GetData<IProduct>({Name: "Samsung TV", Price:45000.33});
+tv.GetData<IProduct[]>([{Name:"LG TV", Price:12000.33}, {Name:"SONY TV", Price:66000.44}]);
+
+let emp = new Service();
+emp.GetData<IEmployee[]>([]);
+
+
+                            Enum [Enumeration]
+
+- It is a collection of constants.
+- Constants can be string, number or expression.
+- Numeric constants have auto initialization.
+- It starts with "0" for first constant.
+- It increments the previous value by 1 and assigns to next constant.
+- It is a key and value collection defined with "enum" keyword.
+- Key is a string and value can be number, string or expression.
+
+Syntax:
+    enum  Name
+    {
+        key = value,
+    }
+    Name.key
+
+Ex:
+
+enum StatusCodes
+{
+     ServerError,                // 0
+     OK = 200,
+     Success,                    // 201
+     NotFound = 404,
+}
+console.log(StatusCode.Success);
+
+- Auto initialization is supported only when the previous value in a number.
+- It is not supported for string constants.
+
+Syntax:
+
+enum StatusCodes
+{
+     ServerError,
+     OK = 200,
+     Success,
+     NotFound = 404,
+    NotAuthorized = "Unauthorized Access",
+     SecurityError,                                // invalid
+}
+console.log(`Not Found : ${StatusCodes.NotFound}`);
+
+FAQ: Why boolean, null or undefined type not allowed in Enum?
+Ans:  They are dynamic types with values changing according to situation.
+      Const can't allows changing values.
+
+FAQ: What are the operators not supported in Enum?
+Ans:   Decision Making & Logical operators.
+
+
+Ex:
+enum Demo
+{
+    A = 10,
+    B = 20,
+    C = A + B
+}
+console.log(`C = ${Demo.C}`);
+
+
+FAQ: What is Enum reverse mapping?
+Ans : It is the process of accessing a key with reference of value.
+
+Syntax:
+    enum  StatusCode
+    {
+       NotFound  = 404
+    }
+
+    console.log(`${StatusCode.NotFound}  :  ${StatusCode[404]}`);
+
+                    404    : NotFound
+
+
+                    Modules & Namespace

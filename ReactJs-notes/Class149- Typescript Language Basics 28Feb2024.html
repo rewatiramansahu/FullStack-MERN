@@ -1,0 +1,155 @@
+
+===================== Class149- Typescript Language Basics 28Feb2024 ==================
+
+- What is Typescript
+- TypeScript Architecture
+- Setup Typescript
+
+Note: JavaScript rules are configured by using "ESLint", which is a language
+      analysis tool.
+
+            > npm  init  @eslint/config                [run in JS project]
+
+Create a TypeScript Project:
+1. Add a new physical path for project
+
+        d:\typescript
+
+2. Open in visual studio code
+
+3. Run the following command in terminal
+
+        > tsc  -init
+
+4. It generates Typescript configuration file  "tsconfig.json"
+
+5. Add a new file    "index.ts"
+   
+        console.log("Welcome to Typescript");
+
+6. Compile from terminal
+
+        > tsc  index.ts
+
+7. Run from terminal
+       
+        > node index.js
+
+                   
+                             Variables & DataTypes
+                         --------------------------------
+- Typescript is strongly typed language.
+- You have to define data type for variables.
+- Variable declaration, assignment and initialization all are same as Javascript.
+   [var, let, const]
+
+Syntax:
+        var  variableName:dataType = value;
+
+- Data Types all are same as Javascript
+
+    a) Primitive Types
+    b) Non Primitive Types
+
+Configuring Primitive Types:
+--------------------------------------
+
+        let  userName:string;
+        let  age:number;
+        let  subscribed:boolean;
+        let  mobile:null;
+        let  email:undefined;
+
+- If type is not defined for variable, then the default is "any" type.
+- "any" is the root for all data types.
+- However Typescript supports "Type Inference". The data type is determined and configured for a variable according to the value initialized.
+
+        let  age = 22;            => age:number
+        age  = "A";            => invalid
+
+
+        let age;                => age:any
+        age = 22;                => number
+        age = "A";            => string
+
+- Typescript supports "Union" of types.
+
+        let  value:number | string | boolean;
+
+- Type Inference is used only when the data type not defined.
+- The union allows values to initialize or assign.
+
+
+Configuring Non-Primitive Types:
+--------------------------------------------
+        - Array
+        - Object
+        - Map
+        - Set [obsolete]
+        - Date
+        - RegExpression
+
+Typescript Array:
+- Array is used to reduce overhead and complexity.
+- Typescript array can be configured for various type or same type.
+
+Syntax:
+        let  categories:string[] = [ ];
+        let  categories:string[] = new Array();
+        let  sales:number[] = [ ];
+        let  values:any[] = [ ];           // can handle various types - "tuple"
+
+- If you initialize values using "Array()" it will not allow a tuple.
+- Tuple allows only initialization, with meta character [ ].
+
+Note: You can't initialize different types of values into Array() constructor even if the data type is configured as "any". However your assign different values.
+
+      Array() constructor set the data type according the first value value type you
+      initialized into constructor.
+
+Synax:
+        let  values:any[] = new Array(10, ...numbers[]);
+        let  values:any[] = new Array("A", ...string[]);
+
+Syntax:
+        let values:any[] = [10, "A"];        // valid
+
+        let values:any[] = new Array();
+        values[0] = "A";                // valid
+        values[1] = 10;
+
+- Typescript supports union of types for Array.
+
+Syntax:
+        let values:number[] | string[]  =  [10, "A"];        // invalid
+       
+        let values:number[] | string[] = [ ];
+        values[0]=10;                                // valid
+        values[1]="A";
+
+        let values:number[] | string[] = [10, 20];
+        values[0] = 10;
+        values[1] = "A";                            //invalid
+
+- All array manipulations are same as Javascript.
+       
+        a) Reading Elements
+        b) Adding Elements
+        c) Removing Elements
+        d) Copying and Sorting Elements
+        etc..
+
+Typescript Object:
+- It is a set of key and values collection.
+- Keys are string type and value can be any type.
+- Object type can be restricted by configuring keys and values.
+
+Syntax:
+    let obj : {key:dataType}   = {    }
+
+Ex:
+  let product:{Id:number, Name:string, Stock:boolean} = {
+       Id: 1,
+       Name: "TV",
+       Stock:true
+  }

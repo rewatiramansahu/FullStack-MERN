@@ -1,0 +1,235 @@
+
+===================== Class153- Generics TypeScript OOP 04march2024 ==================
+
+Generics
+
+TypeScript OOP
+- Interfaces
+- Classes
+- Static & Non Static
+- Access Modifiers
+- Abstract Classes
+
+                            Generics
+- Generic refers to "Type Safe".
+- A generic type is open to handle any type of value and can restrict to specific type when knows the data type of initialized value.
+- Generic can be defined to
+    a) Function
+    b) Parameter
+    c) Property
+    d) Class
+
+Syntax:
+        function  Name<Type>(param:Type): Type
+        {
+
+        }
+
+- Generic types will not allow any operators directly, as their type is unknown. You have to handle manipulation using functions.
+
+Ex:
+function sum_concat(a:any, b:any){
+     return a + b;
+}
+
+function Demo<T>(a:T, b:T):T {
+     return sum_concat(a,b);
+}
+
+console.log(Demo<string>("Raj", "Kumar"));
+console.log(Demo<number>(30, 60));
+
+
+Ex: Generic Class & Generic Property
+
+interface IOracle
+{
+     UserId:string;
+     Password:string;
+     Database:string;
+}
+interface IMySql
+{
+     User:string;
+     Host:string;
+     DbName:string;
+     Pwd:string;
+}
+interface IMongoDB
+{
+     Url:string;
+}
+
+class Database<T>
+{
+     ConnectionString:T|null = null;
+     Print():void {
+          for(var property in this.ConnectionString){
+               console.log(`${property} : ${this.ConnectionString[property]}`);
+          }
+     }
+}
+
+let ora = new Database<IOracle>();
+ora.ConnectionString = {
+     UserId: "scott",
+     Password: "tiger",
+     Database: "todoDb"
+}
+ora.Print();
+
+console.log(`-------------------------------------`);
+
+let mysql = new Database<IMySql>();
+mysql.ConnectionString = {
+     User: 'root',
+     Host: 'localhost',
+     Pwd: '1234',
+     DbName: 'EmpDb'
+}
+mysql.Print();
+
+Note: Typescript will not allow "generic" constructor, but supports generic parameters in constructor.
+
+Ex: Generic parameter in constructor
+
+interface IOracle
+{
+     UserId:string;
+     Password:string;
+     Database:string;
+}
+interface IMySql
+{
+     User:string;
+     Host:string;
+     DbName:string;
+     Pwd:string;
+}
+interface IMongoDB
+{
+     Url:string;
+}
+
+class Database<T>
+{
+    constructor(conStr:T){
+     for(var property in conStr){
+          console.log(`${property} : ${conStr[property]}`);
+     }
+    }
+}
+
+let ora = new Database<IOracle>({UserId:"scott", Password:"tiger", Database:'ToDoDb'});
+
+
+console.log(`-------------------------------------`);
+
+let mysql = new Database<IMySql>({User: 'root', Host: 'localhost', Pwd: '1234', DbName: 'EmpDb'});
+
+Ex: Generic Methods
+
+interface IProduct
+{
+     Name:string;
+     Price:number;
+}
+interface IEmployee
+{
+     FirstName:string;
+     Designation:string;
+     Salary:number;
+}
+
+class Service
+{
+     GetData<T>(response:T){  
+          console.log(response);
+     }
+}
+
+let tv = new Service();
+tv.GetData<IProduct>({Name: "Samsung TV", Price:45000.33});
+tv.GetData<IProduct[]>([{Name:"LG TV", Price:12000.33}, {Name:"SONY TV", Price:66000.44}]);
+
+let emp = new Service();
+emp.GetData<IEmployee[]>([]);
+
+
+                            Enum [Enumeration]
+
+- It is a collection of constants.
+- Constants can be string, number or expression.
+- Numeric constants have auto initialization.
+- It starts with "0" for first constant.
+- It increments the previous value by 1 and assigns to next constant.
+- It is a key and value collection defined with "enum" keyword.
+- Key is a string and value can be number, string or expression.
+
+Syntax:
+    enum  Name
+    {
+        key = value,
+    }
+    Name.key
+
+Ex:
+
+enum StatusCodes
+{
+     ServerError,                // 0
+     OK = 200,
+     Success,                    // 201
+     NotFound = 404,
+}
+console.log(StatusCode.Success);
+
+- Auto initialization is supported only when the previous value in a number.
+- It is not supported for string constants.
+
+Syntax:
+
+enum StatusCodes
+{
+     ServerError,
+     OK = 200,
+     Success,
+     NotFound = 404,
+    NotAuthorized = "Unauthorized Access",
+     SecurityError,                                // invalid
+}
+console.log(`Not Found : ${StatusCodes.NotFound}`);
+
+FAQ: Why boolean, null or undefined type not allowed in Enum?
+Ans:  They are dynamic types with values changing according to situation.
+      Const can't allows changing values.
+
+FAQ: What are the operators not supported in Enum?
+Ans:   Decision Making & Logical operators.
+
+
+Ex:
+enum Demo
+{
+    A = 10,
+    B = 20,
+    C = A + B
+}
+console.log(`C = ${Demo.C}`);
+
+
+FAQ: What is Enum reverse mapping?
+Ans : It is the process of accessing a key with reference of value.
+
+Syntax:
+    enum  StatusCode
+    {
+       NotFound  = 404
+    }
+
+    console.log(`${StatusCode.NotFound}  :  ${StatusCode[404]}`);
+
+                    404    : NotFound
+
+
+                    Modules & Namespace

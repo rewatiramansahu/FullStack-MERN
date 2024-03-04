@@ -1,0 +1,75 @@
+
+===================== Class148- TypeScript 27Feb2024 ==================
+
+Type Script
+- Typescript is strictly typed mode of Javascript.
+- It is strongly typed language.
+- It is an OOP language.
+- "Anders Hejlberg" is the architect of Typescript.
+   [Well known for C# language]
+- Typescript belongs to Microsoft.
+- Typescript is built with Typescript.
+- It support low level features.
+- It is used to build large scale applications with Microsoft technologies.
+- Typescript is transcompiled into Javascript in browser.
+
+TypeScript  Architecture:
+
+1. Core Compiler    : It is responsible for translating typescript program into OS native
+                  code. It tracks the errors and reports to develover.
+                  - core.ts            It is the base for compiling
+                  - program.ts        It configure the execution flow
+                  - parser.ts        It converts one type into another
+                  - scanner.ts        It manages input actions
+                  - emitter.ts        It manages output actions    
+                  - checker.ts        It handles data structure
+
+2. Standalone TS Compiler:  It is responsible for translating TS program into Javascript.
+                  - tsc.ts
+                  - It is used only for web applications.
+                  - It transcompiles TS into JS.
+
+
+3. Language Service    : It is a pre-defined business logic provided by Typescript.
+                      It is the repository of Typescript language, which is used
+                      by the core compiler.
+                      - service.ts
+
+4. TS Server            : Typescript programs are hosted and processed on server.
+                      It have an internal server managed by "server.ts"
+
+
+5. VS Shim            : Visual Studio Shim is a library from Microsoft used to make
+                      the Typescript language "Platform Neutral".
+                      - shims.ts
+
+6. Managed Language Service:  It is the language service used to make Typescript
+                             understandable to every OS.
+   
+                             The un-managed code is OS specific &  Managed code
+                              is cross platform.
+
+
+Setup Typescript on your PC:
+
+1. Open windows command prompt
+
+2. Run the command
+
+    C:\>npm  install  -g   typescript
+
+3. Check the version
+
+     C:\> tsc  -v
+         5.3.3
+
+4. Typescript programs have extention ".ts" and they are trans compiled into JS.
+
+                    index.ts
+          console.log("welcome to typescript");
+     
+    > tsc   index.ts                // generates  index.js
+    > node index.js
+
+
+                    Typescript  Language Basics

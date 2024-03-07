@@ -1,0 +1,229 @@
+
+===================== Class154-  TypeScript Modules & Namespaces 05march2024 ==================
+
+Typescript Modules
+
+- A module comprises of classes, contracts, templates, functions, variables.
+- You can build reusable library for application.
+- It enables
+    a) Reusability
+    b) Extensibility
+    c) Maintainability
+    d) Testability
+- A Typescript file is considered as module.
+- To handle module various module systems are required
+    a) Common JS
+    b) UMD
+    c) AMD
+    d) ESModule
+- Every member is a module is accessible with in module scope.
+- You have to mark as "export" for access from another module.
+- A member can be "default" export.
+- A module can have only one "default" export.
+
+Syntax:
+      export interface Name { }
+      export class Name { }
+      export default function Name() { }
+     
+- You have to import the members from module.
+
+    import   { class, interface } from   "ModuleName";
+    import   defaultMember from  "ModuleName";
+
+Ex:
+1. Add a new folder  "library"
+
+2. Add following folders into library
+    a) contracts
+    b) templates
+    c) components
+
+3. contracts/ProductContract.ts
+
+export interface IProduct
+{
+    Name:string;
+    Price:number;
+    Qty:number;
+    Total():number;
+    Print():void;
+}
+
+   contracts/CategoryContract.ts
+
+
+export default interface ICategory
+{
+    CategoryName:string;
+}
+
+4. templates/ProductTemplate.ts
+
+import { IProduct } from "../contracts/ProductContract";
+import ICategory from "../contracts/CategoryContract";
+
+export abstract class ProductTemplate implements IProduct, ICategory
+{
+    public Name: string = "";
+    public Price: number = 0;
+    public Qty: number = 0;
+    public CategoryName: string = "";
+    abstract Total(): number;
+    abstract Print(): void;
+
+}
+
+5. components/ProductComponent.ts
+
+import { ProductTemplate } from "../templates/ProductTemplate";
+
+export class ProductComponent extends ProductTemplate
+{
+    Name = "Samsung TV";
+    Price = 50000.44;
+    Qty = 3;
+    CategoryName = "Electronics";
+    Total(){
+        return this.Qty * this.Price;
+    }
+    Print(): void {
+        console.log(`Name=${this.Name}\nPrice=${this.Price}\nQty=${this.Qty}\nTotal=${this.Total()}\nCategory=${this.CategoryName}`);
+    }
+}
+
+6.  index.ts
+
+import { ProductComponent } from "./library/components/ProductComponent";
+
+let tv = new ProductComponent();
+tv.Print();
+
+    > tsc index.ts
+    > node index.js
+ 
+                            Namespace
+
+- A namespace is a collection of sub-namespaces and members like interface, classes, templates, functions & variables.
+
+- It provides a modular approach for building library at large scale.
+
+- A namespace is configured by using the keyword  "namespace".
+
+Syntax:
+    namespace   Parent
+    {
+          namespace  Child
+          {
+             // interface
+            // abstract classes
+            // class
+            // functions & variables
+          }
+    }
+
+- You can access the members from namespace by using  "///" directive with a component  "<reference />".
+
+Syntax:
+        ///  <reference  path="../Component.ts" />
+
+        import aliasName = ParentNameSpace.ChildNameSpace.Class|Contract;
+
+
+- You have to compile the library file for app by using the command
+
+
+        > tsc  -outFile  index.js   index.ts
+        > node index.js
+
+Ex:
+1. contract/ProductContract.ts
+
+namespace Project
+{
+      export namespace Contracts
+      {
+            export interface IProduct
+            {
+                Name:string;
+                Price:number;
+                Qty:number;
+                Total():number;
+                Print():void;
+            }
+      }
+}
+
+
+2. templates/ProductTemplate.ts
+
+
+/// <reference path="../contracts/ProductContract.ts" />
+
+import  IProduct = Project.Contracts.IProduct;
+
+namespace Project
+{
+     export namespace Templates
+     {
+         export abstract class ProductTemplate implements Project.Contracts.IProduct
+         {
+            public Name: string = "";
+            public Price: number = 0;
+            public Qty: number = 0;
+            public CategoryName: string = "";
+            abstract Total(): number;
+            abstract Print(): void;
+         }
+     }
+}
+
+3. components/ProductComponent.ts
+
+
+/// <reference path="../templates/ProductTemplate.ts" />
+
+import ProductTemplate = Project.Templates.ProductTemplate;
+
+namespace Project
+{
+     export namespace Components
+     {
+        export class ProductComponent extends ProductTemplate
+        {
+            Name = "Samsung TV";
+            Price = 50000.44;
+            Qty = 3;
+            CategoryName = "Electronics";
+            Total(){
+                return this.Qty * this.Price;
+            }
+            Print(): void {
+                console.log(`Name=${this.Name}\nPrice=${this.Price}\nQty=${this.Qty}\nTotal=${this.Total()}\nCategory=${this.CategoryName}`);
+            }
+        }
+     }
+}
+
+4. index.ts
+
+/// <reference path="./library/components/ProductComponent.ts" />
+
+import ProductComponent = Project.Components.ProductComponent;
+
+let tv = new ProductComponent();
+tv.Print();
+
+
+    > tsc  -outFile   index.js   index.ts
+    > node index.js
+
+
+                     React Application with TypeScript
+
+D:\>npx create-react-app   your-app-name  template typescript
+
+>npm start
+
+    a)  .tsx            for components
+    b)  .ts            for contracts, templates, abstract classes etc.

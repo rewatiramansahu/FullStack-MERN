@@ -1,0 +1,99 @@
+
+===================== Class156- Video Library Apps in React TypeScript 07march2024 ==================
+
+Video Library Application
+                             [React TypeScript]
+1. Admin Module
+    - Admin have registered account
+    - Admin can login with existing account
+    - Can Upload Videos [embedded videos]
+    - Can Modify video details like URL, Title, Description etc.
+    - Can Remove video
+    - CRUD operations on video
+   
+2. Videos Module
+    - Videos are organized by category
+    - You can browse & filter videos
+    - You can watch videos
+    - You like or dislike video
+    - You can comment on video
+
+3. User Module
+    - Videos are available only for registered users
+    - User can register
+    - User can login
+    - View, browse, like or dislike & comment on videos.
+
+Technologies
+- MongoDB         	for database
+- Express JS        for middleware
+- Node JS        	for business logic
+- React JS        	for UI
+- Redux Store       for state management
+- JEST             	for testing
+- Firebase/GIT      for deploying
+
+Entity Model :
+
+tblcategories
+    CategoryId		:number [PK]
+    CategoryName    :string
+
+tblvideos
+    VideoId            	:number [PK]
+    Title              	:string
+    Url                	:string
+    Description        	:string
+    Likes            	:number
+    Dislikes            :number
+    Views            	:number
+    Comments        	:string[ ]
+    CategoryId        	:number [FK] [tblcategories - CategoryId]
+
+tblusers
+    UserId         	:string [PK]
+    UserName        :string
+    Password        :string
+    Email           :string
+    Mobile          :string
+
+tbladmin
+    AdminId         :string [PK]
+    Name            :string
+    Password        :string
+    Email           :string
+    Mobile          :string
+
+
+API Requests:
+
+Request Type        Route Path                Description
+--------------------------------------------------------------------------------------------------------------
+GET                	/get-admin                  It can read and return admin users
+
+GET                	/get-user                   returns all users
+
+POST            	/add-user                	register new user
+
+GET                	/get-categories           	return all categories
+
+POST            	/add-category             	add a new category
+
+GET                	/get-videos                	get all videos
+
+GET                	/get-video/id              	get specific video by Id
+
+GET                	/videos/category           	get all videos related to specific category
+
+POST            	/add-video                	add a new video
+
+PUT                	/update-video/id            modify video details
+
+DELETE            	/delete-video/id            delete specific video
+
+
+Business Logic:  Node & Express
+
+React App with TypeScript:
+- contracts
+- components

@@ -1,0 +1,201 @@
+
+===================== Class155- TypeScript React APP 06march2024 ==================
+
+Create a React Application with Typescript:
+
+> npx create-react-app   app_name  --template typescript
+
+        .ts            contracts, template, hooks
+        .tsx            components
+        .spec.ts        testing file
+        .test.ts        testing file
+        tsconfig.json    configuration for typescript in your react app.
+                    [repository location, module system, version of JS, rules..]
+
+- Typescript react app comprises of "tsconfig.json" for configuration of typescript.
+- It is configured with implicit "Type Inference" where the data type is determined according to the value returned or initialized.
+
+TS Components:
+- Components configuration is same as in JS.
+- Your component function must return "JSX.Element"
+
+Syntax:
+    export function ComponentName() : JSX.Element
+    {
+         return(
+        <div>
+            // JSX
+        </div>
+         )
+    }
+
+- Component file extention must be ".tsx".
+- Component is rendered into virtual DOM by using createRoot() that uses JSX element as HtmlElement.
+
+Syntax:
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+root.render( <App />)
+
+State in TS component:
+-------------------------------
+- All react hooks are same in typescript app.
+- State is configured with "useState()" hook.
+- It is a generic type function.
+
+Syntax:
+    const [price, setPrice] = useState<number>();        price = number | undefined
+
+- The default type for state is "undefined".
+- State hook can use custom types by configuring contracts. [interface]
+
+Syntax:
+        interface   IProduct
+        {
+            Name:string;
+            Price:number;
+        }
+
+        const [products, setProducts] = useState<IProduct[]>();
+
+        { products?.map() }            =>  ? is required if state is not initialized.
+                                       If not initialized it expect possibly undefined.
+                                    [ ? is a null reference character ]
+
+- Data Binding, Style Binding & Class Binding all are same as in JS.
+
+Note: If there is no contract defined for state, then you can configure the data type as generic directly in the declaration.
+
+Syntax:
+  const [products, setProducts] = useState<{id:number, title:string, price:number}[]>();
+
+Ex:
+1. Add a new folder "contracts"  into "src".
+
+2. Add a contract file
+        ProductContract.ts
+
+export interface IProduct
+{
+    id:number;
+    title:string;
+    price:number;
+    description:string;
+    category:string;
+    image:string;
+    rating:{rate:number, count:number}
+}
+
+3. Add a new component  "home.tsx"
+
+import { useEffect, useState } from "react";
+import { IProduct } from "../../contracts/ProductContract";
+import axios from "axios";
+
+
+export function Home()
+{
+    const [categories, setCategories] = useState<string[]>();
+    const [products, setProducts] = useState<IProduct[]>();
+
+    function LoadCategories(){
+        axios.get('http://fakestoreapi.com/products/categories&#39;)
+        .then(response => {
+             setCategories(response.data);
+        })
+    }
+    function LoadProducts(){
+        axios.get('http://fakestoreapi.com/products&#39;)
+        .then(response=>{
+            setProducts(response.data);
+        })
+    }
+
+    useEffect(()=>{
+        LoadCategories();
+        LoadProducts();
+    },[]);
+
+
+    return(
+        <div>
+            <h2>Home</h2>
+            <ol>
+                {
+                    categories?.map(category => <li key={category}>{category}</li>)
+                }
+            </ol>
+            <main>
+                {
+                    products?.map(product=> <img key={product.id} src={product.image} width="100" height="100" />)
+                }
+            </main>
+        </div>
+    )
+}
+
+>npm  i axios  formik  yup react-router-dom  react-cookie --save
+>npm  i bootstrap  bootstrap-icons --save
+>npm  i  @mui/core  @emotion/styled ..  --save
+
+- Event handling is also same.
+- Event args require data type to be defined as "any".
+- However it can also use the type "Event", which is a contract for Event.
+
+Ex:
+import { useEffect, useState } from "react";
+import { IProduct } from "../../contracts/ProductContract";
+import axios from "axios";
+
+
+export function Home()
+{
+    const [categories, setCategories] = useState<string[]>();
+    const [products, setProducts] = useState<IProduct[]>();
+
+    function LoadCategories(){
+        axios.get('http://fakestoreapi.com/products/categories&#39;)
+        .then(response => {
+             response.data.unshift('all');
+             setCategories(response.data);
+        })
+    }
+    function LoadProducts(url:string){
+        axios.get(url)
+        .then(response=>{
+            setProducts(response.data);
+        })
+    }
+
+    useEffect(()=>{
+        LoadCategories();
+        LoadProducts('http://fakestoreapi.com/products&#39;);
+    },[]);
+
+    function handleCategoryChange(e:any){
+        if(e.target.value=="all"){
+            LoadProducts('http://fakestoreapi.com/products&#39;);
+        } else {
+            LoadProducts(`http://fakestoreapi.com/products/category/${e.target.value}`);
+        }
+    }
+
+
+    return(
+        <div>
+            <h2>Home</h2>
+            <select onChange={handleCategoryChange}>
+                {
+                    categories?.map(category => <option key={category}>{category}</option>)
+                }
+            </select>
+            <main>
+                {
+                    products?.map(product=> <img key={product.id} src={product.image} width="100" height="100" />)
+                }
+            </main>
+        </div>
+    )
+}

@@ -7535,3 +7535,532 @@ Syntax:
 
 
                     Modules & Namespace
+
+===================== Class154-  TypeScript Modules & Namespaces 05march2024 ==================
+
+Typescript Modules
+
+- A module comprises of classes, contracts, templates, functions, variables.
+- You can build reusable library for application.
+- It enables
+    a) Reusability
+    b) Extensibility
+    c) Maintainability
+    d) Testability
+- A Typescript file is considered as module.
+- To handle module various module systems are required
+    a) Common JS
+    b) UMD
+    c) AMD
+    d) ESModule
+- Every member is a module is accessible with in module scope.
+- You have to mark as "export" for access from another module.
+- A member can be "default" export.
+- A module can have only one "default" export.
+
+Syntax:
+      export interface Name { }
+      export class Name { }
+      export default function Name() { }
+     
+- You have to import the members from module.
+
+    import   { class, interface } from   "ModuleName";
+    import   defaultMember from  "ModuleName";
+
+Ex:
+1. Add a new folder  "library"
+
+2. Add following folders into library
+    a) contracts
+    b) templates
+    c) components
+
+3. contracts/ProductContract.ts
+
+export interface IProduct
+{
+    Name:string;
+    Price:number;
+    Qty:number;
+    Total():number;
+    Print():void;
+}
+
+   contracts/CategoryContract.ts
+
+
+export default interface ICategory
+{
+    CategoryName:string;
+}
+
+4. templates/ProductTemplate.ts
+
+import { IProduct } from "../contracts/ProductContract";
+import ICategory from "../contracts/CategoryContract";
+
+export abstract class ProductTemplate implements IProduct, ICategory
+{
+    public Name: string = "";
+    public Price: number = 0;
+    public Qty: number = 0;
+    public CategoryName: string = "";
+    abstract Total(): number;
+    abstract Print(): void;
+
+}
+
+5. components/ProductComponent.ts
+
+import { ProductTemplate } from "../templates/ProductTemplate";
+
+export class ProductComponent extends ProductTemplate
+{
+    Name = "Samsung TV";
+    Price = 50000.44;
+    Qty = 3;
+    CategoryName = "Electronics";
+    Total(){
+        return this.Qty * this.Price;
+    }
+    Print(): void {
+        console.log(`Name=${this.Name}\nPrice=${this.Price}\nQty=${this.Qty}\nTotal=${this.Total()}\nCategory=${this.CategoryName}`);
+    }
+}
+
+6.  index.ts
+
+import { ProductComponent } from "./library/components/ProductComponent";
+
+let tv = new ProductComponent();
+tv.Print();
+
+    > tsc index.ts
+    > node index.js
+ 
+                            Namespace
+
+- A namespace is a collection of sub-namespaces and members like interface, classes, templates, functions & variables.
+
+- It provides a modular approach for building library at large scale.
+
+- A namespace is configured by using the keyword  "namespace".
+
+Syntax:
+    namespace   Parent
+    {
+          namespace  Child
+          {
+             // interface
+            // abstract classes
+            // class
+            // functions & variables
+          }
+    }
+
+- You can access the members from namespace by using  "///" directive with a component  "<reference />".
+
+Syntax:
+        ///  <reference  path="../Component.ts" />
+
+        import aliasName = ParentNameSpace.ChildNameSpace.Class|Contract;
+
+
+- You have to compile the library file for app by using the command
+
+
+        > tsc  -outFile  index.js   index.ts
+        > node index.js
+
+Ex:
+1. contract/ProductContract.ts
+
+namespace Project
+{
+      export namespace Contracts
+      {
+            export interface IProduct
+            {
+                Name:string;
+                Price:number;
+                Qty:number;
+                Total():number;
+                Print():void;
+            }
+      }
+}
+
+
+2. templates/ProductTemplate.ts
+
+
+/// <reference path="../contracts/ProductContract.ts" />
+
+import  IProduct = Project.Contracts.IProduct;
+
+namespace Project
+{
+     export namespace Templates
+     {
+         export abstract class ProductTemplate implements Project.Contracts.IProduct
+         {
+            public Name: string = "";
+            public Price: number = 0;
+            public Qty: number = 0;
+            public CategoryName: string = "";
+            abstract Total(): number;
+            abstract Print(): void;
+         }
+     }
+}
+
+3. components/ProductComponent.ts
+
+
+/// <reference path="../templates/ProductTemplate.ts" />
+
+import ProductTemplate = Project.Templates.ProductTemplate;
+
+namespace Project
+{
+     export namespace Components
+     {
+        export class ProductComponent extends ProductTemplate
+        {
+            Name = "Samsung TV";
+            Price = 50000.44;
+            Qty = 3;
+            CategoryName = "Electronics";
+            Total(){
+                return this.Qty * this.Price;
+            }
+            Print(): void {
+                console.log(`Name=${this.Name}\nPrice=${this.Price}\nQty=${this.Qty}\nTotal=${this.Total()}\nCategory=${this.CategoryName}`);
+            }
+        }
+     }
+}
+
+4. index.ts
+
+/// <reference path="./library/components/ProductComponent.ts" />
+
+import ProductComponent = Project.Components.ProductComponent;
+
+let tv = new ProductComponent();
+tv.Print();
+
+
+    > tsc  -outFile   index.js   index.ts
+    > node index.js
+
+
+                     React Application with TypeScript
+
+D:\>npx create-react-app   your-app-name  template typescript
+
+>npm start
+
+    a)  .tsx            for components
+    b)  .ts            for contracts, templates, abstract classes etc.
+
+===================== Class155- TypeScript React APP 06march2024 ==================
+
+Create a React Application with Typescript:
+
+> npx create-react-app   app_name  --template typescript
+
+        .ts            contracts, template, hooks
+        .tsx            components
+        .spec.ts        testing file
+        .test.ts        testing file
+        tsconfig.json    configuration for typescript in your react app.
+                    [repository location, module system, version of JS, rules..]
+
+- Typescript react app comprises of "tsconfig.json" for configuration of typescript.
+- It is configured with implicit "Type Inference" where the data type is determined according to the value returned or initialized.
+
+TS Components:
+- Components configuration is same as in JS.
+- Your component function must return "JSX.Element"
+
+Syntax:
+    export function ComponentName() : JSX.Element
+    {
+         return(
+        <div>
+            // JSX
+        </div>
+         )
+    }
+
+- Component file extention must be ".tsx".
+- Component is rendered into virtual DOM by using createRoot() that uses JSX element as HtmlElement.
+
+Syntax:
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+root.render( <App />)
+
+State in TS component:
+-------------------------------
+- All react hooks are same in typescript app.
+- State is configured with "useState()" hook.
+- It is a generic type function.
+
+Syntax:
+    const [price, setPrice] = useState<number>();        price = number | undefined
+
+- The default type for state is "undefined".
+- State hook can use custom types by configuring contracts. [interface]
+
+Syntax:
+        interface   IProduct
+        {
+            Name:string;
+            Price:number;
+        }
+
+        const [products, setProducts] = useState<IProduct[]>();
+
+        { products?.map() }            =>  ? is required if state is not initialized.
+                                       If not initialized it expect possibly undefined.
+                                    [ ? is a null reference character ]
+
+- Data Binding, Style Binding & Class Binding all are same as in JS.
+
+Note: If there is no contract defined for state, then you can configure the data type as generic directly in the declaration.
+
+Syntax:
+  const [products, setProducts] = useState<{id:number, title:string, price:number}[]>();
+
+Ex:
+1. Add a new folder "contracts"  into "src".
+
+2. Add a contract file
+        ProductContract.ts
+
+export interface IProduct
+{
+    id:number;
+    title:string;
+    price:number;
+    description:string;
+    category:string;
+    image:string;
+    rating:{rate:number, count:number}
+}
+
+3. Add a new component  "home.tsx"
+
+import { useEffect, useState } from "react";
+import { IProduct } from "../../contracts/ProductContract";
+import axios from "axios";
+
+
+export function Home()
+{
+    const [categories, setCategories] = useState<string[]>();
+    const [products, setProducts] = useState<IProduct[]>();
+
+    function LoadCategories(){
+        axios.get('http://fakestoreapi.com/products/categories&#39;)
+        .then(response => {
+             setCategories(response.data);
+        })
+    }
+    function LoadProducts(){
+        axios.get('http://fakestoreapi.com/products&#39;)
+        .then(response=>{
+            setProducts(response.data);
+        })
+    }
+
+    useEffect(()=>{
+        LoadCategories();
+        LoadProducts();
+    },[]);
+
+
+    return(
+        <div>
+            <h2>Home</h2>
+            <ol>
+                {
+                    categories?.map(category => <li key={category}>{category}</li>)
+                }
+            </ol>
+            <main>
+                {
+                    products?.map(product=> <img key={product.id} src={product.image} width="100" height="100" />)
+                }
+            </main>
+        </div>
+    )
+}
+
+>npm  i axios  formik  yup react-router-dom  react-cookie --save
+>npm  i bootstrap  bootstrap-icons --save
+>npm  i  @mui/core  @emotion/styled ..  --save
+
+- Event handling is also same.
+- Event args require data type to be defined as "any".
+- However it can also use the type "Event", which is a contract for Event.
+
+Ex:
+import { useEffect, useState } from "react";
+import { IProduct } from "../../contracts/ProductContract";
+import axios from "axios";
+
+
+export function Home()
+{
+    const [categories, setCategories] = useState<string[]>();
+    const [products, setProducts] = useState<IProduct[]>();
+
+    function LoadCategories(){
+        axios.get('http://fakestoreapi.com/products/categories&#39;)
+        .then(response => {
+             response.data.unshift('all');
+             setCategories(response.data);
+        })
+    }
+    function LoadProducts(url:string){
+        axios.get(url)
+        .then(response=>{
+            setProducts(response.data);
+        })
+    }
+
+    useEffect(()=>{
+        LoadCategories();
+        LoadProducts('http://fakestoreapi.com/products&#39;);
+    },[]);
+
+    function handleCategoryChange(e:any){
+        if(e.target.value=="all"){
+            LoadProducts('http://fakestoreapi.com/products&#39;);
+        } else {
+            LoadProducts(`http://fakestoreapi.com/products/category/${e.target.value}`);
+        }
+    }
+
+
+    return(
+        <div>
+            <h2>Home</h2>
+            <select onChange={handleCategoryChange}>
+                {
+                    categories?.map(category => <option key={category}>{category}</option>)
+                }
+            </select>
+            <main>
+                {
+                    products?.map(product=> <img key={product.id} src={product.image} width="100" height="100" />)
+                }
+            </main>
+        </div>
+    )
+}
+
+===================== Class156- Video Library Apps in React TypeScript 07march2024 ==================
+
+Video Library Application
+                             [React TypeScript]
+1. Admin Module
+    - Admin have registered account
+    - Admin can login with existing account
+    - Can Upload Videos [embedded videos]
+    - Can Modify video details like URL, Title, Description etc.
+    - Can Remove video
+    - CRUD operations on video
+   
+2. Videos Module
+    - Videos are organized by category
+    - You can browse & filter videos
+    - You can watch videos
+    - You like or dislike video
+    - You can comment on video
+
+3. User Module
+    - Videos are available only for registered users
+    - User can register
+    - User can login
+    - View, browse, like or dislike & comment on videos.
+
+Technologies
+- MongoDB         	for database
+- Express JS        for middleware
+- Node JS        	for business logic
+- React JS        	for UI
+- Redux Store       for state management
+- JEST             	for testing
+- Firebase/GIT      for deploying
+
+Entity Model :
+
+tblcategories
+    CategoryId		:number [PK]
+    CategoryName    :string
+
+tblvideos
+    VideoId            	:number [PK]
+    Title              	:string
+    Url                	:string
+    Description        	:string
+    Likes            	:number
+    Dislikes            :number
+    Views            	:number
+    Comments        	:string[ ]
+    CategoryId        	:number [FK] [tblcategories - CategoryId]
+
+tblusers
+    UserId         	:string [PK]
+    UserName        :string
+    Password        :string
+    Email           :string
+    Mobile          :string
+
+tbladmin
+    AdminId         :string [PK]
+    Name            :string
+    Password        :string
+    Email           :string
+    Mobile          :string
+
+
+API Requests:
+
+Request Type        Route Path                Description
+--------------------------------------------------------------------------------------------------------------
+GET                	/get-admin                  It can read and return admin users
+
+GET                	/get-user                   returns all users
+
+POST            	/add-user                	register new user
+
+GET                	/get-categories           	return all categories
+
+POST            	/add-category             	add a new category
+
+GET                	/get-videos                	get all videos
+
+GET                	/get-video/id              	get specific video by Id
+
+GET                	/videos/category           	get all videos related to specific category
+
+POST            	/add-video                	add a new video
+
+PUT                	/update-video/id            modify video details
+
+DELETE            	/delete-video/id            delete specific video
+
+
+Business Logic:  Node & Express
+
+React App with TypeScript:
+- contracts
+- components

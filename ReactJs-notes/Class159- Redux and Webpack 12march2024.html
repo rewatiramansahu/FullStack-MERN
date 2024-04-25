@@ -1,0 +1,311 @@
+
+===================== Class159- Redux and Webpack 12march2024 ==================
+
+
+
+React Redux in Video Library Project
+--------------------------------------------------
+
+- The actions defined in slicer are dispatched from any component using the hook
+    "useDispatch()"
+
+        const  dispatch = useDispatch();
+       
+        dispatch(actionName(payload));
+
+- You can access the data from store by using the store reference "getState()" method.
+- State will return store with data object.
+
+        store.getState().store.key        // key refers to initialState objects
+
+Ex:
+1. Add a new folder by name
+    "slicers"
+
+2. Add a new file
+    likes-slicer.jsx
+
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+    MyVideoLibrary : [],
+    videosCount: 0
+}
+const likeSlice = createSlice({
+    name : 'MyLibrary',
+    initialState,
+    reducers: {
+        addToLibrary(state, action){
+            state.MyVideoLibrary.push(action.payload);
+            state.videosCount = state.MyVideoLibrary.length;
+        }
+    }
+})
+export const { addToLibrary } = likeSlice.actions;
+export default likeSlice.reducer;
+
+3. Add a new folder by name "store"
+
+4. Add a new file into store
+
+        "store.jsx"
+
+import { configureStore } from "@reduxjs/toolkit";
+import likesSlicer from "../slicers/likes-slicer";
+
+export default configureStore({
+    reducer : {
+        store: likesSlicer
+    }
+})
+
+5. Go to Index.js and configure provider
+
+import store from './store/store';
+import { Provider } from 'react-redux';
+
+<React.StrictMode>
+    <CookiesProvider>
+    <Provider store={store}>
+       <App />
+    </Provider>
+    </CookiesProvider>
+  </React.StrictMode>
+
+6. Go to "User-Dashboard.jsx"
+
+import { useCookies } from "react-cookie"
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { addToLibrary } from "../slicers/likes-slicer";
+import store from "../store/store";
+import { useDispatch } from "react-redux";
+
+export function UserDashboard(){
+
+    const [cookies, setCookie, removeCookie] = useCookies('userName');
+    const [videos, setVideos] = useState([{VideoId:0, Title:'', Url:'', Comments:'', Likes:0, Category_Id:0}]);
+    let navigate = useNavigate();
+
+    const dispatch = useDispatch();
+
+    function LoadVideos(){
+        axios.get('http://127.0.0.1:2200/videos&#39;)
+        .then(response=>{
+            setVideos(response.data);
+        })
+    }
+
+    useEffect(()=>{
+       
+        if(cookies['userName']===undefined){
+            navigate('/userlogin')
+        } else {
+            LoadVideos();
+        }
+    },[store.getState().store.videosCount]);
+
+    function handleSaveClick(video){
+        alert('Video Saved');
+        dispatch(addToLibrary(video));
+    }
+
+    return(
+        <div>
+            <h3> {cookies['userName']} - Dashboard - <button data-bs-target="#library" data-bs-toggle="modal" className="btn btn-warning position-relative bi bi-camera-video"> <span className="badge bg-danger position-absolute rounded rounded-circle"> {store.getState().store.videosCount} </span> </button> </h3>
+            <div className="modal fade" id="library">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h2 className="text-primary">Your Saved Videos</h2>
+                            <button className="btn btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div className="modal-body">
+                            {
+                                store.getState().store.MyVideoLibrary.map(video=>
+                                    <iframe src={video.Url} width="200" height="200" />
+                                    )
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section className="d-flex flex-wrap">
+                {
+                    videos.map(video=>
+                        <div key={video.VideoId} className='card p-2 m-2' style={{width:'400px'}}>
+                            <div className="card-header" style={{height:'120px'}}>
+                                <h3>{video.Title}</h3>
+                            </div>
+                            <div className="card-body">
+                                <iframe src={video.Url} width="100%" height="200">
+
+                                </iframe>
+                            </div>
+                            <div className="card-footer">
+                                <button onClick={()=> handleSaveClick(video)} className="btn btn-primary"> Save </button>
+                                <span className="bi bi-hand-thumbs-up"></span> {video.Likes} Likes
+                                <div>
+                                    <label className="form-label fw-bold">Comments:</label>
+                                    <div>
+                                        {video.Comments}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        )
+                }
+            </section>
+        </div>
+    )
+}
+                                 
+                     React Application with WebPack
+
+- Webpack is a bundling tool used to configure web application.
+- React application can be configured using various bundling tools like
+    a) Webpack
+    b) Parcel
+    c) Vite etc..
+
+Ex:
+1. Open any PC location and create a new folder for project
+
+         F:\react-webpack-app
+
+2. Go to Visual Studio Code and open folder
+
+3. Open Terminal and run the command for package.json
+
+        >npm  init -y
+
+4. Add following files and folder
+
+        > public                ]  folder
+        > src                ]  folder
+        > README.md        ]  file
+
+5. Install following libraries into project
+
+> npm install webpack webpack-cli --save-dev
+> npm install html-webpack-plugin --save-dev
+> npm install  webpack-dev-server --save-dev
+> npm i @babel/core @babel/preset-env babel-loader --save-dev
+> npm i react react-dom --save
+> npm i @babel/preset-react --save-dev
+
+    webpack/cli        => required for configuring resources to bundle    
+                        [js, css, sass, ts]
+
+    html-webpack        => required for bundling HTML resources
+
+    webpack-dev-server => required to start react application on server
+
+    @babel/core/preset   => babel core library, It is compiler for JS.
+
+    @babel/preset-react  =>  babel for react to compile JSX, TSX
+
+    react / react-dom       => react is core, react-dom is virtual DOM library
+
+6. Add Webpack configuration file into your project
+
+            webpack.config.js
+
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "main.js",
+    path: path.resolve(__dirname, "build"),
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, "public", "index.html"),
+    }),
+  ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "build"),
+    },
+    port: 6000,
+  },
+  module: {
+      rules: [
+        {
+          test: /\.(js)$/,
+          exclude: /node_modules/,
+          use: ["babel-loader"],
+        },
+      ],
+  },
+  resolve: {
+    extensions: ["*", ".js"],
+  },
+};
+
+7. Create a configuration file for babel compiler
+
+            .babelrc
+
+{
+    "presets": [
+      "@babel/preset-env",
+      ["@babel/preset-react", {
+      "runtime": "automatic"
+     }]
+    ]
+}
+
+
+8. Go to package.json and configure babel and startup commands
+     You have to create batch operations.
+
+    scripts: [
+      ...........
+     "build": "webpack --mode production",
+        "start": "webpack serve --mode development"
+     ]
+
+9. Add files
+
+    /src/index.js
+
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { App } from "./app";
+
+const root = createRoot(document.getElementById("root"));
+root.render(
+    <App />
+)
+
+    /src/app.js
+
+
+
+export function App()
+{
+     return(
+        <div>
+            <h1>Welcome to React 18 Webpack App</h1>
+        </div>
+     )
+}
+
+    /public/index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <noscript>Please Enable JavaScript</noscript>
+    <div id="root"></div>
+</body>
+</html>

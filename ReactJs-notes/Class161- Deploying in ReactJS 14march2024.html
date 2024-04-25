@@ -1,0 +1,86 @@
+
+===================== Class161- Deploying in ReactJS 14march2024 ==================
+
+Deploying
+
+Deploy on Local Server
+- WebPack Development Server
+
+                        Deploy on Cloud Server
+Firebase Hosting:
+1. Login into Firebase Cloud
+   
+        https://firebase.google.com/
+
+2. Go to "Console" and Create  new project
+
+        video-library-react
+
+3. Install Firebase CLI for your PC, It provides commands for hosting, updating and maintaining your application on firebase cloud.
+
+        C:\> npm install -g firebase-tools
+
+4. Open your project in VS code [Video Library]
+
+5. Build project for production
+
+        > npm  run  build
+
+6. Login into Firebase from  CLI
+
+        > firebase login
+
+7. Connect the local project with cloud project using the command
+
+        > firebase init
+
+? Are you ready to proceed? (Y/n)   Y
+? Which Firebase features do you want..? Hosting (Configure Files for firebase hosting)
+?Use an existing project: Exsiting project
+? Project Name : video-library-react
+? Production Folder: build
+? Configure as a single-page app (rewrite all urls to /index.html)? N
+? Set up automatic builds and deploys with GitHub? (y/N) N
+?File build/index.html already exists. Overwrite? N
+
+
+8. Run the command
+
+        > firebase deploy
+   
+        https://video-library-react.web.app
+
+Note: After making changes in local project, run the following
+
+        > npm run build
+        > firebase deploy
+
+
+                         React for Native Apps
+
+- If you are a developer working on Native Apps with frameworks like
+        a) Android
+        b) iOS
+        c) Windows [.NET - Xamarin]
+- Mobile App frameworks like
+        a) Ionic
+        b) Native Script
+        c) Cordova
+- React provides "Native Components" for progressive web apps.
+
+        General             Native
+        <div>            <Text>
+
+- React Native provides native components for Mobile frameworks
+       
+        https://reactnative.dev/
+
+Create a new React Native App:
+
+        >npx  create-expo-app    appName
+
+        > npx expo install react-native-web react-dom @expo/metro-runtime
+
+Start your app
+           
+        > npm run web

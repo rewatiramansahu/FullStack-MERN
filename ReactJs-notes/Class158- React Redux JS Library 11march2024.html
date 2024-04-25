@@ -1,0 +1,80 @@
+
+==================== Class158- React Redux JS Library 11march2024 ================
+
+React Redux
+- It is a predictable state container for JavaScript applications.
+- It is debuggable and extensible.
+- It maintains application level state for large scale applications.
+- Reducer components
+
+    a) Store
+    b) State
+    c)  UI
+    d) Reducer
+    e) Actions
+
+1. Setup React Redux for your project
+
+    > npm install @reduxjs/toolkit
+
+2. Create a slicer for redux  [slicer.jsx/tsx]
+ - Slicer is responsible for configuring initial state
+ - You can declare the data reference.
+ - Slicer defines actions using reducer
+ 
+Syntax:
+      import    { createSlice  }  from   "@reduxjs/toolkit";
+
+      const initialState = {
+           MyVideoLibrary : [ ],            // contains list of saved play list
+           VideosCount: 0                           for watching later
+    }
+
+     const  SaveListSlicer = createSlice({
+        name : " "                         // slicer name used to import
+        initialState,                        // data to handle { [ ], number }
+        reducer : {
+            actionName(state, action) {
+                // push saved videos into array
+                // update the count
+            }
+        }
+     })
+
+
+3. Configure a store  [store.jsx/tsx]
+
+- Import the slicer
+- Define the data store for application
+
+import { configureStore } from "@reduxjs/toolkit";
+import SaveListSlicer from "../slicers/slicer";                // slicer.jsx/tsx
+
+export default configureStore({
+    reducer : {
+        store: likesSlicer                                // allocate memory
+    }                                                   & store data
+})
+
+
+4. Importing store into a component and handling interactions
+
+    import   store   from   "store"        // jsx/tsx
+
+    function handleSaveClick() {
+      dispatch({ type: "actionName" } )
+    }
+
+
+5. You have to configure provider for redux
+            index.js
+ - Provider will configure store in memory and locate the data, which in injected into component.
+
+import store from './store/store';
+import { Provider } from 'react-redux';
+
+     <Provider store={store}>
+       <App />
+    </Provider>
+
+Note : Install  ReduxDev  tools extention in browser

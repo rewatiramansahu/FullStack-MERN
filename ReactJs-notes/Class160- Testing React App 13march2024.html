@@ -1,0 +1,163 @@
+
+===================== Class160- Testing React App 13march2024 ==================
+
+package.json
+.babelrc
+webpack.config.js
+
+                    Testing React Components
+
+- Testing is the process of verifying developers design and code according to client requirements.
+
+            AS-IS                TO-BE
+            It is the logic that        It is the desired output
+            developer written        for client
+
+            AS-IS === TO-BE        Test Pass
+            AS-IS !== TO-BE        Test Fail
+
+- Javascript based technologies are tested by using various testing frameworks
+
+            a) JEST
+            b) Jasmine-Karma
+            c) Protractor
+            etc..
+
+- React Template is enabled with "JEST" testing framework.
+- Testing every component is reffered as "Unit Testing"
+- Testing component comprises of 3 phases
+
+            a) Arrange
+            b) Act
+            c) Assert
+
+- Arrange specifies the component to be tested.
+- Act specifies the functionality to test.
+- Assert is to report the test result
+- JEST framework provides various methods for Arrange, Act & Assert
+
+        test()        Arrange
+        render()        Arrange
+        expect()        Act
+        toBe...()        Assert
+
+- Testing logic is kept in a test document with extention  ".test.js"   or  ".spec.js"
+- Testing any element is a component can be with anonymous reference or using
+    "data-test-id"
+- Anonymous are accessed by using functions like
+    getByText()
+- Reference elements are accessed by using
+    getByTestId()
+
+        <a> Home </a>
+       
+        screen.getByText("/Home/i")
+
+        <a data-test-id="link">  Login </a>
+
+        screen.getByTestId("link")
+
+- "screen" is a pre-defined member of JEST framework used to access screen elements from a component.
+
+<h1 data-test-id="title">Amazon</h1>                => TOBE   "Amazon Shopping"
+
+Syntax: JEST
+      test("test name", ()=> {
+          render(<Component />);
+         
+          let title = screen.getByTestId("title");
+          expect(title).toHaveTextContent("Amazon Shopping");
+      })
+
+Syntax: Jasmine-Karma
+       
+       describe("test name", ()=> {
+           expect().toBe()
+      })
+
+1. Install JEST framework
+   
+    > npm install  jest --save-dev
+
+2. Go to package.json
+
+     scripts : {
+            ......
+            "test": "react-scripts test",
+            }
+
+3. To test your application
+
+    > npm test
+
+Ex:
+1. Add a new component folder with files.
+       
+        user-login.jsx
+        user-login.test.js
+
+2. user-login.jsx
+
+export function UserLogin(){
+    return(
+        <div>
+            <h2 data-testid="title">User Login</h2>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text" /></dd>
+                <dt>Password</dt>
+                <dd><input type="password"/></dd>
+            </dl>
+            <button>Login</button>
+            <p>
+                <a href="forgot.html">Forgot Password</a>
+            </p>
+        </div>
+    )
+}
+
+user-login.test.js
+
+
+import { screen, render } from "@testing-library/react";
+import { UserLogin } from "./user-login";
+
+test("Title Test", ()=>{
+
+    render(<UserLogin />);
+
+    let title = screen.getByTestId("title");
+    expect(title).toHaveTextContent("User Login");
+
+});
+
+test("Testing Forgot Password Link", ()=>{
+    render(<UserLogin />);
+
+    let link = screen.getByText(/Forgot Password/);
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute("href", "forgot.html");
+})
+
+3. Run tests
+
+    >npm test
+
+
+
+                           Build & Deploying
+
+- Build is the process of checking for
+    a) Errors in code
+    b) Bugs in test and
+    c) Create build library for Production
+- Build library in react 18x version is default set for production.
+
+    >npm run build
+
+- You can deploy on cloud or local server
+
+    Local Server        : IIS, Tomcat, etc..
+    Cloud            : Firebase, GIT Hub Page, Netlify, AWS, Azure etc..
+
+                    React Native

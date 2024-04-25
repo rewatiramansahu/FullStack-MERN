@@ -8064,3 +8064,743 @@ Business Logic:  Node & Express
 React App with TypeScript:
 - contracts
 - components
+
+
+
+
+
+
+===================== Class156- Video Library Apps in React TypeScript 07march2024 ==================
+
+Video Library Application
+                             [React TypeScript]
+1. Admin Module
+    - Admin have registered account
+    - Admin can login with existing account
+    - Can Upload Videos [embedded videos]
+    - Can Modify video details like URL, Title, Description etc.
+    - Can Remove video
+    - CRUD operations on video
+   
+2. Videos Module
+    - Videos are organized by category
+    - You can browse & filter videos
+    - You can watch videos
+    - You like or dislike video
+    - You can comment on video
+
+3. User Module
+    - Videos are available only for registered users
+    - User can register
+    - User can login
+    - View, browse, like or dislike & comment on videos.
+
+Technologies
+- MongoDB         	for database
+- Express JS        for middleware
+- Node JS        	for business logic
+- React JS        	for UI
+- Redux Store       for state management
+- JEST             	for testing
+- Firebase/GIT      for deploying
+
+Entity Model :
+
+tblcategories
+    CategoryId		:number [PK]
+    CategoryName    :string
+
+tblvideos
+    VideoId            	:number [PK]
+    Title              	:string
+    Url                	:string
+    Description        	:string
+    Likes            	:number
+    Dislikes            :number
+    Views            	:number
+    Comments        	:string[ ]
+    CategoryId        	:number [FK] [tblcategories - CategoryId]
+
+tblusers
+    UserId         	:string [PK]
+    UserName        :string
+    Password        :string
+    Email           :string
+    Mobile          :string
+
+tbladmin
+    AdminId         :string [PK]
+    Name            :string
+    Password        :string
+    Email           :string
+    Mobile          :string
+
+
+API Requests:
+
+Request Type        Route Path                Description
+--------------------------------------------------------------------------------------------------------------
+GET                	/get-admin                  It can read and return admin users
+
+GET                	/get-user                   returns all users
+
+POST            	/add-user                	register new user
+
+GET                	/get-categories           	return all categories
+
+POST            	/add-category             	add a new category
+
+GET                	/get-videos                	get all videos
+
+GET                	/get-video/id              	get specific video by Id
+
+GET                	/videos/category           	get all videos related to specific category
+
+POST            	/add-video                	add a new video
+
+PUT                	/update-video/id            modify video details
+
+DELETE            	/delete-video/id            delete specific video
+
+
+Business Logic:  Node & Express
+
+React App with TypeScript:
+- contracts
+- components
+==================== Class158- React Redux JS Library 11march2024 ================
+
+React Redux
+- It is a predictable state container for JavaScript applications.
+- It is debuggable and extensible.
+- It maintains application level state for large scale applications.
+- Reducer components
+
+    a) Store
+    b) State
+    c)  UI
+    d) Reducer
+    e) Actions
+
+1. Setup React Redux for your project
+
+    > npm install @reduxjs/toolkit
+
+2. Create a slicer for redux  [slicer.jsx/tsx]
+ - Slicer is responsible for configuring initial state
+ - You can declare the data reference.
+ - Slicer defines actions using reducer
+ 
+Syntax:
+      import    { createSlice  }  from   "@reduxjs/toolkit";
+
+      const initialState = {
+           MyVideoLibrary : [ ],            // contains list of saved play list
+           VideosCount: 0                           for watching later
+    }
+
+     const  SaveListSlicer = createSlice({
+        name : " "                         // slicer name used to import
+        initialState,                        // data to handle { [ ], number }
+        reducer : {
+            actionName(state, action) {
+                // push saved videos into array
+                // update the count
+            }
+        }
+     })
+
+
+3. Configure a store  [store.jsx/tsx]
+
+- Import the slicer
+- Define the data store for application
+
+import { configureStore } from "@reduxjs/toolkit";
+import SaveListSlicer from "../slicers/slicer";                // slicer.jsx/tsx
+
+export default configureStore({
+    reducer : {
+        store: likesSlicer                                // allocate memory
+    }                                                   & store data
+})
+
+
+4. Importing store into a component and handling interactions
+
+    import   store   from   "store"        // jsx/tsx
+
+    function handleSaveClick() {
+      dispatch({ type: "actionName" } )
+    }
+
+
+5. You have to configure provider for redux
+            index.js
+ - Provider will configure store in memory and locate the data, which in injected into component.
+
+import store from './store/store';
+import { Provider } from 'react-redux';
+
+     <Provider store={store}>
+       <App />
+    </Provider>
+
+Note : Install  ReduxDev  tools extention in browser
+===================== Class159- Redux and Webpack 12march2024 ==================
+
+
+
+React Redux in Video Library Project
+--------------------------------------------------
+
+- The actions defined in slicer are dispatched from any component using the hook
+    "useDispatch()"
+
+        const  dispatch = useDispatch();
+       
+        dispatch(actionName(payload));
+
+- You can access the data from store by using the store reference "getState()" method.
+- State will return store with data object.
+
+        store.getState().store.key        // key refers to initialState objects
+
+Ex:
+1. Add a new folder by name
+    "slicers"
+
+2. Add a new file
+    likes-slicer.jsx
+
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+    MyVideoLibrary : [],
+    videosCount: 0
+}
+const likeSlice = createSlice({
+    name : 'MyLibrary',
+    initialState,
+    reducers: {
+        addToLibrary(state, action){
+            state.MyVideoLibrary.push(action.payload);
+            state.videosCount = state.MyVideoLibrary.length;
+        }
+    }
+})
+export const { addToLibrary } = likeSlice.actions;
+export default likeSlice.reducer;
+
+3. Add a new folder by name "store"
+
+4. Add a new file into store
+
+        "store.jsx"
+
+import { configureStore } from "@reduxjs/toolkit";
+import likesSlicer from "../slicers/likes-slicer";
+
+export default configureStore({
+    reducer : {
+        store: likesSlicer
+    }
+})
+
+5. Go to Index.js and configure provider
+
+import store from './store/store';
+import { Provider } from 'react-redux';
+
+<React.StrictMode>
+    <CookiesProvider>
+    <Provider store={store}>
+       <App />
+    </Provider>
+    </CookiesProvider>
+  </React.StrictMode>
+
+6. Go to "User-Dashboard.jsx"
+
+import { useCookies } from "react-cookie"
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { addToLibrary } from "../slicers/likes-slicer";
+import store from "../store/store";
+import { useDispatch } from "react-redux";
+
+export function UserDashboard(){
+
+    const [cookies, setCookie, removeCookie] = useCookies('userName');
+    const [videos, setVideos] = useState([{VideoId:0, Title:'', Url:'', Comments:'', Likes:0, Category_Id:0}]);
+    let navigate = useNavigate();
+
+    const dispatch = useDispatch();
+
+    function LoadVideos(){
+        axios.get('http://127.0.0.1:2200/videos&#39;)
+        .then(response=>{
+            setVideos(response.data);
+        })
+    }
+
+    useEffect(()=>{
+       
+        if(cookies['userName']===undefined){
+            navigate('/userlogin')
+        } else {
+            LoadVideos();
+        }
+    },[store.getState().store.videosCount]);
+
+    function handleSaveClick(video){
+        alert('Video Saved');
+        dispatch(addToLibrary(video));
+    }
+
+    return(
+        <div>
+            <h3> {cookies['userName']} - Dashboard - <button data-bs-target="#library" data-bs-toggle="modal" className="btn btn-warning position-relative bi bi-camera-video"> <span className="badge bg-danger position-absolute rounded rounded-circle"> {store.getState().store.videosCount} </span> </button> </h3>
+            <div className="modal fade" id="library">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h2 className="text-primary">Your Saved Videos</h2>
+                            <button className="btn btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div className="modal-body">
+                            {
+                                store.getState().store.MyVideoLibrary.map(video=>
+                                    <iframe src={video.Url} width="200" height="200" />
+                                    )
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section className="d-flex flex-wrap">
+                {
+                    videos.map(video=>
+                        <div key={video.VideoId} className='card p-2 m-2' style={{width:'400px'}}>
+                            <div className="card-header" style={{height:'120px'}}>
+                                <h3>{video.Title}</h3>
+                            </div>
+                            <div className="card-body">
+                                <iframe src={video.Url} width="100%" height="200">
+
+                                </iframe>
+                            </div>
+                            <div className="card-footer">
+                                <button onClick={()=> handleSaveClick(video)} className="btn btn-primary"> Save </button>
+                                <span className="bi bi-hand-thumbs-up"></span> {video.Likes} Likes
+                                <div>
+                                    <label className="form-label fw-bold">Comments:</label>
+                                    <div>
+                                        {video.Comments}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        )
+                }
+            </section>
+        </div>
+    )
+}
+                                 
+                     React Application with WebPack
+
+- Webpack is a bundling tool used to configure web application.
+- React application can be configured using various bundling tools like
+    a) Webpack
+    b) Parcel
+    c) Vite etc..
+
+Ex:
+1. Open any PC location and create a new folder for project
+
+         F:\react-webpack-app
+
+2. Go to Visual Studio Code and open folder
+
+3. Open Terminal and run the command for package.json
+
+        >npm  init -y
+
+4. Add following files and folder
+
+        > public                ]  folder
+        > src                ]  folder
+        > README.md        ]  file
+
+5. Install following libraries into project
+
+> npm install webpack webpack-cli --save-dev
+> npm install html-webpack-plugin --save-dev
+> npm install  webpack-dev-server --save-dev
+> npm i @babel/core @babel/preset-env babel-loader --save-dev
+> npm i react react-dom --save
+> npm i @babel/preset-react --save-dev
+
+    webpack/cli        => required for configuring resources to bundle    
+                        [js, css, sass, ts]
+
+    html-webpack        => required for bundling HTML resources
+
+    webpack-dev-server => required to start react application on server
+
+    @babel/core/preset   => babel core library, It is compiler for JS.
+
+    @babel/preset-react  =>  babel for react to compile JSX, TSX
+
+    react / react-dom       => react is core, react-dom is virtual DOM library
+
+6. Add Webpack configuration file into your project
+
+            webpack.config.js
+
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "main.js",
+    path: path.resolve(__dirname, "build"),
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, "public", "index.html"),
+    }),
+  ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "build"),
+    },
+    port: 6000,
+  },
+  module: {
+      rules: [
+        {
+          test: /\.(js)$/,
+          exclude: /node_modules/,
+          use: ["babel-loader"],
+        },
+      ],
+  },
+  resolve: {
+    extensions: ["*", ".js"],
+  },
+};
+
+7. Create a configuration file for babel compiler
+
+            .babelrc
+
+{
+    "presets": [
+      "@babel/preset-env",
+      ["@babel/preset-react", {
+      "runtime": "automatic"
+     }]
+    ]
+}
+
+
+8. Go to package.json and configure babel and startup commands
+     You have to create batch operations.
+
+    scripts: [
+      ...........
+     "build": "webpack --mode production",
+        "start": "webpack serve --mode development"
+     ]
+
+9. Add files
+
+    /src/index.js
+
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { App } from "./app";
+
+const root = createRoot(document.getElementById("root"));
+root.render(
+    <App />
+)
+
+    /src/app.js
+
+
+
+export function App()
+{
+     return(
+        <div>
+            <h1>Welcome to React 18 Webpack App</h1>
+        </div>
+     )
+}
+
+    /public/index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <noscript>Please Enable JavaScript</noscript>
+    <div id="root"></div>
+</body>
+</html>
+===================== Class160- Testing React App 13march2024 ==================
+
+package.json
+.babelrc
+webpack.config.js
+
+                    Testing React Components
+
+- Testing is the process of verifying developers design and code according to client requirements.
+
+            AS-IS                TO-BE
+            It is the logic that        It is the desired output
+            developer written        for client
+
+            AS-IS === TO-BE        Test Pass
+            AS-IS !== TO-BE        Test Fail
+
+- Javascript based technologies are tested by using various testing frameworks
+
+            a) JEST
+            b) Jasmine-Karma
+            c) Protractor
+            etc..
+
+- React Template is enabled with "JEST" testing framework.
+- Testing every component is reffered as "Unit Testing"
+- Testing component comprises of 3 phases
+
+            a) Arrange
+            b) Act
+            c) Assert
+
+- Arrange specifies the component to be tested.
+- Act specifies the functionality to test.
+- Assert is to report the test result
+- JEST framework provides various methods for Arrange, Act & Assert
+
+        test()        Arrange
+        render()        Arrange
+        expect()        Act
+        toBe...()        Assert
+
+- Testing logic is kept in a test document with extention  ".test.js"   or  ".spec.js"
+- Testing any element is a component can be with anonymous reference or using
+    "data-test-id"
+- Anonymous are accessed by using functions like
+    getByText()
+- Reference elements are accessed by using
+    getByTestId()
+
+        <a> Home </a>
+       
+        screen.getByText("/Home/i")
+
+        <a data-test-id="link">  Login </a>
+
+        screen.getByTestId("link")
+
+- "screen" is a pre-defined member of JEST framework used to access screen elements from a component.
+
+<h1 data-test-id="title">Amazon</h1>                => TOBE   "Amazon Shopping"
+
+Syntax: JEST
+      test("test name", ()=> {
+          render(<Component />);
+         
+          let title = screen.getByTestId("title");
+          expect(title).toHaveTextContent("Amazon Shopping");
+      })
+
+Syntax: Jasmine-Karma
+       
+       describe("test name", ()=> {
+           expect().toBe()
+      })
+
+1. Install JEST framework
+   
+    > npm install  jest --save-dev
+
+2. Go to package.json
+
+     scripts : {
+            ......
+            "test": "react-scripts test",
+            }
+
+3. To test your application
+
+    > npm test
+
+Ex:
+1. Add a new component folder with files.
+       
+        user-login.jsx
+        user-login.test.js
+
+2. user-login.jsx
+
+export function UserLogin(){
+    return(
+        <div>
+            <h2 data-testid="title">User Login</h2>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text" /></dd>
+                <dt>Password</dt>
+                <dd><input type="password"/></dd>
+            </dl>
+            <button>Login</button>
+            <p>
+                <a href="forgot.html">Forgot Password</a>
+            </p>
+        </div>
+    )
+}
+
+user-login.test.js
+
+
+import { screen, render } from "@testing-library/react";
+import { UserLogin } from "./user-login";
+
+test("Title Test", ()=>{
+
+    render(<UserLogin />);
+
+    let title = screen.getByTestId("title");
+    expect(title).toHaveTextContent("User Login");
+
+});
+
+test("Testing Forgot Password Link", ()=>{
+    render(<UserLogin />);
+
+    let link = screen.getByText(/Forgot Password/);
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute("href", "forgot.html");
+})
+
+3. Run tests
+
+    >npm test
+
+
+
+                           Build & Deploying
+
+- Build is the process of checking for
+    a) Errors in code
+    b) Bugs in test and
+    c) Create build library for Production
+- Build library in react 18x version is default set for production.
+
+    >npm run build
+
+- You can deploy on cloud or local server
+
+    Local Server        : IIS, Tomcat, etc..
+    Cloud            : Firebase, GIT Hub Page, Netlify, AWS, Azure etc..
+
+                    React Native
+===================== Class161- Deploying in ReactJS 14march2024 ==================
+
+Deploying
+
+Deploy on Local Server
+- WebPack Development Server
+
+                        Deploy on Cloud Server
+Firebase Hosting:
+1. Login into Firebase Cloud
+   
+        https://firebase.google.com/
+
+2. Go to "Console" and Create  new project
+
+        video-library-react
+
+3. Install Firebase CLI for your PC, It provides commands for hosting, updating and maintaining your application on firebase cloud.
+
+        C:\> npm install -g firebase-tools
+
+4. Open your project in VS code [Video Library]
+
+5. Build project for production
+
+        > npm  run  build
+
+6. Login into Firebase from  CLI
+
+        > firebase login
+
+7. Connect the local project with cloud project using the command
+
+        > firebase init
+
+? Are you ready to proceed? (Y/n)   Y
+? Which Firebase features do you want..? Hosting (Configure Files for firebase hosting)
+?Use an existing project: Exsiting project
+? Project Name : video-library-react
+? Production Folder: build
+? Configure as a single-page app (rewrite all urls to /index.html)? N
+? Set up automatic builds and deploys with GitHub? (y/N) N
+?File build/index.html already exists. Overwrite? N
+
+
+8. Run the command
+
+        > firebase deploy
+   
+        https://video-library-react.web.app
+
+Note: After making changes in local project, run the following
+
+        > npm run build
+        > firebase deploy
+
+
+                         React for Native Apps
+
+- If you are a developer working on Native Apps with frameworks like
+        a) Android
+        b) iOS
+        c) Windows [.NET - Xamarin]
+- Mobile App frameworks like
+        a) Ionic
+        b) Native Script
+        c) Cordova
+- React provides "Native Components" for progressive web apps.
+
+        General             Native
+        <div>            <Text>
+
+- React Native provides native components for Mobile frameworks
+       
+        https://reactnative.dev/
+
+Create a new React Native App:
+
+        >npx  create-expo-app    appName
+
+        > npx expo install react-native-web react-dom @expo/metro-runtime
+
+Start your app
+           
+        > npm run web
